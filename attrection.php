@@ -191,7 +191,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
                                             <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/attrection/zooo.mp4">
+                                                <source src="assets/video/attrection/zoo1.mp4">
                                             </video>
                                         </figure>
                                     </div>
