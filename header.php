@@ -62,8 +62,8 @@
                                 <li><a href="resort.php">ROOM</a></li>
                                 <li class="dropdown">RIDES</a>
                                     <ul>
-                                        <li><a href="themepark.php">DRYRIDES</a></li>
-                                        <li><a href="waterpark.php">WATERRIDES</a></li>
+                                        <li><a href="themepark.php">THEMEPARK RIDES</a></li>
+                                        <li><a href="waterpark.php">WATERPARK RIDES</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="attrection.php">ATTRECTION</a></li>

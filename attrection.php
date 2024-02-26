@@ -434,23 +434,6 @@
             </div>
         </section>
         <!-- animals-section end -->
-
-
-        <!-- video-section -->
-        <section class="video-section centred">
-            <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img" style="background-image: url(assets/images/background/video-bg.jpg);"></div>
-            </div>
-            <div class="auto-container">
-                <div class="inner-box">
-                    <div class="video-btn">
-                        <a href="https://youtu.be/H5LK59iJcRs?si=3d9Z0bWYKfqForwB" class="lightbox-image" data-caption=""><i class="fas fa-play"></i></a>
-                    </div>
-                    <h2>ready to go<br />best park ever!!</h2>
-                </div>
-            </div>
-        </section><br><br>
-        <!-- video-section end -->
         <?php
             include "footer.php";
         ?>

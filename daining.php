@@ -90,7 +90,7 @@
         </section>
         <!-- End Page Title -->
 
-        <!-- animals-section -->
+        <!-- daining-section -->
         <section class="animals-section sec-pad">
             <div class="auto-container">
                 <div class="sec-title centred">
@@ -272,23 +272,7 @@
                 </div>
             </div>
         </section>
-        <!-- animals-section end -->
-
-        <!-- video-section -->
-        <section class="video-section centred">
-            <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img" style="background-image: url(assets/images/gallery/ride/love-couple-eating-cotton-candy-in-amusement-park.jpg);"></div>
-            </div>
-            <div class="auto-container">
-                <div class="inner-box">
-                    <div class="video-btn">
-                        <a href="https://youtu.be/Seg3Rmts7Yo?si=CBpgCyUTNzZ6_oni" class="lightbox-image" data-caption=""><i class="fas fa-play"></i></a>
-                    </div>
-                    <h2>Eat healthy food &<br />Enjoy</h2>
-                </div>
-            </div>
-        </section><br><br>
-        <!-- video-section end -->
+        <!-- danining-section end -->
         <?php
             include "footer.php";
         ?>

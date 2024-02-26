@@ -90,7 +90,7 @@
         </section>
         <!-- End Page Title -->
 
-        <!-- animals-section -->
+        <!--themepark-section -->
         <section class="animals-section sec-pad">
             <div class="auto-container">
                 <div class="sec-title centred">
@@ -153,7 +153,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
+                                            <video muted autoplay loop height="400" width="600" style="border:5px solid blue;">
                                                 <source src="assets/video/dryrides/teacup.mp4">
                                             </video>
                                         </figure>
@@ -270,23 +270,7 @@
                 </div>
             </div>
         </section>
-        <!-- animals-section end -->
-
-        <!-- video-section -->
-        <section class="video-section centred">
-            <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img" style="background-image: url(assets/images/gallery/ride/amusement-park-at-the-center-of-amsterdam-at-night-GWHYXYV.jpg);"></div>
-            </div>
-            <div class="auto-container">
-                <div class="inner-box">
-                    <div class="video-btn">
-                        <a href="https://youtu.be/oAJLKDMihnU?si=z802LxtQmn8hFWeS" class="lightbox-image" data-caption=""><i class="fas fa-play"></i></a>
-                    </div>
-                    <h2>ready to Enjoy<br />amezing rides</h2>
-                </div>
-            </div>
-        </section><br><br>
-        <!-- video-section end -->
+        <!-- themepark-section end -->
         <?php
             include "footer.php";
         ?>
