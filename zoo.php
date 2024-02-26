@@ -76,7 +76,7 @@
         <!-- Page Title -->
         <section class="page-title">
             <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img" style="background-image: url(assets/images/gallery/aquarium/fish-swimming-in-aquarium-e1628654735615.jpg);"></div>
+                <div class="parallax-inner back-img" style="background-image: url(assets/images/gallery/zoo/gallery-26.jpg);"></div>
             </div>
             <div class="auto-container">
                 <div class="content-box">
@@ -85,7 +85,7 @@
                         <li>Attrection</li>
                     </ul>
                     <div class="title">
-                        <h1>Aquarium</h1>
+                        <h1>Zoo</h1>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
         <section class="animals-section sec-pad">
             <div class="auto-container">
                 <div class="sec-title centred">
-                    <h2>amazing Fish's <br />in our Restar aquarium</h2>
+                    <h2>amazing animal's <br />in our Restar Zoo</h2>
                 </div>
                 <div class="tabs-box">
                     <div class="tab-btn-box p_relative d_block mb_60 centred">
@@ -104,38 +104,38 @@
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-1">
-                                        <div class="icon-box"><img src="assets/images/icons/aqu/001-pike.png" alt=""></div>
-                                        <h5>Pike fish</h5>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/004-tiger.png" alt=""></div>
+                                        <h5>tiger</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn active-btn" data-tab="#tab-2">
-                                        <div class="icon-box"><img src="assets/images/icons/aqu/002-marlin.png" alt=""></i></div>
-                                        <h5>Marlin fish</h5>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/003-elephant.png" alt=""></i></div>
+                                        <h5>Elephant</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-3">
-                                        <div class="icon-box"><img src="assets/images/icons/aqu/003-seahorse.png" alt=""></div>
-                                        <h5>Sea horse</h5>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/005-teddy-bear.png" alt=""></div>
+                                        <h5>bear</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-4">
-                                        <div class="icon-box"><img src="assets/images/icons/aqu/004-sea.png" alt=""></div>
-                                        <h5>Threadfin</h5>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/002-penguin.png" alt=""></div>
+                                        <h5>penguin</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-5">
-                                        <div class="icon-box"><img src="assets/images/icons/aqu/005-clown-fish.png" alt=""></div>
-                                        <h5>Clown Fish</h5>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/006-koala.png" alt=""></div>
+                                        <h5>koala</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-6">
-                                        <div class="icon-box"><img src="assets/images/icons/aqu/006-sea-1.png" alt=""></div>
-                                        <h5>Angler Fish</h5>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/001-monkey.png" alt=""></div>
+                                        <h5>Monkey</h5>
                                     </div>
                                 </div>
                             </div>
@@ -147,17 +147,19 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                            <h2>Pike fish</h2>
-                                            <p>This is one of the most common pike species kept in aquariums. It has a distinctive elongated body, sharp teeth, and a voracious appetite.
-                                                Pikes can grow quite large, so you'll need a spacious aquarium. A tank size of at least 75 to 100 gallons is recommended for a single adult pike. Larger tanks are preferable if you plan to keep more than one.
-                                                Water Parameters: Pikes prefer cool water temperatures between 60-70°F (15-21°C). Maintain a pH level between 6.0 and 7.5.
-                                            </p>
+                                        <h2>tiger</h2>
+                                        <p>
+                                            Featuring majestic tigers in our zoo can be a powerful draw for visitors. Design an expansive and naturalistic enclosure that mirrors the tiger's native habitat, 
+                                            complete with rocks, trees, and water features. Implement educational signage near the exhibit to enlighten visitors about the species, 
+                                            emphasizing conservation efforts and the importance of protecting these magnificent animals. Introduce interactive experiences, 
+                                            such as scheduled feeding times or keeper talks, to engage visitors and deepen their understanding of tigers.
+                                        </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
                                             <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/fish/pikefish.mp4">
+                                                <source src="assets/video/animal/tiger.mp4">
                                             </video>
                                         </figure>
                                     </div>
@@ -169,17 +171,20 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                            <h2>Marlin fish</h2>
-                                            <p>There are several species of marlins, including the Atlantic blue marlin (Makaira nigricans), Pacific blue marlin (Makaira mazara), black marlin (Istiompax indica), and striped marlin (Kajikia audax).
-                                                Marlins are known for their sleek, streamlined bodies, sharp bills (rostrums), and prominent dorsal fins.
-                                                The bills of marlins are used for slashing at schools of fish, stunning prey, and for defense.
-                                            </p>
+                                        <h2>Elephant</h2>
+                                        <p>
+                                            Featuring elephants in our zoo can be a captivating attraction for visitors. 
+                                            Design a spacious and enriching enclosure that provides ample room for these intelligent and social animals to roam, 
+                                            including features like mud pits and water elements for their enjoyment.
+                                            Implement educational displays near the exhibit to inform visitors about elephants' 
+                                            behaviors, social structures, and the conservation challenges they face in the wild.
+                                        </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
                                             <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/fish/marlinfish.mp4">
+                                                <source src="assets/video/animal/elephent.mp4">
                                             </video>
                                         </figure>
                                     </div>
@@ -191,20 +196,21 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                            <h2>sea horse</h2>
-                                            <p>
-                                                Seahorses are found in shallow tropical and temperate waters worldwide, often among seagrasses, coral reefs, or mangroves.
-                                                They are known for their ability to grasp onto objects with their tails, providing stability in turbulent waters.
-                                                Seahorses are one of the few species in which the male carries and gives birth to the offspring.
-                                                During courtship, pairs engage in intricate dances and may change color to communicate with each other.
-                                                The female deposits her eggs into a specialized pouch on the male's abdomen, where they are fertilized and gestate until birth.
-                                            </p>
+                                        <h2>bear</h2>
+                                        <p>
+                                            Introducing bears to your zoo can be an exciting and popular attraction. 
+                                            Design a spacious and naturalistic enclosure that reflects the bears' native habitat, 
+                                            incorporating features like rocks, trees, and water elements to enhance their environment.
+                                            Implement educational displays near the exhibit to provide information about the bear species, their behavior, 
+                                            and the conservation challenges they may face. Consider incorporating interactive elements, such as scheduled feeding times or talks by knowledgeable zookeepers, 
+                                            to engage visitors and offer insights into the bears' lives.
+                                        </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
                                             <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/fish/seahorse.mp4">
+                                                <source src="assets/video/animal/bear.mp4">
                                             </video>
                                         </figure>
                                     </div>
@@ -216,18 +222,20 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                            <h2>Threadfin</h2>
-                                            <p>In freshwater, threadfin refers to species like the African threadfin (Polydactylus quadrifilis), an important food fish in parts of Africa.
-                                                In saltwater, the term is often associated with threadfin breams (family Nemipteridae) and threadfin jack (species like Polydactylus virginicus).
-                                                Threadfins are characterized by their long, filamentous rays on the dorsal fin, which gives them their name.
-                                                They often have a streamlined body and may exhibit various colors and patterns.
-                                            </p>
+                                        <h2>Penguin</h2>
+                                        <p>
+                                            Featuring penguins in your zoo can be a delightful and engaging attraction for visitors of all ages. 
+                                            Design a dynamic exhibit with a chilled environment, complete with underwater viewing areas to showcase the penguins' 
+                                            agile swimming skills. Incorporate rocks, ice structures, and realistic lighting to simulate their natural habitat. 
+                                            Educational displays near the exhibit can provide information about the different penguin species, their behaviors, 
+                                            and the challenges they face in the wild. 
+                                        </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
                                             <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/fish/threadfinfish.mp4">
+                                                <source src="assets/video/animal/penguin.mp4">
                                             </video>
                                         </figure>
                                     </div>
@@ -239,16 +247,19 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                            <h2>CLOWN FISH</h2>
-                                            <p>The most famous species of clownfish is the Orange Clownfish (Amphiprion percula) and the Ocellaris Clownfish (Amphiprion ocellaris). They are often collectively referred to as "Nemo" fish, due to the character in the animated movie "Finding Nemo."
-                                                Clownfish are small, with a distinctive color pattern featuring bright orange, black, and white stripes. The coloration can vary slightly between species.They have a mucus layer on their skin that protects them from the stinging cells of sea anemones, which they often inhabit.
-                                            </p>
+                                        <h2>KOala</h2>
+                                        <p>
+                                            Design a habitat that mimics the eucalyptus-rich environment of their native Australia, 
+                                            incorporating trees for climbing and sleeping. Educational displays near the exhibit can inform visitors about koala behaviors, 
+                                            diet (primarily eucalyptus leaves), and the importance of conservation efforts to protect their habitats. 
+                                            Koalas are known for their sedentary nature, so providing comfortable perches and observing platforms for visitors can enhance the viewing experience. 
+                                        </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
                                             <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/fish/clownfish.mp4">
+                                                <source src="assets/video/animal/koala.mp4">
                                             </video>
                                         </figure>
                                     </div>
@@ -260,17 +271,21 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                            <h2>ANGLER FISH</h2>
-                                            <p>The most distinctive feature of anglerfish is the bioluminescent lure that hangs in front of their mouths. This lure is a modified dorsal fin spine and is used to attract prey in the dark depths of the ocean.
-                                                Anglerfish are typically found in the deep-sea, often at depths ranging from 200 to 2,000 meters or more.
-                                                They inhabit the abyssal and bathypelagic zones of the ocean, where little to no sunlight penetrates.
-                                            </p>
+                                        <h2>monkey</h2>
+                                        <p>
+                                            Design a dynamic and stimulating enclosure with climbing structures, ropes, 
+                                            and platforms to allow the monkeys to exhibit their natural behaviors. 
+                                            Provide plenty of vegetation to mimic their forested habitats, creating an immersive environment. 
+                                            Educational displays near the exhibit can inform visitors about the diverse species of monkeys, their social structures, 
+                                            and the conservation issues they face in the wild. Consider implementing feeding times or interactive sessions with zookeepers to engage visitors
+                                            and offer insights into the intelligence and adaptability of monkeys. 
+                                        </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
                                             <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/fish/anglerfish.mp4">
+                                                <source src="assets/video/animal/monkey.mp4">
                                             </video>
                                         </figure>
                                     </div>

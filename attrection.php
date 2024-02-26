@@ -187,6 +187,9 @@
                                                Implement appropriate feeding programs, veterinary care, and enrichment activities to keep the animals healthy and engaged.Use the zoo as an educational tool by providing information about the animals, their habitats, and conservation efforts.
                                                Consider interactive exhibits, guided tours, and educational programs to raise awareness about wildlife conservation.</p>
                                         </div>
+                                        <div class="btn-box">
+                                            <a href="zoo.php" class="theme-btn btn-one">click here!</a>
+                                        </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
@@ -208,6 +211,9 @@
                                                Offer a variety of aquaticspecies, including fish, invertebrates, and possibly larger marine mammals depending on size and regulations.Provide educational information about marine life, ecosystems, and conservation efforts.
                                                Consider interactive displays, guided tours, and educational programs to engage visitors.</p>
                                         </div>
+                                        <div class="btn-box">
+                                            <a href="aquarium.php" class="theme-btn btn-one">click here!</a>
+                                        </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
@@ -216,6 +222,7 @@
                                             </video>
                                         </figure>
                                     </div>
+                                   
                                 </div>
                             </div>
                         </div>
