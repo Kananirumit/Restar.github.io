@@ -204,7 +204,7 @@
                         <div class="ri-text">
                             <table>
                             <div class="text p-3 text-center">
-		    						<h3 class="mb-3">WATER RIDE</h3>
+		    						<h3 class="mb-3">WATERPARK RIDE</h3>
 		    						<hr>
 		    						<a href="waterpark.php" class="theme-btn btn-one">CLICK HERE</a>
 		    					</div>
@@ -219,7 +219,7 @@
                         <div class="ri-text">
                             <table>
                             <div class="text p-3 text-center">
-		    						<h3 class="mb-3">DRY RIDE</h3>
+		    						<h3 class="mb-3">THEMEPARK RIDE</h3>
 		    						<hr>
 		    						<a href="themepark.php" class="theme-btn btn-one">click here</a>
 		    					</div>
