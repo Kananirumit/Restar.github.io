@@ -23,11 +23,13 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
 </head>
-
+        
 <body>
-    <div id="popup" class="popup">
+
+    <div class="boxed_wrapper">
+
+
         <!-- Your sign-in and sign-up form content goes here -->
-        <div class="popup-content">
             <div id="login-form" class="form-box login">
                 <div class="form-content">
                     <h2>LOGIN</h2>
@@ -49,7 +51,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </body>
 
