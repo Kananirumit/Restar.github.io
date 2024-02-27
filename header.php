@@ -71,106 +71,19 @@
                                 <li><a href="about.php">ABOUT US</a></li>
                                 <li><a href="gallery.php">OUR GALLERY</a></li>
                                 <li><a href="contact.php">CONTACT</a></li>
+                                <li><a href="login.php">Login</a></li>
+                                <li>
+                                    <a href="register.php">Register</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
                 </div>
                 <div class="menu-right-content">
                     <div class="btn-box">
-                        <a href="#" id="openPopup">Book your ticket</a>
+                        <a href="pricing.php" >Book your ticket</a>
                     </div>
                 </div>
-
-                <!-- Sign-in/Sign-up Popup -->
-                <div id="popup" class="popup">
-                    <!-- Your sign-in and sign-up form content goes here -->
-                    <div class="popup-content">
-                        <span class="close" onclick="closePopup()">&times;</span>
-                        <div id="login-form" class="form-box login">
-                            <div class="form-content">
-                                <h2>LOGIN</h2>
-                                <form action="#">
-                                    <div class="input-field">
-                                        <input type="text" required="" fdprocessedid="s8jhqb">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="input-field">
-                                        <input type="password" required="" fdprocessedid="1qh8wc">
-                                        <label>Password</label>
-                                    </div>
-                                    <a href="#" class="forgot-pass-link">Forgot password?</a>
-                                    <button type="submit" class="btn-log" fdprocessedid="hzsxfi">Log In</button>
-                                </form>
-                                <div class="bottom-link">
-                                    Don't have an account?
-                                    <a href="#" id="signup-link" onclick="openLoginPopup()">Signup</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="signup-form" class="form-box signup">
-                            <!-- <div class="form-details back-img">
-                                <div class="">
-                                    <h2>Create Account</h2>
-                                    <p>To become a part of our community, please sign up using your personal information.</p>
-                                </div>
-                            </div> -->
-                            <div class="form-content">
-                                <h2>SIGNUP</h2>
-                                <form action="#">
-                                    <div class="row clearfix">
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                            <label for="fname" class="h6">First Name:</label>
-                                            <input type="text" class="form-control text-font" id="fname" placeholder="Enter Firstname">
-                                            <div class="invalid-feedback">Please enter your Firstname.</div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                            <label for="lname" class="h6">Last Name:</label>
-                                            <input type="text" class="form-control text-font" id="lname" placeholder="Enter Lastname">
-                                            <div class="invalid-feedback">Please enter your Lastname.</div>
-                                        </div>
-                                        <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                            <label for="gender" class="h6">Choose Gender:</label><br>
-                                            <input type="radio" class="text-font" id="male" name="gender" value="male">
-                                            <label for="male">Male</label>
-                                            <input type="radio" class="text-font" id="female" name="gender" value="female">
-                                            <label for="female">Female</label>
-                                            <div class="invalid-feedback">Please enter your Lastname.</div>
-                                        </div>
-                                        <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                            <label for="phone" class="h6">Phone:</label>
-                                            <input type="number" class="form-control text-font" id="phone" placeholder="Enter Phone Number">
-                                            <div class="invalid-feedback">Please enter your Lastname.</div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-md-6 col-sm-12 form-group">
-                                            <label for="child" class="h6">Email:</label>
-                                            <input type="text" class="form-control text-font" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email">
-                                            <div class="invalid-feedback invalid-feedback-email">Please enter a valid email address.</div>
-                                        </div>
-                                        <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                            <label for="child" class="h6">Password:</label>
-                                            <input type="text" class="form-control text-font" id="pass" placeholder="Enter Password">
-                                            <div class="invalid-feedback">Please enter your Lastname.</div>
-                                        </div>
-                                        <div class="col-lg-12  col-md-12 col-sm-12 form-group">
-                                            <label for="child" class="h6">Confirm Password:</label>
-                                            <input type="text" class="form-control text-font" id="confirm pass" placeholder="Confirm Password">
-                                            <div class="invalid-feedback">Please enter your Lastname.</div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                            <button class="theme-btn btn-one" name="reg" id="buy" onclick="validateForm()">Sign Up</button>
-                                        </div>
-                                    </div>
-                                    <!-- <button type="submit">Sign Up</button> -->
-                                </form>
-                                <div class="bottom-link" style="color:aqua">
-                                    Already have an account?
-                                    <a href="#" id="login-link" onclick="openSignupPopup()">Login</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
@@ -216,46 +129,6 @@
         </nav>
     </div>
     <!-- End Mobile Menu -->
-    <script>
-        // Function to open the popup
-        function openPopup() {
-            document.getElementById("popup").style.display = "block";
-        }
-
-        // Function to close the popup
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-
-        // Event listener to open the popup when the link is clicked
-        document.getElementById("openPopup").addEventListener("click", openPopup);
-    </script>
-    <script>
-        // Function to open the popup with the login form
-        function openLoginPopup() {
-            document.getElementById("popup").style.display = "block";
-            document.getElementById("login-form").style.display = "flex";
-            document.getElementById("signup-form").style.display = "none";
-        }
-
-        // Function to open the popup with the signup form
-        function openSignupPopup() {
-            document.getElementById("popup").style.display = "block";
-            document.getElementById("login-form").style.display = "none";
-            document.getElementById("signup-form").style.display = "flex";
-        }
-
-        // Function to close the popup
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-
-        // Event listener to open the popup with the login form when the login link is clicked
-        document.getElementById("login-link").addEventListener("click", openLoginPopup);
-
-        // Event listener to open the popup with the signup form when the signup link is clicked
-        document.getElementById("signup-link").addEventListener("click", openSignupPopup);
-    </script>
 
     <!-- jequery plugins -->
     <script src="assets/js/jquery.js"></script>
