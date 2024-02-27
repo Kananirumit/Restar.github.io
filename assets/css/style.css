@@ -90,7 +90,14 @@ body {
   /* popup sign up */
   /* Importing Google font - Open Sans */
 
-
+  .form-content .cus-form{
+      width: 60%;
+      position: relative;
+      left: 20%;
+  }
+ .form-group #genderDropdown{
+    border: 1px solid #717171;
+  }
   .form-popup {
       position: fixed;
       top: 50%;
@@ -144,7 +151,7 @@ body {
     display: flex;
   }
   .popup-content .signup{
-    display: none;
+    display: block;
   }
 
   .login .form-details {
@@ -229,7 +236,9 @@ body {
   }
 
   .form-content .btn-log{
-      width: 100%;
+      width: 66%;
+      position: relative;
+      left: 20%;
       color: #fff;
       border: none;
       outline: none;
@@ -292,7 +301,7 @@ body {
       }
   }
   #popup {
-    display: none;
+    display: block;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -301,7 +310,7 @@ body {
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 999;
-    max-width: 70%; /* Set a maximum width for the popup */
+    max-width: 45%; /* Set a maximum width for the popup */
     width: 100%; /* Set the width to 100% for smaller screens */
 }
 
@@ -1164,6 +1173,7 @@ img {
 
 .main-menu .navigation > li:last-child{
   margin-right:0px !important;
+  display: flex;
 }
 
 .main-menu .navigation > li:first-child{
