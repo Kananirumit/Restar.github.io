@@ -71,7 +71,7 @@
                                 <li><a href="about.php">ABOUT US</a></li>
                                 <li><a href="gallery.php">OUR GALLERY</a></li>
                                 <li><a href="contact.php">CONTACT</a></li>
-                                <li><a href="login.php">Login</a></li>
+                                <li><a href="login.php">LOGIN</a></li>
                                 <li>
                                     <a href="register.php">Register</a>
                                 </li>
