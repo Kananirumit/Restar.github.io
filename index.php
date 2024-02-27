@@ -79,7 +79,7 @@
                     <div class="image-layer" style="background-image:url(assets/images/banner/banner-1.jpg)"></div>
                     <div class="auto-container">
                         <div class="content-box">
-                            <h3>Explore Our Amusment-park</h3>
+                            <h3>Explore Our Theme-park</h3>
                             <h2>New Ride Experience of Joy</h2>
                         </div>
                     </div>
@@ -402,7 +402,7 @@
 
 
         <!-- events-section -->
-        <section class="events-section sec-pad">
+        <!-- <section class="events-section sec-pad">
             <div class="bg-layer"></div>
             <div class="bg-image"
                 style="background-image: url(assets/images/gallery/ride/carousel-of-the-amusement-park-e1645720076976.jpg);">
@@ -460,7 +460,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- events-section end -->
         <!-- funfact-section end -->
         <?php
