@@ -30,8 +30,8 @@
         <div class="popup-content">
             <div id="signup-form" class="form-box signup">
                 <div class="form-content">
-                    <h2>SIGNUP</h2>
-                    <form action="#">
+                    <h2>REGISTRATION</h2>
+                    <form action="#" method="POST">
                         <div class="row clearfix">
                             <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                 <div class="input-field">
@@ -47,9 +47,10 @@
                             </div>
                             <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                 <label for="gender">Choose Gender:</label><br>
-                                <select id="genderDropdown" class="form-control text-font" required="" id="gender">
+                                <select id="genderDropdown" class="form-control text-font" name="gender" required="" id="gender">
                                     <option value="male" name="gender">Male</option>
                                     <option value="female" name="gender">Female</option>
+                                    <option value="other" name="gender">Other</option>
                                 </select>
                             </div>
                             <div class="col-lg-6  col-md-6 col-sm-12 form-group">
@@ -90,6 +91,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function validateForm() {
+            var password = document.getElementById("pass").value;
+            var confirmPassword = document.getElementById("confirm_pass").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+            } else {
+                // Passwords match, you can proceed with form submission
+                document.getElementById("myForm").submit();
+            }
+        }
+    </script>
 </body>
 
 </html>

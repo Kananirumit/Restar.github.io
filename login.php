@@ -23,35 +23,56 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
 </head>
-        
+
 <body>
+    <div id="popup" class="popup">
 
-    <div class="boxed_wrapper">
+        <div class="boxed_wrapper">
 
-
-        <!-- Your sign-in and sign-up form content goes here -->
-            <div id="login-form" class="form-box login">
-                <div class="form-content">
-                    <h2>LOGIN</h2>
-                    <form action="#" method="POST" class="cus-form">
-                        <div class="input-field">
-                            <input type="text" required="" fdprocessedid="s8jhqb">
-                            <label>Email</label>
+            <div class="popup-content">
+                <!-- Your sign-in and sign-up form content goes here -->
+                <div id="login-form" class="form-box login">
+                    <div class="form-content">
+                        <h2>LOGIN</h2>
+                        <form action="#" method="POST" class="cus-form">
+                            <div class="input-field">
+                                <input type="text" required="" fdprocessedid="s8jhqb">
+                                <label>Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" required="" fdprocessedid="1qh8wc">
+                                <label>Password</label>
+                            </div>
+                            <a href="#" class="forgot-pass-link">Forgot password?</a>
+                            <button type="submit" class="btn-log" fdprocessedid="hzsxfi">Log In</button>
+                        </form>
+                        <div class="bottom-link">
+                            Don't have an account?
+                            <a href="register.php" id="signup-link">Signup</a>
                         </div>
-                        <div class="input-field">
-                            <input type="password" required="" fdprocessedid="1qh8wc">
-                            <label>Password</label>
-                        </div>
-                        <a href="#" class="forgot-pass-link">Forgot password?</a>
-                        <button type="submit" class="btn-log" fdprocessedid="hzsxfi">Log In</button>
-                    </form>
-                    <div class="bottom-link">
-                        Don't have an account?
-                        <a href="register.php" id="signup-link">Signup</a>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
+    <script>
+        function validateLogin() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Add your actual email and password validation logic here
+            // For simplicity, let's assume a hardcoded email and password
+            var validEmail = "user@example.com";
+            var validPassword = "password123";
+
+            if (email === validEmail && password === validPassword) {
+                alert("Login successful");
+                // You can redirect or perform other actions here
+            } else {
+                alert("Invalid email or password");
+            }
+        }
+    </script>
 </body>
 
 </html>
