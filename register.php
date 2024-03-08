@@ -1,3 +1,27 @@
+<?php
+    include "./include/connect.php";
+
+    session_start();
+
+    if(isset($_POST['add'])){
+        $fname = $_POST ['fname'];
+        $lname = $_POST ['laname'];
+        $gender = $_POST ['gender'];
+        $phone = $_POST ['phone'];
+        $email = $_POST ['email'];
+        $pass = $_POST ['pass'];
+        $confirmpss = $_POST ['confirmpss'];
+
+        $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpass`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
+
+        $result = $conn->query($insert);
+
+        if ($result) {
+            header("location:login.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
