@@ -40,6 +40,7 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
+        <i class="fa-solid fa-expand" style="height: 20px; width: 30px; padding-left: 900px;"></i>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
           <li class="nav-item nav-profile dropdown">

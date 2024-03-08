@@ -46,7 +46,7 @@
         <div class="header-lower">
             <div class="outer-box">
                 <div class="logo-box">
-                    <figure class="logo"><a href="index.php"><img src="assets/images/logo.png" alt=""></a></figure>
+                    <figure class="logo"><a href="index.php"><img src="assets/images/logo.png" alt="Loading"></a></figure>
                 </div>
                 <div class="menu-area">
                     <!--Mobile Navigation Toggler-->
@@ -72,9 +72,6 @@
                                 <li><a href="gallery.php">OUR GALLERY</a></li>
                                 <li><a href="contact.php">CONTACT</a></li>
                                 <li><a href="login.php">LOGIN</a></li>
-                                <li>
-                                    <a href="register.php">Register</a>
-                                </li>
                             </ul>
                         </div>
                     </nav>
