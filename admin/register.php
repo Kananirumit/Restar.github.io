@@ -1,5 +1,5 @@
 <?php
-    include '../include/connect.php';
+include "../include/connect.php";
 ?>
 
 
@@ -32,81 +32,97 @@
   <div class="container-scroller">
     <!-- partial:partials/_navbar.php -->
     <?php
-            include "header.php";
-        ?>  <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
-              <div class="row">
-              </div>
+    include "header.php";
+    ?> <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="row">
             </div>
           </div>
-          <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h1 style="text-transform: uppercase; font-size: 35px;">Registration Data</h1>
-                <div class="table-responsive pt-3">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr class="table-danger">
-                        <th>
-                          GuestID
-                        </th>
-                        <th>
-                          First name
-                        </th>
-                        <th>
-                          Last name
-                        </th>
-                        <th>
-                          Gender
-                        </th>
-                        <th>
-                          Phone
-                        </th>
-                        <th>
-                          Email
-                        </th>
-                        <th>
-                          Password
-                        </th>
-                        <th>
-                          Confirm Password
-                        </th>
+        </div>
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h1 style="text-transform: uppercase; font-size: 35px;">Registration Data</h1>
+              <div class="table-responsive pt-3">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr class="table-danger">
+                      <th>
+                        GuestID
+                      </th>
+                      <th>
+                        First name
+                      </th>
+                      <th>
+                        Last name
+                      </th>
+                      <th>
+                        Gender
+                      </th>
+                      <th>
+                        Phone
+                      </th>
+                      <th>
+                        Email
+                      </th>
+                      <th>
+                        Password
+                      </th>
+                      <th>
+                        Confirm Password
+                      </th>
+                    </tr>
+                    <?php
+                    $select = "SELECT * FROM `register`";
+                    $result = $conn->query($select);
+
+                    while ($row = mysqli_fetch_array($result)) {
+                      ?>
+                      <tr>
+                        <td>
+                          <?php echo $row['guestId'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['fname'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['lname'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['gender'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['phone'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['email'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['pass'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['confirmpss'] ?>
+                        </td>
                       </tr>
                       <?php
-                      $select = "SELECT * FROM `register`";
-                      $result = $conn->query($select);
-
-                      while ($row = mysqli_fetch_array($result)) {
-                      ?>
-                        <tr>
-                          <td><?php echo $row['guestId'] ?></td>
-                          <td><?php echo $row['fname'] ?></td>
-                          <td><?php echo $row['lname'] ?></td>
-                          <td><?php echo $row['gender'] ?></td>
-                          <td><?php echo $row['phone'] ?></td>
-                          <td><?php echo $row['email'] ?></td>
-                          <td><?php echo $row['pass'] ?></td>
-                          <td><?php echo $row['confirmpss'] ?></td>
-                        </tr>
-                      <?php
-                      }
-                      ?>
-                    </thead>
-                  </table>
-                </div>
+                    }
+                    ?>
+                  </thead>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- content-wrapper ends -->
-      <!-- partial:partials/_footer.php -->
-      <!-- partial -->
     </div>
-    <!-- main-panel ends -->
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.php -->
+    <!-- partial -->
+  </div>
+  <!-- main-panel ends -->
   </div>
   <!-- page-body-wrapper ends -->
   </div>

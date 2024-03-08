@@ -32,7 +32,7 @@
             style="width: 85px; height:40px;" /></a>
         <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo.png" alt="logo"
             style="width: 70px; height:35px;" /></a>
-      </div>
+</div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
@@ -89,25 +89,25 @@
           <li class="nav-item">
             <a class="nav-link" href="Room_booking.php">
               <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Room_booking Data</span>
+              <span class="menu-title">Room Booking Data</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="Ticket_booking.php">
               <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Ticket_booking Data</span>
+              <span class="menu-title">Ticket Booking Data</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact_us.php">
               <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Contact_us Data</span>
+              <span class="menu-title">Contact us Data</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="payment.php">
               <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Payment_Data</span>
+              <span class="menu-title">Payment Data</span>
             </a>
           </li>
         </ul>
