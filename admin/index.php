@@ -22,88 +22,13 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
 </head>
+
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.php -->
-    <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo" style="width: 85px; height:40px;"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo.png" alt="logo" style="width: 70px; height:35px;"/></a>
-      </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
-        </button>
-        <i class="fa-solid fa-expand" style="height: 20px; width: 30px; padding-left: 900px;"></i>
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="icon-menu"></span>
-          </button>
-        </ul>
-      </div>
-    </nav>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_settings-panel.php -->
-     
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.php -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">
-              <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="register.php">
-              <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Registration Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Room_booking.php">
-              <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Room_booking Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Ticket_booking.php">
-              <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Ticket_booking Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact_us.php">
-              <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Contact_us Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="payment.php">
-              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Payment_Data</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <?php
+            include "header.php";
+        ?>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -112,7 +37,8 @@
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                   <h3 class="font-weight-bold">Welcome</h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly!<span class="text-primary"></span></h6>
+                  <h6 class="font-weight-normal mb-0">All systems are running smoothly!<span
+                      class="text-primary"></span></h6>
                 </div>
               </div>
             </div>
@@ -187,101 +113,101 @@
               </div>
             </div>
           </div>
-        <div class="col-lg-12 stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">ADMIN DATA TABLE</h4>
-              <!-- <p class="card-description">
+          <div class="col-lg-12 stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">ADMIN DATA TABLE</h4>
+                <!-- <p class="card-description">
                 Add class <code>.table-{color}</code>
               </p> -->
-              <div class="table-responsive pt-3">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr class="table-primary">
-                      <th>
-                        Number
-                      </th>
-                      <th>
-                        Admin_ID
-                      </th>
-                      <th>
-                        Admin_Name
-                      </th>
-                      <th>
-                        Admin_email
-                      </th>
-                      <th>
-                        Password
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="table-danger">
-                      <td>
-                        1
-                      </td>
-                      <td>
-                        1001
-                      </td>
-                      <td>
-                        Rumit
-                      </td>
-                      <td>
-                        kananirumit2003@gmail.com
-                      </td>
-                      <td>
-                        1234
-                      </td>
-                    </tr>
-                    <tr class="table-warning">
-                      <td>
-                        2
-                      </td>
-                      <td>
-                        1002
-                      </td>
-                      <td>
-                        Rushit
-                      </td>
-                      <td>
-                        chovtiyarushit@gmail.com
-                      </td>
-                      <td>
-                        5678
-                      </td>
-                    </tr>
-                    <tr class="table-info">
-                      <td>
-                        3
-                      </td>
-                      <td>
-                        1003
-                      </td>
-                      <td>
-                        vatsal
-                      </td>
-                      <td>
-                        diyoravatsal@gmail.com
-                      </td>
-                      <td>
-                        9101
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="table-responsive pt-3">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr class="table-primary">
+                        <th>
+                          Number
+                        </th>
+                        <th>
+                          Admin_ID
+                        </th>
+                        <th>
+                          Admin_Name
+                        </th>
+                        <th>
+                          Admin_email
+                        </th>
+                        <th>
+                          Password
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="table-danger">
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          1001
+                        </td>
+                        <td>
+                          Rumit
+                        </td>
+                        <td>
+                          kananirumit2003@gmail.com
+                        </td>
+                        <td>
+                          1234
+                        </td>
+                      </tr>
+                      <tr class="table-warning">
+                        <td>
+                          2
+                        </td>
+                        <td>
+                          1002
+                        </td>
+                        <td>
+                          Rushit
+                        </td>
+                        <td>
+                          chovtiyarushit@gmail.com
+                        </td>
+                        <td>
+                          5678
+                        </td>
+                      </tr>
+                      <tr class="table-info">
+                        <td>
+                          3
+                        </td>
+                        <td>
+                          1003
+                        </td>
+                        <td>
+                          vatsal
+                        </td>
+                        <td>
+                          diyoravatsal@gmail.com
+                        </td>
+                        <td>
+                          9101
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.php -->
+      <!-- partial -->
     </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.php --> 
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
-    </div>   
-    <!-- page-body-wrapper ends -->
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
 
@@ -309,4 +235,3 @@
 </body>
 
 </html>
-

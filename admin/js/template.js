@@ -111,6 +111,27 @@
     });
   });
 
+  // fullscreenButton 
+document.addEventListener("DOMContentLoaded", function () {
+  const fullscreenButton = document.querySelector('[data-toggle="fullscreen"]');
+
+  fullscreenButton.addEventListener("click", function () {
+      toggleFullScreen();
+  });
+
+  function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => {
+              console.error("Error attempting to enable full-screen mode: ${err.message}");
+          });
+      } else {
+          if (document.exitFullscreen) {
+              document.exitFullscreen();
+          }
+      }
+    }
+});
+
   // focus input when clicking on search icon
   $('#navbar-search-icon').click(function() {
     $("#navbar-search-input").focus();
