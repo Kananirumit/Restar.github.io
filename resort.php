@@ -378,6 +378,83 @@
     </div>
     </section>
     <!--Ticket booking end-->
+    <script>
+function validateForm() {
+    // Personal Information Form Validation
+    var firstName = document.getElementById('fname').value;
+    var lastName = document.getElementById('lname').value;
+    var email = document.getElementById('email').value;
+    var birthdate = document.getElementById('txtDate').value;
+    var city = document.getElementById('city').value;
+    var phone = document.getElementById('phone').value;
+
+    if (firstName === "") {
+        alert("Please enter your first name.");
+        return false;
+    }
+
+    if (lastName === "") {
+        alert("Please enter your last name.");
+        return false;
+    }
+
+    if (email === "" || !isValidEmail(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
+
+    if (birthdate === "") {
+        alert("Please select a date of birth.");
+        return false;
+    }
+
+    if (city === "") {
+        alert("Please enter your city name.");
+        return false;
+    }
+
+    if (phone === "") {
+        alert("Please enter your phone number.");
+        return false;
+    }
+
+    // Room Booking Information Form Validation
+    var roomType = document.getElementById('roomType').value;
+    var numberOfRooms = document.getElementById('numberOfRooms').value;
+    var checkInDate = document.getElementById('inDate').value;
+    var checkOutDate = document.getElementById('outDate').value;
+
+    if (roomType === "") {
+        alert("Please enter the type of room.");
+        return false;
+    }
+
+    if (numberOfRooms === "") {
+        alert("Please enter the number of rooms.");
+        return false;
+    }
+
+    if (checkInDate === "") {
+        alert("Please select a check-in date.");
+        return false;
+    }
+
+    if (checkOutDate === "") {
+        alert("Please select a check-out date.");
+        return false;
+    }
+
+    // If all validations pass, you can submit the form
+    document.getElementById('contact-form').submit();
+}
+
+function isValidEmail(email) {
+    // You can use a regular expression for basic email validation
+    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+}
+</script>
+
 
     <!-- video-section -->
     <section class="video-section centred">
