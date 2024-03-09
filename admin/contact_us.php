@@ -54,6 +54,9 @@
                   <thead>
                     <tr class="table-success">
                       <th>
+                        Contact ID
+                      </th>
+                      <th>
                         Full Name
                       </th>
                       <th>
@@ -68,6 +71,36 @@
                       <th>
                         message
                       </th>
+                    </tr>
+                    <?php
+                    $select = "SELECT * FROM `contact`";
+                    $result = $conn->query($select);
+
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                      <tr>
+                        <td>
+                          <?php echo $row['contactid'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['username'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['email'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['phone'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['subject'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['message'] ?>
+                        </td>
+                      </tr>
+                    <?php
+                    }
+                    ?>
                   </thead>
                 </table>
               </div>

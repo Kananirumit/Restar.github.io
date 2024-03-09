@@ -1,7 +1,6 @@
 <?php
     include "./include/connect.php";
 
-    session_start();
 
     if(isset($_POST['add'])){
         $fname = $_POST ['fname'];

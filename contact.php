@@ -1,17 +1,15 @@
 <?php
 
-include "../include/connect.php";
+include "./include/connect.php";
 
-session_start();
+if (isset($_POST['submit_form'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
 
-if (isset($_POST['add'])) {
-    $username = $_POST['$username'];
-    $email = $_POST['$email'];
-    $phone = $_POST['$phone'];
-    $subject = $_POST['$subject'];
-    $message = $_POST['$message'];
-
-    $insert = "INSERT INTO `conatct`(`username`,`email`,`phone`,`subject`,`message`) VALUES ('$username','$email','$phone','$subject','$message')";
+    $insert = "INSERT INTO `contact`(`username`,`email`,`phone`,`subject`,`message`) VALUES ('$username','$email','$phone','$subject','$message')";
 
     $result = $conn->query($insert);
 
@@ -181,7 +179,7 @@ if (isset($_POST['add'])) {
                                         <textarea name="message" placeholder="Write a message"></textarea>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0">
-                                        <button class="theme-btn btn-one" type="submit" name="submit-form"><span>Submit
+                                        <button class="theme-btn btn-one" type="submit" name="submit_form"><span>Submit
                                                 comment</span></button>
                                     </div>
                                 </div>
