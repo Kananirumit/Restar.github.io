@@ -1,6 +1,6 @@
 <?php
 
-  include "../include/connect.php";
+include "../include/connect.php";
 
 ?>
 
@@ -96,6 +96,12 @@
                         </td>
                         <td>
                           <?php echo $row['message'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['pass'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['confirmpss'] ?>
                         </td>
                       </tr>
                     <?php
