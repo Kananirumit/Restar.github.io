@@ -331,6 +331,47 @@
                                 </div>
                         </div>
                         </form>
+                        <div class="sec-title centred" style="text-transform: uppercase;">
+                            <h4>Room Booking information</h4>
+                        </div>
+                        <div class="form-inner text-left">
+                            <form method="post" action="" id="contact-form" class="default-form"
+                                novalidate="novalidate">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Types Of room:</label>
+                                        <input type="text" class="form-control text-font" name="typeofroom" id="lname"
+                                            placeholder="Enter type of room">
+                                        <div class="invalid-feedback">Please enter type of room.</div>
+                                    </div>
+                                    <div class="col-lg-6  col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Number of room:</label>
+                                        <input type="text" class="form-control text-font" required="" name="number of room"
+                                            placeholder="Enter number of room" id="number of room">
+                                        <div class="invalid-feedback">Please enter number of room.</div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Check in date:</label>
+                                        <div class="input-group">
+                                            <input type="date" class="form-control text-font" id="inDate"
+                                                name="checkin">
+                                        </div>
+                                        <div class="invalid-feedback invalid-feedback-date">Please select check in date.</div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Check out date:</label>
+                                        <div class="input-group">
+                                            <input type="date" class="form-control text-font" id="outDate"
+                                                name="checkout">
+                                        </div>
+                                        <div class="invalid-feedback invalid-feedback-date">Please select check out date.</div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
+                                        <button class="theme-btn btn-one" name="add" id="buy" onclick="validateForm()">Book your Room</button>
+                                    </div>
+                                </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
