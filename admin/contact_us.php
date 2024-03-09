@@ -1,3 +1,11 @@
+<?php
+
+  include "../include/connect.php";
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,56 +30,57 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
 </head>
+
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.php -->
     <?php
-            include "header.php";
-        ?>
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
-              <div class="row">
-              </div>
+    include "header.php";
+    ?>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="row">
             </div>
           </div>
-          <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h1 style="text-transform: uppercase; font-size: 35px;">Conatct_us Data</h1>
-                <div class="table-responsive">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr class="table-success">
-                        <th>
-                          Full Name
-                        </th>
-                        <th>
-                          Email
-                        </th>
-                        <th>
-                          phone
-                        </th>
-                        <th>
-                          subject
-                        </th>
-                        <th>
-                          message
-                        </th>
+        </div>
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h1 style="text-transform: uppercase; font-size: 35px;">Conatct_us Data</h1>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr class="table-success">
+                      <th>
+                        Full Name
+                      </th>
+                      <th>
+                        Email
+                      </th>
+                      <th>
+                        phone
+                      </th>
+                      <th>
+                        subject
+                      </th>
+                      <th>
+                        message
+                      </th>
                   </thead>
                 </table>
               </div>
             </div>
           </div>
         </div>
-      
+
         <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.php --> 
+        <!-- partial:partials/_footer.php -->
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
-    </div>   
+    </div>
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
@@ -100,4 +109,3 @@
 </body>
 
 </html>
-

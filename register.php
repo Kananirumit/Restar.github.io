@@ -5,14 +5,14 @@
 
     if(isset($_POST['add'])){
         $fname = $_POST ['fname'];
-        $lname = $_POST ['laname'];
+        $lname = $_POST ['lname'];
         $gender = $_POST ['gender'];
         $phone = $_POST ['phone'];
         $email = $_POST ['email'];
         $pass = $_POST ['pass'];
         $confirmpss = $_POST ['confirmpss'];
 
-        $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpass`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
+        $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpss`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
 
         $result = $conn->query($insert);
 
@@ -97,12 +97,12 @@
                             </div>
                             <div class="col-lg-12  col-md-12 col-sm-12 form-group">
                                 <div class="input-field">
-                                    <input type="text" class="form-control text-font" required="" name="confirmpass" id="confirm_pass">
+                                    <input type="text" class="form-control text-font" required="" name="confirmpss" id="confirm_pass">
                                     <label>Confirm Password:</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                <button class="theme-btn btn-one" name="reg" id="buy" onclick="validateForm()">Sign Up</button>
+                                <button class="theme-btn btn-one" name="add" id="buy" onclick="validateForm()">Sign Up</button>
                             </div>
                         </div>
                         <!-- <button type="submit">Sign Up</button> -->

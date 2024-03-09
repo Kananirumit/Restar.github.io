@@ -1,3 +1,28 @@
+<?php
+
+include "../include/connect.php";
+
+session_start();
+
+if (isset($_POST['add'])) {
+    $username = $_POST['$username'];
+    $email = $_POST['$email'];
+    $phone = $_POST['$phone'];
+    $subject = $_POST['$subject'];
+    $message = $_POST['$message'];
+
+    $insert = "INSERT INTO `conatct`(`username`,`email`,`phone`,`subject`,`message`) VALUES ('$username','$email','$phone','$subject','$message')";
+
+    $result = $conn->query($insert);
+
+    if ($result) {
+        header("location:index.php");
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +37,9 @@
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -68,14 +95,16 @@
 
 
         <?php
-            include "header.php";
+        include "header.php";
         ?>
 
 
         <!-- Page Title -->
         <section class="page-title">
             <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img" style="background-image: url(assets/images/gallery/ride/group-of-happy-best-friends-laughing-and-having-fun-at-amusement-park.jpg);"></div>
+                <div class="parallax-inner back-img"
+                    style="background-image: url(assets/images/gallery/ride/group-of-happy-best-friends-laughing-and-having-fun-at-amusement-park.jpg);">
+                </div>
             </div>
             <div class="auto-container">
                 <div class="content-box">
@@ -96,13 +125,17 @@
         <section class="google-map-section">
             <div class="auto-container">
                 <div class="map-inner">
-                    <div class="map-canvas" data-zoom="12" data-lat="-37.817085" data-lng="144.955631" data-type="roadmap" data-hue="#ffc400" data-title="Envato" data-icon-path="assets/images/icons/map-marker.png" data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
+                    <div class="map-canvas" data-zoom="12" data-lat="-37.817085" data-lng="144.955631"
+                        data-type="roadmap" data-hue="#ffc400" data-title="Envato"
+                        data-icon-path="assets/images/icons/map-marker.png"
+                        data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
                     </div>
                     <div class="content-box">
                         <h2>get in touch with us</h2>
                         <ul class="info clearfix">
                             <li><i class="flaticon-telephone"></i><a href="tel:926668880000">92 666 888 0000</a></li>
-                            <li><i class="flaticon-email"></i><a href="mailto:needhelp@company.com">needhelp@company.com</a></li>
+                            <li><i class="flaticon-email"></i><a
+                                    href="mailto:needhelp@company.com">needhelp@company.com</a></li>
                             <li><i class="flaticon-pin"></i>60 broklyn street, new york</li>
                         </ul>
                         <div class="inner">
@@ -126,25 +159,30 @@
                             <h2>have question? <br />drop a line</h2>
                         </div>
                         <div class="form-inner">
-                            <form method="post" action="https://azim.commonsupport.com/Weldlfe/sendemail.php" id="contact-form" class="default-form" novalidate="novalidate">
+                            <form method="post" id="contact-form" class="default-form" novalidate="novalidate">
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="text" name="username" placeholder="Full name" required="" aria-required="true">
+                                        <input type="text" name="username" placeholder="Full name" required=""
+                                            aria-required="true">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="email" name="email" placeholder="Email address" required="" aria-required="true">
+                                        <input type="email" name="email" placeholder="Email address" required=""
+                                            aria-required="true">
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                        <input type="text" name="phone" required="" placeholder="Phone" aria-required="true">
+                                        <input type="text" name="phone" required="" placeholder="Phone"
+                                            aria-required="true">
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                        <input type="text" name="subject" required="" placeholder="Subject" aria-required="true">
+                                        <input type="text" name="subject" required="" placeholder="Subject"
+                                            aria-required="true">
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                         <textarea name="message" placeholder="Write a message"></textarea>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0">
-                                        <button class="theme-btn btn-one" type="submit" name="submit-form"><span>Submit comment</span></button>
+                                        <button class="theme-btn btn-one" type="submit" name="submit-form"><span>Submit
+                                                comment</span></button>
                                     </div>
                                 </div>
                             </form>
@@ -157,7 +195,7 @@
 
 
         <?php
-            include "footer.php";
+        include "footer.php";
         ?>
 
 
