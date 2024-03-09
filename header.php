@@ -1,3 +1,9 @@
+<?php
+include './include/connect.php';
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,14 +77,37 @@
                                 <li><a href="about.php">ABOUT US</a></li>
                                 <li><a href="gallery.php">OUR GALLERY</a></li>
                                 <li><a href="contact.php">CONTACT</a></li>
-                                <li><a href="login.php">LOGIN</a></li>
+                                <?php if (isset($_SESSION["email"])) {
+                                ?>
+                                    <li>
+                                        <a href="./logout.php">LOGOUT</a>
+                                    </li>
+                                <?php
+                                } else {
+                                ?>
+                                    <li>
+                                        <a href="./login.php">LOGIN</a>
+                                    </li>
+                                <?php
+                                } ?>
+                                <li><a href="register.php">REGISTRATION</a></li>
                             </ul>
                         </div>
                     </nav>
                 </div>
                 <div class="menu-right-content">
                     <div class="btn-box">
-                        <a href="pricing.php" >Book your ticket</a>
+                        <?php if (isset($_SESSION["email"])) {
+                        ?>
+                            <a href="pricing.php">BOOK YOUR TICKET</a>
+                            <!-- <?php header('location:pricing.php'); ?> -->
+                        <?php
+                        } else {
+                        ?>
+                            <a href="login.php">BOOK YOUR TICKET</a>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

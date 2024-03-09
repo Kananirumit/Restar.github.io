@@ -1,3 +1,32 @@
+<?php
+
+include './include/connect.php';
+session_start();
+
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    $select = "SELECT * FROM `register` WHERE email='$email' AND pass='$pass'";
+    $result = $conn->query($select);
+    $count = mysqli_num_rows($result);
+
+    if ($count > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $email = $row['email'];
+            $pass = $row['pass'];
+        }
+
+        $_SESSION['email'] = $email;
+        $_SESSION['pass'] = $pass;
+
+        header("location:index.php");
+    } else {
+        echo "<script>alert('Invalid Email and Password!');</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,15 +65,15 @@
                         <h2>LOGIN</h2>
                         <form action="#" method="POST" class="cus-form">
                             <div class="input-field">
-                                <input type="text" required="" fdprocessedid="s8jhqb">
+                                <input type="text" required="" name="email" fdprocessedid="s8jhqb">
                                 <label>Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" required="" fdprocessedid="1qh8wc">
+                                <input type="password" required="" name="pass" fdprocessedid="1qh8wc">
                                 <label>Password</label>
                             </div>
                             <a href="#" class="forgot-pass-link">Forgot password?</a>
-                            <button type="submit" class="btn-log" fdprocessedid="hzsxfi">Log In</button>
+                            <button type="submit" class="btn-log" name="login" fdprocessedid="hzsxfi">Log In</button>
                         </form>
                         <div class="bottom-link">
                             Don't have an account?
