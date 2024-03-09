@@ -1,6 +1,6 @@
 <?php
 
-include "../include/connect.php";
+include "./include/connect.php";
 
 session_start();
 
@@ -11,7 +11,7 @@ if (isset($_POST['add'])) {
     $subject = $_POST['$subject'];
     $message = $_POST['$message'];
 
-    $insert = "INSERT INTO `conatct`(`username`,`email`,`phone`,`subject`,`message`) VALUES ('$username','$email','$phone','$subject','$message')";
+    $insert = "INSERT INTO `contact`(`username`,`email`,`phone`,`subject`,`message`) VALUES ('$username','$email','$phone','$subject','$message')";
 
     $result = $conn->query($insert);
 
@@ -181,7 +181,7 @@ if (isset($_POST['add'])) {
                                         <textarea name="message" placeholder="Write a message"></textarea>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0">
-                                        <button class="theme-btn btn-one" type="submit" name="submit-form"><span>Submit
+                                        <button class="theme-btn btn-one" type="submit" name="add"><span>Submit
                                                 comment</span></button>
                                     </div>
                                 </div>
