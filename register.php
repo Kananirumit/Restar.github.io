@@ -2,25 +2,41 @@
     include "./include/connect.php";
 
 
-    if(isset($_POST['add'])){
-        $fname = $_POST ['fname'];
-        $lname = $_POST ['lname'];
-        $gender = $_POST ['gender'];
-        $phone = $_POST ['phone'];
-        $email = $_POST ['email'];
-        $pass = $_POST ['pass'];
-        $confirmpss = $_POST ['confirmpss'];
-
-        $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpss`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
-
-        $result = $conn->query($insert);
-
-        if ($result) {
-            header("location:login.php");
+    if (isset($_POST['add'])) {
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $gender = $_POST['gender'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $pass = $_POST['pass'];
+        $confirmpss = $_POST['confirmpss'];
+    
+        // Check if the email or phone already exists in the database
+        $checkEmailQuery = "SELECT * FROM `register` WHERE email = '$email'";
+        $checkPhoneQuery = "SELECT * FROM `register` WHERE phone = '$phone'";
+    
+        $checkEmailResult = $conn->query($checkEmailQuery);
+        $checkPhoneResult = $conn->query($checkPhoneQuery);
+    
+        if ($checkEmailResult->num_rows > 0 && $checkPhoneResult->num_rows > 0) {
+            echo "<script>alert('Both email and phone already exist!');</script>";
+        } elseif ($checkEmailResult->num_rows > 0) {
+            echo "<script>alert('Email already exists!');</script>";
+        } elseif ($checkPhoneResult->num_rows > 0) {
+            echo "<script>alert('Phone already exists!');</script>";
+        } else {
+            // Perform the registration since email and phone are unique
+            $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpss`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
+            $result = $conn->query($insert);
+    
+            if ($result) {
+                header("location:login.php");
+            } else {
+                echo "<script>alert('Registration failed!');</script>";
+            }
         }
     }
-?>
-
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,6 +61,17 @@
     <link href="assets/css/color.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <style>
+        /* Add your existing styles here */
+        .toggle-password {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-password:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -92,6 +119,7 @@
                                 <div class="input-field">
                                     <input type="text" class="form-control text-font" required="" name="pass" id="pass">
                                     <label>Password:</label>
+                                    <span class="toggle-password" onclick="togglePasswordVisibility('pass')">Show Password</span>
                                 </div>
                             </div>
                             <div class="col-lg-12  col-md-12 col-sm-12 form-group">
@@ -115,6 +143,11 @@
         </div>
     </div>
     <script>
+        function togglePasswordVisibility(passwordFieldId) {
+            var passwordField = document.getElementById(passwordFieldId);
+            passwordField.type = (passwordField.type === "password") ? "text" : "password";
+        }
+
         function validateForm() {
             var password = document.getElementById("pass").value;
             var confirmPassword = document.getElementById("confirm_pass").value;
