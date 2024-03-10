@@ -4,15 +4,29 @@ include './include/connect.php';
 session_start();
 
 if (isset($_POST['login'])) {
-    $email = $_POST['email'];
+    $emailOrPhone = $_POST['emailOrPhone'];
     $pass = $_POST['pass'];
 
-    $select = "SELECT * FROM `register` WHERE email='$email' AND pass='$pass'";
-    $result = $conn->query($select);
-    $count = mysqli_num_rows($result);
+    // Check if the input is a valid email or phone number
+    if (filter_var($emailOrPhone, FILTER_VALIDATE_EMAIL)) {
+        $loginField = 'email';
+    } elseif (preg_match('/^\d{10}$/', $emailOrPhone)) {
+        $loginField = 'phone';
+    } else {
+        echo "<script>alert('Invalid Email or Phone format!');</script>";
+        exit;
+    }
+
+    // Use prepared statements to prevent SQL injection
+    $select = "SELECT * FROM `register` WHERE $loginField = ? AND pass = ?";
+    $stmt = $conn->prepare($select);
+    $stmt->bind_param('ss', $emailOrPhone, $pass);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $count = $result->num_rows;
 
     if ($count > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = $result->fetch_assoc()) {
             $email = $row['email'];
             $pass = $row['pass'];
         }
@@ -22,8 +36,10 @@ if (isset($_POST['login'])) {
 
         header("location:index.php");
     } else {
-        echo "<script>alert('Invalid Email and Password!');</script>";
+        echo "<script>alert('Invalid Email or Password!');</script>";
     }
+
+    $stmt->close();
 }
 ?>
 
@@ -65,8 +81,8 @@ if (isset($_POST['login'])) {
                         <h2>LOGIN</h2>
                         <form action="#" method="POST" class="cus-form">
                             <div class="input-field">
-                                <input type="text" required="" name="email" fdprocessedid="s8jhqb">
-                                <label>Email</label>
+                                <input type="text" required="" name="emailOrPhone" fdprocessedid="s8jhqb">
+                                <label>Email or Phone</label>
                             </div>
                             <div class="input-field">
                                 <input type="password" required="" name="pass" fdprocessedid="1qh8wc">

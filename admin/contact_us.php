@@ -80,7 +80,7 @@ include "../include/connect.php";
                     ?>
                       <tr>
                         <td>
-                          <?php echo $row['contactid'] ?>
+                          <?php echo $row['id'] ?>
                         </td>
                         <td>
                           <?php echo $row['username'] ?>
@@ -96,12 +96,6 @@ include "../include/connect.php";
                         </td>
                         <td>
                           <?php echo $row['message'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['pass'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['confirmpss'] ?>
                         </td>
                       </tr>
                     <?php

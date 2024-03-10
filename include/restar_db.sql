@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2024 at 07:31 AM
+-- Generation Time: Mar 10, 2024 at 06:28 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `contact` (
-  `contactid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `phone` text NOT NULL,
-  `subject` text NOT NULL,
-  `message` text NOT NULL
+  `phone` int(10) NOT NULL,
+  `subject` varchar(25) NOT NULL,
+  `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -47,7 +47,7 @@ CREATE TABLE `register` (
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `gender` text NOT NULL,
-  `phone` text NOT NULL,
+  `phone` int(10) NOT NULL,
   `email` varchar(255) NOT NULL,
   `pass` text NOT NULL,
   `confirmpss` text NOT NULL
@@ -58,7 +58,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`guestId`, `fname`, `lname`, `gender`, `phone`, `email`, `pass`, `confirmpss`) VALUES
-(1, 'test', 'test', 'female', '9562356253', 'test@gmail.com', '12354', '12354');
+(1, 'Rumit', 'Kanani', 'male', 91067, 'kananirumit2003@gmail.com', '12345', '12345');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +68,7 @@ INSERT INTO `register` (`guestId`, `fname`, `lname`, `gender`, `phone`, `email`,
 -- Indexes for table `contact`
 --
 ALTER TABLE `contact`
-  ADD PRIMARY KEY (`contactid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `register`
@@ -84,13 +84,13 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `contactid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `guestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `guestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

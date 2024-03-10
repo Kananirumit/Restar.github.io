@@ -90,7 +90,6 @@ session_start();
                                     </li>
                                 <?php
                                 } ?>
-                                <li><a href="register.php">REGISTRATION</a></li>
                             </ul>
                         </div>
                     </nav>

@@ -2,7 +2,7 @@
 
 include "./include/connect.php";
 
-if (isset($_POST['submit_form'])) {
+if (isset($_POST['add'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -179,7 +179,7 @@ if (isset($_POST['submit_form'])) {
                                         <textarea name="message" placeholder="Write a message"></textarea>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0">
-                                        <button class="theme-btn btn-one" type="submit" name="submit_form"><span>Submit
+                                        <button class="theme-btn btn-one" type="submit" name="add"><span>Submit
                                                 comment</span></button>
                                     </div>
                                 </div>
