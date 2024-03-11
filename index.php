@@ -180,7 +180,16 @@
                                     </ul>
                                 </div>
                                 <div class="btn-box">
-                                    <a href="pricing.php" class="theme-btn btn-one">Book ticket</a>
+                                    <?php if (isset($_SESSION["email"])) {
+                                    ?>
+                                            <a href="pricing.php" class="theme-btn btn-one">BOOK TICKET</a>
+                                    <?php
+                                        } else {
+                                    ?>
+                                            <a href="login.php" class="theme-btn btn-one">BOOK TICKET</a>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>

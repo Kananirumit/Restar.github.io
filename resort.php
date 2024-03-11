@@ -119,7 +119,7 @@
                                                     <li><span>Bed:</span> 1</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="pricing.php" class="theme-btn btn-one">Book ticket</a>
+                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -142,7 +142,7 @@
                                                     <li><span>Bed:</span> 1</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="pricing.php" class="theme-btn btn-one">Book ticket</a>
+                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -165,7 +165,7 @@
                                                     <li><span>Bed:</span> 2</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="pricing.php" class="theme-btn btn-one">Book ticket</a>
+                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -188,7 +188,7 @@
                                                     <li><span>Bed:</span> 2</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="pricing.php" class="theme-btn btn-one">Book ticket</a>
+                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -211,7 +211,7 @@
                                                     <li><span>Bed:</span> 3</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="pricing.php" class="theme-btn btn-one">Book ticket</a>
+                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -233,7 +233,7 @@
                                                 <li><span>Bed:</span> 2</li>
                                             </ul>
                                             <hr>
-                                            <a href="pricing.php" class="theme-btn btn-one">Book ticket</a>
+                                            <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                         </div>
                                     </div>
                                 </div>
@@ -274,7 +274,7 @@
         </section>
         <!--daining end-->
         <!--Ticket booking start-->
-        <section class="contact-section centred">
+        <section class="contact-section centred" id="pricing-section">
             <div class="auto-container">
                 <div class="row clearfix">
                     <div class="col-xl-8 col-lg-12 offset-xl-2 big-column">
@@ -498,6 +498,15 @@ function isValidEmail(email) {
 
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
+    <script>
+          function scrollToSection() {
+            var pricingSection = document.getElementById('pricing-section');
+
+            if (pricingSection) {
+                pricingSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 
 </body><!-- End of .page_wrapper -->
 
