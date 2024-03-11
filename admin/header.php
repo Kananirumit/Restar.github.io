@@ -33,6 +33,7 @@
         <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo.png" alt="logo"
             style="width: 70px; height:35px;" /></a>
 </div>
+
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
