@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2024 at 06:28 AM
+-- Generation Time: Mar 11, 2024 at 12:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -31,10 +31,17 @@ CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `phone` int(10) NOT NULL,
+  `phone` text NOT NULL,
   `subject` varchar(25) NOT NULL,
   `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `username`, `email`, `phone`, `subject`, `message`) VALUES
+(2, 'kananirumit', 'kananirumit2003@gmail.com', '9106776464', 'ticket', 'error');
 
 -- --------------------------------------------------------
 
@@ -47,7 +54,7 @@ CREATE TABLE `register` (
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `gender` text NOT NULL,
-  `phone` int(10) NOT NULL,
+  `phone` text NOT NULL,
   `email` varchar(255) NOT NULL,
   `pass` text NOT NULL,
   `confirmpss` text NOT NULL
@@ -58,7 +65,8 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`guestId`, `fname`, `lname`, `gender`, `phone`, `email`, `pass`, `confirmpss`) VALUES
-(1, 'Rumit', 'Kanani', 'male', 91067, 'kananirumit2003@gmail.com', '12345', '12345');
+(1, 'Rumit', 'Kanani', 'male', '9106776464', 'kananirumit2003@gmail.com', '12345', '12345'),
+(2, 'henisha', 'desai', 'female', '9876576765', 'henishadesai2003@gmail.com', '123456', '123456');
 
 --
 -- Indexes for dumped tables
@@ -84,13 +92,13 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `guestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `guestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

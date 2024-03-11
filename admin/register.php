@@ -247,42 +247,6 @@ if (isset($_POST['delete'])) {
                             }
                           }
                           ?>
-
-                          <!-- <?php
-                          $select = "SELECT * FROM `register`";
-                          $result = $conn->query($select);
-
-                          while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <tr>
-                              <td>
-                                <?php echo $row['guestId'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['fname'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['lname'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['gender'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['phone'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['email'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['pass'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['confirmpss'] ?>
-                              </td>
-                            </tr>
-                            <?php
-                          }
-                          ?> -->
                         </thead>
                       </table>
                     </div>
