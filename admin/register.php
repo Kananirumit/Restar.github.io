@@ -202,37 +202,37 @@ if (isset($_POST['delete'])) {
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register == 0 || $register == 2 || $register == 5 ? '*' : $char;
+                                    return $register >=1 ? '*' : $char;
                                   }, str_split($row['fname']), array_keys(str_split($row['fname'])))); ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register == 0 || $register == 2 || $register == 5 ? '*' : $char;
+                                    return $register >=1 ? '*' : $char;
                                   }, str_split($row['lname']), array_keys(str_split($row['lname'])))); ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register == 0 || $register == 2 || $register == 5 ? '*' : $char;
+                                    return $register <=10? '*' : $char;
                                   }, str_split($row['gender']), array_keys(str_split($row['gender'])))); ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <= 3 || ($register >= 6 && $register <= 8) ? '*' : $char;
+                                    return $register == 2 || ($register >= 3 && $register <= 8) ? '*' : $char;
                                   }, str_split($row['phone']), array_keys(str_split($row['phone'])))); ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register == 1 || $register == 4 || $register == 5 || $register == 7 ? '*' : $char;
+                                    return $register <=10 ? '*' : $char;
                                   }, str_split($row['email']), array_keys(str_split($row['email'])))); ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <= 3 || ($register >= 6 && $register <= 8) ? '*' : $char;
+                                    return $register <=10 ? '*' : $char;
                                   }, str_split($row['pass']), array_keys(str_split($row['pass'])))); ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <= 3 || ($register >= 6 && $register <= 8) ? '*' : $char;
+                                    return $register <= 10 ? '*' : $char;
                                   }, str_split($row['confirmpss']), array_keys(str_split($row['confirmpss'])))); ?>
                                 </td>
                                 <td>
