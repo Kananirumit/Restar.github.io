@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2024 at 12:32 PM
+-- Generation Time: Mar 11, 2024 at 04:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -68,6 +68,26 @@ INSERT INTO `register` (`guestId`, `fname`, `lname`, `gender`, `phone`, `email`,
 (1, 'Rumit', 'Kanani', 'male', '9106776464', 'kananirumit2003@gmail.com', '12345', '12345'),
 (2, 'henisha', 'desai', 'female', '9876576765', 'henishadesai2003@gmail.com', '123456', '123456');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room`
+--
+
+CREATE TABLE `room` (
+  `id` int(11) NOT NULL,
+  `fname` text NOT NULL,
+  `lname` text NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `birthdate` date NOT NULL,
+  `city` text NOT NULL,
+  `phone` text NOT NULL,
+  `room` text NOT NULL,
+  `nroom` text NOT NULL,
+  `checkin` date NOT NULL,
+  `checkout` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -85,6 +105,12 @@ ALTER TABLE `register`
   ADD PRIMARY KEY (`guestId`);
 
 --
+-- Indexes for table `room`
+--
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -99,6 +125,12 @@ ALTER TABLE `contact`
 --
 ALTER TABLE `register`
   MODIFY `guestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `room`
+--
+ALTER TABLE `room`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

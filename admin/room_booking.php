@@ -1,3 +1,11 @@
+<?php
+
+include "../include/connect.php";
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,11 +132,14 @@
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <h1 style="text-transform: uppercase; font-size: 35px;">Personal INFORMATION</h1>
+                <h1 style="text-transform: uppercase; font-size: 35px;">Room Booking INFORMATION</h1>
                 <div class="table-responsive pt-3">
                   <table class="table table-bordered">
                   <thead>
                     <tr class="table-warning">
+                      <th>
+                        Room ID
+                      </th>
                       <th>
                         First name
                       </th>
@@ -139,56 +150,77 @@
                         Email
                       </th>
                       <th>
-                        Nationality
+                        Birth Date
                       </th>
                       <th>
-                        Passport Country
+                        City
                       </th>
                       <th>
-                        Phone Number
+                        Phone
+                      </th>
+                      <th>
+                        Room
+                      </th>
+                      <th>
+                        Number of Room
+                      </th>
+                      <th>
+                        CheckIn Date
+                      </th>
+                      <th>
+                        Checkout Date
                       </th>
                     </tr>
+                    <?php
+                    $select = "SELECT * FROM `room`";
+                    $result = $conn->query($select);
+
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                      <tr>
+                        <td>
+                          <?php echo $row['id'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['fname'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['lname'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['email'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['birthdate'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['city'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['phone'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['room'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['nroom'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['checkin'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['checkout'] ?>
+                        </td>
+                      </tr>
+                    <?php
+                    }
+                    ?>
                   </thead>
                 </table>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-12 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h1 style="text-transform: uppercase; font-size: 35px;">Booking Data</h1>
-              <div class="table-responsive pt-3">
-                <table class="table table-bordered">
-                <thead>
-                  <tr class="table-primary">
-                    <th>
-                      First name
-                    </th>
-                    <th>
-                      Last name
-                    </th>
-                    <th>
-                      Email
-                    </th>
-                    <th>
-                      Nationality
-                    </th>
-                    <th>
-                      Passport Country
-                    </th>
-                    <th>
-                      Phone Number
-                    </th>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.php --> 
         <!-- partial -->

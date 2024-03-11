@@ -1,3 +1,33 @@
+<?php
+
+include "./include/connect.php";
+
+
+if (isset($_POST['add'])) {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $birthdate = $_POST['birthdate'];
+    $city = $_POST['city'];
+    $phone = $_POST['phone'];
+    $room = $_POST['room'];
+    $nroom = $_POST['nroom'];
+    $checkin = $_POST['checkin'];
+    $checkout = $_POST['checkout'];
+
+
+    $insert = "INSERT INTO `room`(`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$nroom','$checkin','$checkout')";
+
+    $result = $conn->query($insert);
+
+    if ($result) {
+        header("location:index.php");
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -281,9 +311,6 @@
                         <div class="sec-title centred">
                             <h2>BOOK YOUR TICKET</h2>
                         </div>
-                        <div class="sec-title centred" style="text-transform: uppercase;">
-                            <h4>Personal information</h4>
-                        </div>
                         <div class="form-inner text-left">
                             <form method="post" action="" id="contact-form" class="default-form"
                                 novalidate="novalidate">
@@ -302,7 +329,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Email:</label>
-                                        <input type="text" class="form-control text-font" id="email" name="emial"
+                                        <input type="text" class="form-control text-font" id="email" name="email"
                                             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
                                             placeholder="Email">
                                         <div class="invalid-feedback invalid-feedback-email">Please enter a valid email
@@ -328,25 +355,21 @@
                                             placeholder="Enter your phone number" id="phone">
                                         <div class="invalid-feedback">Please enter your phone number.</div>
                                     </div>
-                                </div>
-                        </div>
-                        </form>
-                        <div class="sec-title centred" style="text-transform: uppercase;">
-                            <h4>Room Booking information</h4>
-                        </div>
-                        <div class="form-inner text-left">
-                            <form method="post" action="" id="contact-form" class="default-form"
-                                novalidate="novalidate">
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <label for="child" class="h6">Types Of room:</label>
-                                        <input type="text" class="form-control text-font" name="typeofroom" id="lname"
-                                            placeholder="Enter type of room">
-                                        <div class="invalid-feedback">Please enter type of room.</div>
+                                    <div class="col-lg-6  col-md-6 col-sm-12 form-group">
+                                        <label for="room">Choose Your Room:</label><br>
+                                        <select id="roomDropdown" class="form-control text-font" name="room" required=""
+                                            id="room">
+                                            <option value="Suite Room" name="room">Suite Room</option>
+                                            <option value="Family Room" name="room">Family Room</option>
+                                            <option value="Deluxe Room" name="room">Deluxe Room</option>
+                                            <option value="Classic Room" name="room">Classic Room</option>
+                                            <option value="Superior Room" name="room">Superior Room</option>
+                                            <option value="Luxury Room" name="room">Luxury Room</option>
+                                        </select>
                                     </div>
                                     <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Number of room:</label>
-                                        <input type="text" class="form-control text-font" required="" name="number of room"
+                                        <input type="text" class="form-control text-font" required="" name="nroom"
                                             placeholder="Enter number of room" id="number of room">
                                         <div class="invalid-feedback">Please enter number of room.</div>
                                     </div>
@@ -356,7 +379,8 @@
                                             <input type="date" class="form-control text-font" id="inDate"
                                                 name="checkin">
                                         </div>
-                                        <div class="invalid-feedback invalid-feedback-date">Please select check in date.</div>
+                                        <div class="invalid-feedback invalid-feedback-date">Please select check in date.
+                                        </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check out date:</label>
@@ -364,10 +388,12 @@
                                             <input type="date" class="form-control text-font" id="outDate"
                                                 name="checkout">
                                         </div>
-                                        <div class="invalid-feedback invalid-feedback-date">Please select check out date.</div>
+                                        <div class="invalid-feedback invalid-feedback-date">Please select check out
+                                            date.</div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                        <button class="theme-btn btn-one" name="add" id="buy" onclick="validateForm()">Book your Room</button>
+                                        <button class="theme-btn btn-one" name="add" id="buy"
+                                            onclick="validateForm()">Book your Room</button>
                                     </div>
                                 </div>
                         </div>
@@ -379,81 +405,81 @@
     </section>
     <!--Ticket booking end-->
     <script>
-function validateForm() {
-    // Personal Information Form Validation
-    var firstName = document.getElementById('fname').value;
-    var lastName = document.getElementById('lname').value;
-    var email = document.getElementById('email').value;
-    var birthdate = document.getElementById('txtDate').value;
-    var city = document.getElementById('city').value;
-    var phone = document.getElementById('phone').value;
+        function validateForm() {
+            // Personal Information Form Validation
+            var firstName = document.getElementById('fname').value;
+            var lastName = document.getElementById('lname').value;
+            var email = document.getElementById('email').value;
+            var birthdate = document.getElementById('txtDate').value;
+            var city = document.getElementById('city').value;
+            var phone = document.getElementById('phone').value;
 
-    if (firstName === "") {
-        alert("Please enter your first name.");
-        return false;
-    }
+            if (firstName === "") {
+                alert("Please enter your first name.");
+                return false;
+            }
 
-    if (lastName === "") {
-        alert("Please enter your last name.");
-        return false;
-    }
+            if (lastName === "") {
+                alert("Please enter your last name.");
+                return false;
+            }
 
-    if (email === "" || !isValidEmail(email)) {
-        alert("Please enter a valid email address.");
-        return false;
-    }
+            if (email === "" || !isValidEmail(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
 
-    if (birthdate === "") {
-        alert("Please select a date of birth.");
-        return false;
-    }
+            if (birthdate === "") {
+                alert("Please select a date of birth.");
+                return false;
+            }
 
-    if (city === "") {
-        alert("Please enter your city name.");
-        return false;
-    }
+            if (city === "") {
+                alert("Please enter your city name.");
+                return false;
+            }
 
-    if (phone === "") {
-        alert("Please enter your phone number.");
-        return false;
-    }
+            if (phone === "") {
+                alert("Please enter your phone number.");
+                return false;
+            }
 
-    // Room Booking Information Form Validation
-    var roomType = document.getElementById('roomType').value;
-    var numberOfRooms = document.getElementById('numberOfRooms').value;
-    var checkInDate = document.getElementById('inDate').value;
-    var checkOutDate = document.getElementById('outDate').value;
+            // Room Booking Information Form Validation
+            var roomType = document.getElementById('roomType').value;
+            var numberOfRooms = document.getElementById('numberOfRooms').value;
+            var checkInDate = document.getElementById('inDate').value;
+            var checkOutDate = document.getElementById('outDate').value;
 
-    if (roomType === "") {
-        alert("Please enter the type of room.");
-        return false;
-    }
+            if (roomType === "") {
+                alert("Please enter the type of room.");
+                return false;
+            }
 
-    if (numberOfRooms === "") {
-        alert("Please enter the number of rooms.");
-        return false;
-    }
+            if (numberOfRooms === "") {
+                alert("Please enter the number of rooms.");
+                return false;
+            }
 
-    if (checkInDate === "") {
-        alert("Please select a check-in date.");
-        return false;
-    }
+            if (checkInDate === "") {
+                alert("Please select a check-in date.");
+                return false;
+            }
 
-    if (checkOutDate === "") {
-        alert("Please select a check-out date.");
-        return false;
-    }
+            if (checkOutDate === "") {
+                alert("Please select a check-out date.");
+                return false;
+            }
 
-    // If all validations pass, you can submit the form
-    document.getElementById('contact-form').submit();
-}
+            // If all validations pass, you can submit the form
+            document.getElementById('contact-form').submit();
+        }
 
-function isValidEmail(email) {
-    // You can use a regular expression for basic email validation
-    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailRegex.test(email);
-}
-</script>
+        function isValidEmail(email) {
+            // You can use a regular expression for basic email validation
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailRegex.test(email);
+        }
+    </script>
 
 
     <!-- video-section -->
@@ -499,7 +525,7 @@ function isValidEmail(email) {
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
     <script>
-          function scrollToSection() {
+        function scrollToSection() {
             var pricingSection = document.getElementById('pricing-section');
 
             if (pricingSection) {
