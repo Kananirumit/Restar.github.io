@@ -201,23 +201,17 @@ if (isset($_POST['delete'])) {
                                   <?php echo $row['guestId']; ?>
                                 </td>
                                 <td>
-                                  <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register >= 1 ? '*' : $char;
-                                  }, str_split($row['fname']), array_keys(str_split($row['fname'])))); ?>
+                                  <?php echo $row['fname'];?>
+                                </td>
+                                <td>
+                                  <?php echo $row['lname'];?>
+                                </td>
+                                <td>
+                                  <?php echo $row['gender'];?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register >= 1 ? '*' : $char;
-                                  }, str_split($row['lname']), array_keys(str_split($row['lname'])))); ?>
-                                </td>
-                                <td>
-                                  <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <= 10 ? '*' : $char;
-                                  }, str_split($row['gender']), array_keys(str_split($row['gender'])))); ?>
-                                </td>
-                                <td>
-                                  <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register == 2 || ($register >= 3 && $register <= 8) ? '*' : $char;
+                                    return $register == 1 || ($register >= 1 && $register <= 7) ? '*' : $char;
                                   }, str_split($row['phone']), array_keys(str_split($row['phone'])))); ?>
                                 </td>
                                 <td>
