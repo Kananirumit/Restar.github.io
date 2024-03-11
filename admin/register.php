@@ -202,17 +202,17 @@ if (isset($_POST['delete'])) {
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register >=1 ? '*' : $char;
+                                    return $register >= 1 ? '*' : $char;
                                   }, str_split($row['fname']), array_keys(str_split($row['fname'])))); ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register >=1 ? '*' : $char;
+                                    return $register >= 1 ? '*' : $char;
                                   }, str_split($row['lname']), array_keys(str_split($row['lname'])))); ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <=10? '*' : $char;
+                                    return $register <= 10 ? '*' : $char;
                                   }, str_split($row['gender']), array_keys(str_split($row['gender'])))); ?>
                                 </td>
                                 <td>
@@ -221,13 +221,16 @@ if (isset($_POST['delete'])) {
                                   }, str_split($row['phone']), array_keys(str_split($row['phone'])))); ?>
                                 </td>
                                 <td>
-                                  <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <=10 ? '*' : $char;
-                                  }, str_split($row['email']), array_keys(str_split($row['email'])))); ?>
+                                  <?php
+                                  $emailParts = explode('@', $row['email']);
+                                  $firstChar = substr($emailParts[0], 0, 1);
+                                  $maskedEmail = $firstChar . str_repeat('*', strlen($emailParts[0]) - 1) . '@' . $emailParts[1];
+                                  echo $maskedEmail;
+                                  ?>
                                 </td>
                                 <td>
                                   <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <=10 ? '*' : $char;
+                                    return $register <= 10 ? '*' : $char;
                                   }, str_split($row['pass']), array_keys(str_split($row['pass'])))); ?>
                                 </td>
                                 <td>
