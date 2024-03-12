@@ -16,12 +16,12 @@ if (isset($_POST['add'])) {
     $checkout = $_POST['checkout'];
 
 
-    $insert = "INSERT INTO `room`(`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$nroom','$checkin','$checkout')";
+    $insert = "INSERT INTO `room`(`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$room','$nroom','$checkin','$checkout')";
 
     $result = $conn->query($insert);
 
     if ($result) {
-        header("location:index.php");
+        header("location:card.php");
     }
 }
 
@@ -319,13 +319,13 @@ if (isset($_POST['add'])) {
                                         <label for="child" class="h6">First Name:</label>
                                         <input type="text" class="form-control text-font" name="fname" id="fname"
                                             placeholder="Name">
-                                        <div class="invalid-feedback">Please enter your name.</div>
+                                        <div class="invalid-feedback invalid-feedback-text">Please enter your name.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Last Name:</label>
                                         <input type="text" class="form-control text-font" name="lname" id="lname"
                                             placeholder="Name">
-                                        <div class="invalid-feedback">Please enter your name.</div>
+                                        <div class="invalid-feedback invalid-feedback-text">Please enter your name.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Email:</label>
@@ -353,10 +353,10 @@ if (isset($_POST['add'])) {
                                         <label for="child" class="h6">Phone:</label>
                                         <input type="text" class="form-control text-font" required="" name="phone"
                                             placeholder="Enter your phone number" id="phone">
-                                        <div class="invalid-feedback">Please enter your phone number.</div>
+                                        <div class="invalid-feedback invalid-feedback-text">Please enter your phone number.</div>
                                     </div>
                                     <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                        <label for="room">Choose Your Room:</label><br>
+                                        <label for="room" class="h6">Choose Your Room:</label><br>
                                         <select id="roomDropdown" class="form-control text-font" name="room" required=""
                                             id="room">
                                             <option value="Suite Room" name="room">Suite Room</option>
@@ -371,7 +371,7 @@ if (isset($_POST['add'])) {
                                         <label for="child" class="h6">Number of room:</label>
                                         <input type="text" class="form-control text-font" required="" name="nroom"
                                             placeholder="Enter number of room" id="number of room">
-                                        <div class="invalid-feedback">Please enter number of room.</div>
+                                        <div class="invalid-feedback invalid-feedback-text">Please enter number of room.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check in date:</label>
