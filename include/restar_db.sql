@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2024 at 08:08 AM
+-- Generation Time: Mar 12, 2024 at 03:33 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `restar_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `card`
+--
+
+CREATE TABLE `card` (
+  `id` int(11) NOT NULL,
+  `cardno` text NOT NULL,
+  `cardname` varchar(50) NOT NULL,
+  `cardemail` varchar(50) NOT NULL,
+  `cardmonth` enum('01','02','03','04','05','06','07','08','09','10','11','12') NOT NULL,
+  `cardyear` year(4) NOT NULL,
+  `cvv` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `card`
+--
+
+INSERT INTO `card` (`id`, `cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES
+(1, '9868568568568568568', 'rushit chovatiya', ' rushit@gmail.com', '03', '2026', 9856);
 
 -- --------------------------------------------------------
 
@@ -90,15 +113,14 @@ CREATE TABLE `room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `room`
---
-
-INSERT INTO `room` (`id`, `fname`, `lname`, `email`, `birthdate`, `city`, `phone`, `room`, `nroom`, `totalprice`, `checkin`, `checkout`) VALUES
-(7, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Luxury Room', '5', '₹150000', '2024-03-14', '2024-03-24');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `card`
+--
+ALTER TABLE `card`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contact`
@@ -123,6 +145,12 @@ ALTER TABLE `room`
 --
 
 --
+-- AUTO_INCREMENT for table `card`
+--
+ALTER TABLE `card`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
@@ -138,7 +166,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
