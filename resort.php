@@ -57,6 +57,46 @@ if (isset($_POST['add'])) {
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
 
+
+    <script>
+        function updateRoomPrice() {
+            var roomDropdown = document.getElementById('roomDropdown');
+            var priceDisplay = document.getElementById('roomPrice');
+
+            var selectedRoom = roomDropdown.options[roomDropdown.selectedIndex].value;
+
+            // Set room prices based on the selected room type
+            var roomPrices = {
+                'Suite Room': 4500,
+                'Family Room': 10000,
+                'Deluxe Room': 18000,
+                'Classic Room': 13000,
+                'Superior Room': 22000,
+                'Luxury Room': 30000
+            };
+
+            // Display the price for the selected room type
+            priceDisplay.innerHTML = '₹' + roomPrices[selectedRoom] + ' per night';
+
+            // Call the function to update the total price when the number of rooms changes
+            updateTotalPrice();
+        }
+
+        // Function to update the total price based on the number of rooms
+        function updateTotalPrice() {
+            var roomPrice = document.getElementById('roomPrice').innerText;
+            var numberOfRooms = document.getElementById('number-of-rooms').value;
+
+            // Extract the numerical value from the room price
+            var roomPriceValue = parseInt(roomPrice.replace(/[^\d]/g, ''), 10);
+
+            // Calculate the total price
+            var totalPrice = roomPriceValue * parseInt(numberOfRooms, 10);
+
+            // Display the total price
+            document.getElementById('totalPrice').innerText = '₹' + totalPrice;
+        }
+    </script>
 </head>
 
 
@@ -149,7 +189,8 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 1</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one"  onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one"
+                                                    onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -172,7 +213,8 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 1</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one"
+                                                    onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -195,7 +237,8 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 2</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one"
+                                                    onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -218,7 +261,8 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 2</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one"
+                                                    onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -241,7 +285,8 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 3</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one"
+                                                    onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -263,7 +308,8 @@ if (isset($_POST['add'])) {
                                                 <li><span>Bed:</span> 2</li>
                                             </ul>
                                             <hr>
-                                            <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                            <a href="#pricing-section" class="theme-btn btn-one"
+                                                onclick="scrollToSection()">Book ticket</a>
                                         </div>
                                     </div>
                                 </div>
@@ -363,7 +409,7 @@ if (isset($_POST['add'])) {
                                     <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                         <label for="room" class="h6">Choose Your Room:</label><br>
                                         <select id="roomDropdown" class="form-control text-font" name="room" required=""
-                                            id="room">
+                                            onchange="updateRoomPrice()">
                                             <option value="Suite Room" name="room">Suite Room</option>
                                             <option value="Family Room" name="room">Family Room</option>
                                             <option value="Deluxe Room" name="room">Deluxe Room</option>
@@ -372,11 +418,40 @@ if (isset($_POST['add'])) {
                                             <option value="Luxury Room" name="room">Luxury Room</option>
                                         </select>
                                     </div>
+<<<<<<< Updated upstream
                                     <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Number of room:</label>
                                         <input type="text" class="form-control text-font" required="" name="nroom"
                                             placeholder="Enter number of room" id="number of room">
                                         <div class="invalid-feedback invalid-feedback-text">Please enter number of room.</div>
+=======
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="room" class="h6">Room Price:</label>
+                                        <p id="roomPrice">₹4500 per 2 night</p>
+                                    </div>
+
+                                    <!-- Modify the PHP code to calculate the total price -->
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Number of rooms:</label>
+                                        <div class="input-group">
+                                            <button type="button"
+                                                class="btn btn-warning d-flex align-items-center text-font"
+                                                onclick="decrementRooms()">-</button>
+                                            <input type="text" class="form-control text-font" required="" name="nroom"
+                                                id="number-of-rooms" placeholder="Enter number of rooms"
+                                                onchange="updateTotalPrice()" value="1">
+                                            <button type="button"
+                                                class="btn btn-warning d-flex align-items-center text-font"
+                                                onclick="incrementRooms()">+</button>
+                                        </div>
+                                        <div class="invalid-feedback">Please enter number of rooms.</div>
+                                    </div>
+
+                                    <!-- Add this to display the total price -->
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="room" class="h6">Total Price:</label>
+                                        <p class="form-control d-flex align-items-center" id="totalPrice">₹4500</p>
+>>>>>>> Stashed changes
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check in date:</label>
@@ -397,9 +472,10 @@ if (isset($_POST['add'])) {
                                             date.</div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                        <button class="theme-btn btn-one" name="add" id="buy"
-                                            onclick="validateForm()">Book your Room</button>
+                                        <button class="theme-btn btn-one" name="add" id="add"
+                                            onclick="validateForm(); updateTotalPrice();">Book your Room</button>
                                     </div>
+
                                 </div>
                         </div>
                         </form>
@@ -409,6 +485,23 @@ if (isset($_POST['add'])) {
     </div>
     </section>
     <!--Ticket booking end-->
+    <script>
+        // Function to increment the number of rooms
+        function incrementRooms() {
+            var numberOfRooms = document.getElementById('number-of-rooms');
+            numberOfRooms.value = parseInt(numberOfRooms.value, 10) + 1;
+            updateTotalPrice();
+        }
+
+        // Function to decrement the number of rooms (minimum value is 1)
+        function decrementRooms() {
+            var numberOfRooms = document.getElementById('number-of-rooms');
+            if (parseInt(numberOfRooms.value, 10) > 1) {
+                numberOfRooms.value = parseInt(numberOfRooms.value, 10) - 1;
+                updateTotalPrice();
+            }
+        }
+    </script>
     <script>
         function validateForm() {
             // Personal Information Form Validation
