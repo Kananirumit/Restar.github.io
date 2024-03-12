@@ -149,7 +149,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 1</li>
                                                 </ul>
                                                 <hr>
-                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one"  onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -172,7 +172,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 1</li>
                                                 </ul>
                                                 <hr>
-                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -195,7 +195,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 2</li>
                                                 </ul>
                                                 <hr>
-                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -218,7 +218,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 2</li>
                                                 </ul>
                                                 <hr>
-                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -241,7 +241,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 3</li>
                                                 </ul>
                                                 <hr>
-                                                <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -263,7 +263,7 @@ if (isset($_POST['add'])) {
                                                 <li><span>Bed:</span> 2</li>
                                             </ul>
                                             <hr>
-                                            <a class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
+                                            <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                         </div>
                                     </div>
                                 </div>
@@ -312,7 +312,7 @@ if (isset($_POST['add'])) {
                             <h2>BOOK YOUR TICKET</h2>
                         </div>
                         <div class="form-inner text-left">
-                            <form method="post" action="" id="contact-form" class="default-form"
+                            <form method="post" action="" id="booking-form" class="default-form"
                                 novalidate="novalidate">
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
@@ -320,12 +320,17 @@ if (isset($_POST['add'])) {
                                         <input type="text" class="form-control text-font" name="fname" id="fname"
                                             placeholder="Name">
                                         <div class="invalid-feedback invalid-feedback-text">Please enter your name.</div>
+                                            placeholder="First Name">
+                                        <div class="invalid-feedback">Please enter your name.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Last Name:</label>
                                         <input type="text" class="form-control text-font" name="lname" id="lname"
                                             placeholder="Name">
                                         <div class="invalid-feedback invalid-feedback-text">Please enter your name.</div>
+                                            placeholder="Last Name">
+                                        <div class="invalid-feedback">Please enter your name.</div>
+
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Email:</label>
@@ -338,7 +343,7 @@ if (isset($_POST['add'])) {
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Date of Birth:</label>
                                         <div class="input-group">
-                                            <input type="date" class="form-control text-font" id="txtDate"
+                                            <input type="date" class="form-control text-font" id="birthdate"
                                                 name="birthdate">
                                         </div>
                                         <div class="invalid-feedback invalid-feedback-date">Please select a date.</div>
@@ -376,7 +381,7 @@ if (isset($_POST['add'])) {
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check in date:</label>
                                         <div class="input-group">
-                                            <input type="date" class="form-control text-font" id="inDate"
+                                            <input type="date" class="form-control text-font" id="checkin"
                                                 name="checkin">
                                         </div>
                                         <div class="invalid-feedback invalid-feedback-date">Please select check in date.
@@ -385,7 +390,7 @@ if (isset($_POST['add'])) {
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check out date:</label>
                                         <div class="input-group">
-                                            <input type="date" class="form-control text-font" id="outDate"
+                                            <input type="date" class="form-control text-font" id="checkout"
                                                 name="checkout">
                                         </div>
                                         <div class="invalid-feedback invalid-feedback-date">Please select check out
@@ -480,25 +485,6 @@ if (isset($_POST['add'])) {
             return emailRegex.test(email);
         }
     </script>
-
-
-    <!-- video-section -->
-    <section class="video-section centred">
-        <div class="img-wrap parallax-demo-1">
-            <div class="parallax-inner back-img"
-                style="background-image: url(assets/images/gallery/resort/image_6.jpg);"></div>
-        </div>
-        <div class="auto-container">
-            <div class="inner-box">
-                <div class="video-btn">
-                    <a href="https://youtu.be/QhWW0OrFkoQ?si=8cM2h7OlURZHzLSk" class="lightbox-image" data-caption=""><i
-                            class="fas fa-play"></i></a>
-                </div>
-                <h2>ready to view<br />best see side</h2>
-            </div>
-        </div>
-    </section><br><br>
-    <!-- video-section end -->
     <?php
     include "footer.php";
     ?>
