@@ -99,7 +99,7 @@ if (isset($_POST['add'])) {
         }
     </script>
     <style>
-        <style>.error-container {
+        .error-container {
             color: red;
             margin-bottom: 10px;
         }
@@ -114,7 +114,6 @@ if (isset($_POST['add'])) {
         .error-message {
             margin: 5px 0;
         }
-    </style>
     </style>
 </head>
 
@@ -501,6 +500,41 @@ if (isset($_POST['add'])) {
     <!--Ticket booking end-->
 
     <script>
+        // date valiation
+        $(function(updatedate) {
+                var dtToday = new Date();
+
+                var month = dtToday.getMonth() + 1;
+                var day = dtToday.getDate();
+                var year = dtToday.getFullYear();
+                if (month < 10)
+                    month = '0' + month.toString();
+                if (day < 10)
+                    day = '0' + day.toString();
+
+                var minDate = year + '-' + month + '-' + day;
+
+                $('#checkin').attr('min', minDate);
+                $('#checkout').attr('min', minDate);
+            });
+
+            // date rev validation
+            $(function(updatedate) {
+                var dtToday = new Date();
+
+                var month = dtToday.getMonth() + 1;
+                var day = dtToday.getDate();
+                var year = dtToday.getFullYear();
+                if (month < 10)
+                    month = '0' + month.toString();
+                if (day < 10)
+                    day = '0' + day.toString();
+
+                var maxDate = year + '-' + month + '-' + day;
+
+                $('#birthdate').attr('max', maxDate);
+            });
+
         // Function to increment the number of rooms
         function incrementRooms() {
             var numberOfRooms = document.getElementById('number-of-rooms');

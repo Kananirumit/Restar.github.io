@@ -1,3 +1,8 @@
+<?php
+
+include "../include/connect.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,11 +131,17 @@
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <h1 style="text-transform: uppercase; font-size: 35px;">Payment Data</h1>
+                <h1 style="text-transform: uppercase; font-size: 35px;">Room Payment Data</h1>
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead class="table-secondary">
                   <tr>
+                    <th>
+                      Card ID
+                    </th>
+                    <th>
+                      Card Number
+                    </th>
                     <th>
                       Card Holder Name
                     </th>
@@ -138,14 +149,46 @@
                       Email
                     </th>
                     <th>
-                      Card number
+                      Month
                     </th>
                     <th>
-                      expiry
+                      Year
                     </th>
                     <th>
                       cvv number
                     </th>
+                  </tr>
+                  <?php
+                    $select = "SELECT * FROM `card`";
+                    $result = $conn->query($select);
+
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                      <tr>
+                        <td>
+                          <?php echo $row['id'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['cardno'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['cardname'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['cardemail'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['cardmonth'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['cardyear'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['cvv'] ?>
+                        </td>
+                    <?php
+                    }
+                    ?>
                   </thead>
                 </table>
               </div>

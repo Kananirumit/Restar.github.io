@@ -1,3 +1,28 @@
+<?php
+
+include "./include/connect.php";
+
+
+if (isset($_POST['pay'])) {
+    $cardno = $_POST['cardnumber'];
+    $cardname = $_POST['cardname'];
+    $email = $_POST['email'];
+    $month = $_POST['month'];
+    $year = $_POST['year'];
+    $cvv = $_POST['cvv'];
+
+
+    $insert = "INSERT INTO `card`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES ('$cardno','$cardname',' $email','$month','$year','$cvv')";
+
+    $result = $conn->query($insert);
+
+    if ($result) {
+        header("location:popup.php");
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +30,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
+    <link rel="icon" href="./assets/images/amusement-park.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <style>
@@ -733,46 +764,112 @@
                     </div>
                 </div>
             </div>
-            <div class="card-form__inner">
-                <div class="card-input">
-                    <label for="cardName" class="card-input__label">Card Holders</label>
-                    <input type="text" id="cardName" class="card-input__input" v-model="cardName" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
-                </div>
-                <div class="card-input">
-                    <label for="cardNumber" class="card-input__label">Card Number</label>
-                    <input type="text" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask" v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber" autocomplete="off">
-                </div>
-                <div class="card-input">
-                    <label for="email" class="card-input__label">Email</label>
-                    <input type="email" id="email" class="card-input__input" autocomplete="off">
-                </div>
-                <div class="card-form__row">
-                    <div class="card-form__col">
-                        <div class="card-form__group">
-                            <label for="cardMonth" class="card-input__label">Expiration Date</label>
-                            <select class="card-input__input -select" id="cardYear" v-model="cardYear" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
-                                <option value="" disabled selected>Year</option>
-                                <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12" v-bind:key="n">
-                                    {{$index + minCardYear}}
-                                </option>
-                            </select>
+            <form action="" method="POST" onsubmit="return validateForm()">
+                <div class="card-form__inner" id="cardFormApp">
+                    <div class="card-input">
+                        <label for="cardNumber" class="card-input__label">Card Number</label>
+                        <input type="number" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask" v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber" autocomplete="off" name="cardnumber" oninput="limitCardNumberLength(this)">
+                    </div>
+                    <div class="card-input">
+                        <label for="cardName" class="card-input__label">Card Holders</label>
+                        <input type="text" id="cardName" class="card-input__input" v-model="cardName" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off" name="cardname">
+                    </div>
+                    <div class="card-input">
+                        <label for="email" class="card-input__label">Email</label>
+                        <input type="email" id="email" class="card-input__input" autocomplete="off" name="email">
+                    </div>
+                    <div class="card-form__row">
+                        <div class="card-form__col">
+                            <div class="card-form__group">
+                                <label for="cardMonth" class="card-input__label">Expiration Date</label>
+                                <select class="card-input__input -select" id="cardMonth" v-model="cardMonth" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate" name="month">
+                                    <option value="" disabled selected>Month</option>
+                                    <option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12" v-bind:disabled="n < minCardMonth" v-bind:key="n">
+                                        {{n < 10 ? '0' + n : n}}
+                                    </option>
+                                </select>
+                                <select class="card-input__input -select" id="cardYear" v-model="cardYear" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate" name="year">
+                                    <option value="" disabled selected>Year</option>
+                                    <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12" v-bind:key="n">
+                                        {{$index + minCardYear}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-form__col -cvv">
+                            <div class="card-input">
+                                <label for="cardCvv" class="card-input__label">CVV</label>
+                                <input type="number" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4" v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)" autocomplete="off" name="cvv" oninput="limitCardcvvLength(this)">
+                            </div>
                         </div>
                     </div>
-                    <div class="card-form__col -cvv">
-                        <div class="card-input">
-                            <label for="cardCvv" class="card-input__label">CVV</label>
-                            <input type="text" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4" v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
 
-                <button class="card-form__button">
-                    Submit
-                </button>
-            </div>
+                    <button class="card-form__button" name="pay">
+                        Pay Now
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
     <script>
+        //number validation
+        function limitCardNumberLength(input) {
+        // Get the current value of the input
+        let cardNumber = input.value;
+
+        // Limit the input to a maximum of 16 digits
+        if (cardNumber.length > 19) {
+            input.value = cardNumber.slice(0, 19);
+        }
+    }
+    function limitCardcvvLength(input) {
+        // Get the current value of the input
+        let cardNumber = input.value;
+
+        // Limit the input to a maximum of 16 digits
+        if (cardNumber.length > 4) {
+            input.value = cardNumber.slice(0, 4);
+        }
+    }
+        // validation
+        function validateForm() {
+            var cardNumber = document.getElementById('cardNumber').value.trim();
+            var cardName = document.getElementById('cardName').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var cardMonth = document.getElementById('cardMonth').value.trim();
+            var cardYear = document.getElementById('cardYear').value.trim();
+            var cardCvv = document.getElementById('cardCvv').value.trim();
+
+            // Check each field individually
+            if (cardNumber === '' || cardName === '' || email === '' || cardMonth === '' || cardYear === '' || cardCvv === '') {
+                alert('Please fill in all the fields before submitting.');
+                return false;
+            }
+
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            // Perform additional validation checks if needed
+
+            // If all validations pass, the form will be submitted
+            return true;
+        }
+
+        // function validateAndSubmit() {
+        //     var cardNumber = document.getElementById('cardNumber').value;
+        //     var cardName = document.getElementById('cardName').value;
+        //     var cardMonth = document.getElementById('cardMonth').value;
+        //     var cardYear = document.getElementById('cardYear').value;
+        //     var cardCvv = document.getElementById('cardCvv').value;
+
+        //     if (!cardNumber || !cardName || !cardMonth || !cardYear || !cardCvv) {
+        //         alert('Please fill in all fields.');
+        //         return;
+        //     }
+
+        //     // Add additional validation logic as needed, e.g., for cardNumber format, expiration date, etc.
+
+        //     // If all fields are valid, proceed with form submission logic
+        //     alert('Form submitted successfully!');
+        // }
         /*
 See on github: https://github.com/muhammederdem/credit-card-form
 */
