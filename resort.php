@@ -418,13 +418,6 @@ if (isset($_POST['add'])) {
                                             <option value="Luxury Room" name="room">Luxury Room</option>
                                         </select>
                                     </div>
-<<<<<<< Updated upstream
-                                    <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                        <label for="child" class="h6">Number of room:</label>
-                                        <input type="text" class="form-control text-font" required="" name="nroom"
-                                            placeholder="Enter number of room" id="number of room">
-                                        <div class="invalid-feedback invalid-feedback-text">Please enter number of room.</div>
-=======
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="room" class="h6">Room Price:</label>
                                         <p id="roomPrice">₹4500 per 2 night</p>
@@ -451,7 +444,6 @@ if (isset($_POST['add'])) {
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="room" class="h6">Total Price:</label>
                                         <p class="form-control d-flex align-items-center" id="totalPrice">₹4500</p>
->>>>>>> Stashed changes
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check in date:</label>
