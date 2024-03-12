@@ -132,7 +132,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 single-column">
                             <div class="single-item">
                                 <div class="icon-box"><i class="flaticon-calendar"></i></div>
-                                <h5><a href="roombook.php">book room</a></h5>
+                                <h5><a href="resort.php">book room</a></h5>
                                 <p>Join us at Restar Amusement Park for an adventure-packed season of fun and discovery.</p>
                             </div>
                         </div>
