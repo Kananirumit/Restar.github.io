@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2024 at 04:19 PM
+-- Generation Time: Mar 12, 2024 at 07:04 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -84,9 +84,18 @@ CREATE TABLE `room` (
   `phone` text NOT NULL,
   `room` text NOT NULL,
   `nroom` text NOT NULL,
+  `totalprice` text NOT NULL,
   `checkin` date NOT NULL,
   `checkout` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`id`, `fname`, `lname`, `email`, `birthdate`, `city`, `phone`, `room`, `nroom`, `totalprice`, `checkin`, `checkout`) VALUES
+(1, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Luxury Room', '5', '150000', '2024-03-22', '2024-03-29'),
+(3, 'henisha', 'desai', 'ok@yopmail.com', '1992-05-21', 'Surat', '9876576765', 'Classic Room', '4', '0', '2024-03-22', '2024-03-29');
 
 --
 -- Indexes for dumped tables
@@ -130,7 +139,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

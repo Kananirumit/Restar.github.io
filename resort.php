@@ -12,11 +12,12 @@ if (isset($_POST['add'])) {
     $phone = $_POST['phone'];
     $room = $_POST['room'];
     $nroom = $_POST['nroom'];
+    $totalprice = $_POST['totalprice'];
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
 
 
-    $insert = "INSERT INTO `room`(`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$room','$nroom','$checkin','$checkout')";
+    $insert = "INSERT INTO `room`(`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`totalprice`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$room','$nroom','$totalprice','$checkin','$checkout')";
 
     $result = $conn->query($insert);
 
@@ -364,17 +365,15 @@ if (isset($_POST['add'])) {
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">First Name:</label>
                                         <input type="text" class="form-control text-font" name="fname" id="fname"
-                                            placeholder="Name">
-                                        <div class="invalid-feedback invalid-feedback-text">Please enter your name.</div>
                                             placeholder="First Name">
+                                     
                                         <div class="invalid-feedback">Please enter your name.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Last Name:</label>
                                         <input type="text" class="form-control text-font" name="lname" id="lname"
-                                            placeholder="Name">
-                                        <div class="invalid-feedback invalid-feedback-text">Please enter your name.</div>
                                             placeholder="Last Name">
+                                        
                                         <div class="invalid-feedback">Please enter your name.</div>
 
                                     </div>
@@ -420,7 +419,7 @@ if (isset($_POST['add'])) {
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="room" class="h6">Room Price:</label>
-                                        <p id="roomPrice">₹4500 per 2 night</p>
+                                        <p id="roomPrice">₹4500 per two night</p>
                                     </div>
 
                                     <!-- Modify the PHP code to calculate the total price -->
@@ -443,7 +442,7 @@ if (isset($_POST['add'])) {
                                     <!-- Add this to display the total price -->
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="room" class="h6">Total Price:</label>
-                                        <p class="form-control d-flex align-items-center" id="totalPrice">₹4500</p>
+                                        <p class="form-control d-flex align-items-center" name="totalprice" id="totalPrice">₹4500</p>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check in date:</label>

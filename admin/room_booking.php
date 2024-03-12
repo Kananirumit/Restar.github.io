@@ -165,6 +165,9 @@ include "../include/connect.php";
                         Number of Room
                       </th>
                       <th>
+                        TotalPrice
+                      </th>
+                      <th>
                         CheckIn Date
                       </th>
                       <th>
@@ -204,6 +207,9 @@ include "../include/connect.php";
                         </td>
                         <td>
                           <?php echo $row['nroom'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['totalprice'] ?>
                         </td>
                         <td>
                           <?php echo $row['checkin'] ?>
