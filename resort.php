@@ -504,6 +504,24 @@ if (isset($_POST['add'])) {
     }
 </script>
     <script>
+        // date valiation
+            $(function(updatedate) {
+                var dtToday = new Date();
+
+                var month = dtToday.getMonth() + 1;
+                var day = dtToday.getDate();
+                var year = dtToday.getFullYear();
+                if (month < 10)
+                    month = '0' + month.toString();
+                if (day < 10)
+                    day = '0' + day.toString();
+
+                var minDate = year + '-' + month + '-' + day;
+
+                $('#checkin').attr('min', minDate);
+                $('#checkout').attr('min', minDate);
+            });
+
         function validateForm() {
             // Personal Information Form Validation
             var firstName = document.getElementById('fname').value;
