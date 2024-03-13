@@ -42,7 +42,7 @@ if (isset($_GET['id']) && isset($_GET['cardno']) && isset($_GET['cardname']) && 
 
 <body>
     <div class="container mx-5 mt-5">
-        <h1 class="display-4 text-center fw-bolder text-primary">Room Booking Payment Details</h1>
+        <h1 class="display-4 text-center fw-bolder text-primary">Ticket Booking Payment Details</h1>
         <br>
         <table class="table table-bordered">
             <tr>
