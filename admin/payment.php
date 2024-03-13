@@ -27,206 +27,253 @@ include "../include/connect.php";
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
 </head>
+
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.php -->
+
     <body>
-  <div class="container-scroller">
-    <!-- partial:partials/_navbar.php -->
-    <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo"
-            style="width: 85px; height:40px;" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo.png" alt="logo"
-            style="width: 70px; height:35px;" /></a>
-</div>
+      <div class="container-scroller">
+        <!-- partial:partials/_navbar.php -->
+        <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo"
+                style="width: 85px; height:40px;" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo.png" alt="logo"
+                style="width: 70px; height:35px;" /></a>
+          </div>
 
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
-        </button>
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="fullscreen">
-              <i class="fa-solid fa-expand" style=""></i>
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="icon-menu"></span>
             </button>
-          </li>
-          <li class="nav-item dropdown">
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile" />
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-            data-toggle="offcanvas">
-            <span class="icon-menu"></span>
-          </button>
-        </ul>
-      </div>
-    </nav>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_settings-panel.php -->
-
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.php -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">
-              <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="register.php">
-              <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Registration Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Room_booking.php">
-              <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Room Booking Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Ticket_booking.php">
-              <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Ticket Booking Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact_us.php">
-              <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Contact us Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="payment.php">
-              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Payment Data</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
-              <div class="row">
-              </div>
-            </div>
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="fullscreen">
+                  <i class="fa-solid fa-expand" style=""></i>
+                </button>
+              </li>
+              <li class="nav-item dropdown">
+              <li class="nav-item nav-profile dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                  <img src="images/faces/face28.jpg" alt="profile" />
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item">
+                    <i class="ti-settings text-primary"></i>
+                    Settings
+                  </a>
+                  <a class="dropdown-item">
+                    <i class="ti-power-off text-primary"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+              <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                data-toggle="offcanvas">
+                <span class="icon-menu"></span>
+              </button>
+            </ul>
           </div>
-          <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h1 style="text-transform: uppercase; font-size: 35px;">Room Payment Data</h1>
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead class="table-secondary">
-                  <tr>
-                    <th>
-                      Card ID
-                    </th>
-                    <th>
-                      Card Number
-                    </th>
-                    <th>
-                      Card Holder Name
-                    </th>
-                    <th>
-                      Email
-                    </th>
-                    <th>
-                      Month
-                    </th>
-                    <th>
-                      Year
-                    </th>
-                    <th>
-                      cvv number
-                    </th>
-                  </tr>
-                  <?php
-                    $select = "SELECT * FROM `card`";
-                    $result = $conn->query($select);
-
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                      <tr>
-                        <td>
-                          <?php echo $row['id'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['cardno'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['cardname'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['cardemail'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['cardmonth'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['cardyear'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['cvv'] ?>
-                        </td>
-                    <?php
-                    }
-                    ?>
-                  </thead>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.php --> 
+        </nav>
         <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
-    </div>   
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
+        <div class="container-fluid page-body-wrapper">
+          <!-- partial:partials/_settings-panel.php -->
 
-  <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="vendors/chart.js/Chart.min.js"></script>
-  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="js/dataTables.select.min.js"></script>
+          <!-- partial -->
+          <!-- partial:partials/_sidebar.php -->
+          <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">
+                  <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="register.php">
+                  <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Registration Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Room_booking.php">
+                  <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Room Booking Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Ticket_booking.php">
+                  <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Ticket Booking Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact_us.php">
+                  <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Contact us Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="payment.php">
+                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Payment Data</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-md-12 grid-margin">
+                  <div class="row">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h1 style="text-transform: uppercase; font-size: 35px;">Room Payment Data</h1>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-secondary">
+                            <th>
+                              Card ID
+                            </th>
+                            <th>
+                              Card Number
+                            </th>
+                            <th>
+                              Card Holder Name
+                            </th>
+                            <th>
+                              Email
+                            </th>
+                            <th>
+                              Expiry Month
+                            </th>
+                            <th>
+                              Expiry Year
+                            </th>
+                            <th>
+                              cvv number
+                            </th>
+                          </tr>
 
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
-  <script src="js/Chart.roundedBarCharts.js"></script>
-  <!-- End custom js for this page-->
-</body>
+
+                          <?php
+                          $select = "SELECT * FROM `card`";
+                          $result = $conn->query($select);
+
+                          while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                              <td>
+                                <?php echo $row['id'] ?>
+                              </td>
+                              <td>
+  <?php
+  $card_number = $row['cardno'];
+  $hidden_part = str_repeat('*', strlen($card_number) - 4); // Replace all but the first four digits with asterisks
+  echo substr($card_number, 0, 4) . ' ' . chunk_split($hidden_part, 4, ' '); // Add spaces after every four characters
+  ?>
+</td>
+                              <td>
+                                <?php echo $row['cardname'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardemail'] ?>
+                              </td>
+                              <td>
+  <?php echo str_repeat('*', strlen($row['cardmonth'])); ?>
+</td>
+<td>
+  <?php echo substr($row['cardyear'], 0, 2) . '**'; ?>
+</td>
+<td>
+  <?php 
+    $cvv = $row['cvv'];
+    if (strlen($cvv) === 3) {
+      echo '***';
+    } elseif (strlen($cvv) === 4) {
+      echo '****';
+    } else {
+      echo 'Invalid CVV';
+    }
+  ?>
+</td>
+                              <?php
+                          }
+                          ?>
+                          <!-- <?php
+                          $select = "SELECT * FROM `card`";
+                          $result = $conn->query($select);
+
+                          while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                              <td>
+                                <?php echo $row['id'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardno'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardname'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardemail'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardmonth'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardyear'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cvv'] ?>
+                              </td>
+                              <?php
+                          }
+                          ?> -->
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- content-wrapper ends -->
+              <!-- partial:partials/_footer.php -->
+              <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+          </div>
+          <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+
+        <!-- plugins:js -->
+        <script src="vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="vendors/chart.js/Chart.min.js"></script>
+        <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+        <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+        <script src="js/dataTables.select.min.js"></script>
+
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="js/off-canvas.js"></script>
+        <script src="js/hoverable-collapse.js"></script>
+        <script src="js/template.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/todolist.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        <script src="js/dashboard.js"></script>
+        <script src="js/Chart.roundedBarCharts.js"></script>
+        <!-- End custom js for this page-->
+    </body>
 
 </html>
-
