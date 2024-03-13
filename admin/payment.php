@@ -2,6 +2,25 @@
 
 include "../include/connect.php";
 
+
+session_start();
+
+if (isset($_POST['logout'])) {
+  session_unset();
+  session_destroy();
+  header("location:login.php");
+}
+
+if (isset($_POST['delete'])) {
+  $idToDelete = $_POST['delete'];
+  $deleteQuery = "DELETE FROM `card` WHERE `id` = $idToDelete";
+
+  if ($conn->query($deleteQuery) === TRUE) {
+    // Deletion successful, you can redirect or perform other actions if needed
+  } else {
+    echo "Error: " . $conn->error;
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,6 +178,9 @@ include "../include/connect.php";
                             <th>
                               cvv number
                             </th>
+                            <th>
+                              Action
+                            </th>
                           </tr>
 
 
@@ -173,12 +195,12 @@ include "../include/connect.php";
                                 <?php echo $row['id'] ?>
                               </td>
                               <td>
-  <?php
-  $card_number = $row['cardno'];
-  $hidden_part = str_repeat('*', strlen($card_number) - 4); // Replace all but the first four digits with asterisks
-  echo substr($card_number, 0, 4) . ' ' . chunk_split($hidden_part, 4, ' '); // Add spaces after every four characters
-  ?>
-</td>
+                                <?php
+                                $card_number = $row['cardno'];
+                                $hidden_part = str_repeat('*', strlen($card_number) - 4); // Replace all but the first four digits with asterisks
+                                echo substr($card_number, 0, 4) . ' ' . chunk_split($hidden_part, 4, ' '); // Add spaces after every four characters
+                                ?>
+                              </td>
                               <td>
                                 <?php echo $row['cardname'] ?>
                               </td>
@@ -186,57 +208,39 @@ include "../include/connect.php";
                                 <?php echo $row['cardemail'] ?>
                               </td>
                               <td>
-  <?php echo str_repeat('*', strlen($row['cardmonth'])); ?>
-</td>
-<td>
-  <?php echo substr($row['cardyear'], 0, 2) . '**'; ?>
-</td>
-<td>
-  <?php 
-    $cvv = $row['cvv'];
-    if (strlen($cvv) === 3) {
-      echo '***';
-    } elseif (strlen($cvv) === 4) {
-      echo '****';
-    } else {
-      echo 'Invalid CVV';
-    }
-  ?>
-</td>
+                                <?php echo str_repeat('*', strlen($row['cardmonth'])); ?>
+                              </td>
+                              <td>
+                                <?php echo substr($row['cardyear'], 0, 2) . '**'; ?>
+                              </td>
+                              <td>
+                                <?php
+                                $cvv = $row['cvv'];
+                                if (strlen($cvv) === 3) {
+                                  echo '***';
+                                } elseif (strlen($cvv) === 4) {
+                                  echo '****';
+                                } else {
+                                  echo 'Invalid CVV';
+                                }
+                                ?>
+                              </td>
+                              <td>
+                                <a href="cardview.php?id=<?php echo $row['id']; ?>&cardno=<?php echo $row['cardno']; ?>&cardname=<?php echo $row['cardname']; ?>&cardemail=<?php echo $row['cardemail']; ?>&cardmonth=<?php echo $row['cardmonth']; ?>&cardyear=<?php echo $row['cardyear']; ?>&cvv=<?php echo $row['cvv']; ?>"
+                                  class="btn btn-primary">View</a>
+
+                                <form method="post" style="display: inline;"
+                                  onsubmit="return confirm('Are you sure you want to delete this member?');">
+                                  <input type="hidden" name="delete" value="<?php echo $row['id']; ?>">
+                                  <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                              </td>
+
+
+
                               <?php
                           }
                           ?>
-                          <!-- <?php
-                          $select = "SELECT * FROM `card`";
-                          $result = $conn->query($select);
-
-                          while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <tr>
-                              <td>
-                                <?php echo $row['id'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['cardno'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['cardname'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['cardemail'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['cardmonth'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['cardyear'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['cvv'] ?>
-                              </td>
-                              <?php
-                          }
-                          ?> -->
                         </thead>
                       </table>
                     </div>
@@ -252,7 +256,11 @@ include "../include/connect.php";
           <!-- page-body-wrapper ends -->
         </div>
         <!-- container-scroller -->
-
+        <script>
+          $(document).ready(function () {
+            $("#myTable").dataTable();
+          });
+        </script>
         <!-- plugins:js -->
         <script src="vendors/js/vendor.bundle.base.js"></script>
         <!-- endinject -->

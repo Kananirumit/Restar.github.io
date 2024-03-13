@@ -19,6 +19,7 @@ if (isset($_GET['guestId']) && isset($_GET['fname']) && isset($_GET['lname'])&& 
     header("location:index.php");
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,6 +86,7 @@ if (isset($_GET['guestId']) && isset($_GET['fname']) && isset($_GET['lname'])&& 
         <br>
         <a href="index.php" class="btn btn-primary">Back to Dashboard</a>
     </div>
+    
 </body>
 
 </html>
