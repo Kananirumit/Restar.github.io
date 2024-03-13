@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2024 at 05:49 AM
+-- Generation Time: Mar 13, 2024 at 07:44 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,25 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `card`
+-- Table structure for table `cardroom`
 --
 
-CREATE TABLE `card` (
+CREATE TABLE `cardroom` (
   `id` int(11) NOT NULL,
   `cardno` text NOT NULL,
   `cardname` varchar(50) NOT NULL,
   `cardemail` varchar(50) NOT NULL,
   `cardmonth` enum('01','02','03','04','05','06','07','08','09','10','11','12') NOT NULL,
   `cardyear` year(4) NOT NULL,
-  `cvv` int(4) NOT NULL
+  `cvv` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `card`
+-- Table structure for table `cardticket`
 --
 
-INSERT INTO `card` (`id`, `cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES
-(1, '9868568568568568', 'rushit chovatiya', ' rushit@gmail.com', '03', '2026', 9856);
+CREATE TABLE `cardticket` (
+  `cardid` int(11) NOT NULL,
+  `cardno` text NOT NULL,
+  `cardname` varchar(50) NOT NULL,
+  `cardemail` varchar(50) NOT NULL,
+  `cardmonth` enum('01','02','03','04','05','06','07','08','09','10','11','12') NOT NULL,
+  `cardyear` year(4) NOT NULL,
+  `cvv` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -112,15 +121,38 @@ CREATE TABLE `room` (
   `checkout` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket`
+--
+
+CREATE TABLE `ticket` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `child` int(11) NOT NULL,
+  `adult` int(11) NOT NULL,
+  `senior` int(11) NOT NULL,
+  `txtDate` date NOT NULL,
+  `total` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `card`
+-- Indexes for table `cardroom`
 --
-ALTER TABLE `card`
+ALTER TABLE `cardroom`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cardticket`
+--
+ALTER TABLE `cardticket`
+  ADD PRIMARY KEY (`cardid`);
 
 --
 -- Indexes for table `contact`
@@ -141,14 +173,26 @@ ALTER TABLE `room`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ticket`
+--
+ALTER TABLE `ticket`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `card`
+-- AUTO_INCREMENT for table `cardroom`
 --
-ALTER TABLE `card`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `cardroom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `cardticket`
+--
+ALTER TABLE `cardticket`
+  MODIFY `cardid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -166,6 +210,12 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ticket`
+--
+ALTER TABLE `ticket`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
