@@ -247,6 +247,46 @@ if (isset($_POST['delete'])) {
                   </div>
                 </div>
               </div>
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h1 style="text-transform: uppercase; font-size: 35px;">Ticket Payment Data</h1>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-warning">
+                            <th>
+                              Card ID
+                            </th>
+                            <th>
+                              Card Number
+                            </th>
+                            <th>
+                              Card Holder Name
+                            </th>
+                            <th>
+                              Email
+                            </th>
+                            <th>
+                              Expiry Month
+                            </th>
+                            <th>
+                              Expiry Year
+                            </th>
+                            <th>
+                              cvv number
+                            </th>
+                            <th>
+                              Action
+                            </th>
+                          </tr>
+                          </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <!-- content-wrapper ends -->
               <!-- partial:partials/_footer.php -->
               <!-- partial -->
