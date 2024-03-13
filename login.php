@@ -67,6 +67,18 @@ if (isset($_POST['login'])) {
     <link href="assets/css/color.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <style>
+        .toggle-password-eye i{
+            position: relative;
+            left: 89%;
+            bottom: 40px;
+        }
+        .toggle-password-email i{
+            position: relative;
+            left: 89%;
+            bottom: 40px;
+        }
+    </style>
 </head>
 
 <body>
@@ -83,12 +95,19 @@ if (isset($_POST['login'])) {
                             <div class="input-field">
                                 <input type="text" required="" name="emailOrPhone" fdprocessedid="s8jhqb">
                                 <label>Email or Phone</label>
+                                <span class="toggle-password-email">
+                                    <i class="fa fa-envelope"></i> <!-- Font Awesome eye icon -->
+                                </span>
                             </div>
                             <div class="input-field">
-                                <input type="password" required="" name="pass" fdprocessedid="1qh8wc">
+                                <input type="password" required="" name="pass" fdprocessedid="1qh8wc" id="pass">
+                                <span class="toggle-password-eye" onclick="togglePasswordVisibility('pass')">
+                                    <i id="eyeIcon" class="fa fa-eye-slash"></i> <!-- Font Awesome eye icon -->
+                                </span>
                                 <label>Password</label>
+
                             </div>
-                            <a href="#" class="forgot-pass-link">Forgot password?</a>
+                            <a href="forgot.php" class="forgot-pass-link">Forgot password?</a><br>
                             <button type="submit" class="btn-log" name="login" fdprocessedid="hzsxfi">Log In</button>
                         </form>
                         <div class="bottom-link">
@@ -101,6 +120,12 @@ if (isset($_POST['login'])) {
         </div>
     </div>
     <script>
+        // eyes
+        function togglePasswordVisibility(passwordFieldId) {
+            var passwordField = document.getElementById(passwordFieldId);
+            passwordField.type = (passwordField.type === "password") ? "text" : "password";
+        }
+
         function validateLogin() {
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;

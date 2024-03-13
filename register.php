@@ -1,42 +1,42 @@
 <?php
-    include "./include/connect.php";
+include "./include/connect.php";
 
 
-    if (isset($_POST['add'])) {
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $gender = $_POST['gender'];
-        $phone = $_POST['phone'];
-        $email = $_POST['email'];
-        $pass = $_POST['pass'];
-        $confirmpss = $_POST['confirmpss'];
-    
-        // Check if the email or phone already exists in the database
-        $checkEmailQuery = "SELECT * FROM `register` WHERE email = '$email'";
-        $checkPhoneQuery = "SELECT * FROM `register` WHERE phone = '$phone'";
-    
-        $checkEmailResult = $conn->query($checkEmailQuery);
-        $checkPhoneResult = $conn->query($checkPhoneQuery);
-    
-        if ($checkEmailResult->num_rows > 0 && $checkPhoneResult->num_rows > 0) {
-            echo "<script>alert('Both email and phone already exist!');</script>";
-        } elseif ($checkEmailResult->num_rows > 0) {
-            echo "<script>alert('Email already exists!');</script>";
-        } elseif ($checkPhoneResult->num_rows > 0) {
-            echo "<script>alert('Phone already exists!');</script>";
+if (isset($_POST['add'])) {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $gender = $_POST['gender'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+    $confirmpss = $_POST['confirmpss'];
+
+    // Check if the email or phone already exists in the database
+    $checkEmailQuery = "SELECT * FROM `register` WHERE email = '$email'";
+    $checkPhoneQuery = "SELECT * FROM `register` WHERE phone = '$phone'";
+
+    $checkEmailResult = $conn->query($checkEmailQuery);
+    $checkPhoneResult = $conn->query($checkPhoneQuery);
+
+    if ($checkEmailResult->num_rows > 0 && $checkPhoneResult->num_rows > 0) {
+        echo "<script>alert('Both email and phone already exist!');</script>";
+    } elseif ($checkEmailResult->num_rows > 0) {
+        echo "<script>alert('Email already exists!');</script>";
+    } elseif ($checkPhoneResult->num_rows > 0) {
+        echo "<script>alert('Phone already exists!');</script>";
+    } else {
+        // Perform the registration since email and phone are unique
+        $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpss`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
+        $result = $conn->query($insert);
+
+        if ($result) {
+            header("location:login.php");
         } else {
-            // Perform the registration since email and phone are unique
-            $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpss`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
-            $result = $conn->query($insert);
-    
-            if ($result) {
-                header("location:login.php");
-            } else {
-                echo "<script>alert('Registration failed!');</script>";
-            }
+            echo "<script>alert('Registration failed!');</script>";
         }
     }
-    ?>
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,6 +70,19 @@
 
         .toggle-password:hover {
             text-decoration: underline;
+        }
+
+        .toggle-password-eye i {
+            position: relative;
+            left: 88%;
+            bottom: 40px;
+            cursor: pointer;
+        }
+        .toggle-password-eyepass i {
+            position: relative;
+            left: 94%;
+            bottom: 40px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -117,14 +130,19 @@
                             </div>
                             <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                 <div class="input-field">
-                                    <input type="text" class="form-control text-font" required="" name="pass" id="pass">
+                                    <input type="password" class="form-control text-font" required="" name="pass" id="pass">
+                                    <span class="toggle-password-eye" onclick="togglePasswordVisibility('pass')">
+                                        <i id="eyeIcon" class="fa fa-eye-slash"></i> <!-- Font Awesome eye icon -->
+                                    </span>
                                     <label>Password:</label>
-                                    <span class="toggle-password" onclick="togglePasswordVisibility('pass')">Show Password</span>
                                 </div>
                             </div>
                             <div class="col-lg-12  col-md-12 col-sm-12 form-group">
                                 <div class="input-field">
-                                    <input type="text" class="form-control text-font" required="" name="confirmpss" id="confirm_pass">
+                                    <input type="password" class="form-control text-font" required="" name="confirmpss" id="confirm_pass">
+                                    <span class="toggle-password-eyepass" onclick="togglePasswordVisibility('confirm_pass')">
+                                        <i id="eyeIcon" class="fa fa-eye-slash"></i> <!-- Font Awesome eye icon -->
+                                    </span>
                                     <label>Confirm Password:</label>
                                 </div>
                             </div>
