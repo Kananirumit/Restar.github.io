@@ -84,7 +84,7 @@ if (isset($_GET['guestId']) && isset($_GET['fname']) && isset($_GET['lname'])&& 
             </tr>
         </table>
         <br>
-        <a href="index.php" class="btn btn-primary">Back to Dashboard</a>
+        <a href="register.php" class="btn btn-primary">Back to Dashboard</a>
     </div>
     
 </body>

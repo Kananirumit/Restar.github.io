@@ -1,3 +1,9 @@
+<?php
+
+include "../include/connect.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,6 +138,9 @@
                 <thead>
                   <tr class="table-info">
                     <th>
+                      Booking ID
+                    </th>
+                    <th>
                       Name
                     </th>
                     <th>
@@ -152,6 +161,42 @@
                     <th>
                       Total(₹)
                     </th>
+                  </tr>
+                    <?php
+                    $select = "SELECT * FROM `ticket`";
+                    $result = $conn->query($select);
+
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                      <tr>
+                        <td>
+                          <?php echo $row['id'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['name'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['email'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['child'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['adult'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['senior'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['txtDate'] ?>
+                        </td>
+                        <td>
+                          <?php echo $row['total'] ?>
+                        </td>
+                      </tr>
+                    <?php
+                    }
+                    ?>
                   </thead>
                 </table>
               </div>

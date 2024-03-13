@@ -1,3 +1,29 @@
+<?php
+
+include "./include/connect.php";
+
+
+if (isset($_POST['submit_form'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $child = $_POST['child'];
+    $adult = $_POST['adult'];
+    $senior = $_POST['senior'];
+    $txtDate = $_POST['txtDate'];
+    $total = $_POST['total'];
+
+
+    $insert = "INSERT INTO `ticket`(`name`, `email`, `child`, `adult`, `senior`, `txtDate`, `total`) VALUES ('$name ','$email','$child','$adult','$senior','$txtDate','$total')";
+
+    $result = $conn->query($insert);
+
+    if ($result) {
+        header("location:card2.php");
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -167,12 +193,12 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Name:</label>
-                                        <input type="text" class="form-control text-font" id="name" placeholder="Name">
+                                        <input type="text" class="form-control text-font" id="name" placeholder="Name" name="name">
                                         <div class="invalid-feedback">Please enter your name.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Email:</label>
-                                        <input type="text" class="form-control text-font" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email">
+                                        <input type="text" class="form-control text-font" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email" name="email">
                                         <div class="invalid-feedback invalid-feedback-email">Please enter a valid email address.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
@@ -180,7 +206,7 @@
                                         <div class="d-flex">
                                             <div class="input-group">
                                                 <span class="btn btn-warning d-flex align-items-center text-font" onclick="decrement('child')">-</span>
-                                                <input type="text" class="form-control text-font" id="child" value="0" readonly>
+                                                <input type="text" class="form-control text-font" id="child" value="0" readonly name="child">
                                                 <span class="btn btn-warning d-flex align-items-center text-font" onclick="increment('child')">+</span>
                                             </div>
                                         </div>
@@ -190,7 +216,7 @@
                                         <div class="d-flex">
                                             <div class="input-group">
                                                 <span class="btn btn-warning d-flex align-items-center text-font" onclick="decrement('adult')">-</span>
-                                                <input type="text" class="form-control text-font" id="adult" value="0" readonly>
+                                                <input type="text" class="form-control text-font" id="adult" value="0" readonly name="adult">
                                                 <span class="btn btn-warning d-flex align-items-center text-font" onclick="increment('adult')">+</span>
                                             </div>
                                         </div>
@@ -200,7 +226,7 @@
                                         <div class="d-flex">
                                             <div class="input-group">
                                                 <span class="btn btn-warning d-flex align-items-center text-font" onclick="decrement('senior')">-</span>
-                                                <input type="text" class="form-control text-font" id="senior" value="0" readonly>
+                                                <input type="text" class="form-control text-font" id="senior" value="0" readonly name="senior">
                                                 <span class="btn btn-warning d-flex align-items-center text-font" onclick="increment('senior')">+</span>
                                             </div>
                                         </div>
@@ -208,20 +234,19 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Date:</label>
                                         <div class="input-group">
-                                            <input type="date" class="form-control text-font" id="txtDate">
+                                            <input type="date" class="form-control text-font" id="txtDate" name="txtDate">
                                         </div>
                                         <div class="invalid-feedback invalid-feedback-date">Please select a date.</div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                         <label for="child" class="h6">Total:</label>
                                         <div class="input-group">
-                                            <span class="form-control d-flex align-items-center" id="total">&#x20B9;0</span>
-                                            <!-- <span class="input-group-text bg-dark text-light fw-bold">&#x20B9;</span> -->
+                                            <input class="form-control d-flex align-items-center" value="0" id="total" name="total" readonly>
                                         </div>
                                         <div class="invalid-feedback invalid-feedback-total">Select at least one person.</div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                        <button class="theme-btn btn-one" name="submit-form" id="buy" onclick="validateForm()">Buy</button>
+                                        <button class="theme-btn btn-one" name="submit_form" id="buy" onclick="validateForm()">Buy</button>
                                     </div>
                                 </div>
                             </form>
@@ -262,7 +287,7 @@
 
                 var total = (childCount * childPrice) + (adultCount * adultPrice) + (seniorCount * seniorPrice);
 
-                $('#total').text('₹' + total);
+                $('#total').attr('value', '₹' + total);
             }
 
             // Increment and Decrement functions

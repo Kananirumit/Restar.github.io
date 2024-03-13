@@ -13,7 +13,17 @@ if (isset($_POST['logout'])) {
 
 if (isset($_POST['delete'])) {
   $idToDelete = $_POST['delete'];
-  $deleteQuery = "DELETE FROM `card` WHERE `id` = $idToDelete";
+  $deleteQuery = "DELETE FROM `cardroom` WHERE `id` = $idToDelete";
+
+  if ($conn->query($deleteQuery) === TRUE) {
+    // Deletion successful, you can redirect or perform other actions if needed
+  } else {
+    echo "Error: " . $conn->error;
+  }
+}
+if (isset($_POST['delete2'])) {
+  $idToDelete = $_POST['delete2'];
+  $deleteQuery = "DELETE FROM `cardticket` WHERE `cardid` = $idToDelete";
 
   if ($conn->query($deleteQuery) === TRUE) {
     // Deletion successful, you can redirect or perform other actions if needed
@@ -182,10 +192,8 @@ if (isset($_POST['delete'])) {
                               Action
                             </th>
                           </tr>
-
-
                           <?php
-                          $select = "SELECT * FROM `card`";
+                          $select = "SELECT * FROM `cardroom`";
                           $result = $conn->query($select);
 
                           while ($row = mysqli_fetch_array($result)) {
@@ -235,9 +243,6 @@ if (isset($_POST['delete'])) {
                                   <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
                               </td>
-
-
-
                               <?php
                           }
                           ?>
@@ -280,6 +285,60 @@ if (isset($_POST['delete'])) {
                               Action
                             </th>
                           </tr>
+                          <?php
+                          $select = "SELECT * FROM `cardticket`";
+                          $result = $conn->query($select);
+
+                          while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                              <td>
+                                <?php echo $row['cardid'] ?>
+                              </td>
+                              <td>
+                                <?php
+                                $card_number = $row['cardno'];
+                                $hidden_part = str_repeat('*', strlen($card_number) - 4); // Replace all but the first four digits with asterisks
+                                echo substr($card_number, 0, 4) . ' ' . chunk_split($hidden_part, 4, ' '); // Add spaces after every four characters
+                                ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardname'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardemail'] ?>
+                              </td>
+                              <td>
+                                <?php echo str_repeat('*', strlen($row['cardmonth'])); ?>
+                              </td>
+                              <td>
+                                <?php echo substr($row['cardyear'], 0, 2) . '**'; ?>
+                              </td>
+                              <td>
+                                <?php
+                                $cvv = $row['cvv'];
+                                if (strlen($cvv) === 3) {
+                                  echo '***';
+                                } elseif (strlen($cvv) === 4) {
+                                  echo '****';
+                                } else {
+                                  echo 'Invalid CVV';
+                                }
+                                ?>
+                              </td>
+                              <td>
+                                <a href="cardview2.php?id=<?php echo $row['cardid']; ?>&cardno=<?php echo $row['cardno']; ?>&cardname=<?php echo $row['cardname']; ?>&cardemail=<?php echo $row['cardemail']; ?>&cardmonth=<?php echo $row['cardmonth']; ?>&cardyear=<?php echo $row['cardyear']; ?>&cvv=<?php echo $row['cvv']; ?>"
+                                  class="btn btn-primary">View</a>
+
+                                <form method="post" style="display: inline;"
+                                  onsubmit="return confirm('Are you sure you want to delete this member?');">
+                                  <input type="hidden" name="delete2" value="<?php echo $row['cardid']; ?>">
+                                  <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                              </td>
+                              <?php
+                          }
+                          ?>
                           </thead>
                       </table>
                     </div>
