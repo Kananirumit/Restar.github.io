@@ -89,7 +89,16 @@ body {
 }
   /* popup sign up */
   /* Importing Google font - Open Sans */
-
+  .pop-up {
+    position: fixed;
+    left: 0;
+    display: none;
+    margin: auto;
+    width: fit-content;
+    right: 0;
+    padding: 2%;
+    box-shadow: 2px 2px 5px lightgrey;
+}
   .form-content .cus-form{
       width: 60%;
       position: relative;
