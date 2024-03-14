@@ -41,9 +41,9 @@ include "../include/connect.php";
         <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
           <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
             <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo"
-                style="width: 85px; height:40px;" /></a>
-            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/logo.png" alt="logo"
-                style="width: 70px; height:35px;" /></a>
+                style="width: 100px; height:50px;" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
+                style="width: 50px; height:50px;" /></a>
           </div>
 
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -118,17 +118,17 @@ include "../include/connect.php";
                 </a>
               </li>
               <li class="nav-item">
-            <a class="nav-link" href="rbpayment.php">
-              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">ROOM Booking Payment Data</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tbpayment.php">
-              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Ticket Booking Payment Data</span>
-            </a>
-          </li>
+                <a class="nav-link" href="rbpayment.php">
+                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">ROOM Booking Payment Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tbpayment.php">
+                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Ticket Booking Payment Data</span>
+                </a>
+              </li>
             </ul>
           </nav>
           <div class="main-panel">
