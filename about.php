@@ -105,7 +105,7 @@
                                     <h2>get to know about Restar-Amusment Park</h2>
                                 </div>
                                 <div class="text">
-                                    <h5>Dolor in reprehenderit in voluptate velit esse cillum dolore fugiat nulla pariatur sed eiusmod simply free text tempor incidi dunt.</h5>
+                                    <h5>An amusement park is a park that features various attractions, such as rides and games, as well as other events for entertainment purposes.</h5>
                                 </div>
                                 <div class="text">
                                     <p>first Join us at Restar Amusement Park, where every moment is an adventure waiting to unfold. Get ready to experience the thrill of a lifetime – your journey into fun begins here!</p>
