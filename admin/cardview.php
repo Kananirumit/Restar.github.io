@@ -39,50 +39,84 @@ if (isset($_GET['id']) && isset($_GET['cardno']) && isset($_GET['cardname']) && 
     <!-- endinject -->
     <link rel="shortcut icon" href="images/amusement-park.png" />
 </head>
-
+<Style>
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+        th {
+            width: 150px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        td {
+            padding: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+        }
+</Style>
 <body>
-    <div class="container mx-5 mt-5">
-        <h1 class="display-4 text-center fw-bolder text-primary">Room Booking Payment Details</h1>
-        <br>
+<div class="container">
+        <h1 class="display-4">Room Booking Details</h1>
         <table class="table table-bordered">
             <tr>
-                <th>Card Id</th>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Card Id</td>
                 <td>
                     <?php echo $id; ?>
                 </td>
             </tr>
             <tr>
-                <th>Cardno</th>
+                <td>Cardno</td>
                 <td>
                     <?php echo $cardno; ?>
                 </td>
             </tr>
             <tr>
-                <th>Cardname</th>
+                <td>Cardname</td>
                 <td>
                     <?php echo $cardname; ?>
                 </td>
             </tr>
             <tr>
-                <th>Cardemail</th>
+                <td>Cardemail</td>
                 <td>
                     <?php echo $cardemail; ?>
                 </td>
             </tr>
             <tr>
-                <th>Cardmonth</th>
+                <td>Cardmonth</td>
                 <td>
                     <?php echo $cardmonth; ?>
                 </td>
             </tr>
             <tr>
-                <th>Cardyear</th>
+                <td>Cardyear</td>
                 <td>
                     <?php echo $cardyear; ?>
                 </td>
             </tr>
             <tr>
-                <th>Cvv</th>
+                <td>Cvv</td>
                 <td>
                     <?php echo $cvv; ?>
                 </td>

@@ -144,11 +144,17 @@ if (isset($_POST['delete2'])) {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="payment.php">
-                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Payment Data</span>
-                </a>
-              </li>
+            <a class="nav-link" href="rbpayment.php">
+              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">ROOM Booking Payment Data</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tbpayment.php">
+              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Ticket Booking Payment Data</span>
+            </a>
+          </li>
             </ul>
           </nav>
           <div class="main-panel">
@@ -251,100 +257,7 @@ if (isset($_POST['delete2'])) {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h1 style="text-transform: uppercase; font-size: 35px;">Ticket Payment Data</h1>
-                    <div class="table-responsive">
-                      <table class="table table-bordered">
-                        <thead>
-                          <tr class="table-warning">
-                            <th>
-                              Card ID
-                            </th>
-                            <th>
-                              Card Number
-                            </th>
-                            <th>
-                              Card Holder Name
-                            </th>
-                            <th>
-                              Email
-                            </th>
-                            <th>
-                              Expiry Month
-                            </th>
-                            <th>
-                              Expiry Year
-                            </th>
-                            <th>
-                              cvv number
-                            </th>
-                            <th>
-                              Action
-                            </th>
-                          </tr>
-                          <?php
-                          $select = "SELECT * FROM `cardticket`";
-                          $result = $conn->query($select);
-
-                          while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <tr>
-                              <td>
-                                <?php echo $row['cardid'] ?>
-                              </td>
-                              <td>
-                                <?php
-                                $card_number = $row['cardno'];
-                                $hidden_part = str_repeat('*', strlen($card_number) - 4); // Replace all but the first four digits with asterisks
-                                echo substr($card_number, 0, 4) . ' ' . chunk_split($hidden_part, 4, ' '); // Add spaces after every four characters
-                                ?>
-                              </td>
-                              <td>
-                                <?php echo $row['cardname'] ?>
-                              </td>
-                              <td>
-                                <?php echo $row['cardemail'] ?>
-                              </td>
-                              <td>
-                                <?php echo str_repeat('*', strlen($row['cardmonth'])); ?>
-                              </td>
-                              <td>
-                                <?php echo substr($row['cardyear'], 0, 2) . '**'; ?>
-                              </td>
-                              <td>
-                                <?php
-                                $cvv = $row['cvv'];
-                                if (strlen($cvv) === 3) {
-                                  echo '***';
-                                } elseif (strlen($cvv) === 4) {
-                                  echo '****';
-                                } else {
-                                  echo 'Invalid CVV';
-                                }
-                                ?>
-                              </td>
-                              <td>
-                                <a href="cardview2.php?id=<?php echo $row['cardid']; ?>&cardno=<?php echo $row['cardno']; ?>&cardname=<?php echo $row['cardname']; ?>&cardemail=<?php echo $row['cardemail']; ?>&cardmonth=<?php echo $row['cardmonth']; ?>&cardyear=<?php echo $row['cardyear']; ?>&cvv=<?php echo $row['cvv']; ?>"
-                                  class="btn btn-primary">View</a>
-
-                                <form method="post" style="display: inline;"
-                                  onsubmit="return confirm('Are you sure you want to delete this member?');">
-                                  <input type="hidden" name="delete2" value="<?php echo $row['cardid']; ?>">
-                                  <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                              </td>
-                              <?php
-                          }
-                          ?>
-                          </thead>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                        </div>
 
               <!-- content-wrapper ends -->
               <!-- partial:partials/_footer.php -->

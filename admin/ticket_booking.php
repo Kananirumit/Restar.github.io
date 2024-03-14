@@ -114,9 +114,15 @@ include "../include/connect.php";
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="payment.php">
+            <a class="nav-link" href="rbpayment.php">
               <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Payment Data</span>
+              <span class="menu-title">ROOM Booking Payment Data</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tbpayment.php">
+              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Ticket Booking Payment Data</span>
             </a>
           </li>
         </ul>

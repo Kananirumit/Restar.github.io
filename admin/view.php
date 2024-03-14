@@ -44,42 +44,76 @@ if (isset($_GET['guestId']) && isset($_GET['fname']) && isset($_GET['lname'])&& 
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
 </head>
-
+<style>
+     body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+        th {
+            width: 150px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        td {
+            padding: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+        }
+</style>
 <body>
-    <div class="container mx-5 mt-5">
-        <h1 class="display-4 text-center fw-bolder text-primary">User Details</h1>
-        <br>
+        <div class="container">
+        <h1 class="display-4">User Details</h1>
         <table class="table table-bordered">
             <tr>
-                <th>guestId</th>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Guest ID</td>
                 <td><?php echo $guestId; ?></td>
             </tr>
             <tr>
-                <th>fname</th>
+                <td>First Name</td>
                 <td><?php echo $fname; ?></td>
             </tr>
             <tr>
-                <th>lname</th>
+                <td>Last Name</td>
                 <td><?php echo $lname; ?></td>
             </tr>
             <tr>
-                <th>gender</th>
+                <td>Gender</td>
                 <td><?php echo $gender; ?></td>
             </tr>
             <tr>
-                <th>phone</th>
+                <td>Phone</td>
                 <td><?php echo $phone; ?></td>
             </tr>
             <tr>
-                <th>Email</th>
+                <td>Email</td>
                 <td><?php echo $email; ?></td>
             </tr>
             <tr>
-                <th>pass</th>
+                <td>Password</td>
                 <td><?php echo $pass; ?></td>
             </tr>
             <tr>
-                <th>confirmpass</th>
+                <td>Confirm Password</td>
                 <td><?php echo $confirmpss; ?></td>
             </tr>
         </table>
