@@ -1,3 +1,34 @@
+<?php
+
+include '../include/connect.php';
+
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // username and password sent from form 
+
+  $myusername = mysqli_real_escape_string($conn, $_POST['email']);
+  $mypassword = mysqli_real_escape_string($conn, $_POST['pass']);
+
+  $sql = "SELECT * FROM adminlogin WHERE admin_email = '$myusername' and pass = '$mypassword' LIMIT 3";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  // $active = $row['active'];
+
+  $count = mysqli_num_rows($result);
+
+  // If result matched $myusername and $mypassword, table row must be 1 row
+
+  if ($count == 1) {
+
+    // $_SESSION['user'] = $myusername;
+    $_SESSION['email'] = $myusername;
+    header("location: index.php");
+  } else {
+    $error = "Your Login Name or Password is invalid";
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,22 +62,21 @@
               </div>
               <h5>Hello! Welcome To Restar Admin Panel</h5>
               <h6 class="font-weight-light">Log in to continue.</h6>
-              <form class="pt-3">
+              <form class="pt-3" method="POST">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Admin Email">
+                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="email"  placeholder="Admin Email">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="pass" placeholder="Password">
+                  <?php if(isset($error)) { ?>
+                                <div class="alert alert-danger"><?php echo $error; ?></div>
+                            <?php } ?>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-warning btn-lg font-weight-medium auth-form-btn" href="index.php">LOG IN</a>
+                  <button type="submit" class="btn btn-block btn-warning btn-lg font-weight-medium auth-form-btn">LOG IN</button>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
                   </div>
                   <a href="#" class="auth-link text-black">Forgot password?</a>
                 </div>

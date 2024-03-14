@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2024 at 08:13 AM
+-- Generation Time: Mar 14, 2024 at 11:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `restar_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminlogin`
+--
+
+CREATE TABLE `adminlogin` (
+  `id` int(11) NOT NULL,
+  `admin_email` varchar(50) NOT NULL,
+  `pass` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `adminlogin`
+--
+
+INSERT INTO `adminlogin` (`id`, `admin_email`, `pass`) VALUES
+(1001, 'kananirumit2003@gmail.com', 'rumit123'),
+(1002, 'chovatiyarushit@gmail.com', 'rushit123'),
+(1003, 'diyoravatsal@gmail.com', 'vatsal123');
 
 -- --------------------------------------------------------
 
@@ -111,8 +132,8 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`guestId`, `fname`, `lname`, `gender`, `phone`, `email`, `pass`, `confirmpss`) VALUES
-(1, 'Rumit', 'Kanani', 'male', '9106776464', 'kananirumit2003@gmail.com', '12345', '12345'),
-(2, 'henisha', 'desai', 'female', '9876576765', 'henishadesai2003@gmail.com', '123456', '123456');
+(1, 'Rumit', 'Kanani', 'male', '9106776464', 'kananirumit2003@gmail.com', '2003', '2003'),
+(2, 'henisha', 'desai', 'female', '9876576765', 'henishadesai2003@gmail.com', '2003', '123456');
 
 -- --------------------------------------------------------
 
@@ -173,6 +194,12 @@ INSERT INTO `ticket` (`id`, `name`, `email`, `child`, `adult`, `senior`, `txtDat
 --
 
 --
+-- Indexes for table `adminlogin`
+--
+ALTER TABLE `adminlogin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cardroom`
 --
 ALTER TABLE `cardroom`
@@ -211,6 +238,12 @@ ALTER TABLE `ticket`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `adminlogin`
+--
+ALTER TABLE `adminlogin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
 
 --
 -- AUTO_INCREMENT for table `cardroom`
