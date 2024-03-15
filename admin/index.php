@@ -252,7 +252,7 @@
                           kananirumit2003@gmail.com
                         </td>
                         <td>
-                          1234
+                          rumit123
                         </td>
                       </tr>
                       <tr class="table-warning">
@@ -269,7 +269,7 @@
                           chovtiyarushit@gmail.com
                         </td>
                         <td>
-                          5678
+                          rushit123
                         </td>
                       </tr>
                       <tr class="table-info">
@@ -286,7 +286,7 @@
                           diyoravatsal@gmail.com
                         </td>
                         <td>
-                          9101
+                          vatsal123
                         </td>
                       </tr>
                     </tbody>

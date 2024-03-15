@@ -28878,6 +28878,11 @@ div.tagsinput span.tag a {
     display: none;
   }
 }
+@media (min-width: 991px) {
+  .navbar .navbar-menu-wrapper .navbar-toggler .icon-menu {
+    display: none;
+  }
+}
 
 .sidebar-icon-only .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
   transform: rotate(180deg);

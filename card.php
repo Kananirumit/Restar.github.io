@@ -888,8 +888,8 @@ if (isset($_POST['pay'])) {
         let cardNumber = input.value;
 
         // Limit the input to a maximum of 16 digits
-        if (cardNumber.length > 19) {
-            input.value = cardNumber.slice(0, 19);
+        if (cardNumber.length > 16) {
+            input.value = cardNumber.slice(0, 16);
         }
     }
     function limitCardcvvLength(input) {
@@ -956,7 +956,7 @@ See on github: https://github.com/muhammederdem/credit-card-form
                     cardCvv: "",
                     minCardYear: new Date().getFullYear(),
                     amexCardMask: "#### ###### #####",
-                    otherCardMask: "#### #### #### ####",
+                    otherCardMask: "### #### ### ###",
                     cardNumberTemp: "",
                     isCardFlipped: false,
                     focusElementStyle: null,
