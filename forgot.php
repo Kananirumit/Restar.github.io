@@ -55,7 +55,7 @@ $conn->close();
 
         .form {
             position: relative;
-            left: 1%;
+            left: 0%;
             z-index: 1;
             background: #FFFFFF;
             max-width: 360px;
