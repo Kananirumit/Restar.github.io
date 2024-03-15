@@ -4,6 +4,7 @@ include "./include/connect.php";
 
 
 if (isset($_POST['pay'])) {
+    
     $cardno = $_POST['cardnumber'];
     $cardname = $_POST['cardname'];
     $email = $_POST['email'];
@@ -12,16 +13,50 @@ if (isset($_POST['pay'])) {
     $cvv = $_POST['cvv'];
 
 
-    $insert = "INSERT INTO `cardroom`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES ('$cardno','$cardname',' $email','$month','$year','$cvv')";
+    $insert = "INSERT INTO `cardticket`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES ('$cardno','$cardname',' $email','$month','$year','$cvv')";
 
     $result = $conn->query($insert);
 
     if ($result) {
+        $url = 'gpay.mp3';
+        echo "<script>
+        var x = document.getElementById('sound1');
+            function playMusic1() {
+                x.play();
+            }
+        </script>";
+        echo "<style>
+        .pop{
+            display: block !important;
+            position: fixed;
+            left: 0;
+            top: 30%;
+            right: 0;
+            z-index: 5;
+            margin: auto;
+            text-align: center;
+            width: 100%;
+        }
+        .card-input{
+            pointer-events: none;
+        }
+        </style>";
+    }
+    if(isset($_REQUEST['done'])){
+        echo "<style>
+        .pop{
+            display: none !important;
+        }
+        .card-input{
+            pointer-events: all;
+        }
+        </style>";
         header("location:index.php");
     }
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -665,6 +700,33 @@ if (isset($_POST['pay'])) {
         .card-form__button:hover {
             background: #1556b7;
         }
+        .pop {
+            display: none;
+        }
+        .pop-content {
+            width: 30%;
+            margin: auto;
+            background: #fff;
+            border: 1px solid;
+            padding: 2%;
+        }
+        .done{
+            position: relative;
+            display: inline-block;
+            font-size: 12px;
+            line-height: 30px;
+            font-weight: 700;
+            font-family: 'Rubik',sans-serif;
+            color: #fff;
+            padding: 16.5px 54px;
+            text-align: center;
+            text-transform: uppercase;
+            z-index: 1;
+            letter-spacing: 2px;
+            transition: all 500ms ease;
+            border-radius: 10px;
+            background-color: #f7bf39;
+        }
     </style>
 </head>
 
@@ -803,12 +865,20 @@ if (isset($_POST['pay'])) {
                             </div>
                         </div>
                     </div>
-
-                    <button class="card-form__button" name="pay">
+                    <audio id="sound1" src="gpay.mp3" preload="auto"></audio>
+                    <!-- <button >Play
+                    it</button> -->
+                    <button on class="card-form__button" name="pay">
                         Pay Now
                     </button>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="pop">
+        <div class="pop-content">
+            <h1>Your Payment Is success!!<br>Your ticket is send to your mail</h1>
+            <button name="done" onclick="window.location.href = 'index.php'" class="done">Done</button>
         </div>
     </div>
     <script>

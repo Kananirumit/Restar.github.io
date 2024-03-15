@@ -710,6 +710,23 @@ if (isset($_POST['pay'])) {
             border: 1px solid;
             padding: 2%;
         }
+        .done{
+            position: relative;
+            display: inline-block;
+            font-size: 12px;
+            line-height: 30px;
+            font-weight: 700;
+            font-family: 'Rubik',sans-serif;
+            color: #fff;
+            padding: 16.5px 54px;
+            text-align: center;
+            text-transform: uppercase;
+            z-index: 1;
+            letter-spacing: 2px;
+            transition: all 500ms ease;
+            border-radius: 10px;
+            background-color: #f7bf39;
+        }
     </style>
 </head>
 
@@ -861,7 +878,7 @@ if (isset($_POST['pay'])) {
     <div class="pop">
         <div class="pop-content">
             <h1>Thanks</h1>
-            <button name="done" onclick="window.location.href = 'index.php'">Done</button>
+            <button name="done" onclick="window.location.href = 'index.php'" class="done">Done</button>
         </div>
     </div>
     <script>
