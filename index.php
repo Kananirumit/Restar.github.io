@@ -421,7 +421,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 title-column">
                         <div class="sec-title light">
                             <h2>Check Park upcoming events</h2>
-                            <a href="pricing.php" class="theme-btn btn-one">Book Your Ticket Now</a>
+                            <a href="pricing.php" class="theme-btn btn-one">Book Your Event Now</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
@@ -441,8 +441,8 @@
                                             <li><i class="far fa-clock"></i>2:00 am</li>
                                             <li><i class="far fa-map"></i>60 broklyn street</li>
                                         </ul>
-                                        <h3><a href="index.php">clown fish's super show</a></h3>
-                                        <p>Dive into the enchanting world of the Clown Fish Super Show, a captivating spectacle that awaits you at our amusement park!</p>
+                                        <h3><a href="event.php">Have you Visited clown fish's super show</a></h3>
+                                        <p>Dive into the enchanting world of the Clown Fish Super Show, a captivating spectacle that awaits you at our amusement park! If you missed it so book now for new event</p>
                                     </div>
                                 </div>
                             </div>
@@ -460,8 +460,8 @@
                                             <li><i class="far fa-clock"></i>2:00 am</li>
                                             <li><i class="far fa-map"></i>60 broklyn street</li>
                                         </ul>
-                                        <h3><a href="index.php">how Interaction with Animal can</a></h3>
-                                        <p>At our park, visitors of all ages can experience the thrill of connecting with a variety of fascinating creatures.</p>
+                                        <h3><a href="event.php">how Interaction with Animal can!! You Missed It?</a></h3>
+                                        <p>At our park, visitors of all ages can experience the thrill of connecting with a variety of fascinating creatures.Book next Event ticket!!</p>
                                     </div>
                                 </div>
                             </div>
