@@ -876,11 +876,15 @@ if (isset($_POST['pay'])) {
         </div>
     </div>
     <div class="pop">
-        <div class="pop-content">
-            <h1>Thanks!!<br>Youe Ticket Is booked Your Ticket is Send to your mail!!</h1>
-            <button name="done" onclick="window.location.href = 'index.php'" class="done">Done</button>
-        </div>
+    <div class="pop-content" style="background-color: #4CAF50;">
+        <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>
+        <div style="text-align: center; font-size: 18px; color: #fff;">Thank you!!</div>
     </div>
+    <div class="pop-content" style="background-color: #fff;">
+        <h1 style="text-align: center;">Your Payment Is success!!<br>Your ticket is sent to your mail</h1>
+        <button name="done" onclick="window.location.href = 'index.php'" class="done" style="margin: auto; display: block;">Done</button>
+    </div>
+</div>
     <script>
         //number validation
         function limitCardNumberLength(input) {
