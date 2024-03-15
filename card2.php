@@ -877,7 +877,7 @@ if (isset($_POST['pay'])) {
     </div>
     <div class="pop">
         <div class="pop-content">
-            <h1>Thanks</h1>
+            <h1>Thanks!!<br>Youe Ticket Is booked Your Ticket is Send to your mail!!</h1>
             <button name="done" onclick="window.location.href = 'index.php'" class="done">Done</button>
         </div>
     </div>

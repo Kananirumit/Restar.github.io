@@ -411,7 +411,7 @@
 
 
         <!-- events-section -->
-        <!-- <section class="events-section sec-pad">
+        <section class="events-section sec-pad">
             <div class="bg-layer"></div>
             <div class="bg-image"
                 style="background-image: url(assets/images/gallery/ride/carousel-of-the-amusement-park-e1645720076976.jpg);">
@@ -469,7 +469,7 @@
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <!-- events-section end -->
         <!-- funfact-section end -->
         <?php
