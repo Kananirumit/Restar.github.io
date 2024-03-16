@@ -72,8 +72,8 @@ session_start();
                                         <li><a href="waterpark.php">WATERPARK RIDES</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="attrection.php">ATTRECTION</a></li>
-                                <li><a href="daining.php">DAINING</a></li>
+                                <li><a href="attrection.php">ATTRACTION</a></li>
+                                <li><a href="daining.php">DINING</a></li>
                                 <li><a href="about.php">ABOUT US</a></li>
                                 <li><a href="gallery.php">OUR GALLERY</a></li>
                                 <li><a href="contact.php">CONTACT</a></li>

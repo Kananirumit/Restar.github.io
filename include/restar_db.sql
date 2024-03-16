@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2024 at 11:01 AM
+-- Generation Time: Mar 16, 2024 at 07:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -58,13 +58,6 @@ CREATE TABLE `cardroom` (
   `cvv` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `cardroom`
---
-
-INSERT INTO `cardroom` (`id`, `cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES
-(5, '4345654436776577765', 'rumit kanani', ' kananirumit2003@gmail.com', '12', '2027', 342);
-
 -- --------------------------------------------------------
 
 --
@@ -81,13 +74,6 @@ CREATE TABLE `cardticket` (
   `cvv` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `cardticket`
---
-
-INSERT INTO `cardticket` (`cardid`, `cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES
-(3, '5676789867875676', 'rumit kanani', ' rumitkanani2003@gmail.com', '05', '2031', '675');
-
 -- --------------------------------------------------------
 
 --
@@ -102,13 +88,6 @@ CREATE TABLE `contact` (
   `subject` varchar(25) NOT NULL,
   `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `contact`
---
-
-INSERT INTO `contact` (`id`, `username`, `email`, `phone`, `subject`, `message`) VALUES
-(2, 'kananirumit', 'kananirumit2003@gmail.com', '9106776464', 'ticket', 'error');
 
 -- --------------------------------------------------------
 
@@ -133,7 +112,7 @@ CREATE TABLE `register` (
 
 INSERT INTO `register` (`guestId`, `fname`, `lname`, `gender`, `phone`, `email`, `pass`, `confirmpss`) VALUES
 (1, 'Rumit', 'Kanani', 'male', '9106776464', 'kananirumit2003@gmail.com', '2003', '2003'),
-(2, 'henisha', 'desai', 'female', '9876576765', 'henishadesai2003@gmail.com', '2003', '123456');
+(2, 'henisha', 'desai', 'female', '9876576765', 'henishadesai2003@gmail.com', '2003', '2003');
 
 -- --------------------------------------------------------
 
@@ -163,7 +142,8 @@ CREATE TABLE `room` (
 INSERT INTO `room` (`id`, `fname`, `lname`, `email`, `birthdate`, `city`, `phone`, `room`, `nroom`, `totalprice`, `checkin`, `checkout`) VALUES
 (1, 'brijesh', 'kachadiya', 'brijesh2002@gmail.com', '2002-06-27', 'Surat', '9876654323', 'Classic Room', '5', '₹65000', '2024-03-27', '2024-03-29'),
 (2, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Luxury Room', '3', '₹90000', '2024-03-22', '2024-03-28'),
-(3, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Luxury Room', '3', '₹90000', '2024-03-23', '2024-03-29');
+(3, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Luxury Room', '3', '₹90000', '2024-03-23', '2024-03-29'),
+(4, 'test', 'test', 'test@gmail.com', '2024-02-26', 'surat', '9856953265', 'Deluxe Room', '2', '₹36000', '2024-03-22', '2024-03-16');
 
 -- --------------------------------------------------------
 
@@ -249,19 +229,19 @@ ALTER TABLE `adminlogin`
 -- AUTO_INCREMENT for table `cardroom`
 --
 ALTER TABLE `cardroom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cardticket`
 --
 ALTER TABLE `cardticket`
-  MODIFY `cardid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cardid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `register`
@@ -273,7 +253,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ticket`

@@ -70,12 +70,12 @@ if (isset($_POST['login'])) {
     <style>
         .toggle-password-eye i{
             position: relative;
-            left: 89%;
+            left: 87%;
             bottom: 40px;
         }
         .toggle-password-email i{
             position: relative;
-            left: 89%;
+            left: 87%;
             bottom: 40px;
         }
     </style>

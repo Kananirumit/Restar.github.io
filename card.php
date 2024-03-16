@@ -13,7 +13,7 @@ if (isset($_POST['pay'])) {
     $cvv = $_POST['cvv'];
 
 
-    $insert = "INSERT INTO `cardticket`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES ('$cardno','$cardname',' $email','$month','$year','$cvv')";
+    $insert = "INSERT INTO `cardroom`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES ('$cardno','$cardname',' $email','$month','$year','$cvv')";
 
     $result = $conn->query($insert);
 

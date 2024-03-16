@@ -74,13 +74,13 @@ if (isset($_POST['add'])) {
 
         .toggle-password-eye i {
             position: relative;
-            left: 88%;
+            left: 82%;
             bottom: 40px;
             cursor: pointer;
         }
         .toggle-password-eyepass i {
             position: relative;
-            left: 94%;
+            left: 92%;
             bottom: 40px;
             cursor: pointer;
         }
