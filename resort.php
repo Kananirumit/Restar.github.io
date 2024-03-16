@@ -373,7 +373,7 @@ if (isset($_POST['add'])) {
                 <div class="row clearfix">
                     <div class="col-xl-8 col-lg-12 offset-xl-2 big-column">
                         <div class="sec-title centred">
-                            <h2>BOOK YOUR TICKET</h2>
+                            <h2>BOOK YOUR ROOM</h2>
                         </div>
                         <div class="form-inner text-left">
                             <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate"
