@@ -78,11 +78,31 @@ if (isset($_POST['add'])) {
             bottom: 40px;
             cursor: pointer;
         }
+
         .toggle-password-eyepass i {
             position: relative;
             left: 92%;
             bottom: 40px;
             cursor: pointer;
+        }
+
+        @media (max-width: 468px) {
+            .popup-content {
+                max-height: 80vh;
+                /* Set maximum height for the popup content */
+                overflow-y: auto;
+                /* Enable vertical scrolling */
+            }
+
+            .form-box.signup {
+                height: 100%;
+                /* Ensure the form box takes up all available height */
+            }
+
+            .form-content {
+                padding: 20px;
+                /* Add padding to the form content */
+            }
         }
     </style>
 </head>

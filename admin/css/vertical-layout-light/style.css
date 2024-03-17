@@ -28879,8 +28879,9 @@ div.tagsinput span.tag a {
   }
 }
 @media (min-width: 991px) {
-  .navbar .navbar-menu-wrapper .navbar-toggler .icon-menu {
-    display: none;
+  .navbar .navbar-menu-wrapper .align-self-center {
+    position: relative;
+    right: 10%;
   }
 }
 
