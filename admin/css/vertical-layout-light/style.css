@@ -28879,9 +28879,9 @@ div.tagsinput span.tag a {
   }
 }
 @media (min-width: 991px) {
-  .navbar .navbar-menu-wrapper .align-self-center {
+  .navbar .navbar-menu-wrapper .btn1 {
     position: relative;
-    right: 10%;
+    right: 40px;
   }
 }
 

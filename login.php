@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restar-Amusment Park</title>
+    <title>LOGIN</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">

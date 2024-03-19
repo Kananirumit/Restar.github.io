@@ -41,7 +41,7 @@
           </div>
 
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <button class="navbar-toggler navbar-toggler align-self-center btn1" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
         <ul class="navbar-nav navbar-nav-right">

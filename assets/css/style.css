@@ -87,6 +87,13 @@ body {
     padding: 0px 15px;
   }
 }
+/* nav hover */
+.main-menu .navigation .active a{
+  color: #202020;
+} 
+.mobile-menu .navigation .active a{
+  color: #71747a;
+} 
   /* popup sign up */
   /* Importing Google font - Open Sans */
   .pop-up {
@@ -1685,6 +1692,21 @@ img {
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
   transition: all 500ms ease; 
+}
+.mobile-menu .navigation .dropdown{
+  position: relative;
+  display: block;
+  line-height: 24px;
+  padding: 10px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: uppercase;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .mobile-menu .navigation li ul li > a{

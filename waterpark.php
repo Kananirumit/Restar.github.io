@@ -69,6 +69,7 @@
 
 
         <?php
+            $currentPage = 'water';
             include "header.php";
         ?>
 

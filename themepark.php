@@ -67,6 +67,7 @@
 
 
         <?php
+            $currentPage = 'theme';
             include "header.php";
         ?>
 
@@ -80,7 +81,7 @@
                 <div class="content-box">
                     <ul class="bread-crumb clearfix">
                         <li><a href="index.php">Home</a></li>
-                        <li>Amusment park</li>
+                        <li>Amusement park</li>
                     </ul>
                     <div class="title">
                         <h1>dry ride</h1>

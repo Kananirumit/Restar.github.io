@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <title>Restar-Amusment Park</title>
+    <title>Restar-Amusement Park</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
@@ -69,6 +69,7 @@
         <!-- preloader end -->
 
         <?php
+            $currentPage = 'index';
             include "header.php";
         ?>
 

@@ -1,6 +1,5 @@
 <?php
 include './include/connect.php';
-
 session_start();
 ?>
 
@@ -12,7 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <title>Restar-Amusment Park</title>
+    <title>Restar-Amusement Park</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="assets/images/amusement-park.png" type="image">
@@ -20,6 +19,7 @@ session_start();
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
     <link href="assets/css/flaticon.css" rel="stylesheet">
@@ -64,19 +64,19 @@ session_start();
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li><a href="index.php">HOME</a></li>
-                                <li><a href="resort.php">ROOM</a></li>
+                                <li class="<?php echo ($currentPage === 'index') ? 'active' : ''; ?>"><a href="index.php">HOME</a></li>
+                                <li class="<?php echo ($currentPage === 'resort') ? 'active' : ''; ?>"><a href="resort.php">ROOM</a></li>
                                 <li class="dropdown">RIDES</a>
                                     <ul>
-                                        <li><a href="themepark.php">THEMEPARK RIDES</a></li>
-                                        <li><a href="waterpark.php">WATERPARK RIDES</a></li>
+                                        <li class="<?php echo ($currentPage === 'theme') ? 'active' : ''; ?>"><a href="themepark.php">THEMEPARK RIDES</a></li>
+                                        <li class="<?php echo ($currentPage === 'water') ? 'active' : ''; ?>"><a href="waterpark.php">WATERPARK RIDES</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="attrection.php">ATTRACTION</a></li>
-                                <li><a href="daining.php">DINING</a></li>
-                                <li><a href="about.php">ABOUT US</a></li>
-                                <li><a href="gallery.php">OUR GALLERY</a></li>
-                                <li><a href="contact.php">CONTACT</a></li>
+                                <li class="<?php echo ($currentPage === 'attraction') ? 'active' : ''; ?>"><a href="attrection.php">ATTRACTION</a></li>
+                                <li class="<?php echo ($currentPage === 'dining') ? 'active' : ''; ?>"><a href="daining.php">DINING</a></li>
+                                <li class="<?php echo ($currentPage === 'about') ? 'active' : ''; ?>"><a href="about.php">ABOUT US</a></li>
+                                <li class="<?php echo ($currentPage === 'gallery') ? 'active' : ''; ?>"><a href="gallery.php">OUR GALLERY</a></li>
+                                <li class="<?php echo ($currentPage === 'contact') ? 'active' : ''; ?>"><a href="contact.php">CONTACT</a></li>
                                 <?php if (isset($_SESSION["email"])) {
                                 ?>
                                     <li>
