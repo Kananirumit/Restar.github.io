@@ -139,6 +139,9 @@ if (isset ($_POST['add'])) {
             font-weight: bold;
 
         }
+        img.image-shadow {
+  	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  }
     </style>
 </head>
 
@@ -213,19 +216,19 @@ if (isset ($_POST['add'])) {
                         data-wow-duration="1500ms">
                 <div class="box1">
                    
-                        <img src="assets/images/event/Event1.png" alt="Loading">
+                        <img class="image-shadow" src="assets/images/event/Event1.png" alt="Loading">
                     </div>
                 </div>
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms"
                         data-wow-duration="1500ms">
                 <div class="box1">
                    
-                        <img src="assets/images/event/Event1.png" alt="Loading">
+                        <img class="image-shadow" src="assets/images/event/Event2.png" alt="Loading">
                     </div>
                 </div>
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
-                        <img src="assets/images/event/Event1.png" alt="Loading">
+                        <img class="image-shadow" src="assets/images/event/Event3.png" alt="Loading">
                     </div>
                 </div>
             </div>
