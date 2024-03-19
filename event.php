@@ -67,32 +67,29 @@ if (isset ($_POST['add'])) {
             var selectedRoom = roomDropdown.options[roomDropdown.selectedIndex].value;
 
             // Set room prices based on the selected room type
-            var roomPrices = {
-                'Suite Room': 4500,
-                'Family Room': 10000,
-                'Deluxe Room': 18000,
-                'Classic Room': 13000,
-                'Superior Room': 22000,
-                'Luxury Room': 30000
+            var eventPrices = {
+                'Family Fun day': 8000,
+                'Summer Event': 6500,
+                'Fun Day': 7000
             };
 
-            // Display the price for the selected room type
-            priceDisplay.innerHTML = '₹' + roomPrices[selectedRoom] + ' per night';
+            // Display the price for the selected event
+            priceDisplay.innerHTML = '₹' + eventPrices[selectedRoom] + ' per pass';
 
-            // Call the function to update the total price when the number of rooms changes
+            // Call the function to update the total price when the number of passes changes
             updateTotalPrice();
         }
 
-        // Function to update the total price based on the number of rooms
+        // Function to update the total price based on the number of passes
         function updateTotalPrice() {
-            var roomPrice = document.getElementById('roomPrice').innerText;
-            var numberOfRooms = document.getElementById('number-of-rooms').value;
+            var eventPrice = document.getElementById('roomPrice').innerText;
+            var numberOfPasses = document.getElementById('number-of-passes').value;
 
-            // Extract the numerical value from the room price
-            var roomPriceValue = parseInt(roomPrice.replace(/[^\d]/g, ''), 10);
+            // Extract the numerical value from the event price
+            var eventPriceValue = parseInt(eventPrice.replace(/[^\d]/g, ''), 10);
 
             // Calculate the total price
-            var totalPrice = roomPriceValue * parseInt(numberOfRooms, 10);
+            var totalPrice = eventPriceValue * parseInt(numberOfPasses, 10);
 
             // Display the total price
             document.getElementById('totalPrice').innerText = '₹' + totalPrice;
@@ -139,9 +136,10 @@ if (isset ($_POST['add'])) {
             font-weight: bold;
 
         }
+
         img.image-shadow {
-  	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
-  }
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+        }
     </style>
 </head>
 
@@ -212,17 +210,15 @@ if (isset ($_POST['add'])) {
         <div class="container">
             <!--room section start -->
             <div class="lin">
-            <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                        data-wow-duration="1500ms">
-                <div class="box1">
-                   
+                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="box1">
+
                         <img class="image-shadow" src="assets/images/event/Event1.png" alt="Loading">
                     </div>
                 </div>
-                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                        data-wow-duration="1500ms">
-                <div class="box1">
-                   
+                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="box1">
+
                         <img class="image-shadow" src="assets/images/event/Event2.png" alt="Loading">
                     </div>
                 </div>
@@ -294,36 +290,34 @@ if (isset ($_POST['add'])) {
                                                 number.</div>
                                         </div>
                                         <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                            <label for="room" class="h6">Choose Your Room:</label><br>
+                                            <label for="room" class="h6">Choose Your event</label><br>
                                             <select id="roomDropdown" class="form-control text-font" name="room"
                                                 required="" onchange="updateRoomPrice()">
-                                                <option value="Suite Room" name="room">Suite Room</option>
-                                                <option value="Family Room" name="room">Family Room</option>
-                                                <option value="Deluxe Room" name="room">Deluxe Room</option>
-                                                <option value="Classic Room" name="room">Classic Room</option>
-                                                <option value="Superior Room" name="room">Superior Room</option>
-                                                <option value="Luxury Room" name="room">Luxury Room</option>
+
+                                                <option value="Family Fun day" name="room">Family Fun day</option>
+                                                <option value="Summer Event" name="room">Summer Event</option>
+                                                <option value="Fun Day" name="room">Fun Day</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                            <label for="room" class="h6">Room Price:</label>
-                                            <p id="roomPrice">₹4500 per two night</p>
+                                            <label for="room" class="h6">event Price:</label>
+                                            <p id="roomPrice">₹8000 per pass</p>
                                         </div>
 
                                         <!-- Modify the PHP code to calculate the total price -->
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                            <label for="child" class="h6">Number of rooms:</label>
+                                            <label for="child" class="h6">Number of pass:</label>
                                             <div class="input-group">
                                                 <button type="button"
                                                     class="btn btn-warning d-flex align-items-center text-font"
-                                                    onclick="decrementRooms()">-</button>
+                                                    onclick="decrementPasses()">-</button>
                                                 <input type="text" class="form-control text-font" required=""
-                                                    name="nroom" id="number-of-rooms"
-                                                    placeholder="Enter number of rooms" onchange="updateTotalPrice()"
+                                                    name="nroom" id="number-of-passes"
+                                                    placeholder="Enter number of passes" onchange="updateTotalPrice()"
                                                     value="1">
                                                 <button type="button"
                                                     class="btn btn-warning d-flex align-items-center text-font"
-                                                    onclick="incrementRooms()">+</button>
+                                                    onclick="incrementPasses()">+</button>
                                             </div>
                                             <div class="invalid-feedback">Please enter the number of rooms.</div>
                                         </div>
@@ -332,7 +326,7 @@ if (isset ($_POST['add'])) {
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                             <label for="room" class="h6">Total Price:</label>
                                             <input type="text" class="form-control text-font" name="totalprice"
-                                                id="totalPrice" value="₹4500" readonly>
+                                                id="totalPrice" value="₹8000" readonly>
                                         </div>
 
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
@@ -407,31 +401,33 @@ if (isset ($_POST['add'])) {
             });
 
             // Function to increment the number of rooms
-            function incrementRooms() {
-                var numberOfRooms = document.getElementById('number-of-rooms');
-                numberOfRooms.value = parseInt(numberOfRooms.value, 10) + 1;
-                updateTotalPrice();
-            }
-
-            // Function to decrement the number of rooms (minimum value is 1)
-            function decrementRooms() {
-                var numberOfRooms = document.getElementById('number-of-rooms');
-                if (parseInt(numberOfRooms.value, 10) > 1) {
-                    numberOfRooms.value = parseInt(numberOfRooms.value, 10) - 1;
+            function decrementPasses() {
+                var numberOfPasses = document.getElementById('number-of-passes');
+                var currentValue = parseInt(numberOfPasses.value, 10);
+                if (currentValue > 1) {
+                    numberOfPasses.value = currentValue - 1;
                     updateTotalPrice();
                 }
             }
 
+            // Function to decrement the number of rooms (minimum value is 1)
+            function incrementPasses() {
+                var numberOfPasses = document.getElementById('number-of-passes');
+                numberOfPasses.value = parseInt(numberOfPasses.value, 10) + 1;
+                updateTotalPrice();
+            }
+
+
             // Function to update the total price based on the number of rooms
             function updateTotalPrice() {
                 var roomPrice = document.getElementById('roomPrice').innerText;
-                var numberOfRooms = document.getElementById('number-of-rooms').value;
+                var numberOfPasses = document.getElementById('number-of-passes').value;
 
                 // Extract the numerical value from the room price
                 var roomPriceValue = parseInt(roomPrice.replace(/[^\d]/g, ''), 10);
 
                 // Calculate the total price
-                var totalPrice = roomPriceValue * parseInt(numberOfRooms, 10);
+                var totalPrice = roomPriceValue * parseInt(numberOfPasses, 10);
 
                 // Display the total price
                 document.getElementById('totalPrice').value = '₹' + totalPrice;
