@@ -208,23 +208,45 @@ if (isset ($_POST['add'])) {
         </section>
         <!-- End Page Title -->
         <div class="container">
+            <div class="sec-title centred" style="margin-top:50px">
+                <h2>Event</h2>
+            </div>
+
             <!--room section start -->
             <div class="lin">
+
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
-
-                        <img class="image-shadow" src="assets/images/event/Event1.png" alt="Loading">
+                        <div class="gallery-block-two">
+                            <div class="inner-box">
+                                <figure class="image-box "><img src="assets/images/event/Event1.png" alt=""></figure>
+                                <div class="view-box"><a href="assets/images/event/Event1.png" class="lightbox-image"
+                                        data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
 
-                        <img class="image-shadow" src="assets/images/event/Event2.png" alt="Loading">
+                    <div class="gallery-block-two">
+                            <div class="inner-box">
+                                <figure class="image-box "><img src="assets/images/event/Event2.png" alt=""></figure>
+                                <div class="view-box"><a href="assets/images/event/Event2.png" class="lightbox-image"
+                                        data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
-                        <img class="image-shadow" src="assets/images/event/Event3.png" alt="Loading">
+                    <div class="gallery-block-two">
+                            <div class="inner-box">
+                                <figure class="image-box "><img src="assets/images/event/Event3.png" alt=""></figure>
+                                <div class="view-box"><a href="assets/images/event/Event3.png" class="lightbox-image"
+                                        data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -267,21 +289,8 @@ if (isset ($_POST['add'])) {
                                                 email
                                                 address.</div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                            <label for="child" class="h6">Date of Birth:</label>
-                                            <div class="input-group">
-                                                <input type="date" class="form-control text-font" id="birthdate"
-                                                    name="birthdate" required>
-                                            </div>
-                                            <div class="invalid-feedback invalid-feedback-date">Please select a date.
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                            <label for="child" class="h6">City:</label>
-                                            <input type="text" class="form-control text-font" name="city" id="city"
-                                                placeholder="Please enter your city name" required>
-                                            <div class="invalid-feedback">Please enter your city name.</div>
-                                        </div>
+
+
                                         <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                             <label for="child" class="h6">Phone:</label>
                                             <input type="text" class="form-control text-font" required="" name="phone"
@@ -328,30 +337,10 @@ if (isset ($_POST['add'])) {
                                             <input type="text" class="form-control text-font" name="totalprice"
                                                 id="totalPrice" value="₹8000" readonly>
                                         </div>
-
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                            <label for="child" class="h6">Check in date:</label>
-                                            <div class="input-group">
-                                                <input type="date" class="form-control text-font" id="checkin"
-                                                    name="checkin">
-                                            </div>
-                                            <div class="invalid-feedback invalid-feedback-date">Please select check in
-                                                date.
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                            <label for="child" class="h6">Check out date:</label>
-                                            <div class="input-group">
-                                                <input type="date" class="form-control text-font" id="checkout"
-                                                    name="checkout">
-                                            </div>
-                                            <div class="invalid-feedback invalid-feedback-date">Please select check out
-                                                date.</div>
-                                        </div>
                                         <div
                                             class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
                                             <button class="theme-btn btn-one" name="add" id="add"
-                                                onclick="updateTotalPrice();">Book your Room</button>
+                                                onclick="updateTotalPrice();">Book your event</button>
                                         </div>
 
                                     </div>
