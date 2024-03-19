@@ -421,7 +421,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 title-column">
                         <div class="sec-title light">
                             <h2>Check Park upcoming events</h2>
-                            <a href="pricing.php" class="theme-btn btn-one">Book Your Event Now</a>
+                            <a href="event.php" class="theme-btn btn-one">Book Your Event Now</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
