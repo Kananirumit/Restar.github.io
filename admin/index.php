@@ -11,6 +11,18 @@ if (isset($_POST['delete'])) {
     echo "Error: " . $conn->error;
   }
 }
+
+if (isset($_POST['update'])) {
+  $IdToDelete = $_POST['delete'];
+  $deleteQuery = "DELETE FROM `adminlogin` WHERE `id` = $IdToDelete";
+
+  if ($conn->query($deleteQuery) === TRUE) {
+    // Deletion successful, you can redirect or perform other actions if needed
+  } else {
+    echo "Error: " . $conn->error;
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +52,10 @@ if (isset($_POST['delete'])) {
     .table-bordered .cust-center {
       display: flex;
       justify-content: center;
+    }
+    .cust-center .btn-primary a{
+      color: #fff;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -269,9 +285,11 @@ if (isset($_POST['delete'])) {
                               <?php echo $row['pass'] ?>
                             </td>
                             <td class="cust-center">
-                              <form method="post" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this member?');">
+                              <form method="post" style="display: inline;">
+                                <button type="submit" name="update" class="btn btn-primary"><a href="add.php?edit=<?php echo $row['id'];?>">Update</a></button>
                                 <input type="hidden" name="delete" value="<?php echo $row['id']; ?>">
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this member?');">Delete</button>
+
                               </form>
                             </td>
                           </tr>

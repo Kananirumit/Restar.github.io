@@ -2,7 +2,7 @@
 
 include '../include/connect.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['add'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -19,6 +19,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $error = "Admin Not Add!";
     }
+}
+
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    $update = "UPDATE `adminlogin` SET `id`='$id',`name`='$name',`admin_email`='$email',`pass`='$pass' WHERE id=$_GET[edit]";
+    $result = $conn->query($update);
+
+     if ($result) {
+        echo "<script>alert('Update Successfully!');</script>";
+        header("location:index.php");
+    } else {
+        $error = "Data Not Update!";
+    }
+}
+
+
+if (isset($_GET['edit'])) {
+
+    $select = "SELECT * FROM `adminlogin` WHERE id=$_GET[edit]";
+    $result = $conn->query($select);
+    $row = mysqli_fetch_array($result);
 }
 
 ?>
@@ -53,26 +78,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="brand-logo">
                                 <img src="images/logo.png" alt="logo">
                             </div>
-                            <h5>Welcome To Restar Admin Panel</h5>
-                            <h6 class="font-weight-light">Add Admin User.</h6>
+                            <h4>Welcome To Restar Admin Panel</h4>
+                                    <?PHP
+                                    if (isset($_GET['edit'])) {
+                                    ?>
+                                        <h5 class="font-weight-light">Update Admin Data.</h5>
+                                    <?PHP
+                                    } else {
+                                    ?>
+                                        <h5 class="font-weight-light">Add Admin Data.</h5>
+                                    <?PHP
+                                    }
+                                    ?>
                             <form class="pt-3" method="POST">
                                 <div class="form-group">
-                                    <input type="number" class="form-control form-control-lg" id="exampleInputid" name="id" placeholder="Admin Id">
+                                    <input type="number" class="form-control form-control-lg" id="exampleInputid" name="id" placeholder="Admin Id" value="<?PHP if(isset($_GET['edit'])) echo $row['id'];  ?>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="exampleInputname" name="name" placeholder="Admin Name">
+                                    <input type="text" class="form-control form-control-lg" id="exampleInputname" name="name" placeholder="Admin Name" value="<?PHP if(isset($_GET['edit'])) echo $row['name'];  ?>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="email" placeholder="Admin Email">
+                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="email" placeholder="Admin Email" value="<?PHP if(isset($_GET['edit'])) echo $row['admin_email'];  ?>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="pass" placeholder="Password">
+                                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="pass" placeholder="Password" value="<?PHP if(isset($_GET['edit'])) echo $row['pass'];  ?>">
                                     <?php if (isset($error)) { ?>
                                         <div class="alert alert-danger"><?php echo $error; ?></div>
                                     <?php } ?>
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-block btn-warning btn-lg font-weight-medium auth-form-btn">LOG IN</button>
+                                    <?PHP
+                                    if (isset($_GET['edit'])) {
+                                    ?>
+                                        <button type="submit" name="update" class="btn btn-block btn-warning btn-lg font-weight-medium auth-form-btn">Update</button>
+                                    <?PHP
+                                    } else {
+                                    ?>
+                                        <button type="submit" name="add" class="btn btn-block btn-warning btn-lg font-weight-medium auth-form-btn">LOG IN</button>
+                                    <?PHP
+                                    }
+                                    ?>
                                 </div>
                                 <div class="my-2 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
