@@ -218,34 +218,28 @@ if (isset ($_POST['add'])) {
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
                         <div class="gallery-block-two">
-                            <div class="inner-box">
-                                <figure class="image-box "><img src="assets/images/event/Event1.png" alt=""></figure>
-                                <div class="view-box"><a href="assets/images/event/Event1.png" class="lightbox-image"
-                                        data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a></div>
-                            </div>
+                    
+                                <img class="image-shadow" src="assets/images/event/Event1.png" alt="">
+                            
                         </div>
                     </div>
                 </div>
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
 
-                    <div class="gallery-block-two">
-                            <div class="inner-box">
-                                <figure class="image-box "><img src="assets/images/event/Event2.png" alt=""></figure>
-                                <div class="view-box"><a href="assets/images/event/Event2.png" class="lightbox-image"
-                                        data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a></div>
-                            </div>
+                        <div class="gallery-block-two">
+                            
+                                <img class="image-shadow" src="assets/images/event/Event2.png" alt="">
+                            
                         </div>
                     </div>
                 </div>
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
-                    <div class="gallery-block-two">
-                            <div class="inner-box">
-                                <figure class="image-box "><img src="assets/images/event/Event3.png" alt=""></figure>
-                                <div class="view-box"><a href="assets/images/event/Event3.png" class="lightbox-image"
-                                        data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a></div>
-                            </div>
+                        <div class="gallery-block-two">
+                    
+                                <img class="image-shadow" src="assets/images/event/Event3.png" alt="">
+
                         </div>
                     </div>
                 </div>
