@@ -261,7 +261,7 @@
                             <div class="text p-3 text-center">
 		    						<h3 class="mb-3">STAY</h3>
 		    						<hr>
-		    						<a href="resort.php" class="theme-btn btn-one">Book ticket</a>
+		    						<a href="resort.php" class="theme-btn btn-one">click here</a>
 		    					</div>
                             </table>
                             
@@ -276,7 +276,7 @@
                             <div class="text p-3 text-center">
 		    						<h3 class="mb-3">DAINING</h3>
 		    						<hr>
-		    						<a href="daining.php" class="theme-btn btn-one">Book ticket</a>
+		    						<a href="daining.php" class="theme-btn btn-one">click here</a>
 		    					</div>
                             </table>
                             
