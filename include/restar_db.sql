@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2024 at 07:09 AM
+-- Generation Time: Mar 20, 2024 at 07:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `adminlogin` (
   `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `admin_email` varchar(50) NOT NULL,
   `pass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -37,10 +38,10 @@ CREATE TABLE `adminlogin` (
 -- Dumping data for table `adminlogin`
 --
 
-INSERT INTO `adminlogin` (`id`, `admin_email`, `pass`) VALUES
-(1001, 'kananirumit2003@gmail.com', 'rumit123'),
-(1002, 'chovatiyarushit@gmail.com', 'rushit123'),
-(1003, 'diyoravatsal@gmail.com', 'vatsal123');
+INSERT INTO `adminlogin` (`id`, `name`, `admin_email`, `pass`) VALUES
+(1001, 'Rumit', 'kananirumit2003@gmail.com', 'rumit123'),
+(1002, 'Rushit', 'chovatiyarushit@gmail.com', 'rushit123'),
+(1003, 'Vatsal', 'diyoravatsal@gmail.com', 'vatsal123');
 
 -- --------------------------------------------------------
 
@@ -143,7 +144,8 @@ INSERT INTO `room` (`id`, `fname`, `lname`, `email`, `birthdate`, `city`, `phone
 (1, 'brijesh', 'kachadiya', 'brijesh2002@gmail.com', '2002-06-27', 'Surat', '9876654323', 'Classic Room', '5', '₹65000', '2024-03-27', '2024-03-29'),
 (2, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Luxury Room', '3', '₹90000', '2024-03-22', '2024-03-28'),
 (3, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Luxury Room', '3', '₹90000', '2024-03-23', '2024-03-29'),
-(4, 'test', 'test', 'test@gmail.com', '2024-02-26', 'surat', '9856953265', 'Deluxe Room', '2', '₹36000', '2024-03-22', '2024-03-16');
+(4, 'test', 'test', 'test@gmail.com', '2024-02-26', 'surat', '9856953265', 'Deluxe Room', '2', '₹36000', '2024-03-22', '2024-03-16'),
+(5, 'rushit', 'chovatiya', 'chovatiyarushit@gmail.com', '2024-03-05', 'surat', '9562356253', 'Family Room', '2', '₹20000', '2024-03-20', '2024-03-21');
 
 -- --------------------------------------------------------
 
@@ -167,7 +169,8 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id`, `name`, `email`, `child`, `adult`, `senior`, `txtDate`, `total`) VALUES
-(1, 'Rumit Kanani ', 'kananirumit2003@gmail.com', 2, 2, 0, '2024-03-22', '₹3600');
+(1, 'Rumit Kanani ', 'kananirumit2003@gmail.com', 2, 2, 0, '2024-03-22', '₹3600'),
+(2, 'test ', 'chovatiyarushit@gmail.com', 1, 2, 1, '2024-03-21', '₹3800');
 
 --
 -- Indexes for dumped tables
@@ -220,16 +223,10 @@ ALTER TABLE `ticket`
 --
 
 --
--- AUTO_INCREMENT for table `adminlogin`
---
-ALTER TABLE `adminlogin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
-
---
 -- AUTO_INCREMENT for table `cardroom`
 --
 ALTER TABLE `cardroom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cardticket`
@@ -253,13 +250,13 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

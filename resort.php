@@ -1,7 +1,7 @@
 <?php
 $currentPage = 'resort';
 include "./include/connect.php";
-
+include "header.php";
 
 if (isset($_POST['add'])) {
     $fname = $_POST['fname'];
@@ -156,11 +156,6 @@ if (isset($_POST['add'])) {
             </div>
         </div>
         <!-- preloader end -->
-
-
-        <?php
-        include "header.php";
-        ?>
 
         <!-- Page Title -->
         <section class="page-title">
