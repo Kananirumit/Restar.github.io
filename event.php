@@ -218,28 +218,21 @@ if (isset ($_POST['add'])) {
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
                         <div class="gallery-block-two">
-                    
-                                <img class="image-shadow" src="assets/images/event/Event1.png" alt="">
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <div class="box1">
-
-                        <div class="gallery-block-two">
-                            
-                                <img class="image-shadow" src="assets/images/event/Event2.png" alt="">
-                            
+                            <img class="image-shadow" src="assets/images/event/Event1.png" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                     <div class="box1">
                         <div class="gallery-block-two">
-                    
-                                <img class="image-shadow" src="assets/images/event/Event3.png" alt="">
-
+                            <img class="image-shadow" src="assets/images/event/Event2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="box1">
+                        <div class="gallery-block-two">
+                            <img class="image-shadow" src="assets/images/event/Event3.png" alt="">
                         </div>
                     </div>
                 </div>
