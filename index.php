@@ -126,7 +126,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 single-column">
                             <div class="single-item">
                                 <div class="icon-box"><i class="flaticon-ticket"></i></div>
-                                <h5><a href="pricing.php">Buy Tickets</a></h5>
+                                <h5><a href="event.php">Book your event</a></h5>
                                 <p>Experience the joy and excitement at Restar Amusement Park by grabbing your tickets online!</p>
                             </div>
                         </div>

@@ -17,12 +17,12 @@ if (isset ($_POST['add'])) {
     $checkout = $_POST['checkout'];
 
 
-    $insert = "INSERT INTO `room`(`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`totalprice`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$room','$nroom','$totalprice','$checkin','$checkout')";
+    $insert = "INSERT INTO (`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`totalprice`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$room','$nroom','$totalprice','$checkin','$checkout')";
 
     $result = $conn->query($insert);
 
     if ($result) {
-        header("location:card.php");
+        header("location:.php");
     }
 }
 
@@ -138,7 +138,7 @@ if (isset ($_POST['add'])) {
         }
 
         img.image-shadow {
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 3px 5px rgba(1, 0, 0, 0.4);
         }
     </style>
 </head>
@@ -192,16 +192,16 @@ if (isset ($_POST['add'])) {
         <section class="page-title">
             <div class="img-wrap parallax-demo-1">
                 <div class="parallax-inner back-img"
-                    style="background-image: url(assets/images/gallery/resort/bg_2.jpg);"></div>
+                    style="background-image: url(assets/images/event/banner.jpeg);"></div>
             </div>
             <div class="auto-container">
                 <div class="content-box">
                     <ul class="bread-crumb clearfix">
                         <li><a href="index.php">Home</a></li>
-                        <li>our resort</li>
+                        <li>Book</li>
                     </ul>
                     <div class="title">
-                        <h1>Rooms</h1>
+                        <h1>Your event</h1>
                     </div>
                 </div>
             </div>
