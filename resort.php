@@ -1,7 +1,6 @@
 <?php
 $currentPage = 'resort';
 include "./include/connect.php";
-include "header.php";
 
 if (isset($_POST['add'])) {
     $fname = $_POST['fname'];
@@ -121,6 +120,9 @@ if (isset($_POST['add'])) {
 <!-- page wrapper -->
 
 <body>
+    <?php
+        include "header.php";
+    ?>
 
     <div class="boxed_wrapper">
 
