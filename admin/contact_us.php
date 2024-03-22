@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "../include/connect.php";
 
 ?>
@@ -47,7 +47,7 @@ include "../include/connect.php";
           </div>
 
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <button class="navbar-toggler navbar-toggler align-self-center btn1" type="button" data-toggle="minimize">
               <span class="icon-menu"></span>
             </button>
             <ul class="navbar-nav navbar-nav-right">
@@ -62,7 +62,7 @@ include "../include/connect.php";
                   <img src="images/faces/face28.jpg" alt="profile" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                  <a class="dropdown-item">
+                  <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
                     <i class="ti-settings text-primary"></i>
                     Settings
                   </a>

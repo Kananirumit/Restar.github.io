@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "../include/connect.php";
 
 ?>
@@ -38,33 +38,27 @@ include "../include/connect.php";
                 <!-- partial:partials/_navbar.php -->
                 <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
                     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2"
-                                alt="logo" style="width: 100px; height:50px;" /></a>
-                        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
-                                style="width: 50px; height:50px;" /></a>
+                        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo" style="width: 100px; height:50px;" /></a>
+                        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo" style="width: 50px; height:50px;" /></a>
                     </div>
 
                     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                        <button class="navbar-toggler navbar-toggler align-self-center" type="button"
-                            data-toggle="minimize">
+                        <button class="navbar-toggler navbar-toggler align-self-center btn1" type="button" data-toggle="minimize">
                             <span class="icon-menu"></span>
                         </button>
                         <ul class="navbar-nav navbar-nav-right">
                             <li class="nav-item">
-                                <button class="navbar-toggler navbar-toggler align-self-center" type="button"
-                                    data-toggle="fullscreen">
+                                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="fullscreen">
                                     <i class="fa-solid fa-expand" style=""></i>
                                 </button>
                             </li>
                             <li class="nav-item dropdown">
                             <li class="nav-item nav-profile dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
-                                    id="profileDropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                                     <img src="images/faces/face28.jpg" alt="profile" />
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                                    aria-labelledby="profileDropdown">
-                                    <a class="dropdown-item">
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                                    <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
                                         <i class="ti-settings text-primary"></i>
                                         Settings
                                     </a>
@@ -74,8 +68,7 @@ include "../include/connect.php";
                                     </a>
                                 </div>
                             </li>
-                            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-                                type="button" data-toggle="offcanvas">
+                            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                                 <span class="icon-menu"></span>
                             </button>
                         </ul>
@@ -192,7 +185,7 @@ include "../include/connect.php";
                                                     $result = $conn->query($select);
 
                                                     while ($row = mysqli_fetch_array($result)) {
-                                                        ?>
+                                                    ?>
                                                         <tr>
                                                             <td>
                                                                 <?php echo $row['event_id'] ?>
@@ -219,7 +212,7 @@ include "../include/connect.php";
                                                                 <?php echo $row['totalprice'] ?>
                                                             </td>
                                                         </tr>
-                                                        <?php
+                                                    <?php
                                                     }
                                                     ?>
                                                 </thead>

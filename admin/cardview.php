@@ -123,7 +123,7 @@ if (isset($_GET['id']) && isset($_GET['cardno']) && isset($_GET['cardname']) && 
             </tr>
         </table>
         <br>
-        <a href="payment.php" class="btn btn-primary">Back to Dashboard</a>
+        <a href="rbpayment.php" class="btn btn-primary">Back to Dashboard</a>
     </div>
 </body>
 

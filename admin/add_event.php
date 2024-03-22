@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../include/connect.php";
 
 $popup_message = ''; // Initialize popup message variable
@@ -124,7 +125,7 @@ if (isset ($_POST['add_event'])) {
             style="width: 50px; height:50px;" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <button class="navbar-toggler navbar-toggler align-self-center btn1" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
         <ul class="navbar-nav navbar-nav-right">
@@ -139,10 +140,10 @@ if (isset ($_POST['add_event'])) {
               <img src="images/faces/face28.jpg" alt="profile" />
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
+                <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
+                  <i class="ti-settings text-primary"></i>
+                  Settings
+                </a>
               <a class="dropdown-item" href="../admin/logout.php">
                 <i class="ti-power-off text-primary"></i>
                 Logout
