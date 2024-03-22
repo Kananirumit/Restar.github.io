@@ -1,78 +1,75 @@
 <?php
-
 include "../include/connect.php";
 
 $popup_message = ''; // Initialize popup message variable
 
-if (isset($_POST['add_event'])) {
-    // Retrieve form data
-    $event_name = $_POST['event_name'];
-    $start_date = $_POST['start_date'];
-    $end_date = $_POST['end_date'];
-    $event_price = $_POST['event_price'];
+if (isset ($_POST['add_event'])) {
+  // Retrieve form data
+  $event_name = $_POST['event_name'];
+  $start_date = $_POST['start_date'];
+  $end_date = $_POST['end_date'];
+  $event_price = $_POST['event_price'];
 
-    // Process the image upload
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["event_image"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["add_event"])) {
-        $check = getimagesize($_FILES["event_image"]["tmp_name"]);
-        if($check !== false) {
-            $uploadOk = 1;
-        } else {
-            $popup_message = "Error: File is not an image.";
-            $uploadOk = 0;
-        }
-    }
+  // Process the image upload
+  $target_dir = "uploads/";
+  $target_file = $target_dir . basename($_FILES["event_image"]["name"]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        $popup_message = "Error: Sorry, file already exists.";
-        $uploadOk = 0;
-    }
-
-    // Check file size
-    if ($_FILES["event_image"]["size"] > 500000) {
-        $popup_message = "Error: Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-        $popup_message = "Error: Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
-
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        $popup_message = "Error: Sorry, your file was not uploaded.";
+  // Check if image file is an actual image or fake image
+  if (isset ($_POST["add_event"])) {
+    $check = getimagesize($_FILES["event_image"]["tmp_name"]);
+    if ($check !== false) {
+      $uploadOk = 1;
     } else {
-        // if everything is ok, try to upload file
-        if (move_uploaded_file($_FILES["event_image"]["tmp_name"], $target_file)) {
-            $popup_message = "Success: The event has been added successfully.";
-            
-            // Insert event details into the database
-            $stmt = $conn->prepare("INSERT INTO events (event_name, start_date, end_date, event_price, event_image) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $event_name, $start_date, $end_date, $event_price, $target_file);
-            $stmt->execute();
-
-            // Check if the query was successful
-            if ($stmt === false) {
-                $popup_message = "Error: " . $conn->error;
-            }
-
-            // Close statement
-            $stmt->close();
-        } else {
-            $popup_message = "Error: Sorry, there was an error uploading your file.";
-        }
+      $popup_message = "Error: File is not an image.";
+      $uploadOk = 0;
     }
-}
+  }
 
+  // Check if file already exists
+  if (file_exists($target_file)) {
+    $popup_message = "Error: Sorry, file already exists.";
+    $uploadOk = 0;
+  }
+
+  // Check file size
+  if ($_FILES["event_image"]["size"] > 500000) {
+    $popup_message = "Error: Sorry, your file is too large.";
+    $uploadOk = 0;
+  }
+
+  // Allow certain file formats
+  if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+    $popup_message = "Error: Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+  }
+
+  // Check if $uploadOk is set to 0 by an error
+  if ($uploadOk == 0) {
+    $popup_message = "Error: Sorry, your file was not uploaded.";
+  } else {
+    // if everything is ok, try to upload file
+    if (move_uploaded_file($_FILES["event_image"]["tmp_name"], $target_file)) {
+      $popup_message = "Success: The event has been added successfully.";
+
+      // Insert event details into the database
+      $stmt = $conn->prepare("INSERT INTO events (event_name, start_date, end_date, event_price, event_image) VALUES (?, ?, ?, ?, ?)");
+      $stmt->bind_param("sssss", $event_name, $start_date, $end_date, $event_price, $target_file);
+      $stmt->execute();
+
+      // Check if the query was successful
+      if ($stmt === false) {
+        $popup_message = "Error: " . $conn->error;
+      }
+
+      // Close statement
+      $stmt->close();
+    } else {
+      $popup_message = "Error: Sorry, there was an error uploading your file.";
+    }
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,7 +95,7 @@ if (isset($_POST['add_event'])) {
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
   <style>
-     .popup-message {
+    .popup-message {
       position: fixed;
       top: 50%;
       left: 50%;
@@ -121,8 +118,10 @@ if (isset($_POST['add_event'])) {
         <!-- partial:partials/_navbar.php -->
         <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo" style="width: 100px; height:50px;" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo" style="width: 50px; height:50px;" /></a>
+      <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2"
+                        alt="logo" style="width: 100px; height:50px;" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
+                        style="width: 50px; height:50px;" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -249,26 +248,32 @@ if (isset($_POST['add_event'])) {
         <button type="submit" class="btn btn-primary" name="add_event">Add Event</button>
     </form>
     <table>
-    <thead>
-        <tr>
-            <th>Event Name</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Event Price</th>
-            <th>Event Image</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
+    <table class="table">
+          <thead>
+            <tr>
+              <th>Event Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Event Price</th>
+              <th>Event Image</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php
 
-        include "../include/connect.php";
-        // Fetch events data from the database
-        $sql = "SELECT * FROM events";
-        $result = $conn->query($sql);
-        
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while ($row = $result->fetch_assoc()) {
+          include "../include/connect.php";
+          // Fetch events data from the database
+          $sql = "SELECT * FROM events";
+          $result = $conn->query($sql);
+
+          if (!$result) {
+            // Error occurred, display error message
+            echo "Error: " . $conn->error;
+          } else {
+            // No error, proceed with displaying data
+            if ($result->num_rows > 0) {
+              // Output data of each row
+              while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row["event_name"] . "</td>";
                 echo "<td>" . $row["start_date"] . "</td>";
@@ -276,12 +281,13 @@ if (isset($_POST['add_event'])) {
                 echo "<td>" . $row["event_price"] . "</td>";
                 echo "<td><img src='" . $row["event_image"] . "' alt='Event Image' style='width: 100px;'></td>";
                 echo "</tr>";
+              }
+            } else {
+              echo "<tr><td colspan='5'>No events found</td></tr>"; // This message will display if no data is retrieved
             }
-        } else {
-            echo "<tr><td colspan='5'>No events found</td></tr>";
-        }
-        ?>
-    </tbody>
+          }
+          ?>
+</tbody>
 </table>
 </div>
 <!-- Add this code where you want to display the added event in a table -->
@@ -290,16 +296,16 @@ if (isset($_POST['add_event'])) {
         // Show popup message if not empty
         var popupMessage = "<?php echo $popup_message; ?>";
         if (popupMessage.trim() !== '') {
-            // Display popup message
-            var popupElement = document.querySelector('.popup-message');
-            popupElement.style.display = 'block';
-            
-            // Auto-hide after 5 seconds
-            setTimeout(function() {
-                popupElement.style.display = 'none';
-            }, 5000);
+          // Display popup message
+          var popupElement = document.querySelector('.popup-message');
+          popupElement.style.display = 'block';
+
+          // Auto-hide after 5 seconds
+          setTimeout(function() {
+            popupElement.style.display = 'none';
+          }, 5000);
         }
-    </script>
+      </script>
          
         <!-- plugins:js -->
         <script src="vendors/js/vendor.bundle.base.js"></script>
