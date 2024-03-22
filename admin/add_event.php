@@ -113,186 +113,186 @@ if (isset ($_POST['add_event'])) {
 
 
 
-    <body>
-    <div class="container-scroller">
-        <!-- partial:partials/_navbar.php -->
-        <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.php -->
+    <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-      <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2"
-                        alt="logo" style="width: 100px; height:50px;" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
-                        style="width: 50px; height:50px;" /></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo"
+            style="width: 100px; height:50px;" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
+            style="width: 50px; height:50px;" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
-            <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item">
-                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="fullscreen">
-                  <i class="fa-solid fa-expand" style=""></i>
-                </button>
-              </li>
-              <li class="nav-item dropdown">
-              <li class="nav-item nav-profile dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                  <img src="images/faces/face28.jpg" alt="profile" />
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                  <a class="dropdown-item">
-                    <i class="ti-settings text-primary"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="../admin/logout.php">
-                    <i class="ti-power-off text-primary"></i>
-                    Logout
-                  </a>
-                </div>
-              </li>
-              <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                data-toggle="offcanvas">
-                <span class="icon-menu"></span>
-              </button>
-            </ul>
-          </div>
-        </nav>
-        <!-- partial -->
-        <div class="container-fluid page-body-wrapper">
-          <!-- partial:partials/_settings-panel.php -->
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="fullscreen">
+              <i class="fa-solid fa-expand" style=""></i>
+            </button>
+          </li>
+          <li class="nav-item dropdown">
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="images/faces/face28.jpg" alt="profile" />
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item" href="../admin/logout.php">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+          </button>
+        </ul>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.php -->
 
-          <!-- partial -->
-          <!-- partial:partials/_sidebar.php -->
-          <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">
-                  <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="register.php">
-                  <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Registration Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Room_booking.php">
-                  <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Room Booking Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Ticket_booking.php">
-                  <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Ticket Booking Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact_us.php">
-                  <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Contact us Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                                <a class="nav-link" href="add_event.php">
-                                    <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">Add event</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="event_booking.php">
-                                    <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">event Booking</span>
-                                </a>
-                            </li>
-              <li class="nav-item">
-                <a class="nav-link" href="rbpayment.php">
-                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">ROOM Booking Payment Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tbpayment.php">
-                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Ticket Booking Payment Data</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="container">
-    <h2>Add Event</h2>
-    <!-- Add event form -->
-    <form method="post" action="" enctype="multipart/form-data">
-        <div class="form-group">
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.php -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">
+              <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">
+              <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Registration Data</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Room_booking.php">
+              <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Room Booking Data</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Ticket_booking.php">
+              <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Ticket Booking Data</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact_us.php">
+              <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Contact us Data</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add_event.php">
+              <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Add event</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="event_booking.php">
+              <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">event Booking</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rbpayment.php">
+              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">ROOM Booking Payment Data</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tbpayment.php">
+              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Ticket Booking Payment Data</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="container">
+        <h2>Add Event</h2>
+        <!-- Add event form -->
+        <form method="post" action="" enctype="multipart/form-data">
+          <div class="form-group">
             <label for="event_name">Event Name:</label>
             <input type="text" class="form-control" id="event_name" name="event_name" required>
-        </div>
-        <div class="form-group">
+          </div>
+          <div class="form-group">
             <label for="start_date">Start Date:</label>
             <input type="date" class="form-control" id="start_date" name="start_date" required>
-        </div>
-        <div class="form-group">
+          </div>
+          <div class="form-group">
             <label for="end_date">End Date:</label>
             <input type="date" class="form-control" id="end_date" name="end_date" required>
-        </div>
-        <div class="form-group">
+          </div>
+          <div class="form-group">
             <label for="event_price">Event Price:</label>
             <input type="text" class="form-control" id="event_price" name="event_price" required>
-        </div>
-        <div class="form-group">
+          </div>
+          <div class="form-group">
             <label for="event_image">Event Image:</label>
             <input type="file" class="form-control-file" id="event_image" name="event_image" required>
-        </div>
+          </div>
 
-        <button type="submit" class="btn btn-primary" name="add_event">Add Event</button>
-    </form>
-    <table>
-    <table class="table">
-          <thead>
-            <tr>
-              <th>Event Name</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Event Price</th>
-              <th>Event Image</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php
+          <button type="submit" class="btn btn-primary" name="add_event">Add Event</button>
+        </form>
+        <table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Event Price</th>
+                <th>Event Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
 
-          include "../include/connect.php";
-          // Fetch events data from the database
-          $sql = "SELECT * FROM events";
-          $result = $conn->query($sql);
+              include "../include/connect.php";
+              // Fetch events data from the database
+              $sql = "SELECT * FROM events";
+              $result = $conn->query($sql);
 
-          if (!$result) {
-            // Error occurred, display error message
-            echo "Error: " . $conn->error;
-          } else {
-            // No error, proceed with displaying data
-            if ($result->num_rows > 0) {
-              // Output data of each row
-              while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["event_name"] . "</td>";
-                echo "<td>" . $row["start_date"] . "</td>";
-                echo "<td>" . $row["end_date"] . "</td>";
-                echo "<td>" . $row["event_price"] . "</td>";
-                echo "<td><img src='" . $row["event_image"] . "' alt='Event Image' style='width: 100px;'></td>";
-                echo "</tr>";
+              if (!$result) {
+                // Error occurred, display error message
+                echo "Error: " . $conn->error;
+              } else {
+                // No error, proceed with displaying data
+                if ($result->num_rows > 0) {
+                  // Output data of each row
+                  while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["event_name"] . "</td>";
+                    echo "<td>" . $row["start_date"] . "</td>";
+                    echo "<td>" . $row["end_date"] . "</td>";
+                    echo "<td>" . $row["event_price"] . "</td>";
+                    echo "<td><img src='" . $row["event_image"] . "' alt='Event Image' style='width: 100px;'></td>";
+                    echo "</tr>";
+                  }
+                } else {
+                  echo "<tr><td colspan='5'>No events found</td></tr>"; // This message will display if no data is retrieved
+                }
               }
-            } else {
-              echo "<tr><td colspan='5'>No events found</td></tr>"; // This message will display if no data is retrieved
-            }
-          }
-          ?>
-</tbody>
-</table>
-</div>
-<!-- Add this code where you want to display the added event in a table -->
+              ?>
+            </tbody>
+          </table>
+      </div>
+      <!-- Add this code where you want to display the added event in a table -->
 
-<script>
+      <script>
         // Show popup message if not empty
         var popupMessage = "<?php echo $popup_message; ?>";
         if (popupMessage.trim() !== '') {
@@ -301,33 +301,33 @@ if (isset ($_POST['add_event'])) {
           popupElement.style.display = 'block';
 
           // Auto-hide after 5 seconds
-          setTimeout(function() {
+          setTimeout(function () {
             popupElement.style.display = 'none';
           }, 5000);
         }
       </script>
-         
-        <!-- plugins:js -->
-        <script src="vendors/js/vendor.bundle.base.js"></script>
-        <!-- endinject -->
-        <!-- Plugin js for this page -->
-        <script src="vendors/chart.js/Chart.min.js"></script>
-        <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-        <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-        <script src="js/dataTables.select.min.js"></script>
 
-        <!-- End plugin js for this page -->
-        <!-- inject:js -->
-        <script src="js/off-canvas.js"></script>
-        <script src="js/hoverable-collapse.js"></script>
-        <script src="js/template.js"></script>
-        <script src="js/settings.js"></script>
-        <script src="js/todolist.js"></script>
-        <!-- endinject -->
-        <!-- Custom js for this page-->
-        <script src="js/dashboard.js"></script>
-        <script src="js/Chart.roundedBarCharts.js"></script>
-        <!-- End custom js for this page-->
-    </body>
+      <!-- plugins:js -->
+      <script src="vendors/js/vendor.bundle.base.js"></script>
+      <!-- endinject -->
+      <!-- Plugin js for this page -->
+      <script src="vendors/chart.js/Chart.min.js"></script>
+      <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+      <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+      <script src="js/dataTables.select.min.js"></script>
+
+      <!-- End plugin js for this page -->
+      <!-- inject:js -->
+      <script src="js/off-canvas.js"></script>
+      <script src="js/hoverable-collapse.js"></script>
+      <script src="js/template.js"></script>
+      <script src="js/settings.js"></script>
+      <script src="js/todolist.js"></script>
+      <!-- endinject -->
+      <!-- Custom js for this page-->
+      <script src="js/dashboard.js"></script>
+      <script src="js/Chart.roundedBarCharts.js"></script>
+      <!-- End custom js for this page-->
+</body>
 
 </html>
