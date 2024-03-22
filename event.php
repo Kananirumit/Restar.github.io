@@ -1,28 +1,32 @@
 <?php
 
+// Include the file to establish database connection
 include "./include/connect.php";
 
-
-if (isset ($_POST['add'])) {
+// Check if the form has been submitted
+if (isset($_POST['add'])) {
+    // Retrieve form data
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
-    $birthdate = $_POST['birthdate'];
-    $city = $_POST['city'];
     $phone = $_POST['phone'];
-    $room = $_POST['room'];
-    $nroom = $_POST['nroom'];
+    $event = $_POST['event'];
+    $npass = $_POST['npass'];
     $totalprice = $_POST['totalprice'];
-    $checkin = $_POST['checkin'];
-    $checkout = $_POST['checkout'];
 
-
-    $insert = "INSERT INTO (`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`totalprice`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$room','$nroom','$totalprice','$checkin','$checkout')";
-
+    // Prepare and execute SQL query to insert data into database table
+    $insert = "INSERT INTO event_data (`fname`, `lname`, `email`, `phone`, `event`, `npass`, `totalprice`) 
+               VALUES ('$fname', '$lname', '$email', '$phone', '$event', '$npass', '$totalprice')";
     $result = $conn->query($insert);
 
+    // Check if the query was successful
     if ($result) {
-        header("location:.php");
+        // Redirect to a success page or do any additional processing
+        header("location: index.php");
+        exit(); // Exit to prevent further execution
+    } else {
+        // Handle the case where the query failed
+        echo "Error: " . $conn->error;
     }
 }
 
@@ -124,11 +128,21 @@ if (isset ($_POST['add'])) {
             color: black;
             background-color: white;
             font-family: "Quicksand", sans-serif;
+            
+        }
+        .rim{
+        
+            text-align: center;
+            text-decoration: none;
+            font-weight: 400;
+            padding-top: 10px;
+            color: #3D3D3D;
+            box-shadow: 0 3px 5px rgba(1, 0, 0, 0.4);
         }
 
         .readmore {
             padding: 8px 15px;
-            border: 1px sloid #dfdfdf;
+           
             display: inline-block;
             text-transform: uppercase;
             color: #ffffff;
@@ -214,29 +228,35 @@ if (isset ($_POST['add'])) {
 
             <!--room section start -->
             <div class="lin">
+            <?php
+// Fetch events data from the database
+$sql = "SELECT * FROM events";
+$result = $conn->query($sql);
 
-                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <div class="box1">
-                        <div class="gallery-block-two">
-                            <img class="image-shadow" src="assets/images/event/Event1.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <div class="box1">
-                        <div class="gallery-block-two">
-                            <img class="image-shadow" src="assets/images/event/Event2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <div class="box1">
-                        <div class="gallery-block-two">
-                            <img class="image-shadow" src="assets/images/event/Event3.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+// Check if the query was successful
+if ($result === false) {
+    // Handle the case where the query failed
+    echo "Error: " . $conn->error;
+} else {
+    // Check if any rows were returned
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while ($row = $result->fetch_assoc()) {
+            echo "<div class='pricing-block-one wow fadeInUp animated' data-wow-delay='00ms' data-wow-duration='1500ms'>";
+            echo "<div class='box1'>";
+            echo "<div class='gallery-block-two'>";
+            echo "<img class='image-shadow' src='" . $row["event_image"] . "' alt='Event Image'>";
+            echo "<h6 class='rim'>" . $row["event_name"] . "</h6>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+        }
+    } else {
+        echo "No events found";
+    }
+}
+?>
+        </div>
             <!--daining end-->
             <!--Ticket booking start-->
             <section class="contact-section centred" id="pricing-section">
@@ -287,12 +307,12 @@ if (isset ($_POST['add'])) {
                                         </div>
                                         <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                             <label for="room" class="h6">Choose Your event</label><br>
-                                            <select id="roomDropdown" class="form-control text-font" name="room"
+                                            <select id="roomDropdown" class="form-control text-font" name="event"
                                                 required="" onchange="updateRoomPrice()">
 
-                                                <option value="Family Fun day" name="room">Family Fun day</option>
-                                                <option value="Summer Event" name="room">Summer Event</option>
-                                                <option value="Fun Day" name="room">Fun Day</option>
+                                                <option value="Family Fun day" name="event">Family Fun day</option>
+                                                <option value="Summer Event" name="event">Summer Event</option>
+                                                <option value="Fun Day" name="event">Fun Day</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
@@ -308,7 +328,7 @@ if (isset ($_POST['add'])) {
                                                     class="btn btn-warning d-flex align-items-center text-font"
                                                     onclick="decrementPasses()">-</button>
                                                 <input type="text" class="form-control text-font" required=""
-                                                    name="nroom" id="number-of-passes"
+                                                    name="npass" id="number-of-passes"
                                                     placeholder="Enter number of passes" onchange="updateTotalPrice()"
                                                     value="1">
                                                 <button type="button"

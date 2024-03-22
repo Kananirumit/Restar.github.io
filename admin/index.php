@@ -110,51 +110,63 @@ if (isset($_POST['update'])) {
         <!-- partial -->
         <!-- partial:partials/_sidebar.php -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.php">
-                <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
-                <span class="menu-title">Dashboard</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">
-                <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
-                <span class="menu-title">Registration Data</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Room_booking.php">
-                <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
-                <span class="menu-title">Room Booking Data</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Ticket_booking.php">
-                <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
-                <span class="menu-title">Ticket Booking Data</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact_us.php">
-                <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
-                <span class="menu-title">Contact us Data</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="rbpayment.php">
-                <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                <span class="menu-title">ROOM Booking Payment Data</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="tbpayment.php">
-                <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                <span class="menu-title">Ticket Booking Payment Data</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">
+                  <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="register.php">
+                  <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Registration Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Room_booking.php">
+                  <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Room Booking Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Ticket_booking.php">
+                  <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Ticket Booking Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact_us.php">
+                  <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Contact us Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                                <a class="nav-link" href="add_event.php">
+                                    <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
+                                    <span class="menu-title">Add event</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="event_booking.php">
+                                    <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
+                                    <span class="menu-title">event Booking</span>
+                                </a>
+                            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="rbpayment.php">
+                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">ROOM Booking Payment Data</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tbpayment.php">
+                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Ticket Booking Payment Data</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">

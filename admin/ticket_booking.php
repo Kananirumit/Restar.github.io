@@ -116,6 +116,18 @@ include "../include/connect.php";
                 </a>
               </li>
               <li class="nav-item">
+                                <a class="nav-link" href="add_event.php">
+                                    <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
+                                    <span class="menu-title">Add event</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="event_booking.php">
+                                    <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
+                                    <span class="menu-title">event Booking</span>
+                                </a>
+                            </li>
+              <li class="nav-item">
                 <a class="nav-link" href="rbpayment.php">
                   <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
                   <span class="menu-title">ROOM Booking Payment Data</span>
