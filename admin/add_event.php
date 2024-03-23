@@ -2,7 +2,7 @@
 
 include "../include/connect.php";
 
-if (isset ($_POST['add'])) {
+if (isset ($_POST['add_event'])) {
   $event_name = $_POST['event_name'];
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
