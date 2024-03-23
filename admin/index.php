@@ -104,6 +104,7 @@ if (isset($_POST['update'])) {
           </ul>
         </div>
       </nav>
+      
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_settings-panel.php -->

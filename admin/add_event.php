@@ -1,77 +1,6 @@
 <?php
-session_start();
+
 include "../include/connect.php";
-
-$popup_message = ''; // Initialize popup message variable
-
-if (isset($_POST['add_event'])) {
-  // Retrieve form data
-  $event_name = $_POST['event_name'];
-  $start_date = $_POST['start_date'];
-  $end_date = $_POST['end_date'];
-  $info = $_POST['info'];
-  $event_price = $_POST['event_price'];
-
-  // Process the image upload
-  $target_dir = "uploads/";
-  $target_file = $target_dir . basename($_FILES["event_image"]["name"]);
-  $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-  // Check if image file is an actual image or fake image
-  if (isset($_POST["add_event"])) {
-    $check = getimagesize($_FILES["event_image"]["tmp_name"]);
-    if ($check !== false) {
-      $uploadOk = 1;
-    } else {
-      $popup_message = "Error: File is not an image.";
-      $uploadOk = 0;
-    }
-  }
-
-  // Check if file already exists
-  if (file_exists($target_file)) {
-    $popup_message = "Error: Sorry, file already exists.";
-    $uploadOk = 0;
-  }
-
-  // Check file size
-  if ($_FILES["event_image"]["size"] > 500000) {
-    $popup_message = "Error: Sorry, your file is too large.";
-    $uploadOk = 0;
-  }
-
-  // Allow certain file formats
-  if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-    $popup_message = "Error: Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
-  }
-
-  // Check if $uploadOk is set to 0 by an error
-  if ($uploadOk == 0) {
-    $popup_message = "Error: Sorry, your file was not uploaded.";
-  } else {
-    // if everything is ok, try to upload file
-    if (move_uploaded_file($_FILES["event_image"]["tmp_name"], $target_file)) {
-      $popup_message = "Success: The event has been added successfully.";
-
-      // Insert event details into the database
-      $stmt = $conn->prepare("INSERT INTO events (`event_name`, `start_date`, `end_date`,`info`, `event_price`, `event_image`) VALUES (?, ?, ?, ?, ?, ?)");
-      $stmt->bind_param("sssss", $event_name, $start_date, $end_date,$info, $event_price, $target_file);
-      $stmt->execute();
-
-      // Check if the query was successful
-      if ($stmt === false) {
-        $popup_message = "Error: " . $conn->error;
-      }
-
-      // Close statement
-      $stmt->close();
-    } else {
-      $popup_message = "Error: Sorry, there was an error uploading your file.";
-    }
-  }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,21 +25,7 @@ if (isset($_POST['add_event'])) {
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
-  <style>
-    .popup-message {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      display: none;
-    }
-  </style>
+
 </head>
 
 
@@ -219,10 +134,42 @@ if (isset($_POST['add_event'])) {
           </li>
         </ul>
       </nav>
+      
+
+      <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="#eventmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <div class="container">
         <h2>Add Event</h2>
-        <!-- Add event form -->
-        <form method="post" action="" enctype="multipart/form-data">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-wight bold text-primary">Event
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventmodal">
+  ADD
+</button>
+
+            </h6>
+          </div>
+        </div>
+        <!-- <form method="post" action="" enctype="multipart/form-data">
           <div class="form-group">
             <label for="event_name">Event Name:</label>
             <input type="text" class="form-control" id="event_name" name="event_name" required>
@@ -249,67 +196,54 @@ if (isset($_POST['add_event'])) {
           </div>
 
           <button type="submit" class="btn btn-primary" name="add_event">Add Event</button>
-        </form>
+        </form> -->
+        <!-- Button trigger modal -->
+        
+
+
         <table>
           <table class="table">
             <thead>
               <tr>
+                <th>Event id</th>
                 <th>Event Name</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>Information</th>
                 <th>Event Price</th>
                 <th>Event Image</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <?php
-
-              include "../include/connect.php";
-              // Fetch events data from the database
-              $sql = "SELECT * FROM events";
-              $result = $conn->query($sql);
-
-              if (!$result) {
-                // Error occurred, display error message
-                echo "Error: " . $conn->error;
-              } else {
-                // No error, proceed with displaying data
-                if ($result->num_rows > 0) {
-                  // Output data of each row
-                  while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["event_name"] . "</td>";
-                    echo "<td>" . $row["start_date"] . "</td>";
-                    echo "<td>" . $row["end_date"] . "</td>";
-                    echo "<td>" . $row["event_price"] . "</td>";
-                    echo "<td><img src='" . $row["event_image"] . "' alt='Event Image' style='width: 100px;'></td>";
-                    echo "</tr>";
-                  }
-                } else {
-                  echo "<tr><td colspan='5'>No events found</td></tr>"; // This message will display if no data is retrieved
-                }
-              }
-              ?>
+              <tr>
+                <td>1</td>
+                <td>fun 1</td>
+                <td>25-8-2025</td>
+                <td>25-9-2025</td>
+                <td>information</td>
+                <td>8000</td>
+                <td>null</td>
+                <td><a href="#" class="btn btn-info">EDIT</a></td>
+                <td><a href="#" class="btn btn-danger">DELETE</a></td>
+              </tr>
             </tbody>
           </table>
       </div>
-      <!-- Add this code where you want to display the added event in a table -->
-
+      
       <script>
-        // Show popup message if not empty
-        var popupMessage = "<?php echo $popup_message; ?>";
-        if (popupMessage.trim() !== '') {
-          // Display popup message
-          var popupElement = document.querySelector('.popup-message');
-          popupElement.style.display = 'block';
+  document.addEventListener("DOMContentLoaded", function() {
+    // Select the "ADD" button
+    var addEventButton = document.getElementById('addEventButton');
 
-          // Auto-hide after 5 seconds
-          setTimeout(function() {
-            popupElement.style.display = 'none';
-          }, 5000);
-        }
-      </script>
-
+    // Add click event listener to the "ADD" button
+    addEventButton.addEventListener('click', function() {
+      // When the button is clicked, show the modal popup
+      $('#eventmodal').modal('show');
+    });
+  });
+</script>
+      <!-- Add this code where you want to display the added event in a table -->
       <!-- plugins:js -->
       <script src="vendors/js/vendor.bundle.base.js"></script>
       <!-- endinject -->
