@@ -4,11 +4,12 @@ include "../include/connect.php";
 
 $popup_message = ''; // Initialize popup message variable
 
-if (isset ($_POST['add_event'])) {
+if (isset($_POST['add_event'])) {
   // Retrieve form data
   $event_name = $_POST['event_name'];
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
+  $info = $_POST['info'];
   $event_price = $_POST['event_price'];
 
   // Process the image upload
@@ -18,7 +19,7 @@ if (isset ($_POST['add_event'])) {
   $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
   // Check if image file is an actual image or fake image
-  if (isset ($_POST["add_event"])) {
+  if (isset($_POST["add_event"])) {
     $check = getimagesize($_FILES["event_image"]["tmp_name"]);
     if ($check !== false) {
       $uploadOk = 1;
@@ -55,8 +56,8 @@ if (isset ($_POST['add_event'])) {
       $popup_message = "Success: The event has been added successfully.";
 
       // Insert event details into the database
-      $stmt = $conn->prepare("INSERT INTO events (event_name, start_date, end_date, event_price, event_image) VALUES (?, ?, ?, ?, ?)");
-      $stmt->bind_param("sssss", $event_name, $start_date, $end_date, $event_price, $target_file);
+      $stmt = $conn->prepare("INSERT INTO events (`event_name`, `start_date`, `end_date`,`info`, `event_price`, `event_image`) VALUES (?, ?, ?, ?, ?, ?)");
+      $stmt->bind_param("sssss", $event_name, $start_date, $end_date,$info, $event_price, $target_file);
       $stmt->execute();
 
       // Check if the query was successful
@@ -119,10 +120,8 @@ if (isset ($_POST['add_event'])) {
     <!-- partial:partials/_navbar.php -->
     <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo"
-            style="width: 100px; height:50px;" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
-            style="width: 50px; height:50px;" /></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo" style="width: 100px; height:50px;" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo" style="width: 50px; height:50px;" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center btn1" type="button" data-toggle="minimize">
@@ -140,18 +139,17 @@ if (isset ($_POST['add_event'])) {
               <img src="images/faces/face28.jpg" alt="profile" />
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
-                  <i class="ti-settings text-primary"></i>
-                  Settings
-                </a>
+              <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
               <a class="dropdown-item" href="../admin/logout.php">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
             </div>
           </li>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-            data-toggle="offcanvas">
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="icon-menu"></span>
           </button>
         </ul>
@@ -238,6 +236,10 @@ if (isset ($_POST['add_event'])) {
             <input type="date" class="form-control" id="end_date" name="end_date" required>
           </div>
           <div class="form-group">
+            <label for="info">Information</label><br>
+            <textarea class='form-control' name="info" id='info' rows=5 required></textarea>
+          </div>
+          <div class="form-group">
             <label for="event_price">Event Price:</label>
             <input type="text" class="form-control" id="event_price" name="event_price" required>
           </div>
@@ -302,7 +304,7 @@ if (isset ($_POST['add_event'])) {
           popupElement.style.display = 'block';
 
           // Auto-hide after 5 seconds
-          setTimeout(function () {
+          setTimeout(function() {
             popupElement.style.display = 'none';
           }, 5000);
         }

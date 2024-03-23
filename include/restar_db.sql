@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2024 at 04:57 AM
+-- Generation Time: Mar 23, 2024 at 07:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -101,6 +101,7 @@ CREATE TABLE `events` (
   `event_name` text NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
+  `info` text NOT NULL,
   `event_price` text NOT NULL,
   `event_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
