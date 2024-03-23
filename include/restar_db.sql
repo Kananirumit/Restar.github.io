@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2024 at 07:02 AM
+-- Generation Time: Mar 23, 2024 at 04:57 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -89,6 +89,45 @@ CREATE TABLE `contact` (
   `subject` varchar(25) NOT NULL,
   `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL,
+  `event_name` text NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `event_price` text NOT NULL,
+  `event_image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_data`
+--
+
+CREATE TABLE `event_data` (
+  `event_id` int(11) NOT NULL,
+  `fname` text NOT NULL,
+  `lname` text NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` text NOT NULL,
+  `event` text NOT NULL,
+  `npass` text NOT NULL,
+  `totalprice` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `event_data`
+--
+
+INSERT INTO `event_data` (`event_id`, `fname`, `lname`, `email`, `phone`, `event`, `npass`, `totalprice`) VALUES
+(1, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Family Fun day', '3', '₹24000');
 
 -- --------------------------------------------------------
 
@@ -201,6 +240,18 @@ ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `event_data`
+--
+ALTER TABLE `event_data`
+  ADD PRIMARY KEY (`event_id`);
+
+--
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
@@ -239,6 +290,18 @@ ALTER TABLE `cardticket`
 --
 ALTER TABLE `contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `event_data`
+--
+ALTER TABLE `event_data`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `register`
