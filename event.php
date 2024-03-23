@@ -118,18 +118,19 @@ if (isset ($_POST['add'])) {
 
         .lin {
             display: flex;
+  flex-direction: row;
         }
 
         .box1 {
-            height: 480px;
-            width: 300px;
-            margin: 50px;
-            text-align: left;
+            height: 400px;
+            width: 250px;
+            margin:70px;
+            text-align: center;
             color: black;
             background-color: white;
             font-family: "Quicksand", sans-serif;
-
-        }
+            align-items: center;
+      }
 
         .rim {
 
@@ -151,6 +152,20 @@ if (isset ($_POST['add'])) {
             font-weight: bold;
 
         }
+
+        h4 {
+            text-align: center;
+            font-size: 50px;
+
+        }
+
+        .card-title1 {
+            text-align: center;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 100;
+        }
+       
 
         img.image-shadow {
             box-shadow: 0 3px 5px rgba(1, 0, 0, 0.4);
@@ -222,47 +237,52 @@ if (isset ($_POST['add'])) {
             </div>
         </section>
         <!-- End Page Title -->
-        <div class="container">
-            <div class="row mt-4">
+    <div class="container">
+        <div class="row mt-4">
+            <?php
+            require "./include/connect.php";
 
-                <?php
+            $query = "SELECT * FROM events";
+            $query_run = mysqli_query($conn, $query);
 
-                require "./include/connect.php";
+            $check_event = mysqli_num_rows($query_run) > 0;
 
-                $query = "SELECT * FROM events";
-                $query_run = mysqli_query($conn, $query);
+            if ($check_event) {
+                while ($row = mysqli_fetch_array($query_run)) {
+                    ?>
 
-                $check_event = mysqli_num_rows($query_run) > 0;
-
-                if ($check_event) {
-                    while ($row = mysqli_fetch_array($query_run)) {
-                        ?>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="./admin/images/event/<?php echo $row['event_image']?>" class="card-img-top" alt="image">
-                                    <h4 class="card-title"><?php echo $row['event_name'];?></h4>
-                                    <h3 class="card-title"><?php echo $row['start_date'];?></h3>
-                                    <h3 class="card-title"><?php echo $row['end_date'];?></h3>                                  
-                                    <h3 class="card-title"><?php echo $row['event_price'];?></h3>
-                                    
-                                    <p class="card-text">
-
-                                    <?php echo $row['info'];?>
-                                    </p>
-                                </div>
-                            </div>
+                    <div class="lin">
+                        <div class="box1">
+                            <img src="./admin/images/event/<?php echo $row['event_image'] ?>" class="image-shadow imge" alt="image">
+                            <h4 class="card-title1">
+                                <?php echo $row['event_name']; ?>
+                            </h4>
+                            <h3 class="card-title1">
+                                <?php echo $row['start_date']; ?>
+                            </h3>
+                            <h3 class="card-title1">
+                                <?php echo $row['end_date']; ?>
+                            </h3>
+                            <h3 class="card-title1">
+                                <?php echo $row['event_price']; ?>
+                            </h3>
+                            <p class="card-title1">
+                                <?php echo $row['info']; ?>
+                            </p>
                         </div>
-                        <?php
-                        echo $row['event_name'];
-                    }
-                } else {
-                    echo "No event is there";
+                    </div>
+                    <?php
+                    // echo $row['event_name'];
                 }
-                ?>
+            } else {
+                echo "No event is there";
+            }
+            ?>
 
-            </div>
         </div>
+    </div>
+    </div>
+
     </div>
 
     </div>
