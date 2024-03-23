@@ -46,7 +46,7 @@ if (isset($_POST['add'])) {
     <title>REGISTRATION</title>
 
     <!-- Fav Icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
@@ -87,6 +87,12 @@ if (isset($_POST['add'])) {
         }
 
         @media (max-width: 468px) {
+            .toggle-password-eye i {
+                left: 89%;
+            }
+            .toggle-password-eyepass i {
+                left: 89%;
+            }
             .popup-content {
                 max-height: 80vh;
                 /* Set maximum height for the popup content */
@@ -152,7 +158,7 @@ if (isset($_POST['add'])) {
                                 <div class="input-field">
                                     <input type="password" class="form-control text-font" required="" name="pass" id="pass">
                                     <span class="toggle-password-eye" onclick="togglePasswordVisibility('pass')">
-                                        <i id="eyeIcon" class="fa fa-eye-slash"></i> <!-- Font Awesome eye icon -->
+                                        <i id="eyeIcon" class="fa fa-eye"></i> <!-- Font Awesome eye icon -->
                                     </span>
                                     <label>Password:</label>
                                 </div>
@@ -161,7 +167,7 @@ if (isset($_POST['add'])) {
                                 <div class="input-field">
                                     <input type="password" class="form-control text-font" required="" name="confirmpss" id="confirm_pass">
                                     <span class="toggle-password-eyepass" onclick="togglePasswordVisibility('confirm_pass')">
-                                        <i id="eyeIcon" class="fa fa-eye-slash"></i> <!-- Font Awesome eye icon -->
+                                        <i id="eyeIcon" class="fa fa-eye icon1"></i> <!-- Font Awesome eye icon -->
                                     </span>
                                     <label>Confirm Password:</label>
                                 </div>
