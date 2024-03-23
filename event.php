@@ -240,8 +240,12 @@ if (isset ($_POST['add'])) {
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-body">
+<<<<<<< Updated upstream
                                     <img src="./admin/images/event/<?php echo $row['event_image']?>" class="card-img-top" alt="image">
                                     <img src="./admin/assets/images/event/ <?php echo $row['event_image']?>" class="card-img-top" alt="image">
+=======
+                                    <img src="./admin/assets/images/event<?php echo $row['event_image']?>" class="card-img-top" alt="image">
+>>>>>>> Stashed changes
                                     <h4 class="card-title"><?php echo $row['event_name'];?></h4>
                                     <h3 class="card-title"><?php echo $row['start_date'];?></h3>
                                     <h3 class="card-title"><?php echo $row['end_date'];?></h3>

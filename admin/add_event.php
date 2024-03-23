@@ -239,35 +239,80 @@ if(isset($_SESSION['status']) && $_SESSION['status'] !='')
 ?>
 
 
-        <table>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Event id</th>
-                <th>Event Name</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Information</th>
-                <th>Event Price</th>
-                <th>Event Image</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>fun 1</td>
-                <td>25-8-2025</td>
-                <td>25-9-2025</td>
-                <td>information</td>
-                <td>8000</td>
-                <td>null</td>
-                <td><a href="#" class="btn btn-info">EDIT</a></td>
+       
+      <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h1 style="text-transform: uppercase; font-size: 35px;">Added events</h1>
+                    <div class="table-responsive pt-3">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-warning">
+                            <th>
+                              Event ID
+                            </th>
+                            <th>
+                              event name
+                            </th>
+                            <th>
+                              start date
+                            </th>
+                            <th>
+                              end date
+                            </th>
+                            <th>
+                              info
+                            </th>
+                            <th>
+                              price
+                            </th>
+                            <th>
+                              image
+                            </th>
+                            <th>
+                              Action
+                            </th>
+                          </tr>
+                          <?php
+                          $select = "SELECT * FROM `events`";
+                          $result = $conn->query($select);
+
+                          while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                            <td>
+                                <?php echo $row['event_id'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['event_name'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['start_date'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['end_date'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['info'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['event_price'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['event_image'] ?>
+                              </td>
+                              <td><a href="#" class="btn btn-info">EDIT</a></td>
                 <td><a href="#" class="btn btn-danger">DELETE</a></td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
+                            </tr>
+                            <?php
+                          }
+                          ?>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
       <script>
         document.addEventListener("DOMContentLoaded", function () {
