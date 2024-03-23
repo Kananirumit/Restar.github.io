@@ -2,7 +2,7 @@
 
 include "../include/connect.php";
 
-if (isset ($_POST['add'])) {
+if (isset ($_POST['add_event'])) {
   $event_name = $_POST['event_name'];
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
@@ -22,7 +22,7 @@ if (isset ($_POST['add'])) {
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {
-      move_uploaded_file($_FILES["event_image"]['tmp_name'], "upload/" . $_FILES["event_name"]["name"]);
+      move_uploaded_file($_FILES["event_image"]['tmp_name'], "./admin/assets/images/event/ " . $_FILES["event_name"]["name"]);
       $_SESSION['success'] = "Event addedd";
       header('Location: add_event.php');
     } else {
