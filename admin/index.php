@@ -48,6 +48,7 @@ if (isset($_POST['update'])) {
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css">
   <style>
     .table-bordered .cust-center {
       display: flex;
@@ -84,7 +85,7 @@ if (isset($_POST['update'])) {
             <li class="nav-item dropdown">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="images/faces/face28.jpg" alt="profile" />
+                <img src="images/faces/face29.jpg" alt="profile" />
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
@@ -298,9 +299,9 @@ if (isset($_POST['update'])) {
                             </td>
                             <td class="cust-center">
                               <form method="post" style="display: inline;">
-                                <button type="submit" name="update" class="btn btn-primary"><a href="add.php?edit=<?php echo $row['id'];?>">Update</a></button>
+                                <button type="submit" name="update" class="btn btn-primary"><a class="mdi mdi-pencil mdi-20px" href="add.php?edit=<?php echo $row['id'];?>"> Update</a></button>
                                 <input type="hidden" name="delete" value="<?php echo $row['id']; ?>">
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this member?');">Delete</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this member?');"><i class="mdi mdi-delete mdi-20px" style="color: white;"></i> Delete</button>
 
                               </form>
                             </td>

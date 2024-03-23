@@ -55,6 +55,7 @@ if (isset($_POST['delete2'])) {
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css">
 </head>
 
 <body>
@@ -85,7 +86,7 @@ if (isset($_POST['delete2'])) {
               <li class="nav-item dropdown">
               <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                  <img src="images/faces/face28.jpg" alt="profile" />
+                  <img src="images/faces/face29.jpg" alt="profile" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                   <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
@@ -253,12 +254,12 @@ if (isset($_POST['delete2'])) {
                               </td>
                               <td>
                                 <a href="cardview2.php?id=<?php echo $row['cardid']; ?>&cardno=<?php echo $row['cardno']; ?>&cardname=<?php echo $row['cardname']; ?>&cardemail=<?php echo $row['cardemail']; ?>&cardmonth=<?php echo $row['cardmonth']; ?>&cardyear=<?php echo $row['cardyear']; ?>&cvv=<?php echo $row['cvv']; ?>"
-                                  class="btn btn-primary">View</a>
+                                  class="btn btn-primary"><i class="mdi mdi-eye mdi-20px" style="color: white;"></i> View</a>
 
                                 <form method="post" style="display: inline;"
                                   onsubmit="return confirm('Are you sure you want to delete this member?');">
                                   <input type="hidden" name="delete2" value="<?php echo $row['cardid']; ?>">
-                                  <button type="submit" class="btn btn-danger">Delete</button>
+                                  <button type="submit" class="btn btn-danger"><i class="mdi mdi-delete mdi-20px" style="color: white;"></i> Delete</button>
                                 </form>
                               </td>
                               <?php
