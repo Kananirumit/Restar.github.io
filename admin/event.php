@@ -310,10 +310,10 @@ if (isset($_POST['add_event'])) {
                         DELETE
                       </th>
                     </tr>
-    </thead>;
+
                         </thead>";
                         while($row=mysqli_fetch_array($result)){
-                          $img = "../images/Events/$row[5]";
+                          $img = "images/event/$row[event_image]";
                           echo "<tbody>
                           <tr>
                               <td>$row[id]</td>
@@ -334,6 +334,7 @@ if (isset($_POST['add_event'])) {
                   </div>
                 </div>
               </div>
+              </div>
             </div>";
           }
           else{
@@ -349,87 +350,6 @@ if (isset($_POST['add_event'])) {
           }
         ?>
         </div>
-          </div>
-        </div>
-
-<a href="add_event.php" class="add">
-          +
-        </a>
-        
-        <div class="col-lg-12 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h1 style="text-transform: uppercase; font-size: 35px;">Added events</h1>
-              <div class="table-responsive pt-3">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr class="table-warning">
-                      <th>
-                        Event ID
-                      </th>
-                      <th>
-                        event name
-                      </th>
-                      <th>
-                        start date
-                      </th>
-                      <th>
-                        end date
-                      </th>
-                      <th>
-                        info
-                      </th>
-                      <th>
-                        price
-                      </th>
-                      <th>
-                        image
-                      </th>
-                      <th>
-                        Action
-                      </th>
-                    </tr>
-    </thead>;
-                    <?php
-                    $select = "SELECT * FROM `events`";
-                    $result = $conn->query($select);
-
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                      <tr>
-                        <td>
-                          <?php echo $row['id'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['event_name'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['start_date'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['end_date'] ?>
-                        </td>
-                        <td style="text-wrap: wrap;">
-                          <?php echo $row['info'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['event_price'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['event_image'] ?>
-                        </td>
-                        <td>
-                          <a href="#" class="btn btn-info"><i class="mdi mdi-pencil mdi-20px" style="color: white;"></i> EDIT</a>
-                          <a href="#" class="btn btn-danger"><i class="mdi mdi-delete mdi-20px" style="color: white;"></i> DELETE</a>
-                        </td>
-                      </tr>
-                    <?php
-                    }
-                    ?>
-            
-                </table>
-              </div>
-            </div>
           </div>
         </div>
 
