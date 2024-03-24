@@ -66,12 +66,12 @@ if (isset ($_POST['add_event'])) {
         }
 
         .add1 {
-            background-color: #0db8db;
+            background-color: #4B49AC;
             position: fixed;
             height: auto;
             padding: 5px;
             font-size: 50px;
-            color: white;
+            color: #FFEEB8;
             width: 75px;
             text-align: center;
             border-radius: 10%;
@@ -79,6 +79,10 @@ if (isset ($_POST['add_event'])) {
             text-decoration: none;
             right: 10px;
             z-index: 1;
+        }
+        .add1:hover{
+            color: #FFFFFF;
+            text-decoration: none;
         }
     </style>
 </head>

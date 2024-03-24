@@ -130,6 +130,8 @@ if (isset ($_POST['add'])) {
             background-color: white;
             font-family: "Quicksand", sans-serif;
             align-items: center;
+           
+
       }
 
         .rim {
@@ -140,30 +142,32 @@ if (isset ($_POST['add'])) {
             padding-top: 10px;
             color: #3D3D3D;
             box-shadow: 0 3px 5px rgba(1, 0, 0, 0.4);
-        }
+        } 
 
-        .readmore {
-            padding: 8px 15px;
-
-            display: inline-block;
+        h4.card-title1{
+            margin-bottom: 20px;
+            padding: 15px;
+            text-align: center;
+            font-size: 15px;
             text-transform: uppercase;
-            color: #ffffff;
-            background-color: #007bff;
-            font-weight: bold;
-
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border-radius: 20%;
+            border: solid black 2px;
         }
 
-        h4 {
+        h3.card-title2{
+            margin: 10px;
             text-align: center;
-            font-size: 50px;
-
-        }
-
-        .card-title1 {
-            text-align: center;
-            text-decoration: none;
             font-size: 10px;
-            font-weight: 100;
+            text-transform: uppercase;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        p.card-title2{
+            margin: 10px 0px;
+            text-align: center;
+            font-size: 10px;
+            text-transform: uppercase;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
        
 
@@ -253,20 +257,21 @@ if (isset ($_POST['add'])) {
 
                     <div class="lin">
                         <div class="box1">
-                            <img src="./admin/images/event/<?php echo $row['event_image'] ?>" class="image-shadow imge" alt="image">
-                            <h4 class="card-title1">
+                        <h4 class="card-title1">
                                 <?php echo $row['event_name']; ?>
                             </h4>
-                            <h3 class="card-title1">
+                            <img src="./admin/images/event/<?php echo $row['event_image'] ?>" class="image-shadow imge" alt="image">
+                            
+                            <h3 class="card-title2">
                                 <?php echo $row['start_date']; ?>
                             </h3>
-                            <h3 class="card-title1">
+                            <h3 class="card-title2">
                                 <?php echo $row['end_date']; ?>
                             </h3>
-                            <h3 class="card-title1">
+                            <h3 class="card-title2">
                                 <?php echo $row['event_price']; ?>
                             </h3>
-                            <p class="card-title1">
+                            <p class="card-title2">
                                 <?php echo $row['info']; ?>
                             </p>
                         </div>
