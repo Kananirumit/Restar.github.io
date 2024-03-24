@@ -320,9 +320,9 @@ if (isset($_POST['add_event'])) {
                               <td>$row[event_name]</td>
                               <td>$row[start_date]</td>
                               <td>$row[end_date]</td>
-                              <td>$row[info]</td>
+                              <td 'style:text-wrap: wrap;'>$row[info]</td>
                               <td>$row[event_price]</td>
-                              <td><img src=$img style='width:100px !important;height: 100px !important;border-radius:0% !important' alt=$row[event_image]></td>
+                              <td><img src=$img style='width:70px !important;height: 100px !important;border-radius:0% !important' alt=$row[event_image]></td>
                               <td><a class='btn btn-inverse-succees btn-sm' href='Edit/Edit_Event.php?e_id=$row[0]'><i class='mdi mdi-pencil-circle-outline mdi-24px'></i></td>
                               <td><a class='btn btn-inverse-danger btn-sm' href='Delete/Delete_Event.php?e_id=$row[0]'><i class='mdi mdi-delete-empty mdi-24px'></td>
                             </tr>
