@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../include/connect.php';
-if (isset($_POST['delete'])) {
+if (isset ($_POST['delete'])) {
   $IdToDelete = $_POST['delete'];
   $deleteQuery = "DELETE FROM `adminlogin` WHERE `id` = $IdToDelete";
 
@@ -12,7 +12,7 @@ if (isset($_POST['delete'])) {
   }
 }
 
-if (isset($_POST['update'])) {
+if (isset ($_POST['update'])) {
   $IdToDelete = $_POST['delete'];
   $deleteQuery = "DELETE FROM `adminlogin` WHERE `id` = $IdToDelete";
 
@@ -54,7 +54,8 @@ if (isset($_POST['update'])) {
       display: flex;
       justify-content: center;
     }
-    .cust-center .btn-primary a{
+
+    .cust-center .btn-primary a {
       color: #fff;
       text-decoration: none;
     }
@@ -68,8 +69,10 @@ if (isset($_POST['update'])) {
       <!-- partial:partials/_navbar.php -->
       <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo" style="width: 100px; height:50px;" /></a>
-          <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo" style="width: 50px; height:50px;" /></a>
+          <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo"
+              style="width: 100px; height:50px;" /></a>
+          <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
+              style="width: 50px; height:50px;" /></a>
         </div>
 
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -88,23 +91,25 @@ if (isset($_POST['update'])) {
                 <img src="images/faces/face29.jpg" alt="profile" />
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
+                <a class="dropdown-item" href="<?php echo isset ($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
                   <i class="ti-settings text-primary"></i>
                   Settings
                 </a>
-                <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? '../admin/logout.php' : '../admin/login.php'; ?>">
+                <a class="dropdown-item"
+                  href="<?php echo isset ($_SESSION['email']) ? '../admin/logout.php' : '../admin/login.php'; ?>">
                   <i class="ti-power-off text-primary"></i>
-                  <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
+                  <?php echo isset ($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </a>
               </div>
             </li>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+              data-toggle="offcanvas">
               <span class="icon-menu"></span>
             </button>
           </ul>
         </div>
       </nav>
-      
+
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_settings-panel.php -->
@@ -112,63 +117,63 @@ if (isset($_POST['update'])) {
         <!-- partial -->
         <!-- partial:partials/_sidebar.php -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">
-                  <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="register.php">
-                  <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Registration Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Room_booking.php">
-                  <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Room Booking Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Ticket_booking.php">
-                  <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Ticket Booking Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact_us.php">
-                  <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Contact us Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                                <a class="nav-link" href="add_event.php">
-                                    <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">Add event</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="event_booking.php">
-                                    <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">event Booking</span>
-                                </a>
-                            </li>
-              <li class="nav-item">
-                <a class="nav-link" href="rbpayment.php">
-                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">ROOM Booking Payment Data</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tbpayment.php">
-                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                  <span class="menu-title">Ticket Booking Payment Data</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.php">
+                <i class="fa-solid fa-grip" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.php">
+                <i class="fa-solid fa-table-columns" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">Registration Data</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Room_booking.php">
+                <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">Room Booking Data</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Ticket_booking.php">
+                <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">Ticket Booking Data</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact_us.php">
+                <i class="fa-solid fa-address-book" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">Contact us Data</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="event.php">
+                <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">Added event</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="event_booking.php">
+                <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">event Booking</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rbpayment.php">
+                <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">ROOM Booking Payment Data</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tbpayment.php">
+                <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                <span class="menu-title">Ticket Booking Payment Data</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
@@ -177,7 +182,8 @@ if (isset($_POST['update'])) {
                 <div class="row">
                   <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                     <h3 class="font-weight-bold">Welcome</h3>
-                    <h6 class="font-weight-normal mb-0">All systems are running smoothly!<span class="text-primary"></span></h6>
+                    <h6 class="font-weight-normal mb-0">All systems are running smoothly!<span
+                        class="text-primary"></span></h6>
                   </div>
                 </div>
               </div>
@@ -284,7 +290,7 @@ if (isset($_POST['update'])) {
                         $result = $conn->query($select);
 
                         while ($row = mysqli_fetch_array($result)) {
-                        ?>
+                          ?>
                           <tr>
                             <td>
                               <?php echo $row['id'] ?>
@@ -300,14 +306,18 @@ if (isset($_POST['update'])) {
                             </td>
                             <td class="cust-center">
                               <form method="post" style="display: inline;">
-                                <button type="submit" name="update" class="btn btn-primary"><a class="mdi mdi-pencil mdi-20px" href="add.php?edit=<?php echo $row['id'];?>"> Update</a></button>
+                                <button type="submit" name="update" class="btn btn-primary"><a
+                                    class="mdi mdi-pencil mdi-20px" href="add.php?edit=<?php echo $row['id']; ?>">
+                                    Update</a></button>
                                 <input type="hidden" name="delete" value="<?php echo $row['id']; ?>">
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this member?');"><i class="mdi mdi-delete mdi-20px" style="color: white;"></i> Delete</button>
+                                <button type="submit" class="btn btn-danger"
+                                  onclick="return confirm('Are you sure you want to delete this member?');"><i
+                                    class="mdi mdi-delete mdi-20px" style="color: white;"></i> Delete</button>
 
                               </form>
                             </td>
                           </tr>
-                        <?php
+                          <?php
                         }
                         ?>
                       </thead>

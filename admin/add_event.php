@@ -148,9 +148,9 @@ if (isset($_POST['add_event'])) {
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="add_event.php">
+            <a class="nav-link" href="event.php">
               <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
-              <span class="menu-title">Add event</span>
+              <span class="menu-title">Added event</span>
             </a>
           </li>
           <li class="nav-item">
@@ -173,28 +173,6 @@ if (isset($_POST['add_event'])) {
           </li>
         </ul>
       </nav>
-
-
-      <!-- Button trigger modal -->
-
-      <!-- Modal -->
-      <!-- <div class="modal fade" id="#eventmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>-->
 
       <div class="container div-add" style="">
         <h2>Add Event</h2>
@@ -262,84 +240,6 @@ if (isset($_POST['add_event'])) {
           unset($_SESSION['status']);
         }
         ?>
-
-
-
-        <!-- <div class="col-lg-12 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h1 style="text-transform: uppercase; font-size: 35px;">Added events</h1>
-              <div class="table-responsive pt-3">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr class="table-warning">
-                      <th>
-                        Event ID
-                      </th>
-                      <th>
-                        event name
-                      </th>
-                      <th>
-                        start date
-                      </th>
-                      <th>
-                        end date
-                      </th>
-                      <th>
-                        info
-                      </th>
-                      <th>
-                        price
-                      </th>
-                      <th>
-                        image
-                      </th>
-                      <th>
-                        Action
-                      </th>
-                    </tr>
-                    <?php
-                    $select = "SELECT * FROM `events`";
-                    $result = $conn->query($select);
-
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                      <tr>
-                        <td>
-                          <?php echo $row['id'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['event_name'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['start_date'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['end_date'] ?>
-                        </td>
-                        <td style="text-wrap: wrap;">
-                          <?php echo $row['info'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['event_price'] ?>
-                        </td>
-                        <td>
-                          <?php echo $row['event_image'] ?>
-                        </td>
-                        <td>
-                          <a href="#" class="btn btn-info"><i class="mdi mdi-pencil mdi-20px" style="color: white;"></i> EDIT</a>
-                          <a href="#" class="btn btn-danger"><i class="mdi mdi-delete mdi-20px" style="color: white;"></i> DELETE</a>
-                        </td>
-                      </tr>
-                    <?php
-                    }
-                    ?>
-                  </thead>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div> -->
 
         <script>
           document.addEventListener("DOMContentLoaded", function() {

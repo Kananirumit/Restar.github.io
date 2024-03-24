@@ -4,13 +4,13 @@ include "../include/connect.php";
 
 session_start();
 
-if (isset($_POST['logout'])) {
+if (isset ($_POST['logout'])) {
   session_unset();
   session_destroy();
   header("location:login.php");
 }
 
-if (isset($_POST['delete'])) {
+if (isset ($_POST['delete'])) {
   $guestIdToDelete = $_POST['delete'];
   $deleteQuery = "DELETE FROM `register` WHERE `guestId` = $guestIdToDelete";
 
@@ -81,7 +81,7 @@ if (isset($_POST['delete'])) {
                   <img src="images/faces/face29.jpg" alt="profile" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                  <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
+                  <a class="dropdown-item" href="<?php echo isset ($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
                     <i class="ti-settings text-primary"></i>
                     Settings
                   </a>
@@ -137,17 +137,17 @@ if (isset($_POST['delete'])) {
                 </a>
               </li>
               <li class="nav-item">
-                                <a class="nav-link" href="add_event.php">
-                                    <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">Add event</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="event_booking.php">
-                                    <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">event Booking</span>
-                                </a>
-                            </li>
+                <a class="nav-link" href="event.php">
+                  <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Added event</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="event_booking.php">
+                  <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">event Booking</span>
+                </a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="rbpayment.php">
                   <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
@@ -253,12 +253,14 @@ if (isset($_POST['delete'])) {
                                 </td>
                                 <td>
                                   <a href="view.php?guestId=<?php echo $row['guestId']; ?>&fname=<?php echo $row['fname']; ?>&lname=<?php echo $row['lname']; ?>&gender=<?php echo $row['gender']; ?>&phone=<?php echo $row['phone']; ?>&email=<?php echo $row['email']; ?>&pass=<?php echo $row['pass']; ?>&confirmpss=<?php echo $row['confirmpss']; ?>"
-                                    class="btn btn-primary"><i class="mdi mdi-eye mdi-20px" style="color: white;"></i> View</a>
+                                    class="btn btn-primary"><i class="mdi mdi-eye mdi-20px" style="color: white;"></i>
+                                    View</a>
 
                                   <form method="post" style="display: inline;"
                                     onsubmit="return confirm('Are you sure you want to delete this member?');">
                                     <input type="hidden" name="delete" value="<?php echo $row['guestId']; ?>">
-                                    <button type="submit" class="btn btn-danger"><i class="mdi mdi-delete mdi-20px" style="color: white;"></i> Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="mdi mdi-delete mdi-20px"
+                                        style="color: white;"></i> Delete</button>
                                   </form>
                                 </td>
                               </tr>

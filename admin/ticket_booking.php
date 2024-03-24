@@ -60,7 +60,7 @@ include "../include/connect.php";
                   <img src="images/faces/face29.jpg" alt="profile" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                  <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
+                  <a class="dropdown-item" href="<?php echo isset ($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
                     <i class="ti-settings text-primary"></i>
                     Settings
                   </a>
@@ -116,17 +116,17 @@ include "../include/connect.php";
                 </a>
               </li>
               <li class="nav-item">
-                                <a class="nav-link" href="add_event.php">
-                                    <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">Add event</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="event_booking.php">
-                                    <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">event Booking</span>
-                                </a>
-                            </li>
+                <a class="nav-link" href="event.php">
+                  <i class="fa-regular fa-square-plus" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Added event</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="event_booking.php">
+                  <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">event Booking</span>
+                </a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="rbpayment.php">
                   <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
