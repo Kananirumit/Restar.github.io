@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2024 at 07:16 AM
+-- Generation Time: Mar 24, 2024 at 05:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -105,6 +105,15 @@ CREATE TABLE `events` (
   `event_price` text NOT NULL,
   `event_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `event_name`, `start_date`, `end_date`, `info`, `event_price`, `event_image`) VALUES
+(5, 'family fun day', '2024-04-20', '2024-03-27', 'its a really good event for family for the fun come and enjoy in our park', '8000', 'Event1.png'),
+(6, 'fun in summer vacation', '2024-05-12', '2024-05-20', 'this event is spacial for kids for the fun in summer vacation so come and enjoy our park', '6500', 'event2.png'),
+(7, 'fun with family', '2024-06-03', '2024-06-13', 'this is full of fun in restar carnival event so come to the spred happiness with your family', '7000', 'event3.png');
 
 -- --------------------------------------------------------
 
@@ -296,7 +305,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `event_data`
