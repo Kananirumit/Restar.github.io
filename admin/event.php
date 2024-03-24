@@ -212,16 +212,17 @@ if (isset ($_POST['add_event'])) {
             <a href="add_event.php" class="add1">
                 +
             </a>
-            <div class="container-fluid page-body-wrapper">
-                <div class="main-panel">
-                    <div class="content-wrapper">
+            <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-md-12 grid-margin">
+                  <div class="row">
                         <?php
                         require ("../include/connect.php");
                         $query = "select * from events";
                         $result = mysqli_query($conn, $query) or die ("Query Failed!!!" . mysqli_error($conn));
                         if (mysqli_num_rows($result) > 0) {
-                            echo "<div class='row'>
-            <div class='col-lg-12 grid-margin stretch-card'>
+                            echo "<div class='col-lg-12 grid-margin stretch-card'>
           <div class='card'>
             <div class='card-body'>
               <h1 style='text-transform: uppercase; font-size: 35px;'>Added events</h1>
