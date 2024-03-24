@@ -238,22 +238,22 @@ if (isset ($_POST['add_event'])) {
                         Event ID
                       </th>
                       <th>
-                        event name
+                        Event name
                       </th>
                       <th>
-                        start date
+                        Start date
                       </th>
                       <th>
-                        end date
+                        End date
                       </th>
                       <th>
-                        info
+                        Infromation
                       </th>
                       <th>
-                        price
+                        Price
                       </th>
                       <th>
-                        image
+                        Image
                       </th>
                       <th>
                         EDIT
@@ -275,8 +275,8 @@ if (isset ($_POST['add_event'])) {
                               <td 'style:text-wrap: wrap;'>$row[info]</td>
                               <td>$row[event_price]</td>
                               <td><img src=$img style='width:70px !important;height: 100px !important;border-radius:0% !important' alt=$row[event_image]></td>
-                              <td><a class='btn btn-inverse-success btn-sm' href='Edit/Edit_Event.php?e_id=$row[0]'><i class='mdi mdi-pencil-circle-outline mdi-24px'></i></td>
-                              <td><a class='btn btn-inverse-danger btn-sm' href='Delete/Delete_Event.php?e_id=$row[0]'><i class='mdi mdi-delete-empty mdi-24px'></td>
+                              <td><a class='btn btn-inverse-success btn-sm' href='Edit_Event.php?id=$row[0]'><i class='mdi mdi-pencil-circle-outline mdi-24px'></i></td>
+                              <td><a class='btn btn-inverse-danger btn-sm' href='Delete_Event.php?id=$row[0]'><i class='mdi mdi-delete-empty mdi-24px'></td>
                             </tr>
                           </tbody>";
                             }

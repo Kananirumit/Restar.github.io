@@ -10,24 +10,24 @@ if (isset($_POST['add_event'])) {
   $event_price = $_POST['event_price'];
   $event_image = $_FILES['event_image']['name'];
 
-  if (file_exists("upload/" . $_FILES["event_image"]["name"])) {
+  if (file_exists("./admin/images/event/" . $_FILES["event_image"]["name"])) {
     $store = $_FILES["faculty_image"]["name"];
     $_SESSION['status'] = "Image already exists. '.$store.'";
     header('Location:add_event.php');
   } else {
 
 
-    $query = "INSERT INTO events(`event_name`,`start_date`,`end_date`,`info`,`event_price`,`event_image`)VALUES('$event_name','$start_date','$end_date','$info','$event_price','$event_image')";
+    $query = "INSERT INTO events(`event_name`,`start_date`,`end_date`,`info`,`event_price`,`event_image`)VALUES('$event_name','$start_date','$end_date','$info','₹$event_price','$event_image')";
 
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {
-      move_uploaded_file($_FILES["event_image"]['tmp_name'], "./admin/assets/images/event/ " . $_FILES["event_name"]["name"]);
+      move_uploaded_file($_FILES["event_image"]['tmp_name'], "./admin/images/event/" . $_FILES["event_name"]["name"]);
       $_SESSION['success'] = "Event addedd";
-      header('Location: add_event.php');
+      header('Location: ./event.php');
     } else {
       $_SESSION['success'] = "Event not addedd";
-      header('Location: add_event.php');
+      header('Location: ./event.php');
     }
   }
 }
@@ -84,7 +84,7 @@ if (isset($_POST['add_event'])) {
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="fullscreen">
-              <i class="fa-solid fa-expand" style=""></i>
+              <i class="fa-solid fa-expand"></i>
             </button>
           </li>
           <li class="nav-item dropdown">
@@ -174,7 +174,7 @@ if (isset($_POST['add_event'])) {
         </ul>
       </nav>
 
-      <div class="container div-add" style="">
+      <div class="container div-add">
         <h2>Add Event</h2>
         <form method="post" action="" enctype="multipart/form-data">
           <div class="row">
@@ -242,6 +242,21 @@ if (isset($_POST['add_event'])) {
         ?>
 
         <script>
+          // date valiation
+          // Get today's date
+          var today = new Date();
+
+          // Format the date to YYYY-MM-DD (required by the date input)
+          var yyyy = today.getFullYear();
+          var mm = String(today.getMonth() + 1).padStart(2, '0');
+          var dd = String(today.getDate()).padStart(2, '0');
+          var minDate = yyyy + '-' + mm + '-' + dd;
+
+          // Set the minimum date for the date input
+          document.getElementById("start_date").min = minDate;
+          document.getElementById("end_date").min = minDate;
+
+
           document.addEventListener("DOMContentLoaded", function() {
             // Select the "ADD" button
             var addEventButton = document.getElementById('addEventButton');
