@@ -196,7 +196,7 @@ if (isset($_POST['add_event'])) {
   </div>
 </div>-->
 
-      <div class="container div-add" style="">
+      <!-- <div class="container div-add" style="">
         <h2>Add Event</h2>
         <form method="post" action="" enctype="multipart/form-data">
           <div class="row">
@@ -248,7 +248,7 @@ if (isset($_POST['add_event'])) {
               <button type="submit" class="btn btn-primary" name="add_event">Add Event</button>
             </div>
           </div>
-        </form>
+        </form> -->
 
         <!-- Button trigger modal -->
         <?php
@@ -262,10 +262,101 @@ if (isset($_POST['add_event'])) {
           unset($_SESSION['status']);
         }
         ?>
+<a href="Add\add_event.php" class="add">
+          +
+        </a>
+        <div class="container-fluid page-body-wrapper">
+          <div class="main-panel">
+            <div class="content-wrapper">       
+        <?php
+          require("../include/connect.php");
+          $query="select * from events";
+          $result=mysqli_query($conn,$query) or die("Query Failed!!!".mysqli_error($conn));
+          if(mysqli_num_rows($result)>0){
+            echo "<div class='row'>
+            <div class='col-lg-12 grid-margin stretch-card'>
+          <div class='card'>
+            <div class='card-body'>
+              <h1 style='text-transform: uppercase; font-size: 35px;'>Added events</h1>
+              <div class='table-responsive pt-3'>
+                <table class='table table-bordered'>
+                  <thead>
+                    <tr class='table-warning'>
+                      <th>
+                        Event ID
+                      </th>
+                      <th>
+                        event name
+                      </th>
+                      <th>
+                        start date
+                      </th>
+                      <th>
+                        end date
+                      </th>
+                      <th>
+                        info
+                      </th>
+                      <th>
+                        price
+                      </th>
+                      <th>
+                        image
+                      </th>
+                      <th>
+                        EDIT
+                      </th>
+                      <th>
+                        DELETE
+                      </th>
+                    </tr>
+    </thead>;
+                        </thead>";
+                        while($row=mysqli_fetch_array($result)){
+                          $img = "../images/Events/$row[5]";
+                          echo "<tbody>
+                          <tr>
+                              <td>$row[id]</td>
+                              <td>$row[event_name]</td>
+                              <td>$row[start_date]</td>
+                              <td>$row[end_date]</td>
+                              <td>$row[info]</td>
+                              <td>$row[event_price]</td>
+                              <td><img src=$img style='width:100px !important;height: 100px !important;border-radius:0% !important' alt=$row[event_image]></td>
+                              <td><a class='btn btn-inverse-succees btn-sm' href='Edit/Edit_Event.php?e_id=$row[0]'><i class='mdi mdi-pencil-circle-outline mdi-24px'></i></td>
+                              <td><a class='btn btn-inverse-danger btn-sm' href='Delete/Delete_Event.php?e_id=$row[0]'><i class='mdi mdi-delete-empty mdi-24px'></td>
+                            </tr>
+                          </tbody>";
+                        }
+                        echo "</table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>";
+          }
+          else{
+            echo "<div class='col-12 m-1 grid-margin'>
+              <div class='card'>
+                <div class='row'>
+                  <div class='card-body'>
+                    <h1 style='text-align:center; text-shadow:-2px 2px 4px black;'>No Events Are Available Now!!!</h1>
+                  </div>
+                </div>
+              </div>
+            </div>";
+          }
+        ?>
+        </div>
+          </div>
+        </div>
 
-
-
-        <!-- <div class="col-lg-12 grid-margin stretch-card">
+<a href="add_event.php" class="add">
+          +
+        </a>
+        
+        <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
               <h1 style="text-transform: uppercase; font-size: 35px;">Added events</h1>
@@ -298,6 +389,7 @@ if (isset($_POST['add_event'])) {
                         Action
                       </th>
                     </tr>
+    </thead>;
                     <?php
                     $select = "SELECT * FROM `events`";
                     $result = $conn->query($select);
@@ -334,12 +426,12 @@ if (isset($_POST['add_event'])) {
                     <?php
                     }
                     ?>
-                  </thead>
+            
                 </table>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
         <script>
           document.addEventListener("DOMContentLoaded", function() {
