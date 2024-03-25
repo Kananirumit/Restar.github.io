@@ -74,6 +74,7 @@ session_start();
                                 </li>
                                 <li class="<?php echo ($currentPage === 'attraction') ? 'active' : ''; ?>"><a href="attrection.php">ATTRACTION</a></li>
                                 <li class="<?php echo ($currentPage === 'dining') ? 'active' : ''; ?>"><a href="daining.php">DINING</a></li>
+                                <li class="<?php echo ($currentPage === 'event') ? 'active' : ''; ?>"><a href="event.php">EVENTS</a></li>
                                 <li class="<?php echo ($currentPage === 'about') ? 'active' : ''; ?>"><a href="about.php">ABOUT US</a></li>
                                 <li class="<?php echo ($currentPage === 'gallery') ? 'active' : ''; ?>"><a href="gallery.php">OUR GALLERY</a></li>
                                 <li class="<?php echo ($currentPage === 'contact') ? 'active' : ''; ?>"><a href="contact.php">CONTACT</a></li>

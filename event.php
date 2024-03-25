@@ -1,7 +1,9 @@
 <?php
 
 // Include the file to establish database connection
+$currentPage = 'event';
 include "./include/connect.php";
+include "header.php";
 
 // Check if the form has been submitted
 if (isset($_POST['add'])) {
@@ -120,7 +122,7 @@ if (isset($_POST['add'])) {
         }
 
         .box1 {
-            height: 400px;
+            height: 545px;
             width: 250px;
             margin: 70px;
             text-align: center;
@@ -173,6 +175,9 @@ if (isset($_POST['add'])) {
         img.image-shadow {
             box-shadow: 0 3px 5px rgba(1, 0, 0, 0.4);
         }
+        .boxed_wrapper{
+            overflow-x: unset !important;
+        }
     </style>
 </head>
 
@@ -217,9 +222,6 @@ if (isset($_POST['add'])) {
         <!-- preloader end -->
 
 
-        <?php
-        include "header.php";
-        ?>
 
         <!-- Page Title -->
         <section class="page-title">

@@ -129,19 +129,19 @@ include "../include/connect.php";
                             <li class="nav-item">
                                 <a class="nav-link" href="event_booking.php">
                                     <i class="fa-solid fa-calendar-check" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">event Booking</span>
+                                    <span class="menu-title">Event Booking</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="rbpayment.php">
                                     <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">ROOM Booking Payment Data</span>
+                                    <span class="menu-title">Room Booking Payment</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="tbpayment.php">
                                     <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
-                                    <span class="menu-title">Ticket Booking Payment Data</span>
+                                    <span class="menu-title">Ticket Booking Payment</span>
                                 </a>
                             </li>
                         </ul>
@@ -157,7 +157,7 @@ include "../include/connect.php";
                             <div class="col-lg-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h1 style="text-transform: uppercase; font-size: 35px;">Ticket booking
+                                        <h1 style="text-transform: uppercase; font-size: 35px;">Event booking
                                             INFORMATION</h1>
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
