@@ -28,13 +28,13 @@ if (isset($_POST['pay'])) {
 
     if ($result) {
         // Store payment information in session variables
-        $_SESSION['name'] = $name;
-        $_SESSION['email'] = $email;
-        $_SESSION['child'] = $child;
-        $_SESSION['adult'] = $adult;
-        $_SESSION['senior'] = $senior;
-        $_SESSION['txtDate'] = $txtDate;
-        $_SESSION['total'] = $total;
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
+        $child = $_SESSION['child'];
+        $adult = $_SESSION['adult'];
+        $senior = $_SESSION['senior'];
+        $txtDate = $_SESSION['txtDate'];
+        $total = $_SESSION['total'];
 
         try {
             // Initialize PHPMailer
