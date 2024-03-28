@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2024 at 11:27 AM
+-- Generation Time: Mar 28, 2024 at 06:19 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -46,6 +46,29 @@ INSERT INTO `adminlogin` (`id`, `name`, `admin_email`, `pass`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cardevent`
+--
+
+CREATE TABLE `cardevent` (
+  `id` int(11) NOT NULL,
+  `cardno` text NOT NULL,
+  `cardname` text NOT NULL,
+  `cardemail` varchar(50) NOT NULL,
+  `cardmonth` enum('01','02','03','04','05','06','07','08','09','10','11','12') NOT NULL,
+  `cardyear` year(4) NOT NULL,
+  `cvv` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cardevent`
+--
+
+INSERT INTO `cardevent` (`id`, `cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES
+(2, '8797654345678908', 'ykurdfgtr', ' tftrdfc@kujyff.chd', '08', '2027', '654');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cardroom`
 --
 
@@ -74,6 +97,13 @@ CREATE TABLE `cardticket` (
   `cardyear` year(4) NOT NULL,
   `cvv` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cardticket`
+--
+
+INSERT INTO `cardticket` (`cardid`, `cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES
+(1, '9876543567899876', 'nfd', ' jgttf@hgf.ggfd', '08', '2027', '5435');
 
 -- --------------------------------------------------------
 
@@ -106,6 +136,14 @@ CREATE TABLE `events` (
   `event_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `event_name`, `start_date`, `end_date`, `info`, `event_price`, `event_image`) VALUES
+(1, 'family fun day', '2024-04-20', '2024-04-27', 'spical event for family fun', '₹8000', 'Event1.png'),
+(2, 'summer fun', '2024-05-12', '2024-05-20', 'specail event for kids fun', '₹6500', 'event2.png');
+
 -- --------------------------------------------------------
 
 --
@@ -128,7 +166,9 @@ CREATE TABLE `event_data` (
 --
 
 INSERT INTO `event_data` (`event_id`, `fname`, `lname`, `email`, `phone`, `event`, `npass`, `totalprice`) VALUES
-(1, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Family Fun day', '3', '₹24000');
+(1, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Family Fun day', '3', '₹24000'),
+(2, '', '', '', '', 'Family Fun day', '1', '₹8000'),
+(3, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Family Fun day', '2', '₹16000');
 
 -- --------------------------------------------------------
 
@@ -223,6 +263,12 @@ ALTER TABLE `adminlogin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cardevent`
+--
+ALTER TABLE `cardevent`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cardroom`
 --
 ALTER TABLE `cardroom`
@@ -275,6 +321,12 @@ ALTER TABLE `ticket`
 --
 
 --
+-- AUTO_INCREMENT for table `cardevent`
+--
+ALTER TABLE `cardevent`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `cardroom`
 --
 ALTER TABLE `cardroom`
@@ -284,7 +336,7 @@ ALTER TABLE `cardroom`
 -- AUTO_INCREMENT for table `cardticket`
 --
 ALTER TABLE `cardticket`
-  MODIFY `cardid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cardid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -296,13 +348,13 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `event_data`
 --
 ALTER TABLE `event_data`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `register`
