@@ -6,7 +6,7 @@ include "./include/connect.php";
 include "header.php";
 
 // Check if the form has been submitted
-if (isset($_POST['add'])) {
+if (isset ($_POST['add'])) {
     // Retrieve form data
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -49,7 +49,9 @@ if (isset($_POST['add'])) {
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -134,6 +136,13 @@ if (isset($_POST['add'])) {
 
         }
 
+        @media (max-width: 767px) {
+            .box1 {
+                width: 100%;
+                /* Set width to full on small devices */
+            }
+        }
+
         .rim {
 
             text-align: center;
@@ -175,7 +184,8 @@ if (isset($_POST['add'])) {
         img.image-shadow {
             box-shadow: 0 3px 5px rgba(1, 0, 0, 0.4);
         }
-        .boxed_wrapper{
+
+        .boxed_wrapper {
             overflow-x: unset !important;
         }
     </style>
@@ -254,14 +264,15 @@ if (isset($_POST['add'])) {
 
                 if ($check_event) {
                     while ($row = mysqli_fetch_array($query_run)) {
-                ?>
+                        ?>
 
                         <div class="lin">
                             <div class="box1">
                                 <h4 class="card-title1">
                                     <?php echo $row['event_name']; ?>
                                 </h4>
-                                <img src="./admin/images/event/<?php echo $row['event_image'] ?>" class="image-shadow imge" alt="image">
+                                <img src="./admin/images/event/<?php echo $row['event_image'] ?>" class="image-shadow imge"
+                                    alt="image">
 
                                 <h3 class="card-title2">
                                     <?php echo $row['start_date']; ?>
@@ -277,7 +288,7 @@ if (isset($_POST['add'])) {
                                 </p>
                             </div>
                         </div>
-                <?php
+                        <?php
                         // echo $row['event_name'];
                     }
                 } else {
@@ -307,26 +318,31 @@ if (isset($_POST['add'])) {
                         <h2>BOOK YOUR Event</h2>
                     </div>
                     <div class="form-inner text-left">
-                        <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate" onsubmit="return validateForm()">
+                        <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate"
+                            onsubmit="return validateForm()">
                             <!-- Your form fields go here -->
                             <div class="row clearfix">
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label for="child" class="h6">First Name:</label>
-                                    <input type="text" class="form-control text-font" name="fname" id="fname" placeholder="First Name" required>
+                                    <input type="text" class="form-control text-font" name="fname" id="fname"
+                                        placeholder="First Name" required>
 
                                     <div class="invalid-feedback">Please enter your name.</div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label for="child" class="h6">Last Name:</label>
-                                    <input type="text" class="form-control text-font" name="lname" id="lname" placeholder="Last Name" required>
+                                    <input type="text" class="form-control text-font" name="lname" id="lname"
+                                        placeholder="Last Name" required>
 
                                     <div class="invalid-feedback">Please enter your name.</div>
 
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label for="child" class="h6">Email:</label>
-                                    <input type="text" class="form-control text-font" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email" required>
+                                    <input type="text" class="form-control text-font" id="email" name="email"
+                                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email"
+                                        required>
                                     <div class="invalid-feedback invalid-feedback-email">Please enter a valid
                                         email
                                         address.</div>
@@ -335,13 +351,15 @@ if (isset($_POST['add'])) {
 
                                 <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                     <label for="child" class="h6">Phone:</label>
-                                    <input type="text" class="form-control text-font" required="" name="phone" placeholder="Enter your phone number" id="phone">
+                                    <input type="text" class="form-control text-font" required="" name="phone"
+                                        placeholder="Enter your phone number" id="phone">
                                     <div class="invalid-feedback invalid-feedback-text">Please enter your phone
                                         number.</div>
                                 </div>
                                 <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                     <label for="room" class="h6">Choose Your event</label><br>
-                                    <select id="roomDropdown" class="form-control text-font" name="event" required="" onchange="updateRoomPrice()">
+                                    <select id="roomDropdown" class="form-control text-font" name="event" required=""
+                                        onchange="updateRoomPrice()">
 
                                         <option value="Family Fun day" name="event">Family Fun day</option>
                                         <option value="Summer Event" name="event">Summer Event</option>
@@ -357,9 +375,15 @@ if (isset($_POST['add'])) {
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label for="child" class="h6">Number of pass:</label>
                                     <div class="input-group">
-                                        <button type="button" class="btn btn-warning d-flex align-items-center text-font" onclick="decrementPasses()">-</button>
-                                        <input type="text" class="form-control text-font" required="" name="npass" id="number-of-passes" placeholder="Enter number of passes" onchange="updateTotalPrice()" value="1">
-                                        <button type="button" class="btn btn-warning d-flex align-items-center text-font" onclick="incrementPasses()">+</button>
+                                        <button type="button"
+                                            class="btn btn-warning d-flex align-items-center text-font"
+                                            onclick="decrementPasses()">-</button>
+                                        <input type="text" class="form-control text-font" required="" name="npass"
+                                            id="number-of-passes" placeholder="Enter number of passes"
+                                            onchange="updateTotalPrice()" value="1">
+                                        <button type="button"
+                                            class="btn btn-warning d-flex align-items-center text-font"
+                                            onclick="incrementPasses()">+</button>
                                     </div>
                                     <div class="invalid-feedback">Please enter the number of rooms.</div>
                                 </div>
@@ -367,10 +391,12 @@ if (isset($_POST['add'])) {
                                 <!-- Add this to display the total price -->
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label for="room" class="h6">Total Price:</label>
-                                    <input type="text" class="form-control text-font" name="totalprice" id="totalPrice" value="₹8000" readonly>
+                                    <input type="text" class="form-control text-font" name="totalprice" id="totalPrice"
+                                        value="₹8000" readonly>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                    <button class="theme-btn btn-one" name="add" id="add" onclick="updateTotalPrice();">Book your event</button>
+                                    <button class="theme-btn btn-one" name="add" id="add"
+                                        onclick="updateTotalPrice();">Book your event</button>
                                 </div>
 
                             </div>
@@ -385,7 +411,7 @@ if (isset($_POST['add'])) {
 
     <script>
         // date valiation
-        $(function(updatedate) {
+        $(function (updatedate) {
             var dtToday = new Date();
 
             var month = dtToday.getMonth() + 1;
@@ -403,7 +429,7 @@ if (isset($_POST['add'])) {
         });
 
         // date rev validation
-        $(function(updatedate) {
+        $(function (updatedate) {
             var dtToday = new Date();
 
             var month = dtToday.getMonth() + 1;
