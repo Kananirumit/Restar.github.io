@@ -1,23 +1,19 @@
 <?php
+session_start(); // Start session
 
 include "./include/connect.php";
 
-session_start();
-require 'PHP MAILER\Exception.php';
-require 'PHP MAILER\PHPMailer.php';
-require 'PHP MAILER\SMTP.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-if (isset($_POST['logout'])) {
-    session_unset();
-    session_destroy();
-    header("location:login.php");
-}
-
 if (isset($_POST['submit_form'])) {
+    // Store form data in session variables
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['child'] = $_POST['child'];
+    $_SESSION['adult'] = $_POST['adult'];
+    $_SESSION['senior'] = $_POST['senior'];
+    $_SESSION['txtDate'] = $_POST['txtDate'];
+    $_SESSION['total'] = $_POST['total'];
+
+    // Insert form data into database
     $name = $_POST['name'];
     $email = $_POST['email'];
     $child = $_POST['child'];
@@ -26,53 +22,17 @@ if (isset($_POST['submit_form'])) {
     $txtDate = $_POST['txtDate'];
     $total = $_POST['total'];
 
-
-    $insert = "INSERT INTO `ticket`(`name`, `email`, `child`, `adult`, `senior`, `txtDate`, `total`) VALUES ('$name ','$email','$child','$adult','$senior','$txtDate','$total')";
+    $insert = "INSERT INTO `ticket`(`name`, `email`, `child`, `adult`, `senior`, `txtDate`, `total`) VALUES ('$name','$email','$child','$adult','$senior','$txtDate','$total')";
 
     $result = $conn->query($insert);
 
     if ($result) {
-        $mail = new PHPMailer(true);
-    
-        try {
-                   //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'restarpark@gmail.com';                     //SMTP username
-            $mail->Password   = 'nbdp ijqi zzsi uvss';                               //SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-            
-        
-        $mail->setFrom('restarpark@gmail.com', 'RESTAR AMUSEMENT PARK');
-
-        $mail->addAddress($_POST['email']);
-
-        $name = $_POST['name'];
-    $email = $_POST['email'];
-    $child = $_POST['child'];
-    $adult = $_POST['adult'];
-    $senior = $_POST['senior'];
-    $txtDate = $_POST['txtDate'];
-    $total = $_POST['total'];
-          
-    
-    
-        //Content
-        $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = "$name Your Appointment is Confirmed!";
-        $mail->Body    = "<h3>Your Appointment  is Confirmed With These Details:</h3><br>Name : $name <br><br> Email : $email <br><br> Child : $child <br><br> adult : $adult <br><br> senior : $senior <br><br>txtDate : $txtDate<br><br>total : $total";
-        
-
-        if($mail->send()){
-            header("location:card.php");
-        }
-    } catch (Exception $e) {
-        echo "<div class='alert alert-danger'>TRY AGAIN THERE IS SOME ERROR!</div>";
+        // Redirect to payment page
+        header("location: card.php");
+        exit(); // Make sure to exit after redirection
+    } else {
+        echo "<div class='alert alert-danger'>Error processing form submission.</div>";
     }
-}
 }
 ?>
 
@@ -92,9 +52,7 @@ if (isset($_POST['submit_form'])) {
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -153,8 +111,7 @@ if (isset($_POST['submit_form'])) {
         <!-- Page Title -->
         <section class="page-title">
             <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img"
-                    style="background-image: url(assets/images/background/page-title.jpg);"></div>
+                <div class="parallax-inner back-img" style="background-image: url(assets/images/background/page-title.jpg);"></div>
             </div>
             <div class="auto-container">
                 <div class="content-box">
@@ -175,8 +132,7 @@ if (isset($_POST['submit_form'])) {
             <div class="auto-container">
                 <div class="row clearfix">
                     <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                        <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                            data-wow-duration="1500ms">
+                        <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="pricing-table">
                                 <div class="table-header">
                                     <div class="icon-box"><i class="flaticon-daughter"></i></div>
@@ -195,8 +151,7 @@ if (isset($_POST['submit_form'])) {
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                        <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms"
-                            data-wow-duration="1500ms">
+                        <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
                             <div class="pricing-table">
                                 <div class="table-header">
                                     <div class="icon-box"><i class="flaticon-teen"></i></div>
@@ -215,8 +170,7 @@ if (isset($_POST['submit_form'])) {
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                        <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms"
-                            data-wow-duration="1500ms">
+                        <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
                             <div class="pricing-table">
                                 <div class="table-header">
                                     <div class="icon-box"><i class="flaticon-monkey"></i></div>
@@ -247,33 +201,25 @@ if (isset($_POST['submit_form'])) {
                             <h2>BOOK YOUR TICKET</h2>
                         </div>
                         <div class="form-inner text-left">
-                            <form method="post" action="" id="contact-form" class="default-form"
-                                novalidate="novalidate">
+                            <form method="post" action="" id="contact-form" class="default-form" novalidate="novalidate">
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Name:</label>
-                                        <input type="text" class="form-control text-font" id="name" placeholder="Name"
-                                            name="name">
+                                        <input type="text" class="form-control text-font" id="name" placeholder="Name" name="name">
                                         <div class="invalid-feedback">Please enter your name.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Email:</label>
-                                        <input type="text" class="form-control text-font" id="email"
-                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
-                                            placeholder="Email" name="email">
-                                        <div class="invalid-feedback invalid-feedback-email">Please enter a valid email
-                                            address.</div>
+                                        <input type="text" class="form-control text-font" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email" name="email">
+                                        <div class="invalid-feedback invalid-feedback-email">Please enter a valid email address.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Child:</label>
                                         <div class="d-flex">
                                             <div class="input-group">
-                                                <span class="btn btn-warning d-flex align-items-center text-font"
-                                                    onclick="decrement('child')">-</span>
-                                                <input type="text" class="form-control text-font" id="child" value="0"
-                                                    readonly name="child">
-                                                <span class="btn btn-warning d-flex align-items-center text-font"
-                                                    onclick="increment('child')">+</span>
+                                                <span class="btn btn-warning d-flex align-items-center text-font" onclick="decrement('child')">-</span>
+                                                <input type="text" class="form-control text-font" id="child" value="0" readonly name="child">
+                                                <span class="btn btn-warning d-flex align-items-center text-font" onclick="increment('child')">+</span>
                                             </div>
                                         </div>
                                     </div>
@@ -281,12 +227,9 @@ if (isset($_POST['submit_form'])) {
                                         <label for="child" class="h6">Adult:</label>
                                         <div class="d-flex">
                                             <div class="input-group">
-                                                <span class="btn btn-warning d-flex align-items-center text-font"
-                                                    onclick="decrement('adult')">-</span>
-                                                <input type="text" class="form-control text-font" id="adult" value="0"
-                                                    readonly name="adult">
-                                                <span class="btn btn-warning d-flex align-items-center text-font"
-                                                    onclick="increment('adult')">+</span>
+                                                <span class="btn btn-warning d-flex align-items-center text-font" onclick="decrement('adult')">-</span>
+                                                <input type="text" class="form-control text-font" id="adult" value="0" readonly name="adult">
+                                                <span class="btn btn-warning d-flex align-items-center text-font" onclick="increment('adult')">+</span>
                                             </div>
                                         </div>
                                     </div>
@@ -294,35 +237,28 @@ if (isset($_POST['submit_form'])) {
                                         <label for="child" class="h6">Senior:</label>
                                         <div class="d-flex">
                                             <div class="input-group">
-                                                <span class="btn btn-warning d-flex align-items-center text-font"
-                                                    onclick="decrement('senior')">-</span>
-                                                <input type="text" class="form-control text-font" id="senior" value="0"
-                                                    readonly name="senior">
-                                                <span class="btn btn-warning d-flex align-items-center text-font"
-                                                    onclick="increment('senior')">+</span>
+                                                <span class="btn btn-warning d-flex align-items-center text-font" onclick="decrement('senior')">-</span>
+                                                <input type="text" class="form-control text-font" id="senior" value="0" readonly name="senior">
+                                                <span class="btn btn-warning d-flex align-items-center text-font" onclick="increment('senior')">+</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Date:</label>
                                         <div class="input-group">
-                                            <input type="date" class="form-control text-font" id="txtDate"
-                                                name="txtDate">
+                                            <input type="date" class="form-control text-font" id="txtDate" name="txtDate">
                                         </div>
                                         <div class="invalid-feedback invalid-feedback-date">Please select a date.</div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
                                         <label for="child" class="h6">Total:</label>
                                         <div class="input-group">
-                                            <input class="form-control d-flex align-items-center" value="0" id="total"
-                                                name="total" readonly>
+                                            <input class="form-control d-flex align-items-center" value="0" id="total" name="total" readonly>
                                         </div>
-                                        <div class="invalid-feedback invalid-feedback-total">Select at least one person.
-                                        </div>
+                                        <div class="invalid-feedback invalid-feedback-total">Select at least one person.</div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                        <button class="theme-btn btn-one" name="submit_form" id="buy"
-                                            onclick="validateForm()">Buy</button>
+                                        <button class="theme-btn btn-one" name="submit_form" id="buy" onclick="validateForm()">Buy</button>
                                     </div>
                                 </div>
                             </form>
@@ -335,7 +271,7 @@ if (isset($_POST['submit_form'])) {
         <br><br>
         <script>
             // date valiation
-            $(function (updatedate) {
+            $(function(updatedate) {
                 var dtToday = new Date();
 
                 var month = dtToday.getMonth() + 1;
@@ -396,7 +332,7 @@ if (isset($_POST['submit_form'])) {
                 updateTotal();
             }
 
-            $('#clear').click(function () {
+            $('#clear').click(function() {
                 // Clear the form and counts
                 $('#name').val('');
                 $('#email').val('');
@@ -410,7 +346,7 @@ if (isset($_POST['submit_form'])) {
                 $('#total').text('0');
             });
 
-            $(document).ready(function () {
+            $(document).ready(function() {
                 // Function to validate an input field
                 function validateInput(input, pattern, errorSelector, errorMessage) {
                     var value = input.val();
@@ -429,15 +365,15 @@ if (isset($_POST['submit_form'])) {
                 var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
                 // Add blur event listeners to input fields
-                $("#name").blur(function () {
+                $("#name").blur(function() {
                     validateInput($(this), /^.+$/, $(".invalid-feedback-name"), "Please enter your name.");
                 });
 
-                $("#email").blur(function () {
+                $("#email").blur(function() {
                     validateInput($(this), emailPattern, $(".invalid-feedback-email"), "Please enter a valid email address.");
                 });
 
-                $("#txtDate").blur(function () {
+                $("#txtDate").blur(function() {
                     if ($(this).val() === "") {
                         $(this).addClass("is-invalid");
                         $(".invalid-feedback-date").text("Please select a date.").show();
@@ -466,12 +402,12 @@ if (isset($_POST['submit_form'])) {
                 }
 
                 // Add input event listeners to quantity fields (Child, Adult, Senior) for immediate validation
-                $("#child, #adult, #senior").on("input", function () {
+                $("#child, #adult, #senior").on("input", function() {
                     calculateTotal();
                 });
 
                 // Validate the form on Buy button click
-                $("#buy").click(function (e) {
+                $("#buy").click(function(e) {
                     // Trigger blur for all input fields to perform validation
                     $("#name, #email, #txtDate").blur();
 
