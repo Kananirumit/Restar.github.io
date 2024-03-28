@@ -3,6 +3,19 @@ $currentPage = 'resort';
 include "./include/connect.php";
 
 if (isset($_POST['add'])) {
+
+    $_SESSION['fname'] = $_POST['fname'];
+    $_SESSION['lname'] = $_POST['lname'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['birthdate'] = $_POST['birthdate'];
+    $_SESSION['city'] = $_POST['city'];
+    $_SESSION['phone'] = $_POST['phone'];
+    $_SESSION['room'] = $_POST['room'];
+    $_SESSION['nroom'] = $_POST['nroom'];
+    $_SESSION['totalprice'] = $_POST['totalprice'];
+    $_SESSION['checkin'] = $_POST['checkin'];
+    $_SESSION['checkout'] = $_POST['checkout'];
+
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
@@ -21,10 +34,13 @@ if (isset($_POST['add'])) {
     $result = $conn->query($insert);
 
     if ($result) {
-        header("location:card.php");
+        // Redirect to payment page
+        header("location: card.php");
+        exit(); // Make sure to exit after redirection
+    } else {
+        echo "<div class='alert alert-danger'>Error processing form submission.</div>";
     }
 }
-
 ?>
 
 

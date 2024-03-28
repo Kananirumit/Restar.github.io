@@ -1,10 +1,18 @@
 <?php
 
-include "./include/connect.php";
+session_start(); // Start session
 
+include "./include/connect.php";
+require './PHP MAILER/Exception.php';
+require './PHP MAILER/PHPMailer.php';
+require './PHP MAILER/SMTP.php';
+
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 if (isset($_POST['pay'])) {
-    
+    // Retrieve payment information
     $cardno = $_POST['cardnumber'];
     $cardname = $_POST['cardname'];
     $email = $_POST['email'];
@@ -12,36 +20,64 @@ if (isset($_POST['pay'])) {
     $year = $_POST['year'];
     $cvv = $_POST['cvv'];
 
-
-    $insert = "INSERT INTO `cardticket`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES ('$cardno','$cardname',' $email','$month','$year','$cvv')";
-
-    $result = $conn->query($insert);
+    // Insert payment details into the database using prepared statements
+    $stmt = $conn->prepare("INSERT INTO `cardroom`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $cardno, $cardname, $email, $month, $year, $cvv);
+    $result = $stmt->execute();
+    $stmt->close();
 
     if ($result) {
-        $url = 'gpay.mp3';
-        echo "<script>
-        var x = document.getElementById('sound1');
-            function playMusic1() {
-                x.play();
-            }
-        </script>";
-        echo "<style>
-        .pop{
-            display: block !important;
-            position: fixed;
-            left: 0;
-            top: 30%;
-            right: 0;
-            z-index: 5;
-            margin: auto;
-            text-align: center;
-            width: 100%;
+        // Store payment information in session variables
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
+        $child = $_SESSION['child'];
+        $adult = $_SESSION['adult'];
+        $senior = $_SESSION['senior'];
+        $txtDate = $_SESSION['txtDate'];
+        $total = $_SESSION['total'];
+
+        try {
+            // Initialize PHPMailer
+            $mail = new PHPMailer(true);
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'restarpark@gmail.com';
+            $mail->Password = 'nbdp ijqi zzsi uvss';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port = 465;
+
+            $mail->setFrom('restarpark@gmail.com', 'RESTAR AMUSEMENT PARK');
+            $mail->addAddress($email);
+
+            // Retrieve user information from the session
+            $name = $_SESSION['name'];
+            $email = $_SESSION['email'];
+            $child = $_SESSION['child'];
+            $adult = $_SESSION['adult'];
+            $senior = $_SESSION['senior'];
+            $txtDate = $_SESSION['txtDate'];
+            $total = $_SESSION['total'];
+
+            // Email content with booking details
+            $mail->isHTML(true);
+            $mail->Subject = "$name Your Ticket is Confirmed!";
+            $mail->Body = "<h3>Your Ticket is Confirmed With These Details:</h3><br>Name : $name <br><br> Email : $email <br><br> Child : $child <br><br> Adult : $adult <br><br> Senior : $senior <br><br> Date : $txtDate <br><br> Total : $total";
+
+            // Send the email
+            $mail->send();
+
+            // Redirect after successful payment and email sending
+            header("Location: index.php");
+            exit();
+        } catch (Exception $e) {
+            echo "<div class='alert alert-danger'>Error sending email: {$mail->ErrorInfo}</div>";
         }
-        .card-input{
-            pointer-events: none;
-        }
-        </style>";
+    } else {
+        echo "<div class='alert alert-danger'>Error processing payment.</div>";
     }
+
+    // Display pop-up and handle redirection in JavaScript
     if(isset($_REQUEST['done'])){
         echo "<style>
         .pop{

@@ -28,13 +28,17 @@ if (isset($_POST['pay'])) {
 
     if ($result) {
         // Store payment information in session variables
-        $name = $_SESSION['name'];
+        $fname = $_SESSION['fname'];
+        $lname = $_SESSION['lname'];
         $email = $_SESSION['email'];
-        $child = $_SESSION['child'];
-        $adult = $_SESSION['adult'];
-        $senior = $_SESSION['senior'];
-        $txtDate = $_SESSION['txtDate'];
-        $total = $_SESSION['total'];
+        $birthdate = $_SESSION['birthdate'];
+        $city = $_SESSION['city'];
+        $phone = $_SESSION['phone'];
+        $room = $_SESSION['room'];
+        $nroom = $_SESSION['nroom'];
+        $totalprice = $_SESSION['totalprice'];
+        $checkin = $_SESSION['checkin'];
+        $checkout = $_SESSION['checkout'];
 
         try {
             // Initialize PHPMailer
@@ -51,18 +55,22 @@ if (isset($_POST['pay'])) {
             $mail->addAddress($email);
 
             // Retrieve user information from the session
-            $name = $_SESSION['name'];
+            $fname = $_SESSION['fname'];
+            $lname = $_SESSION['lname'];
             $email = $_SESSION['email'];
-            $child = $_SESSION['child'];
-            $adult = $_SESSION['adult'];
-            $senior = $_SESSION['senior'];
-            $txtDate = $_SESSION['txtDate'];
-            $total = $_SESSION['total'];
+            $birthdate = $_SESSION['birthdate'];
+            $city = $_SESSION['city'];
+            $phone = $_SESSION['phone'];
+            $room = $_SESSION['room'];
+            $nroom = $_SESSION['nroom'];
+            $totalprice = $_SESSION['totalprice'];
+            $checkin = $_SESSION['checkin'];
+            $checkout = $_SESSION['checkout'];
 
             // Email content with booking details
             $mail->isHTML(true);
-            $mail->Subject = "$name Your Ticket is Confirmed!";
-            $mail->Body = "<h3>Your Ticket is Confirmed With These Details:</h3><br>Name : $name <br><br> Email : $email <br><br> Child : $child <br><br> Adult : $adult <br><br> Senior : $senior <br><br> Date : $txtDate <br><br> Total : $total";
+            $mail->Subject = "$fname Your Room is Booked!";
+            $mail->Body = "<h3>Your Room is Booked With These Details:</h3><br>FirstName: $fname <br>LastName: $lname <br>Email: $email <br>Birthdate: $birthdate <br>City: $city <br>Phone: $phone <br>Room: $room <br>Number of Room: $nroom <br>TotalPrice: $totalprice <br>Checkin Date: $checkin <br>Checkout Date: $checkout";
 
             // Send the email
             $mail->send();
@@ -92,7 +100,6 @@ if (isset($_POST['pay'])) {
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

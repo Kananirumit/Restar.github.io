@@ -28,7 +28,7 @@ if (isset($_POST['submit_form'])) {
 
     if ($result) {
         // Redirect to payment page
-        header("location: card.php");
+        header("location: card2.php");
         exit(); // Make sure to exit after redirection
     } else {
         echo "<div class='alert alert-danger'>Error processing form submission.</div>";
