@@ -2,7 +2,7 @@
 
 include "../include/connect.php";
 
-if (isset ($_POST['add_event'])) {
+if (isset($_POST['add_event'])) {
     $event_name = $_POST['event_name'];
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
@@ -80,7 +80,8 @@ if (isset ($_POST['add_event'])) {
             right: 10px;
             z-index: 1;
         }
-        .add1:hover{
+
+        .add1:hover {
             color: #FFFFFF;
             text-decoration: none;
         }
@@ -119,7 +120,7 @@ if (isset ($_POST['add_event'])) {
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
                             <a class="dropdown-item"
-                                href="<?php echo isset ($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
+                                href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
                                 <i class="ti-settings text-primary"></i>
                                 Settings
                             </a>
@@ -198,17 +199,23 @@ if (isset ($_POST['add_event'])) {
                             <span class="menu-title">Ticket Booking Payment</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ebpayment.php">
+                            <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                            <span class="menu-title">Event Booking Payment</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
             <!-- Button trigger modal -->
             <?php
-            if (isset ($_SESSION['success']) && $_SESSION['success'] != '') {
+            if (isset($_SESSION['success']) && $_SESSION['success'] != '') {
                 echo '<h2 class="bg-primary text-white"> ' . $_SESSION['success'] . ' </h2>';
                 unset($_SESSION['success']);
             }
 
-            if (isset ($_SESSION['status']) && $_SESSION['status'] != '') {
+            if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
                 echo '<h2 class="bg-danger text-white"> ' . $_SESSION['status'] . ' </h2>';
                 unset($_SESSION['status']);
             }
@@ -217,16 +224,16 @@ if (isset ($_POST['add_event'])) {
                 +
             </a>
             <div class="main-panel">
-            <div class="content-wrapper">
-              <div class="row">
-                <div class="col-md-12 grid-margin">
-                  <div class="row">
-                        <?php
-                        require ("../include/connect.php");
-                        $query = "select * from events";
-                        $result = mysqli_query($conn, $query) or die ("Query Failed!!!" . mysqli_error($conn));
-                        if (mysqli_num_rows($result) > 0) {
-                            echo "<div class='col-lg-12 grid-margin stretch-card'>
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12 grid-margin">
+                            <div class="row">
+                                <?php
+                                require ("../include/connect.php");
+                                $query = "select * from events";
+                                $result = mysqli_query($conn, $query) or die("Query Failed!!!" . mysqli_error($conn));
+                                if (mysqli_num_rows($result) > 0) {
+                                    echo "<div class='col-lg-12 grid-margin stretch-card'>
           <div class='card'>
             <div class='card-body'>
               <h1 style='text-transform: uppercase; font-size: 35px;'>Added events</h1>
@@ -264,9 +271,9 @@ if (isset ($_POST['add_event'])) {
                     </tr>
 
                         </thead>";
-                            while ($row = mysqli_fetch_array($result)) {
-                                $img = "images/event/$row[event_image]";
-                                echo "<tbody>
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        $img = "images/event/$row[event_image]";
+                                        echo "<tbody>
                           <tr>
                               <td>$row[id]</td>
                               <td>$row[event_name]</td>
@@ -279,8 +286,8 @@ if (isset ($_POST['add_event'])) {
                               <td><a class='btn btn-inverse-danger btn-sm' href='Delete_Event.php?id=$row[0]'><i class='mdi mdi-delete-empty mdi-24px'></td>
                             </tr>
                           </tbody>";
-                            }
-                            echo "</table>
+                                    }
+                                    echo "</table>
                       </div>
                     </div>
                   </div>
@@ -288,8 +295,8 @@ if (isset ($_POST['add_event'])) {
               </div>
               </div>
             </div>";
-                        } else {
-                            echo "<div class='col-12 m-1 grid-margin'>
+                                } else {
+                                    echo "<div class='col-12 m-1 grid-margin'>
               <div class='card'>
                 <div class='row'>
                   <div class='card-body'>
@@ -298,46 +305,46 @@ if (isset ($_POST['add_event'])) {
                 </div>
               </div>
             </div>";
-                        }
-                        ?>
+                                }
+                                ?>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    // Select the "ADD" button
-                    var addEventButton = document.getElementById('addEventButton');
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            // Select the "ADD" button
+                            var addEventButton = document.getElementById('addEventButton');
 
-                    // Add click event listener to the "ADD" button
-                    addEventButton.addEventListener('click', function () {
-                        // When the button is clicked, show the modal popup
-                        $('#eventmodal').modal('show');
-                    });
-                });
-            </script>
-            <!-- Add this code where you want to display the added event in a table -->
-            <!-- plugins:js -->
-            <script src="vendors/js/vendor.bundle.base.js"></script>
-            <!-- endinject -->
-            <!-- Plugin js for this page -->
-            <script src="vendors/chart.js/Chart.min.js"></script>
-            <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-            <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-            <script src="js/dataTables.select.min.js"></script>
+                            // Add click event listener to the "ADD" button
+                            addEventButton.addEventListener('click', function () {
+                                // When the button is clicked, show the modal popup
+                                $('#eventmodal').modal('show');
+                            });
+                        });
+                    </script>
+                    <!-- Add this code where you want to display the added event in a table -->
+                    <!-- plugins:js -->
+                    <script src="vendors/js/vendor.bundle.base.js"></script>
+                    <!-- endinject -->
+                    <!-- Plugin js for this page -->
+                    <script src="vendors/chart.js/Chart.min.js"></script>
+                    <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+                    <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+                    <script src="js/dataTables.select.min.js"></script>
 
-            <!-- End plugin js for this page -->
-            <!-- inject:js -->
-            <script src="js/off-canvas.js"></script>
-            <script src="js/hoverable-collapse.js"></script>
-            <script src="js/template.js"></script>
-            <script src="js/settings.js"></script>
-            <script src="js/todolist.js"></script>
-            <!-- endinject -->
-            <!-- Custom js for this page-->
-            <script src="js/dashboard.js"></script>
-            <script src="js/Chart.roundedBarCharts.js"></script>
-            <!-- End custom js for this page-->
+                    <!-- End plugin js for this page -->
+                    <!-- inject:js -->
+                    <script src="js/off-canvas.js"></script>
+                    <script src="js/hoverable-collapse.js"></script>
+                    <script src="js/template.js"></script>
+                    <script src="js/settings.js"></script>
+                    <script src="js/todolist.js"></script>
+                    <!-- endinject -->
+                    <!-- Custom js for this page-->
+                    <script src="js/dashboard.js"></script>
+                    <script src="js/Chart.roundedBarCharts.js"></script>
+                    <!-- End custom js for this page-->
 </body>
 
 </html>
