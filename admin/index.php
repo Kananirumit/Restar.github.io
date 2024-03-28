@@ -172,6 +172,12 @@ if (isset ($_POST['update'])) {
                 <span class="menu-title">Ticket Booking Payment</span>
               </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ebpayment.php">
+                  <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                  <span class="menu-title">Event Booking Payment</span>
+                </a>
+              </li>
           </ul>
         </nav>
         <!-- partial -->

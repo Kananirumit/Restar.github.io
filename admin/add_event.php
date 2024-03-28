@@ -2,7 +2,7 @@
 
 include "../include/connect.php";
 
-if (isset($_POST['add_event'])) {
+if (isset ($_POST['add_event'])) {
   $event_name = $_POST['event_name'];
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
@@ -74,8 +74,10 @@ if (isset($_POST['add_event'])) {
     <!-- partial:partials/_navbar.php -->
     <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo" style="width: 100px; height:50px;" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo" style="width: 50px; height:50px;" /></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo"
+            style="width: 100px; height:50px;" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
+            style="width: 50px; height:50px;" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center btn1" type="button" data-toggle="minimize">
@@ -93,7 +95,7 @@ if (isset($_POST['add_event'])) {
               <img src="images/faces/face29.jpg" alt="profile" />
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
+              <a class="dropdown-item" href="<?php echo isset ($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
@@ -103,7 +105,8 @@ if (isset($_POST['add_event'])) {
               </a>
             </div>
           </li>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
             <span class="icon-menu"></span>
           </button>
         </ul>
@@ -171,6 +174,12 @@ if (isset($_POST['add_event'])) {
               <span class="menu-title">Ticket Booking Payment</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ebpayment.php">
+              <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+              <span class="menu-title">Event Booking Payment</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -230,12 +239,12 @@ if (isset($_POST['add_event'])) {
 
         <!-- Button trigger modal -->
         <?php
-        if (isset($_SESSION['success']) && $_SESSION['success'] != '') {
+        if (isset ($_SESSION['success']) && $_SESSION['success'] != '') {
           echo '<h2 class="bg-primary text-white"> ' . $_SESSION['success'] . ' </h2>';
           unset($_SESSION['success']);
         }
 
-        if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+        if (isset ($_SESSION['status']) && $_SESSION['status'] != '') {
           echo '<h2 class="bg-danger text-white"> ' . $_SESSION['status'] . ' </h2>';
           unset($_SESSION['status']);
         }
@@ -257,12 +266,12 @@ if (isset($_POST['add_event'])) {
           document.getElementById("end_date").min = minDate;
 
 
-          document.addEventListener("DOMContentLoaded", function() {
+          document.addEventListener("DOMContentLoaded", function () {
             // Select the "ADD" button
             var addEventButton = document.getElementById('addEventButton');
 
             // Add click event listener to the "ADD" button
-            addEventButton.addEventListener('click', function() {
+            addEventButton.addEventListener('click', function () {
               // When the button is clicked, show the modal popup
               $('#eventmodal').modal('show');
             });

@@ -2,6 +2,7 @@
 
 include "../include/connect.php";
 
+
 session_start();
 
 if (isset ($_POST['logout'])) {
@@ -11,8 +12,8 @@ if (isset ($_POST['logout'])) {
 }
 
 if (isset ($_POST['delete'])) {
-  $guestIdToDelete = $_POST['delete'];
-  $deleteQuery = "DELETE FROM `register` WHERE `guestId` = $guestIdToDelete";
+  $idToDelete = $_POST['delete'];
+  $deleteQuery = "DELETE FROM `cardevent` WHERE `id` = $idToDelete";
 
   if ($conn->query($deleteQuery) === TRUE) {
     // Deletion successful, you can redirect or perform other actions if needed
@@ -20,10 +21,17 @@ if (isset ($_POST['delete'])) {
     echo "Error: " . $conn->error;
   }
 }
+if (isset ($_POST['delete2'])) {
+  $idToDelete = $_POST['delete2'];
+  $deleteQuery = "DELETE FROM `cardevent` WHERE `cardid` = $idToDelete";
 
+  if ($conn->query($deleteQuery) === TRUE) {
+    // Deletion successful, you can redirect or perform other actions if needed
+  } else {
+    echo "Error: " . $conn->error;
+  }
+}
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -179,99 +187,90 @@ if (isset ($_POST['delete'])) {
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h1 style="text-transform: uppercase; font-size: 35px;">Registration Data</h1>
-                    <div class="table-responsive pt-3">
+                    <h1 style="text-transform: uppercase; font-size: 35px;">Room Payment Data</h1>
+                    <div class="table-responsive">
                       <table class="table table-bordered">
                         <thead>
-                          <tr class="table-danger">
+                          <tr class="table-secondary">
                             <th>
-                              GuestID
+                              Card ID
                             </th>
                             <th>
-                              First name
+                              Card Number
                             </th>
                             <th>
-                              Last name
-                            </th>
-                            <th>
-                              Gender
-                            </th>
-                            <th>
-                              Phone
+                              Card Holder Name
                             </th>
                             <th>
                               Email
                             </th>
                             <th>
-                              Password
+                              Expiry Month
                             </th>
                             <th>
-                              Confirm Password
+                              Expiry Year
+                            </th>
+                            <th>
+                              cvv number
                             </th>
                             <th>
                               Action
                             </th>
                           </tr>
                           <?php
-                          $select = "SELECT `guestId`, `fname`, `lname`, `gender`,`phone`,`email`,`pass`,`confirmpss` FROM `register`";
+                          $select = "SELECT * FROM `cardevent`";
                           $result = $conn->query($select);
 
-                          if ($result === false) {
-                            echo "Error: ";
-                          } else {
-                            while ($row = mysqli_fetch_array($result)) {
-                              ?>
-                              <tr>
-                                <td>
-                                  <?php echo $row['guestId']; ?>
-                                </td>
-                                <td>
-                                  <?php echo $row['fname']; ?>
-                                </td>
-                                <td>
-                                  <?php echo $row['lname']; ?>
-                                </td>
-                                <td>
-                                  <?php echo $row['gender']; ?>
-                                </td>
-                                <td>
-                                  <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register == 1 || ($register >= 1 && $register <= 7) ? '*' : $char;
-                                  }, str_split($row['phone']), array_keys(str_split($row['phone'])))); ?>
-                                </td>
-                                <td>
-                                  <?php
-                                  $emailParts = explode('@', $row['email']);
-                                  $firstChar = substr($emailParts[0], 0, 1);
-                                  $maskedEmail = $firstChar . str_repeat('*', strlen($emailParts[0]) - 1) . '@' . $emailParts[1];
-                                  echo $maskedEmail;
-                                  ?>
-                                </td>
-                                <td>
-                                  <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <= 10 ? '*' : $char;
-                                  }, str_split($row['pass']), array_keys(str_split($row['pass'])))); ?>
-                                </td>
-                                <td>
-                                  <?php echo implode(' ', array_map(function ($char, $register) {
-                                    return $register <= 10 ? '*' : $char;
-                                  }, str_split($row['confirmpss']), array_keys(str_split($row['confirmpss'])))); ?>
-                                </td>
-                                <td>
-                                  <a href="view.php?guestId=<?php echo $row['guestId']; ?>&fname=<?php echo $row['fname']; ?>&lname=<?php echo $row['lname']; ?>&gender=<?php echo $row['gender']; ?>&phone=<?php echo $row['phone']; ?>&email=<?php echo $row['email']; ?>&pass=<?php echo $row['pass']; ?>&confirmpss=<?php echo $row['confirmpss']; ?>"
-                                    class="btn btn-primary"><i class="mdi mdi-eye mdi-20px" style="color: white;"></i>
-                                    View</a>
+                          while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                              <td>
+                                <?php echo $row['id'] ?>
+                              </td>
+                              <td>
+                                <?php
+                                $card_number = $row['cardno'];
+                                $hidden_part = str_repeat('*', strlen($card_number) - 4); // Replace all but the first four digits with asterisks
+                                echo substr($card_number, 0, 4) . ' ' . chunk_split($hidden_part, 4, ' '); // Add spaces after every four characters
+                                ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardname'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['cardemail'] ?>
+                              </td>
+                              <td>
+                                <?php echo str_repeat('*', strlen($row['cardmonth'])); ?>
+                              </td>
+                              <td>
+                                <?php echo substr($row['cardyear'], 0, 2) . '**'; ?>
+                              </td>
+                              <td>
+                                <?php
+                                $cvv = $row['cvv'];
+                                if (strlen($cvv) === 3) {
+                                  echo '***';
+                                } elseif (strlen($cvv) === 4) {
+                                  echo '****';
+                                } else {
+                                  echo 'Invalid CVV';
+                                }
+                                ?>
+                              </td>
+                              <td>
+                                <a href="cardview.php?id=<?php echo $row['id']; ?>&cardno=<?php echo $row['cardno']; ?>&cardname=<?php echo $row['cardname']; ?>&cardemail=<?php echo $row['cardemail']; ?>&cardmonth=<?php echo $row['cardmonth']; ?>&cardyear=<?php echo $row['cardyear']; ?>&cvv=<?php echo $row['cvv']; ?>"
+                                  class="btn btn-primary"><i class="mdi mdi-eye mdi-20px" style="color: white;"></i>
+                                  View</a>
 
-                                  <form method="post" style="display: inline;"
-                                    onsubmit="return confirm('Are you sure you want to delete this member?');">
-                                    <input type="hidden" name="delete" value="<?php echo $row['guestId']; ?>">
-                                    <button type="submit" class="btn btn-danger"><i class="mdi mdi-delete mdi-20px"
-                                        style="color: white;"></i> Delete</button>
-                                  </form>
-                                </td>
-                              </tr>
+                                <form method="post" style="display: inline;"
+                                  onsubmit="return confirm('Are you sure you want to delete this member?');">
+                                  <input type="hidden" name="delete" value="<?php echo $row['id']; ?>">
+                                  <button type="submit" class="btn btn-danger"><i class="mdi mdi-delete mdi-20px"
+                                      style="color: white;"></i> Delete</button>
+                                </form>
+                              </td>
                               <?php
-                            }
                           }
                           ?>
                         </thead>
@@ -280,43 +279,42 @@ if (isset ($_POST['delete'])) {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.php -->
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <script>
-    $(document).ready(function () {
-      $("#myTable").dataTable();
-    });
-  </script>
-  <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="vendors/chart.js/Chart.min.js"></script>
-  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="js/dataTables.select.min.js"></script>
 
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
-  <script src="js/Chart.roundedBarCharts.js"></script>
-  <!-- End custom js for this page-->
-</body>
+              <!-- content-wrapper ends -->
+              <!-- partial:partials/_footer.php -->
+              <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+          </div>
+          <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <script>
+          $(document).ready(function () {
+            $("#myTable").dataTable();
+          });
+        </script>
+        <!-- plugins:js -->
+        <script src="vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="vendors/chart.js/Chart.min.js"></script>
+        <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+        <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+        <script src="js/dataTables.select.min.js"></script>
+
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="js/off-canvas.js"></script>
+        <script src="js/hoverable-collapse.js"></script>
+        <script src="js/template.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/todolist.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        <script src="js/dashboard.js"></script>
+        <script src="js/Chart.roundedBarCharts.js"></script>
+        <!-- End custom js for this page-->
+    </body>
 
 </html>

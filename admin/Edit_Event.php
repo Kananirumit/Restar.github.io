@@ -19,43 +19,41 @@ $result = mysqli_query($conn, $q);
 // Check if the query was successful
 if (!$result) {
     // Query failed, handle the error
-    die("Error executing query: " . mysqli_error($conn));
+    die ("Error executing query: " . mysqli_error($conn));
 }
 
 // Fetch data
 $r = mysqli_fetch_array($result);
 
-if (isset($_REQUEST['edit_event'])) {
-    require("../include/connect.php");
-    $enm=$_REQUEST['event_name'];
-    $sdt=$_REQUEST['start_date'];
-    $edt=$_REQUEST['end_date'];
-    $info=$_REQUEST['info'];
-    $prc=$_REQUEST['event_price'];
+if (isset ($_REQUEST['edit_event'])) {
+    require ("../include/connect.php");
+    $enm = $_REQUEST['event_name'];
+    $sdt = $_REQUEST['start_date'];
+    $edt = $_REQUEST['end_date'];
+    $info = $_REQUEST['info'];
+    $prc = $_REQUEST['event_price'];
     $img_name = "";
     // $is_img_new = "no";
-    if($_FILES['img']['name']){
-      $img_name=$_FILES['img']['name'];
-      echo "Hello";
+    if ($_FILES['img']['name']) {
+        $img_name = $_FILES['img']['name'];
+        echo "Hello";
+    } else {
+        $img_name = $r[5];
     }
-    else{
-        $img_name=$r[5];
-    }
-    $tmp_loc=$_FILES['img']['tmp_name'];
+    $tmp_loc = $_FILES['img']['tmp_name'];
     $q = "update events set event_name='$enm',start_date='$sdt',end_date='$edt',info='$info',event_price='$prc',event_image='$img_name' where id=$eid";
     echo $q;
-    if (mysqli_query($conn,$q)) {
-      echo "<script type='text/javascript'>window.location.href='./event.php'</script>";
-    // header("Location: ../Event.php",true);
-      // echo "Updated Successfully!!";
-      move_uploaded_file($tmp_loc,'images/event/'.$img_name);
-      
-    }
-    else{
-      echo "<h1> Insertion Failed!!!</h1>";
+    if (mysqli_query($conn, $q)) {
+        echo "<script type='text/javascript'>window.location.href='./event.php'</script>";
+        // header("Location: ../Event.php",true);
+        // echo "Updated Successfully!!";
+        move_uploaded_file($tmp_loc, 'images/event/' . $img_name);
+
+    } else {
+        echo "<h1> Insertion Failed!!!</h1>";
     }
     header('location:./event.php');
-  }
+}
 
 ?>
 <!DOCTYPE html>
@@ -163,16 +161,20 @@ if (isset($_REQUEST['edit_event'])) {
         <!-- partial:partials/_navbar.php -->
         <nav class="navbar col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2" alt="logo" style="width: 100px; height:50px;" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo" style="width: 50px; height:50px;" /></a>
+                <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.png" class="mr-2"
+                        alt="logo" style="width: 100px; height:50px;" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.php"><img src="images/fair.png" alt="logo"
+                        style="width: 50px; height:50px;" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                <button class="navbar-toggler navbar-toggler align-self-center btn1" type="button" data-toggle="minimize">
+                <button class="navbar-toggler navbar-toggler align-self-center btn1" type="button"
+                    data-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item">
-                        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="fullscreen">
+                        <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                            data-toggle="fullscreen">
                             <i class="fa-solid fa-expand"></i>
                         </button>
                     </li>
@@ -181,8 +183,10 @@ if (isset($_REQUEST['edit_event'])) {
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="images/faces/face29.jpg" alt="profile" />
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="<?php echo isset($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                            aria-labelledby="profileDropdown">
+                            <a class="dropdown-item"
+                                href="<?php echo isset ($_SESSION['email']) ? 'add.php' : 'login.php'; ?>">
                                 <i class="ti-settings text-primary"></i>
                                 Settings
                             </a>
@@ -192,7 +196,8 @@ if (isset($_REQUEST['edit_event'])) {
                             </a>
                         </div>
                     </li>
-                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
                         <span class="icon-menu"></span>
                     </button>
                 </ul>
@@ -260,6 +265,12 @@ if (isset($_REQUEST['edit_event'])) {
                             <span class="menu-title">Ticket Booking Payment</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ebpayment.php">
+                            <i class="fa-regular fa-credit-card" style="font-size: 18px; margin: 5px;"></i>
+                            <span class="menu-title">Event Booking Payment</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="container div-add">
@@ -269,13 +280,15 @@ if (isset($_REQUEST['edit_event'])) {
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="event_name">Event Name:</label>
-                                <input type="text" class="form-control" id="event_name" name="event_name" required value="<?= $r[1]; ?>">
+                                <input type="text" class="form-control" id="event_name" name="event_name" required
+                                    value="<?= $r[1]; ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="start_date">Start Date:</label>
-                                <input type="date" class="form-control" id="start_date" name="start_date" required value="<?= $r[2]; ?>">
+                                <input type="date" class="form-control" id="start_date" name="start_date" required
+                                    value="<?= $r[2]; ?>">
                             </div>
                         </div>
                     </div>
@@ -283,13 +296,15 @@ if (isset($_REQUEST['edit_event'])) {
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="end_date">End Date:</label>
-                                <input type="date" class="form-control" id="end_date" name="end_date" required value="<?= $r[3]; ?>">
+                                <input type="date" class="form-control" id="end_date" name="end_date" required
+                                    value="<?= $r[3]; ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="event_price">Event Price:</label>
-                                <input type="text" class="form-control" id="event_price" name="event_price" required value="<?= $r[5]; ?>">
+                                <input type="text" class="form-control" id="event_price" name="event_price" required
+                                    value="<?= $r[5]; ?>">
                             </div>
                         </div>
                     </div>
@@ -297,7 +312,8 @@ if (isset($_REQUEST['edit_event'])) {
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="info">Information:</label>
-                                <textarea class="form-control" name="info" id="info" rows="5" required><?= $r[4]; ?></textarea>
+                                <textarea class="form-control" name="info" id="info" rows="5"
+                                    required><?= $r[4]; ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -306,7 +322,8 @@ if (isset($_REQUEST['edit_event'])) {
                             <div class="hero">
                                 <label for="input-file" id='drop-area'>
                                     <input type="file" accept="image/*" name="img" id="input-file" hidden>
-                                    <div id="img-view" class='' style="background-image:url('<?php echo "images/event/$r[6]"; ?>')"></div>
+                                    <div id="img-view" class=''
+                                        style="background-image:url('<?php echo "images/event/$r[6]"; ?>')"></div>
                                 </label>
                             </div>
                         </div>
@@ -323,12 +340,12 @@ if (isset($_REQUEST['edit_event'])) {
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             // Select the "ADD" button
             var addEventButton = document.getElementById('addEventButton');
 
             // Add click event listener to the "ADD" button
-            addEventButton.addEventListener('click', function() {
+            addEventButton.addEventListener('click', function () {
                 // When the button is clicked, show the modal popup
                 $('#eventmodal').modal('show');
             });
