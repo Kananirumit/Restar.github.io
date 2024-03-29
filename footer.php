@@ -65,9 +65,10 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="info clearfix">
-                                    <li><i class="flaticon-telephone"></i><a href="tel:6668880000">666 888 0000</a></li>
-                                    <li><i class="flaticon-email"></i><a href="mailto:needhelp@company.com">needhelp@company.com</a></li>
-                                    <li><i class="flaticon-pin"></i>66 broklyn golden street line new york</li>
+                                    <li><i class="flaticon-telephone"></i><a href="tel:9107776767">+91 9106776464<br>+91 7698865902 
+                                    </a></li>
+                                    <li><i class="flaticon-email"></i><a href="restarpark@gmail.com">restarpark@gmail.com</a></li>
+                                    <li><i class="flaticon-pin"></i>Canal Road,Parvat Patiya,Magob, Surat,Gujarat 395010</li>
                                 </ul>
                             </div>
                         </div>
@@ -107,7 +108,7 @@
         <div class="footer-bottom centred">
             <div class="auto-container">
                 <div class="copyright">
-                    <p>&copy; Copyright 2024 by <a href="index.php">restar.com</a></p>
+                    <p>&copy; Copyright 2024 Made by <a href="index.php">Vatsal Diyora | Rumit Kanani | Rushit Chovatiya  </a></p>
                 </div>
             </div>
         </div>

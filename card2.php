@@ -21,7 +21,7 @@ if (isset($_POST['pay'])) {
     $cvv = $_POST['cvv'];
 
     // Insert payment details into the database using prepared statements
-    $stmt = $conn->prepare("INSERT INTO `cardroom`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO `cardticket`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $cardno, $cardname, $email, $month, $year, $cvv);
     $result = $stmt->execute();
     $stmt->close();
@@ -61,8 +61,58 @@ if (isset($_POST['pay'])) {
 
             // Email content with booking details
             $mail->isHTML(true);
-            $mail->Subject = "$name Your Ticket is Confirmed!";
-            $mail->Body = "<h3>Your Ticket is Confirmed With These Details:</h3><br>Name : $name <br><br> Email : $email <br><br> Child : $child <br><br> Adult : $adult <br><br> Senior : $senior <br><br> Date : $txtDate <br><br> Total : $total";
+            $mail->Subject = "Congrats $name Your Ticket is Booked Successfully";
+            $mail->Body = '<div style="background-color: #fae0dd; padding: 20px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            <div
+                style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h1
+                    style="color: #0163b2; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    Congratulations!</h1>
+                    <h1 style="color: #007ce0; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                        '.$name .'</h1>
+        
+                <p style="color: #696969; line-height: 1.8; ">Thank you for booking tickets to the zoo! Your booking details
+                </p>
+        
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <tr style="background-color: #F0F8FF; color: #f2645a; font-weight: bold;">
+                        <th style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Ticket Type</th>
+                        <th style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Persons</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Child</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">'.$child.'</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Adult</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $adult . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Senior</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $senior . '</td>
+                    </tr>
+                </table>
+        
+                <p style="color: #696969; line-height: 1.8; margin-top: 20px;">Your total amount is <strong
+                        style="color: #f2645a;">' .$total. '&#8377;</strong>.</p>
+        
+                <div style="text-align: center; margin-top: 30px;">
+                    <img src="https://cdn.dribbble.com/users/332742/screenshots/4735157/media/146a65a5e9defbce4a719f03d6e7848f.gif"
+                        alt="Payment Image" height="250px" style="border-radius: 8px;">
+                </div>
+        
+                <div style="text-align: center; margin-top: 30px;">
+                    <button
+                        style="padding: 12px 24px; background-color: #f2645a; color: #fff; border: none; border-radius: 5px; font-size: 18px;">
+                        Date: '.$txtDate.'</button>
+                </div>
+        
+                <p style="color: #696969; line-height: 1.8; margin-top: 20px;">If you have any questions, feel free to contact
+                    our support team.</p>
+        
+                <h2 style="color: #007ce0; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
+            </div>
+        </div>';;
 
             // Send the email
             $mail->send();
@@ -90,6 +140,7 @@ if (isset($_POST['pay'])) {
         header("location:index.php");
     }
 }
+
 
 ?>
 

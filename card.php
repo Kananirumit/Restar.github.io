@@ -949,17 +949,6 @@ if (isset($_POST['pay'])) {
             </form>
         </div>
     </div>
-    <div>
-        <!-- Display booking details -->
-        <h3>Your Appointment is Confirmed With These Details:</h3>
-        <p>Name: <?php echo $_SESSION['name']; ?></p>
-        <p>Email: <?php echo $_SESSION['email']; ?></p>
-        <p>Child: <?php echo $_SESSION['child']; ?></p>
-        <p>Adult: <?php echo $_SESSION['adult']; ?></p>
-        <p>Senior: <?php echo $_SESSION['senior']; ?></p>
-        <p>Date: <?php echo $_SESSION['txtDate']; ?></p>
-        <p>Total: <?php echo $_SESSION['total']; ?></p>
-    </div>
     <div class="pop">
         <div class="pop-content" style="background-color: #4CAF50;">
             <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>
