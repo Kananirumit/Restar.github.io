@@ -47,7 +47,7 @@ if (isset($_POST['pay'])) {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'restarpark@gmail.com';
-            $mail->Password = 'nbdp ijqi zzsi uvss';
+            $mail->Password = 'zfjdzqjndpyhiygw';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
@@ -69,8 +69,56 @@ if (isset($_POST['pay'])) {
 
             // Email content with booking details
             $mail->isHTML(true);
-            $mail->Subject = "$fname Your Room is Booked!";
-            $mail->Body = "<h3>Your Room is Booked With These Details:</h3><br>FirstName: $fname <br>LastName: $lname <br>Email: $email <br>Birthdate: $birthdate <br>City: $city <br>Phone: $phone <br>Room: $room <br>Number of Room: $nroom <br>TotalPrice: $totalprice <br>Checkin Date: $checkin <br>Checkout Date: $checkout";
+            $mail->Subject = "Congrats $fname Your Room is Booked Successfully";
+            $mail->Body = '<div style="background-color: #FFEA92; padding: 20px; font-family: Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif;">
+            <div
+                style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h1
+                    style="color: #692F30; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    Congratulations!</h1>
+                    <h1 style="color: #b30ef4; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                        ' . $fname . '' . $lname . '</h1>
+        
+                <p style="color: #6E6D6C; line-height: 1.8; ">Thank you for booking tickets to Our Park! Your booking details
+                </p>
+        
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <tr style="background-color: #F0F8FF; color: #3EBDFF; font-weight: bold;">
+                        <th style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Room type</th>
+                        <th style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Details</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Room</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $room . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Number of Room</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $nroom . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Check In Date</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $checkin . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Check Out Date</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $checkout . '</td>
+                    </tr>
+                </table>
+        
+                <p style="color: #696969; line-height: 1.8; margin-top: 20px;">Your total amount is <strong
+                        style="color: #86FFD3;">' . $totalprice . '&#8377;</strong>.</p>
+        
+                <div style="text-align: center; margin-top: 30px;"><p>Your welcome on</p>
+                    <button
+                        style="padding: 12px 24px; background-color: #f2645a; color: #fff; border: none; border-radius: 5px; font-size: 18px;">
+                        Date: ' . $checkin . '</button>
+                </div>
+        
+    
+                <h2 style="color: #86FFD3; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
+            </div>
+        </div>';
+
 
             // Send the email
             $mail->send();
@@ -86,7 +134,7 @@ if (isset($_POST['pay'])) {
     }
 
     // Display pop-up and handle redirection in JavaScript
-    if(isset($_REQUEST['done'])){
+    if (isset($_REQUEST['done'])) {
         echo "<style>
         .pop{
             display: none !important;
@@ -949,6 +997,7 @@ if (isset($_POST['pay'])) {
             </form>
         </div>
     </div>
+
     <div class="pop">
         <div class="pop-content" style="background-color: #4CAF50;">
             <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>

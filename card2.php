@@ -21,7 +21,7 @@ if (isset($_POST['pay'])) {
     $cvv = $_POST['cvv'];
 
     // Insert payment details into the database using prepared statements
-    $stmt = $conn->prepare("INSERT INTO `cardticket`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO `cardroom`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $cardno, $cardname, $email, $month, $year, $cvv);
     $result = $stmt->execute();
     $stmt->close();
@@ -43,7 +43,7 @@ if (isset($_POST['pay'])) {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'restarpark@gmail.com';
-            $mail->Password = 'nbdp ijqi zzsi uvss';
+            $mail->Password = 'zfjdzqjndpyhiygw';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
@@ -61,27 +61,27 @@ if (isset($_POST['pay'])) {
 
             // Email content with booking details
             $mail->isHTML(true);
-            $mail->Subject = "Congrats $name Your Ticket is Booked Successfully";
-            $mail->Body = '<div style="background-color: #fae0dd; padding: 20px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            $mail->Subject = "Congrats $name Your Restar Park Adventure is Booked Successfully";
+            $mail->Body = '<div style="background-color: #FFEA92; padding: 20px; font-family: Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif;">
             <div
                 style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                 <h1
-                    style="color: #0163b2; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    style="color: #692F30; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                     Congratulations!</h1>
-                    <h1 style="color: #007ce0; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
-                        '.$name .'</h1>
+                    <h1 style="color: #b30ef4; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                        ' . $name . '</h1>
         
-                <p style="color: #696969; line-height: 1.8; ">Thank you for booking tickets to the zoo! Your booking details
+                <p style="color: #6E6D6C; line-height: 1.8; ">Thank you for booking tickets to Our Park! Your booking details
                 </p>
         
                 <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                    <tr style="background-color: #F0F8FF; color: #f2645a; font-weight: bold;">
+                    <tr style="background-color: #F0F8FF; color: #3EBDFF; font-weight: bold;">
                         <th style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Ticket Type</th>
                         <th style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Persons</th>
                     </tr>
                     <tr>
                         <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Child</td>
-                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">'.$child.'</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $child . '</td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Adult</td>
@@ -94,25 +94,18 @@ if (isset($_POST['pay'])) {
                 </table>
         
                 <p style="color: #696969; line-height: 1.8; margin-top: 20px;">Your total amount is <strong
-                        style="color: #f2645a;">' .$total. '&#8377;</strong>.</p>
-        
-                <div style="text-align: center; margin-top: 30px;">
-                    <img src="https://cdn.dribbble.com/users/332742/screenshots/4735157/media/146a65a5e9defbce4a719f03d6e7848f.gif"
-                        alt="Payment Image" height="250px" style="border-radius: 8px;">
-                </div>
+                        style="color: #86FFD3;">' . $total . '&#8377;</strong>.</p>
         
                 <div style="text-align: center; margin-top: 30px;">
                     <button
                         style="padding: 12px 24px; background-color: #f2645a; color: #fff; border: none; border-radius: 5px; font-size: 18px;">
-                        Date: '.$txtDate.'</button>
+                        Date: ' . $txtDate . '</button>
                 </div>
         
-                <p style="color: #696969; line-height: 1.8; margin-top: 20px;">If you have any questions, feel free to contact
-                    our support team.</p>
-        
-                <h2 style="color: #007ce0; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
+    
+                <h2 style="color: #86FFD3; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
             </div>
-        </div>';;
+        </div>';
 
             // Send the email
             $mail->send();
@@ -128,7 +121,7 @@ if (isset($_POST['pay'])) {
     }
 
     // Display pop-up and handle redirection in JavaScript
-    if(isset($_REQUEST['done'])){
+    if (isset($_REQUEST['done'])) {
         echo "<style>
         .pop{
             display: none !important;
@@ -140,7 +133,6 @@ if (isset($_POST['pay'])) {
         header("location:index.php");
     }
 }
-
 
 ?>
 
@@ -787,9 +779,11 @@ if (isset($_POST['pay'])) {
         .card-form__button:hover {
             background: #1556b7;
         }
+
         .pop {
             display: none;
         }
+
         .pop-content {
             width: 30%;
             margin: auto;
@@ -797,13 +791,14 @@ if (isset($_POST['pay'])) {
             border: 1px solid;
             padding: 2%;
         }
-        .done{
+
+        .done {
             position: relative;
             display: inline-block;
             font-size: 12px;
             line-height: 30px;
             font-weight: 700;
-            font-family: 'Rubik',sans-serif;
+            font-family: 'Rubik', sans-serif;
             color: #fff;
             padding: 16.5px 54px;
             text-align: center;
@@ -823,17 +818,22 @@ if (isset($_POST['pay'])) {
             <div class="card-list">
                 <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
                     <div class="card-item__side -front">
-                        <div class="card-item__focus" v-bind:class="{'-active' : focusElementStyle }" v-bind:style="focusElementStyle" ref="focusElement"></div>
+                        <div class="card-item__focus" v-bind:class="{'-active' : focusElementStyle }"
+                            v-bind:style="focusElementStyle" ref="focusElement"></div>
                         <div class="card-item__cover">
-                            <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+                            <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"
+                                class="card-item__bg">
                         </div>
 
                         <div class="card-item__wrapper">
                             <div class="card-item__top">
-                                <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png" class="card-item__chip">
+                                <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
+                                    class="card-item__chip">
                                 <div class="card-item__type">
                                     <transition name="slide-fade-up">
-                                        <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'" v-if="getCardType" v-bind:key="getCardType" alt="" class="card-item__typeImg">
+                                        <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                                            v-if="getCardType" v-bind:key="getCardType" alt=""
+                                            class="card-item__typeImg">
                                     </transition>
                                 </div>
                             </div>
@@ -841,11 +841,15 @@ if (isset($_POST['pay'])) {
                                 <template v-if="getCardType === 'amex'">
                                     <span v-for="(n, $index) in amexCardMask" :key="$index">
                                         <transition name="slide-fade-up">
-                                            <div class="card-item__numberItem" v-if="$index > 4 && $index < 14 && cardNumber.length > $index && n.trim() !== ''">*</div>
-                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }" :key="$index" v-else-if="cardNumber.length > $index">
+                                            <div class="card-item__numberItem"
+                                                v-if="$index > 4 && $index < 14 && cardNumber.length > $index && n.trim() !== ''">
+                                                *</div>
+                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }"
+                                                :key="$index" v-else-if="cardNumber.length > $index">
                                                 {{cardNumber[$index]}}
                                             </div>
-                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }" v-else :key="$index + 1">{{n}}</div>
+                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }"
+                                                v-else :key="$index + 1">{{n}}</div>
                                         </transition>
                                     </span>
                                 </template>
@@ -853,11 +857,15 @@ if (isset($_POST['pay'])) {
                                 <template v-else>
                                     <span v-for="(n, $index) in otherCardMask" :key="$index">
                                         <transition name="slide-fade-up">
-                                            <div class="card-item__numberItem" v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''">*</div>
-                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }" :key="$index" v-else-if="cardNumber.length > $index">
+                                            <div class="card-item__numberItem"
+                                                v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''">
+                                                *</div>
+                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }"
+                                                :key="$index" v-else-if="cardNumber.length > $index">
                                                 {{cardNumber[$index]}}
                                             </div>
-                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }" v-else :key="$index + 1">{{n}}</div>
+                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }"
+                                                v-else :key="$index + 1">{{n}}</div>
                                         </transition>
                                     </span>
                                 </template>
@@ -868,7 +876,9 @@ if (isset($_POST['pay'])) {
                                     <transition name="slide-fade-up">
                                         <div class="card-item__name" v-if="cardName.length" key="1">
                                             <transition-group name="slide-fade-right">
-                                                <span class="card-item__nameItem" v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')" v-if="$index === $index" v-bind:key="$index + 1">{{n}}</span>
+                                                <span class="card-item__nameItem"
+                                                    v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')"
+                                                    v-if="$index === $index" v-bind:key="$index + 1">{{n}}</span>
                                             </transition-group>
                                         </div>
                                         <div class="card-item__name" v-else key="2">Full Name</div>
@@ -885,7 +895,8 @@ if (isset($_POST['pay'])) {
                                     /
                                     <label for="cardYear" class="card-item__dateItem">
                                         <transition name="slide-fade-up">
-                                            <span v-if="cardYear" v-bind:key="cardYear">{{String(cardYear).slice(2,4)}}</span>
+                                            <span v-if="cardYear"
+                                                v-bind:key="cardYear">{{String(cardYear).slice(2,4)}}</span>
                                             <span v-else key="2">YY</span>
                                         </transition>
                                     </label>
@@ -895,7 +906,8 @@ if (isset($_POST['pay'])) {
                     </div>
                     <div class="card-item__side -back">
                         <div class="card-item__cover">
-                            <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+                            <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"
+                                class="card-item__bg">
                         </div>
                         <div class="card-item__band"></div>
                         <div class="card-item__cvv">
@@ -907,7 +919,8 @@ if (isset($_POST['pay'])) {
 
                             </div>
                             <div class="card-item__type">
-                                <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'" v-if="getCardType" class="card-item__typeImg">
+                                <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                                    v-if="getCardType" class="card-item__typeImg">
                             </div>
                         </div>
                     </div>
@@ -917,11 +930,15 @@ if (isset($_POST['pay'])) {
                 <div class="card-form__inner" id="cardFormApp">
                     <div class="card-input">
                         <label for="cardNumber" class="card-input__label">Card Number</label>
-                        <input type="number" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask" v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber" autocomplete="off" name="cardnumber" oninput="limitCardNumberLength(this)">
+                        <input type="number" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask"
+                            v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber"
+                            autocomplete="off" name="cardnumber" oninput="limitCardNumberLength(this)">
                     </div>
                     <div class="card-input">
                         <label for="cardName" class="card-input__label">Card Holders</label>
-                        <input type="text" id="cardName" class="card-input__input" v-model="cardName" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off" name="cardname">
+                        <input type="text" id="cardName" class="card-input__input" v-model="cardName"
+                            v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off"
+                            name="cardname">
                     </div>
                     <div class="card-input">
                         <label for="email" class="card-input__label">Email</label>
@@ -931,15 +948,18 @@ if (isset($_POST['pay'])) {
                         <div class="card-form__col">
                             <div class="card-form__group">
                                 <label for="cardMonth" class="card-input__label">Expiration Date</label>
-                                <select class="card-input__input -select" id="cardMonth" v-model="cardMonth" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate" name="month">
+                                <select class="card-input__input -select" id="cardMonth" v-model="cardMonth"
+                                    v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate" name="month">
                                     <option value="" disabled selected>Month</option>
-                                    <option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12" v-bind:disabled="n < minCardMonth" v-bind:key="n">
-                                        {{n < 10 ? '0' + n : n}}
-                                    </option>
+                                    <option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12"
+                                        v-bind:disabled="n < minCardMonth" v-bind:key="n">
+                                        {{n < 10 ? '0' + n : n}} </option>
                                 </select>
-                                <select class="card-input__input -select" id="cardYear" v-model="cardYear" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate" name="year">
+                                <select class="card-input__input -select" id="cardYear" v-model="cardYear"
+                                    v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate" name="year">
                                     <option value="" disabled selected>Year</option>
-                                    <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12" v-bind:key="n">
+                                    <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12"
+                                        v-bind:key="n">
                                         {{$index + minCardYear}}
                                     </option>
                                 </select>
@@ -948,7 +968,10 @@ if (isset($_POST['pay'])) {
                         <div class="card-form__col -cvv">
                             <div class="card-input">
                                 <label for="cardCvv" class="card-input__label">CVV</label>
-                                <input type="number" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4" v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)" autocomplete="off" name="cvv" oninput="limitCardcvvLength(this)">
+                                <input type="number" class="card-input__input" id="cardCvv" v-mask="'####'"
+                                    maxlength="4" v-model="cardCvv" v-on:focus="flipCard(true)"
+                                    v-on:blur="flipCard(false)" autocomplete="off" name="cvv"
+                                    oninput="limitCardcvvLength(this)">
                             </div>
                         </div>
                     </div>
@@ -963,35 +986,36 @@ if (isset($_POST['pay'])) {
         </div>
     </div>
     <div class="pop">
-    <div class="pop-content" style="background-color: #4CAF50;">
-        <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>
-        <div style="text-align: center; font-size: 18px; color: #fff;">Thank you!!</div>
+        <div class="pop-content" style="background-color: #4CAF50;">
+            <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>
+            <div style="text-align: center; font-size: 18px; color: #fff;">Thank you!!</div>
+        </div>
+        <div class="pop-content" style="background-color: #fff;">
+            <h1 style="text-align: center;">Your Payment Is success!!<br>Your ticket is sent to your mail</h1>
+            <button name="done" onclick="window.location.href = 'index.php'" class="done"
+                style="margin: auto; display: block;">Done</button>
+        </div>
     </div>
-    <div class="pop-content" style="background-color: #fff;">
-        <h1 style="text-align: center;">Your Payment Is success!!<br>Your ticket is sent to your mail</h1>
-        <button name="done" onclick="window.location.href = 'index.php'" class="done" style="margin: auto; display: block;">Done</button>
-    </div>
-</div>
     <script>
         //number validation
         function limitCardNumberLength(input) {
-        // Get the current value of the input
-        let cardNumber = input.value;
+            // Get the current value of the input
+            let cardNumber = input.value;
 
-        // Limit the input to a maximum of 16 digits
-        if (cardNumber.length > 16) {
-            input.value = cardNumber.slice(0, 16);
+            // Limit the input to a maximum of 16 digits
+            if (cardNumber.length > 16) {
+                input.value = cardNumber.slice(0, 16);
+            }
         }
-    }
-    function limitCardcvvLength(input) {
-        // Get the current value of the input
-        let cardNumber = input.value;
+        function limitCardcvvLength(input) {
+            // Get the current value of the input
+            let cardNumber = input.value;
 
-        // Limit the input to a maximum of 16 digits
-        if (cardNumber.length > 4) {
-            input.value = cardNumber.slice(0, 4);
+            // Limit the input to a maximum of 16 digits
+            if (cardNumber.length > 4) {
+                input.value = cardNumber.slice(0, 4);
+            }
         }
-    }
         // validation
         function validateForm() {
             var cardNumber = document.getElementById('cardNumber').value.trim();

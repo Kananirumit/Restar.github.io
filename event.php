@@ -1,5 +1,8 @@
 <?php
 
+
+session_start(); // Start session
+
 // Include the file to establish database connection
 $currentPage = 'event';
 include "./include/connect.php";
@@ -8,6 +11,16 @@ include "header.php";
 // Check if the form has been submitted
 if (isset($_POST['add'])) {
     // Retrieve form data
+
+    $_SESSION['fname'] = $_POST['fname'];
+    $_SESSION['lname'] = $_POST['lname'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['phone'] = $_POST['phone'];
+    $_SESSION['event'] = $_POST['event'];
+    $_SESSION['npass'] = $_POST['npass'];
+    $_SESSION['totalprice'] = $_POST['totalprice'];
+
+
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
