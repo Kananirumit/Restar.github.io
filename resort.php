@@ -1,5 +1,6 @@
 <?php
-session_start(); // Start session
+
+$currentPage = 'resort';
 
 include "./include/connect.php";
 
