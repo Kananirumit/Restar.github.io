@@ -1,11 +1,9 @@
 <?php
 
 
-// session_start(); // Start session
+session_start(); // Start session
 
 include "./include/connect.php";
-
-
 
 
 
@@ -61,7 +59,9 @@ if (isset($_POST['add'])) {
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -211,7 +211,7 @@ if (isset($_POST['add'])) {
 <!-- page wrapper -->
 
 <body>
-    
+
     <div class="boxed_wrapper">
 
 
@@ -250,97 +250,112 @@ if (isset($_POST['add'])) {
 
 
         <!-- Page Title -->
-        
-
-    <!--daining end-->
-    <!--Ticket booking start-->
-    <section class="contact-section centred" id="pricing-section">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <div class="col-xl-8 col-lg-12 offset-xl-2 big-column">
-                    <div class="sec-title centred">
-                        <h2>BOOK YOUR Event</h2>
-                    </div>
-                    <div class="form-inner text-left">
-                        <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate" onsubmit="return validateForm()">
-                            <!-- Your form fields go here -->
-                            <div class="row clearfix">
-
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">First Name:</label>
-                                    <input type="text" class="form-control text-font" name="fname" id="fname" placeholder="First Name" required>
-
-                                    <div class="invalid-feedback">Please enter your name.</div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">Last Name:</label>
-                                    <input type="text" class="form-control text-font" name="lname" id="lname" placeholder="Last Name" required>
-
-                                    <div class="invalid-feedback">Please enter your name.</div>
-
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">Email:</label>
-                                    <input type="text" class="form-control text-font" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email" required>
-                                    <div class="invalid-feedback invalid-feedback-email">Please enter a valid
-                                        email
-                                        address.</div>
-                                </div>
 
 
-                                <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">Phone:</label>
-                                    <input type="text" class="form-control text-font" required="" name="phone" placeholder="Enter your phone number" id="phone">
-                                    <div class="invalid-feedback invalid-feedback-text">Please enter your phone
-                                        number.</div>
-                                </div>
-                                <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                    <label for="room" class="h6">Choose Your event</label><br>
-                                    <select id="roomDropdown" class="form-control text-font" name="event" required="" onchange="updateRoomPrice()">
+        <!--daining end-->
+        <!--Ticket booking start-->
+        <section class="contact-section centred" id="pricing-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-xl-8 col-lg-12 offset-xl-2 big-column">
+                        <div class="sec-title centred">
+                            <h2>BOOK YOUR Event</h2>
+                        </div>
+                        <div class="form-inner text-left">
+                            <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate"
+                                onsubmit="return validateForm()">
+                                <!-- Your form fields go here -->
+                                <div class="row clearfix">
 
-                                        <option value="Family Fun day" name="event">Family Fun day</option>
-                                        <option value="Summer Event" name="event">Summer Event</option>
-                                        <option value="Fun Day" name="event">Fun Day</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="room" class="h6">event Price:</label>
-                                    <p id="roomPrice">₹8000 per pass(One Pass Only 4 People)</p>
-                                </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">First Name:</label>
+                                        <input type="text" class="form-control text-font" name="fname" id="fname"
+                                            placeholder="First Name" required>
 
-                                <!-- Modify the PHP code to calculate the total price -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">Number of pass:</label>
-                                    <div class="input-group">
-                                        <button type="button" class="btn btn-warning d-flex align-items-center text-font" onclick="decrementPasses()">-</button>
-                                        <input type="text" class="form-control text-font" required="" name="npass" id="number-of-passes" placeholder="Enter number of passes" onchange="updateTotalPrice()" value="1">
-                                        <button type="button" class="btn btn-warning d-flex align-items-center text-font" onclick="incrementPasses()">+</button>
+                                        <div class="invalid-feedback">Please enter your name.</div>
                                     </div>
-                                    <div class="invalid-feedback">Please enter the number of rooms.</div>
-                                </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Last Name:</label>
+                                        <input type="text" class="form-control text-font" name="lname" id="lname"
+                                            placeholder="Last Name" required>
 
-                                <!-- Add this to display the total price -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="room" class="h6">Total Price:</label>
-                                    <input type="text" class="form-control text-font" name="totalprice" id="totalPrice" value="₹8000" readonly>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                    <button class="theme-btn btn-one" name="add" id="add" onclick="updateTotalPrice();">Book your event</button>
-                                </div>
+                                        <div class="invalid-feedback">Please enter your name.</div>
 
-                            </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Email:</label>
+                                        <input type="text" class="form-control text-font" id="email" name="email"
+                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+                                            placeholder="Email" required>
+                                        <div class="invalid-feedback invalid-feedback-email">Please enter a valid
+                                            email
+                                            address.</div>
+                                    </div>
+
+
+                                    <div class="col-lg-6  col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Phone:</label>
+                                        <input type="text" class="form-control text-font" required="" name="phone"
+                                            placeholder="Enter your phone number" id="phone">
+                                        <div class="invalid-feedback invalid-feedback-text">Please enter your phone
+                                            number.</div>
+                                    </div>
+                                    <div class="col-lg-6  col-md-6 col-sm-12 form-group">
+                                        <label for="room" class="h6">Choose Your event</label><br>
+                                        <select id="roomDropdown" class="form-control text-font" name="event"
+                                            required="" onchange="updateRoomPrice()">
+
+                                            <option value="Family Fun day" name="event">Family Fun day</option>
+                                            <option value="Summer Event" name="event">Summer Event</option>
+                                            <option value="Fun Day" name="event">Fun Day</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="room" class="h6">event Price:</label>
+                                        <p id="roomPrice">₹8000 per pass(One Pass Only 4 People)</p>
+                                    </div>
+
+                                    <!-- Modify the PHP code to calculate the total price -->
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="child" class="h6">Number of pass:</label>
+                                        <div class="input-group">
+                                            <button type="button"
+                                                class="btn btn-warning d-flex align-items-center text-font"
+                                                onclick="decrementPasses()">-</button>
+                                            <input type="text" class="form-control text-font" required="" name="npass"
+                                                id="number-of-passes" placeholder="Enter number of passes"
+                                                onchange="updateTotalPrice()" value="1">
+                                            <button type="button"
+                                                class="btn btn-warning d-flex align-items-center text-font"
+                                                onclick="incrementPasses()">+</button>
+                                        </div>
+                                        <div class="invalid-feedback">Please enter the number of rooms.</div>
+                                    </div>
+
+                                    <!-- Add this to display the total price -->
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <label for="room" class="h6">Total Price:</label>
+                                        <input type="text" class="form-control text-font" name="totalprice"
+                                            id="totalPrice" value="₹8000" readonly>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
+                                        <button class="theme-btn btn-one" name="add" id="add"
+                                            onclick="updateTotalPrice();">Book your event</button>
+                                    </div>
+
+                                </div>
+                        </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
-        </div>
-        </div>
+    </div>
     </section>
     <!--Ticket booking end-->
 
     <script>
         // date valiation
-        $(function(updatedate) {
+        $(function (updatedate) {
             var dtToday = new Date();
 
             var month = dtToday.getMonth() + 1;
@@ -358,7 +373,7 @@ if (isset($_POST['add'])) {
         });
 
         // date rev validation
-        $(function(updatedate) {
+        $(function (updatedate) {
             var dtToday = new Date();
 
             var month = dtToday.getMonth() + 1;
@@ -422,7 +437,7 @@ if (isset($_POST['add'])) {
         // Event listener to update total price when the number of passes changes
         document.getElementById('number-of-passes').addEventListener('change', updateTotalPrice);
     </script>
-    
+
 
     <!-- scroll to top -->
     <button class="scroll-top scroll-to-target" data-target="html">
