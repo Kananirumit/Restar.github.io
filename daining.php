@@ -27,6 +27,22 @@
 
 </head>
 
+<style>
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        /* Aspect ratio 16:9 */
+        overflow: hidden;
+    }
+
+    .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
 
 <!-- page wrapper -->
 
@@ -154,9 +170,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 video-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/daining/cafee.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/daining/cafee.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -175,9 +193,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 video-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/daining/barr.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/daining/barr.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -196,9 +216,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 video-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/daining/bambo.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/daining/bambo.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -217,9 +239,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 video-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/daining/bbqq.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/daining/bbqq.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -238,9 +262,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 video-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/daining/fire.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/daining/fire.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -261,9 +287,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 video-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/daining/basket.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/daining/basket.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>

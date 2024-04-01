@@ -12,7 +12,9 @@
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -35,11 +37,15 @@
                 <div class="row clearfix">
                     <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                         <div class="footer-widget logo-widget">
-                            <figure class="footer-logo"><a href="index.php"><img src="assets/images/logo-white.png" alt=""></a></figure>
+                            <figure class="footer-logo"><a href="index.php"><img src="assets/images/logo-white.png"
+                                        alt=""></a></figure>
                             <ul class="footer-social clearfix">
-                                <li><a href="https://www.facebook.com/profile.php?id=61557667266549" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://www.instagram.com/restar_amusmentpark/?next=%2F" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="https://www.youtube.com/@RestarPark" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61557667266549" target="_blank"><i
+                                            class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/restar_amusmentpark/?next=%2F" target="_blank"><i
+                                            class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.youtube.com/@RestarPark" target="_blank"><i
+                                            class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -65,9 +71,12 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="info clearfix">
-                                    <li><i class="flaticon-telephone"></i><a href="tel:9107776767">+91 9106776464<br>+91 7698865902 
-                                    </a></li>
-                                    <li><i class="flaticon-email"></i><a href="restarpark@gmail.com">restarpark@gmail.com</a></li>
+                                    <li><i class="flaticon-telephone"></i>
+                                        <a href="tel:9107776767">+91 91067 76464</a><br>
+                                        <a href="tel:76988 65902">+91 76988 65902</a>
+                                    </li>
+                                    <li><i class="flaticon-email"></i><a
+                                            href="mailto:restarpark@gmail.com">restarpark@gmail.com</a></li>
                                     <li><i class="flaticon-pin"></i>Canal Road,Parvat Patiya,Magob, Surat,Gujarat 395010</li>
                                 </ul>
                             </div>
@@ -83,19 +92,24 @@
                                     <li>
                                         <figure class="image">
                                             <img src="assets/images/gallery/amusment/80x80.jpg" alt="">
-                                            <a href="assets/images/gallery/amusment/80x80.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a>
+                                            <a href="assets/images/gallery/amusment/80x80.jpg" class="lightbox-image"
+                                                data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a>
                                         </figure>
                                     </li>
                                     <li>
                                         <figure class="image">
                                             <img src="assets/images/resource/footer-2.jpg" alt="">
-                                            <a href="assets/images/resource/footer-2.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a>
+                                            <a href="assets/images/resource/footer-2.jpg" class="lightbox-image"
+                                                data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a>
                                         </figure>
                                     </li>
                                     <li>
                                         <figure class="image">
-                                            <img src="assets/images/gallery/aquarium/tropical-fish-e1628654856592.jpg" alt="">
-                                            <a href="assets/images/gallery/aquarium/tropical-fish-e1628654856592.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-plus-symbol"></i></a>
+                                            <img src="assets/images/gallery/aquarium/tropical-fish-e1628654856592.jpg"
+                                                alt="">
+                                            <a href="assets/images/gallery/aquarium/tropical-fish-e1628654856592.jpg"
+                                                class="lightbox-image" data-fancybox="gallery"><i
+                                                    class="flaticon-plus-symbol"></i></a>
                                         </figure>
                                     </li>
                                 </ul>
@@ -108,7 +122,8 @@
         <div class="footer-bottom centred">
             <div class="auto-container">
                 <div class="copyright">
-                    <p>&copy; Copyright 2024 Made by Vatsal Diyora | Rumit Kanani | Rushit Chovatiya </p>
+                    <a href="#" style="color:#8A8E96; font-size: 15px;">&copy; Copyright 2024 Made by Vatsal Diyora |
+                        Rumit Kanani | Rushit Chovatiya </a>
                 </div>
             </div>
         </div>
