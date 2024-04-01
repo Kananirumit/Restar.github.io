@@ -219,11 +219,6 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/waterride/fall.mp4">
-                                            </video>
-                                        </figure>
-                                        <figure class="video-box">
                                             <div class="video-container">
                                                 <video muted autoplay loop>
                                                     <source src="assets/video/waterride/fall.mp4" type="video/mp4">

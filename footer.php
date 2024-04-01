@@ -37,9 +37,9 @@
                         <div class="footer-widget logo-widget">
                             <figure class="footer-logo"><a href="index.php"><img src="assets/images/logo-white.png" alt=""></a></figure>
                             <ul class="footer-social clearfix">
-                                <li><a href="index.php"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="index.php"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="index.php"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61557667266549" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/restar_amusmentpark/?next=%2F" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.youtube.com/@RestarPark" target="_blank"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
         <div class="footer-bottom centred">
             <div class="auto-container">
                 <div class="copyright">
-                    <p>&copy; Copyright 2024 Made by <a href="index.php">Vatsal Diyora | Rumit Kanani | Rushit Chovatiya  </a></p>
+                    <p>&copy; Copyright 2024 Made by Vatsal Diyora | Rumit Kanani | Rushit Chovatiya </p>
                 </div>
             </div>
         </div>

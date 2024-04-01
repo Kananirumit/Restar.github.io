@@ -60,9 +60,7 @@ if (isset($_POST['add'])) {
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -116,6 +114,9 @@ if (isset($_POST['add'])) {
         }
     </script>
     <style>
+        .was-validated #roomDropdown:valid {
+            background-position: right calc(0.375em + 1.1875rem) center;
+        }
         .error-container {
             color: red;
             margin-bottom: 10px;
@@ -139,7 +140,7 @@ if (isset($_POST['add'])) {
 
 <body>
     <?php
-        include "header.php";
+    include "header.php";
     ?>
 
     <div class="boxed_wrapper">
@@ -180,8 +181,7 @@ if (isset($_POST['add'])) {
         <!-- Page Title -->
         <section class="page-title">
             <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img"
-                    style="background-image: url(assets/images/gallery/resort/bg_2.jpg);"></div>
+                <div class="parallax-inner back-img" style="background-image: url(assets/images/gallery/resort/bg_2.jpg);"></div>
             </div>
             <div class="auto-container">
                 <div class="content-box">
@@ -222,8 +222,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 1</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one"
-                                                    onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -246,8 +245,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 1</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one"
-                                                    onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -270,8 +268,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 2</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one"
-                                                    onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -294,8 +291,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 2</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one"
-                                                    onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -318,8 +314,7 @@ if (isset($_POST['add'])) {
                                                     <li><span>Bed:</span> 3</li>
                                                 </ul>
                                                 <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one"
-                                                    onclick="scrollToSection()">Book ticket</a>
+                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                             </div>
                                         </table>
 
@@ -341,8 +336,7 @@ if (isset($_POST['add'])) {
                                                 <li><span>Bed:</span> 2</li>
                                             </ul>
                                             <hr>
-                                            <a href="#pricing-section" class="theme-btn btn-one"
-                                                onclick="scrollToSection()">Book ticket</a>
+                                            <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
                                         </div>
                                     </div>
                                 </div>
@@ -391,59 +385,48 @@ if (isset($_POST['add'])) {
                             <h2>BOOK YOUR ROOM</h2>
                         </div>
                         <div class="form-inner text-left">
-                            <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate"
-                                onsubmit="return validateForm()">
+                            <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate" onsubmit="return validateForm()">
                                 <!-- Your form fields go here -->
                                 <div class="row clearfix">
 
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">First Name:</label>
-                                        <input type="text" class="form-control text-font" name="fname" id="fname"
-                                            placeholder="First Name" required>
+                                        <input type="text" class="form-control text-font" name="fname" id="fname" placeholder="First Name" required>
 
                                         <div class="invalid-feedback">Please enter your name.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Last Name:</label>
-                                        <input type="text" class="form-control text-font" name="lname" id="lname"
-                                            placeholder="Last Name" required>
+                                        <input type="text" class="form-control text-font" name="lname" id="lname" placeholder="Last Name" required>
 
                                         <div class="invalid-feedback">Please enter your name.</div>
 
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Email:</label>
-                                        <input type="text" class="form-control text-font" id="email" name="email"
-                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
-                                            placeholder="Email" required>
+                                        <input type="text" class="form-control text-font" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email" required>
                                         <div class="invalid-feedback invalid-feedback-email">Please enter a valid email
                                             address.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Date of Birth:</label>
-                                        <div class="input-group">
-                                            <input type="date" class="form-control text-font" id="birthdate"
-                                                name="birthdate" required>
-                                        </div>
-                                        <div class="invalid-feedback invalid-feedback-date">Please select a date.</div>
+                                        <input type="date" class="form-control text-font" id="birthdate" name="birthdate" required>
+                                        <div class="invalid-feedback invalid-feedback-date-birthdate">Please select a date.</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">City:</label>
-                                        <input type="text" class="form-control text-font" name="city" id="city"
-                                            placeholder="Please enter your city name" required>
+                                        <input type="text" class="form-control text-font" name="city" id="city" placeholder="Please enter your city name" required>
                                         <div class="invalid-feedback">Please enter your city name.</div>
                                     </div>
                                     <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Phone:</label>
-                                        <input type="text" class="form-control text-font" required="" name="phone"
-                                            placeholder="Enter your phone number" id="phone">
+                                        <input type="text" class="form-control text-font" required="" name="phone" placeholder="Enter your phone number" id="phone">
                                         <div class="invalid-feedback invalid-feedback-text">Please enter your phone
                                             number.</div>
                                     </div>
                                     <div class="col-lg-6  col-md-6 col-sm-12 form-group">
                                         <label for="room" class="h6">Choose Your Room:</label><br>
-                                        <select id="roomDropdown" class="form-control text-font" name="room" required=""
-                                            onchange="updateRoomPrice()">
+                                        <select id="roomDropdown" class="form-control text-font" name="room" required="" onchange="updateRoomPrice()">
                                             <option value="Suite Room" name="room">Suite Room</option>
                                             <option value="Family Room" name="room">Family Room</option>
                                             <option value="Deluxe Room" name="room">Deluxe Room</option>
@@ -461,15 +444,9 @@ if (isset($_POST['add'])) {
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Number of rooms:</label>
                                         <div class="input-group">
-                                            <button type="button"
-                                                class="btn btn-warning d-flex align-items-center text-font"
-                                                onclick="decrementRooms()">-</button>
-                                            <input type="text" class="form-control text-font" required="" name="nroom"
-                                                id="number-of-rooms" placeholder="Enter number of rooms"
-                                                onchange="updateTotalPrice()" value="1">
-                                            <button type="button"
-                                                class="btn btn-warning d-flex align-items-center text-font"
-                                                onclick="incrementRooms()">+</button>
+                                            <button type="button" class="btn btn-warning d-flex align-items-center text-font" onclick="decrementRooms()">-</button>
+                                            <input type="text" class="form-control text-font" required="" name="nroom" id="number-of-rooms" placeholder="Enter number of rooms" onchange="updateTotalPrice()" value="1">
+                                            <button type="button" class="btn btn-warning d-flex align-items-center text-font" onclick="incrementRooms()">+</button>
                                         </div>
                                         <div class="invalid-feedback">Please enter the number of rooms.</div>
                                     </div>
@@ -477,31 +454,23 @@ if (isset($_POST['add'])) {
                                     <!-- Add this to display the total price -->
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="room" class="h6">Total Price:</label>
-                                        <input type="text" class="form-control text-font" name="totalprice"
-                                            id="totalPrice" value="₹4500" readonly>
+                                        <input type="text" class="form-control text-font" name="totalprice" id="totalPrice" value="₹4500" readonly>
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check in date:</label>
-                                        <div class="input-group">
-                                            <input type="date" class="form-control text-font" id="checkin"
-                                                name="checkin">
-                                        </div>
-                                        <div class="invalid-feedback invalid-feedback-date">Please select check in date.
+                                            <input type="date" class="form-control text-font" id="checkin" name="checkin" required>
+                                        <div class="invalid-feedback invalid-feedback-date-checkin">Please select check in date.
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check out date:</label>
-                                        <div class="input-group">
-                                            <input type="date" class="form-control text-font" id="checkout"
-                                                name="checkout">
-                                        </div>
-                                        <div class="invalid-feedback invalid-feedback-date">Please select check out
+                                            <input type="date" class="form-control text-font" id="checkout" name="checkout" required>
+                                        <div class="invalid-feedback invalid-feedback-date-checkout">Please select check out
                                             date.</div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                        <button class="theme-btn btn-one" name="add" id="add"
-                                            onclick="updateTotalPrice();">Book your Room</button>
+                                        <button class="theme-btn btn-one" name="add" id="add" onclick="updateTotalPrice();">Book your Room</button>
                                     </div>
 
                                 </div>
@@ -517,38 +486,38 @@ if (isset($_POST['add'])) {
     <script>
         // date valiation
         $(function(updatedate) {
-                var dtToday = new Date();
+            var dtToday = new Date();
 
-                var month = dtToday.getMonth() + 1;
-                var day = dtToday.getDate();
-                var year = dtToday.getFullYear();
-                if (month < 10)
-                    month = '0' + month.toString();
-                if (day < 10)
-                    day = '0' + day.toString();
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if (month < 10)
+                month = '0' + month.toString();
+            if (day < 10)
+                day = '0' + day.toString();
 
-                var minDate = year + '-' + month + '-' + day;
+            var minDate = year + '-' + month + '-' + day;
 
-                $('#checkin').attr('min', minDate);
-                $('#checkout').attr('min', minDate);
-            });
+            $('#checkin').attr('min', minDate);
+            $('#checkout').attr('min', minDate);
+        });
 
-            // date rev validation
-            $(function(updatedate) {
-                var dtToday = new Date();
+        // date rev validation
+        $(function(updatedate) {
+            var dtToday = new Date();
 
-                var month = dtToday.getMonth() + 1;
-                var day = dtToday.getDate();
-                var year = dtToday.getFullYear();
-                if (month < 10)
-                    month = '0' + month.toString();
-                if (day < 10)
-                    day = '0' + day.toString();
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if (month < 10)
+                month = '0' + month.toString();
+            if (day < 10)
+                day = '0' + day.toString();
 
-                var maxDate = year + '-' + month + '-' + day;
+            var maxDate = year + '-' + month + '-' + day;
 
-                $('#birthdate').attr('max', maxDate);
-            });
+            $('#birthdate').attr('max', maxDate);
+        });
 
         // Function to increment the number of rooms
         function incrementRooms() {
@@ -583,28 +552,38 @@ if (isset($_POST['add'])) {
     </script>
     <script>
         function validateForm() {
-            var fname = document.getElementById('fname').value.trim();
-            var lname = document.getElementById('lname').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var birthdate = document.getElementById('birthdate').value.trim();
-            var city = document.getElementById('city').value.trim();
-            var phone = document.getElementById('phone').value.trim();
-            var roomDropdown = document.getElementById('roomDropdown');
-            var numberOfRooms = document.getElementById('number-of-rooms').value.trim();
-            var checkin = document.getElementById('checkin').value.trim();
-            var checkout = document.getElementById('checkout').value.trim();
-
-            // Check each field individually
-            if (fname === '' || lname === '' || email === '' || birthdate === '' || city === '' || phone === '' || roomDropdown.selectedIndex === 0 || numberOfRooms === '' || checkin === '' || checkout === '') {
-                alert('Please fill in all the fields before submitting.');
+            var form = document.getElementById('booking-form');
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+                form.classList.add('was-validated');
+                return false;
+            }
+            // Custom validation for date of birth
+            var birthdate = document.getElementById('birthdate').value;
+            var birthdateInput = new Date(birthdate);
+            var today = new Date();
+            if (birthdateInput >= today) {
+                document.getElementById('birthdate').classList.add('is-invalid');
+                document.querySelector('.invalid-feedback-date-birthdate').style.display = 'block';
                 return false;
             }
 
-            // Perform additional validation checks if needed
-
-            // If all validations pass, the form will be submitted
+            // Custom validation for check-in and check-out dates
+            var checkin = document.getElementById('checkin').value;
+            var checkout = document.getElementById('checkout').value;
+            if (new Date(checkout) <= new Date(checkin)) {
+                document.getElementById('checkout').classList.add('is-invalid');
+                document.getElementById('checkin').classList.add('is-invalid');
+                document.querySelector('.invalid-feedback-date-checkout').style.display = 'block';
+                document.querySelector('.invalid-feedback-date-checkin').style.display = 'block';
+                return false;
+            }
             return true;
         }
+
+        // Event listener to update total price when the number of rooms changes
+        document.getElementById('number-of-rooms').addEventListener('change', updateTotalPrice);
     </script>
     <?php
     include "footer.php";
@@ -636,7 +615,9 @@ if (isset($_POST['add'])) {
             var pricingSection = document.getElementById('pricing-section');
 
             if (pricingSection) {
-                pricingSection.scrollIntoView({ behavior: 'smooth' });
+                pricingSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         }
     </script>

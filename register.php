@@ -19,11 +19,11 @@ if (isset($_POST['add'])) {
     $checkPhoneResult = $conn->query($checkPhoneQuery);
 
     if ($checkEmailResult->num_rows > 0 && $checkPhoneResult->num_rows > 0) {
-        echo "<script>alert('Both email and phone already exist!');</script>";
+        $error = "Both email and phone already exist!";
     } elseif ($checkEmailResult->num_rows > 0) {
-        echo "<script>alert('Email already exists!');</script>";
+        $error = "Email already exists!";
     } elseif ($checkPhoneResult->num_rows > 0) {
-        echo "<script>alert('Phone already exists!');</script>";
+        $error = "Phone already exists!";
     } else {
         // Perform the registration since email and phone are unique
         $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpss`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
@@ -62,6 +62,12 @@ if (isset($_POST['add'])) {
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
     <style>
+        .clearfix .alert-danger{
+            width: 100%;
+        }
+        .clearfix .alert {
+            padding: 8px 10px;
+        }
         /* Add your existing styles here */
         .toggle-password {
             cursor: pointer;
@@ -120,7 +126,7 @@ if (isset($_POST['add'])) {
             <div id="signup-form" class="form-box signup">
                 <div class="form-content">
                     <h2>REGISTRATION</h2>
-                    <form action="#" method="POST">
+                    <form method="POST">
                         <div class="row clearfix">
                             <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                 <div class="input-field">
@@ -172,6 +178,9 @@ if (isset($_POST['add'])) {
                                     <label>Confirm Password:</label>
                                 </div>
                             </div>
+                            <?php if (isset($error)) { ?>
+                                <div class="alert alert-danger"><?php echo $error; ?></div>
+                            <?php } ?>
                             <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
                                 <button class="theme-btn btn-one" name="add" id="buy" onclick="validateForm()">Sign Up</button>
                             </div>
@@ -197,7 +206,7 @@ if (isset($_POST['add'])) {
             var confirmPassword = document.getElementById("confirm_pass").value;
 
             if (password !== confirmPassword) {
-                alert("Passwords do not match");
+                $error = "Passwords do not match";
             } else {
                 // Passwords match, you can proceed with form submission
                 document.getElementById("myForm").submit();

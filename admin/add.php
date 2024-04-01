@@ -92,16 +92,16 @@ if (isset($_GET['edit'])) {
                                     ?>
                             <form class="pt-3" method="POST">
                                 <div class="form-group">
-                                    <input type="number" class="form-control form-control-lg" id="exampleInputid" name="id" placeholder="Admin Id" value="<?PHP if(isset($_GET['edit'])) echo $row['id'];  ?>">
+                                    <input type="number" class="form-control form-control-lg" id="exampleInputid" name="id" placeholder="Admin Id" value="<?PHP if(isset($_GET['edit'])) echo $row['id'];  ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="exampleInputname" name="name" placeholder="Admin Name" value="<?PHP if(isset($_GET['edit'])) echo $row['name'];  ?>">
+                                    <input type="text" class="form-control form-control-lg" id="exampleInputname" name="name" placeholder="Admin Name" value="<?PHP if(isset($_GET['edit'])) echo $row['name'];  ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="email" placeholder="Admin Email" value="<?PHP if(isset($_GET['edit'])) echo $row['admin_email'];  ?>">
+                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="email" placeholder="Admin Email" value="<?PHP if(isset($_GET['edit'])) echo $row['admin_email'];  ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="pass" placeholder="Password" value="<?PHP if(isset($_GET['edit'])) echo $row['pass'];  ?>">
+                                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="pass" placeholder="Password" value="<?PHP if(isset($_GET['edit'])) echo $row['pass'];  ?>" required>
                                     <?php if (isset($error)) { ?>
                                         <div class="alert alert-danger"><?php echo $error; ?></div>
                                     <?php } ?>

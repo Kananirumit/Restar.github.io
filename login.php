@@ -36,7 +36,7 @@ if (isset($_POST['login'])) {
 
         header("location:index.php");
     } else {
-        echo "<script>alert('Invalid Email or Password!');</script>";
+        $error = "Invalid Email or Password!";
     }
 
     $stmt->close();
@@ -68,15 +68,21 @@ if (isset($_POST['login'])) {
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
     <style>
-        .toggle-password-eye i{
+        .toggle-password-eye i {
             position: relative;
             left: 87%;
             bottom: 40px;
         }
-        .toggle-password-email i{
+
+        .toggle-password-email i {
             position: relative;
             left: 87%;
             bottom: 40px;
+        }
+
+        .cus-form .alert {
+            padding: 8px 10px;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -91,7 +97,7 @@ if (isset($_POST['login'])) {
                 <div id="login-form" class="form-box login">
                     <div class="form-content">
                         <h2>LOGIN</h2>
-                        <form action="#" method="POST" class="cus-form">
+                        <form method="POST" class="cus-form">
                             <div class="input-field">
                                 <input type="text" required="" name="emailOrPhone" fdprocessedid="s8jhqb">
                                 <label>Email or Phone</label>
@@ -105,8 +111,10 @@ if (isset($_POST['login'])) {
                                     <i id="eyeIcon" class="fa fa-eye"></i> <!-- Font Awesome eye icon -->
                                 </span>
                                 <label>Password</label>
-
                             </div>
+                            <?php if (isset($error)) { ?>
+                                <div class="alert alert-danger"><?php echo $error; ?></div>
+                            <?php } ?>
                             <a href="forgot.php" class="forgot-pass-link">Forgot password?</a><br>
                             <button type="submit" class="btn-log" name="login" fdprocessedid="hzsxfi">Log In</button>
                         </form>
@@ -139,7 +147,7 @@ if (isset($_POST['login'])) {
                 alert("Login successful");
                 // You can redirect or perform other actions here
             } else {
-                alert("Invalid email or password");
+                $error = "Invalid email or password";
             }
         }
     </script>

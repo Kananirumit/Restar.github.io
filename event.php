@@ -112,6 +112,10 @@ if (isset($_POST['add'])) {
         }
     </script>
     <style>
+        .was-validated #roomDropdown:valid {
+            background-position: right calc(0.375em + 1.1875rem) center;
+        }
+
         .error-container {
             color: red;
             margin-bottom: 10px;
@@ -207,9 +211,9 @@ if (isset($_POST['add'])) {
 <!-- page wrapper -->
 
 <body>
-<?php
+    <?php
     include "header.php";
-?>
+    ?>
     <div class="boxed_wrapper">
 
 
@@ -288,13 +292,13 @@ if (isset($_POST['add'])) {
                                     <img src="./admin/images/event/<?php echo $row['event_image'] ?>" class="image-shadow imge" alt="image">
 
                                     <h3 class="card-title2">
-                                        Start-date: <?php $dateString = $row['start_date']; 
+                                        Start-date: <?php $dateString = $row['start_date'];
                                                     $timestamp = strtotime($dateString);
                                                     $formattedDate = date('d-m-Y', $timestamp);
                                                     echo $formattedDate; ?>
                                     </h3>
                                     <h3 class="card-title2">
-                                        End-date: <?php $dateString = $row['end_date']; 
+                                        End-date: <?php $dateString = $row['end_date'];
                                                     $timestamp = strtotime($dateString);
                                                     $formattedDate = date('d-m-Y', $timestamp);
                                                     echo $formattedDate; ?>
@@ -381,7 +385,7 @@ if (isset($_POST['add'])) {
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                     <label for="room" class="h6">event Price:</label>
-                                    <p id="roomPrice">₹8000 per pass</p>
+                                    <p id="roomPrice">₹8000 per pass(One Pass Only 4 People)</p>
                                 </div>
 
                                 <!-- Modify the PHP code to calculate the total price -->
@@ -485,28 +489,18 @@ if (isset($_POST['add'])) {
     </script>
     <script>
         function validateForm() {
-            var fname = document.getElementById('fname').value.trim();
-            var lname = document.getElementById('lname').value.trim();
-            var email = document.getElementById('email').value.trim();
-            var birthdate = document.getElementById('birthdate').value.trim();
-            var city = document.getElementById('city').value.trim();
-            var phone = document.getElementById('phone').value.trim();
-            var roomDropdown = document.getElementById('roomDropdown');
-            var numberOfRooms = document.getElementById('number-of-rooms').value.trim();
-            var checkin = document.getElementById('checkin').value.trim();
-            var checkout = document.getElementById('checkout').value.trim();
-
-            // Check each field individually
-            if (fname === '' || lname === '' || email === '' || birthdate === '' || city === '' || phone === '' || roomDropdown.selectedIndex === 0 || numberOfRooms === '' || checkin === '' || checkout === '') {
-                alert('Please fill in all the fields before submitting.');
+            var form = document.getElementById('booking-form');
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+                form.classList.add('was-validated');
                 return false;
             }
-
-            // Perform additional validation checks if needed
-
-            // If all validations pass, the form will be submitted
             return true;
         }
+
+        // Event listener to update total price when the number of passes changes
+        document.getElementById('number-of-passes').addEventListener('change', updateTotalPrice);
     </script>
     <?php
     include "footer.php";

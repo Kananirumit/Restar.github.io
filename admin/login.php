@@ -48,6 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/amusement-park.png" />
+  <style>
+    .auth-form-light .alert {
+      padding: 8px 10px;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -64,13 +70,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <h6 class="font-weight-light">Log in to continue.</h6>
               <form class="pt-3" method="POST">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="email"  placeholder="Admin Email">
+                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="email" placeholder="Admin Email">
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="pass" placeholder="Password">
-                  <?php if(isset($error)) { ?>
-                                <div class="alert alert-danger"><?php echo $error; ?></div>
-                            <?php } ?>
+                  <?php if (isset($error)) { ?>
+                    <div class="alert alert-danger"><?php echo $error; ?></div>
+                  <?php } ?>
                 </div>
                 <div class="mt-3">
                   <button type="submit" class="btn btn-block btn-warning btn-lg font-weight-medium auth-form-btn">LOG IN</button>
