@@ -3,10 +3,11 @@
 
 session_start(); // Start session
 
-// Include the file to establish database connection
-$currentPage = 'event';
 include "./include/connect.php";
-include "header.php";
+
+
+
+
 
 // Check if the form has been submitted
 if (isset($_POST['add'])) {
@@ -30,21 +31,19 @@ if (isset($_POST['add'])) {
     $totalprice = $_POST['totalprice'];
 
     // Prepare and execute SQL query to insert data into database table
-    $insert = "INSERT INTO event_data (`fname`, `lname`, `email`, `phone`, `event`, `npass`, `totalprice`) 
+    $insert = "INSERT INTO `event_data` (`fname`, `lname`, `email`, `phone`, `event`, `npass`, `totalprice`) 
                VALUES ('$fname', '$lname', '$email', '$phone', '$event', '$npass', '$totalprice')";
     $result = $conn->query($insert);
 
     // Check if the query was successful
     if ($result) {
-        // Redirect to a success page or do any additional processing
+        // Redirect to payment page
         header("location: card3.php");
-        exit(); // Exit to prevent further execution
+        exit(); // Make sure to exit after redirection
     } else {
-        // Handle the case where the query failed
-        echo "Error: " . $conn->error;
+        echo "<div class='alert alert-danger'>Error processing form submission.</div>";
     }
 }
-
 ?>
 
 
@@ -208,7 +207,9 @@ if (isset($_POST['add'])) {
 <!-- page wrapper -->
 
 <body>
-
+<?php
+    include "header.php";
+?>
     <div class="boxed_wrapper">
 
 

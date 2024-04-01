@@ -1,3 +1,4 @@
+
 <?php
 
 session_start(); // Start session
@@ -11,9 +12,8 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-
 if (isset($_POST['pay'])) {
-    
+    // Retrieve payment information
     $cardno = $_POST['cardnumber'];
     $cardname = $_POST['cardname'];
     $email = $_POST['email'];
@@ -21,8 +21,8 @@ if (isset($_POST['pay'])) {
     $year = $_POST['year'];
     $cvv = $_POST['cvv'];
 
-
-    $stmt = $conn->prepare("INSERT INTO `cardroom`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
+    // Insert payment details into the database using prepared statements
+    $stmt = $conn->prepare("INSERT INTO `cardevent`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $cardno, $cardname, $email, $month, $year, $cvv);
     $result = $stmt->execute();
     $stmt->close();
@@ -36,7 +36,6 @@ if (isset($_POST['pay'])) {
         $event = $_SESSION['event'];
         $npass = $_SESSION['npass'];
         $totalprice = $_SESSION['totalprice'];
-        
 
         try {
             // Initialize PHPMailer
@@ -45,13 +44,14 @@ if (isset($_POST['pay'])) {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'restarpark@gmail.com';
-            $mail->Password = 'nbdp ijqi zzsi uvss';
+            $mail->Password = 'zfjdzqjndpyhiygw';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
             $mail->setFrom('restarpark@gmail.com', 'RESTAR AMUSEMENT PARK');
             $mail->addAddress($email);
 
+            // Retrieve user information from the session
             $fname = $_SESSION['fname'];
         $lname = $_SESSION['lname'];
         $email = $_SESSION['email'];
@@ -60,14 +60,54 @@ if (isset($_POST['pay'])) {
         $npass = $_SESSION['npass'];
         $totalprice = $_SESSION['totalprice'];
 
-        $mail->isHTML(true);
-        $mail->Subject = "$fname Your Ticket is Confirmed!";
-        $mail->Body = "<h3>Your Ticket is Confirmed With These Details:</h3><br>fName : $fname <br><br> lname : $lname <br><br> email : $email <br><br> phone : $phone <br><br> event : $event <br><br> npass : $npass <br><br> Totalprice : $totalprice";
+            // Email content with booking details
+            $mail->isHTML(true);
+            $mail->Subject = "Congrats $fname Your Restar Park Event is Booked Successfully";
+            $mail->Body = '<div style="background-color: #FFEA92; padding: 20px; font-family: Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif;">
+            <div
+                style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h1
+                    style="color: #692F30; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    Congratulations!</h1>
+                    <h1 style="color: #b30ef4; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                        ' . $fname . ''.$lname.'</h1>
+        
+                <p style="color: #6E6D6C; line-height: 1.8; ">Thank you for booking tickets to Our Park! Your booking details
+                </p>
+        
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <tr style="background-color: #F0F8FF; color: #3EBDFF; font-weight: bold;">
+                        <th style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Title</th>
+                        <th style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Description</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Event</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $event . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Number of Pass</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $npass . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">Mobile Number</td>
+                        <td style="padding: 10px; text-align: left; border-bottom: 1px solid #ccc;">' . $phone . '</td>
+                    </tr>
+                </table>
+        
+                <p style="color: #696969; line-height: 1.8; margin-top: 20px;">Your total amount is <strong
+                        style="color: #86FFD3;">' . $totalprice . '&#8377;</strong>.</p>
+        
+        
+    
+                <h2 style="color: #86FFD3; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
+            </div>
+        </div>';
 
-        // Send the email
-        $mail->send();
+            // Send the email
+            $mail->send();
 
-        header("Location: index.php");
+            // Redirect after successful payment and email sending
+            header("Location: index.php");
             exit();
         } catch (Exception $e) {
             echo "<div class='alert alert-danger'>Error sending email: {$mail->ErrorInfo}</div>";
@@ -77,7 +117,7 @@ if (isset($_POST['pay'])) {
     }
 
     // Display pop-up and handle redirection in JavaScript
-    if(isset($_REQUEST['done'])){
+    if (isset($_REQUEST['done'])) {
         echo "<style>
         .pop{
             display: none !important;
@@ -91,6 +131,7 @@ if (isset($_POST['pay'])) {
 }
 
 ?>
+
 
 
 <!DOCTYPE html>
