@@ -52,12 +52,12 @@ if (isset($_POST['pay'])) {
 
             // Retrieve user information from the session
             $fname = $_SESSION['fname'];
-        $lname = $_SESSION['lname'];
-        $email = $_SESSION['email'];
-        $phone = $_SESSION['phone'];
-        $event = $_SESSION['event'];
-        $npass = $_SESSION['npass'];
-        $totalprice = $_SESSION['totalprice'];
+            $lname = $_SESSION['lname'];
+            $email = $_SESSION['email'];
+            $phone = $_SESSION['phone'];
+            $event = $_SESSION['event'];
+            $npass = $_SESSION['npass'];
+            $totalprice = $_SESSION['totalprice'];
 
             // Email content with booking details
             $mail->isHTML(true);
@@ -66,10 +66,10 @@ if (isset($_POST['pay'])) {
             <div
                 style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                 <h1
-                    style="color: #ffffff; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    style="color: #9e34ef; text-align: center; font-size: 25px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                     Congratulations!</h1>
-                    <h1 style="color: #CBF1F5; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
-                        ' . $fname . ''.$lname.'</h1>
+                    <h1 style="color: #5c9fa6; text-align: center; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                        ' . $fname . '<br>' . $lname . '</h1>
         
                 <p style="color: #6E6D6C; line-height: 1.8; ">Thank you for booking tickets to Our Park! Your booking details
                 </p>
@@ -94,11 +94,11 @@ if (isset($_POST['pay'])) {
                 </table>
         
                 <p style="color: #696969; line-height: 1.8; margin-top: 20px;">Your total amount is <strong
-                        style="color: #86FFD3;">' . $totalprice . '&#8377;</strong>.</p>
+                        style="color: #107b54;">' . $totalprice . '&#8377;</strong>.</p>
         
         
     
-                <h2 style="color: #86FFD3; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
+                <h2 style="color: #107b54; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
             </div>
         </div>';
 
@@ -143,9 +143,7 @@ if (isset($_POST['pay'])) {
     <link rel="icon" href="./assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <style>
@@ -775,9 +773,11 @@ if (isset($_POST['pay'])) {
         .card-form__button:hover {
             background: #1556b7;
         }
+
         .pop {
             display: none;
         }
+
         .pop-content {
             width: 30%;
             margin: auto;
@@ -785,13 +785,14 @@ if (isset($_POST['pay'])) {
             border: 1px solid;
             padding: 2%;
         }
-        .done{
+
+        .done {
             position: relative;
             display: inline-block;
             font-size: 12px;
             line-height: 30px;
             font-weight: 700;
-            font-family: 'Rubik',sans-serif;
+            font-family: 'Rubik', sans-serif;
             color: #fff;
             padding: 16.5px 54px;
             text-align: center;
@@ -951,35 +952,36 @@ if (isset($_POST['pay'])) {
         </div>
     </div>
     <div class="pop">
-    <div class="pop-content" style="background-color: #4CAF50;">
-        <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>
-        <div style="text-align: center; font-size: 18px; color: #fff;">Thank you!!</div>
+        <div class="pop-content" style="background-color: #4CAF50;">
+            <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>
+            <div style="text-align: center; font-size: 18px; color: #fff;">Thank you!!</div>
+        </div>
+        <div class="pop-content" style="background-color: #fff;">
+            <h1 style="text-align: center;">Your Payment Is success!!<br>Your ticket is sent to your mail</h1>
+            <button name="done" onclick="window.location.href = 'index.php'" class="done" style="margin: auto; display: block;">Done</button>
+        </div>
     </div>
-    <div class="pop-content" style="background-color: #fff;">
-        <h1 style="text-align: center;">Your Payment Is success!!<br>Your ticket is sent to your mail</h1>
-        <button name="done" onclick="window.location.href = 'index.php'" class="done" style="margin: auto; display: block;">Done</button>
-    </div>
-</div>
     <script>
         //number validation
         function limitCardNumberLength(input) {
-        // Get the current value of the input
-        let cardNumber = input.value;
+            // Get the current value of the input
+            let cardNumber = input.value;
 
-        // Limit the input to a maximum of 16 digits
-        if (cardNumber.length > 16) {
-            input.value = cardNumber.slice(0, 16);
+            // Limit the input to a maximum of 16 digits
+            if (cardNumber.length > 16) {
+                input.value = cardNumber.slice(0, 16);
+            }
         }
-    }
-    function limitCardcvvLength(input) {
-        // Get the current value of the input
-        let cardNumber = input.value;
 
-        // Limit the input to a maximum of 16 digits
-        if (cardNumber.length > 4) {
-            input.value = cardNumber.slice(0, 4);
+        function limitCardcvvLength(input) {
+            // Get the current value of the input
+            let cardNumber = input.value;
+
+            // Limit the input to a maximum of 16 digits
+            if (cardNumber.length > 4) {
+                input.value = cardNumber.slice(0, 4);
+            }
         }
-    }
         // validation
         function validateForm() {
             var cardNumber = document.getElementById('cardNumber').value.trim();

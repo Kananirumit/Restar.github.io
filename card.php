@@ -74,10 +74,10 @@ if (isset($_POST['pay'])) {
             <div
                 style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                 <h1
-                    style="color: #ffffff; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    style="color: #9e34ef; text-align: center; font-size: 25px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                     Congratulations!</h1>
-                    <h1 style="color: #CBF1F5;text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
-                        ' . $fname . '' . $lname . '</h1>
+                    <h1 style="color: #5c9fa6;text-align: center; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                        ' . $fname . '<br>' . $lname . '</h1>
         
                 <p style="color: #6E6D6C; line-height: 1.8; ">Thank you for booking tickets to Our Park! Your booking details
                 </p>
@@ -106,7 +106,7 @@ if (isset($_POST['pay'])) {
                 </table>
         
                 <p style="color: #696969; line-height: 1.8; margin-top: 20px;">Your total amount is <strong
-                        style="color: #86FFD3;">' . $totalprice . '&#8377;</strong>.</p>
+                        style="color: #107b54;">' . $totalprice . '&#8377;</strong>.</p>
         
                 <div style="text-align: center; margin-top: 30px;"><p>Your welcome on</p>
                     <button
@@ -115,7 +115,7 @@ if (isset($_POST['pay'])) {
                 </div>
         
     
-                <h2 style="color: #86FFD3; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
+                <h2 style="color: #107b54; line-height: 1.8; margin-top: 20px; text-align: center;">RESTAR</h2>
             </div>
         </div>';
 

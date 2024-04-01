@@ -1,7 +1,7 @@
 <?php
 
 
-session_start(); // Start session
+// session_start(); // Start session
 
 include "./include/connect.php";
 
