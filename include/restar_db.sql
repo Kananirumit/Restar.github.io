@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2024 at 12:32 PM
+-- Generation Time: Apr 01, 2024 at 07:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -58,6 +58,14 @@ CREATE TABLE `cardevent` (
   `cardyear` year(4) NOT NULL,
   `cvv` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cardevent`
+--
+
+INSERT INTO `cardevent` (`id`, `cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES
+(3, '8765434456789765', 'rumit', 'kananirumit2003@gmail.com', '05', '2027', '757'),
+(4, '9876543567897654', 'rushit', 'chovatiyarushit@gmail.com', '06', '2030', '688');
 
 -- --------------------------------------------------------
 
@@ -136,7 +144,15 @@ INSERT INTO `cardroom` (`id`, `cardno`, `cardname`, `cardemail`, `cardmonth`, `c
 (55, '9876543567867564', 'rushit', 'chovatiyarushit@gmail.com', '09', '2029', 432),
 (56, '6545342344565676', 'rumit', 'kananirumit2003@gmail.com', '08', '2031', 321),
 (57, '2354324563245654', 'rumit', 'kananirumit2003@gmail.com', '06', '2027', 232),
-(58, '6754324567865437', 'brijesh', 'brijeshkachhadiya542@gmail.com', '09', '2030', 321);
+(58, '6754324567865437', 'brijesh', 'brijeshkachhadiya542@gmail.com', '09', '2030', 321),
+(59, '7654356786546789', 'Aesha', 'aeshagodhani@gmail.com', '05', '2032', 676),
+(60, '8767564324567865', 'rumit kanani', 'kananirumit2003@gmail.com', '06', '2029', 232),
+(61, '8765432456789765', 'rushit chovatiya', 'chovatiyarushit@gmail.com', '08', '2030', 768),
+(62, '8786543245678976', 'rumit', 'kananirumit2003@gmail.com', '09', '2030', 776),
+(63, '8786543245678976', 'rumit', 'kananirumit2003@gmail.com', '06', '2029', 768),
+(64, '8745678976543356', 'rumit', 'kananirumit2003@gmail.com', '05', '2029', 757),
+(65, '8765432456789765', 'rumit', 'kananirumit2003@gmail.com', '07', '2031', 242),
+(66, '8765435678908765', 'rumit', 'kananirumit2003@gmail.com', '04', '2031', 313);
 
 -- --------------------------------------------------------
 
@@ -232,7 +248,11 @@ CREATE TABLE `event_data` (
 INSERT INTO `event_data` (`event_id`, `fname`, `lname`, `email`, `phone`, `event`, `npass`, `totalprice`) VALUES
 (1, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Family Fun day', '3', '₹24000'),
 (3, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Family Fun day', '2', '₹16000'),
-(5, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Summer Event', '2', '₹13000');
+(5, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Summer Event', '2', '₹13000'),
+(6, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Family Fun day', '2', '₹16000'),
+(7, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Summer Event', '3', '₹19500'),
+(8, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '9106776464', 'Family Fun day', '3', '₹24000'),
+(9, 'rushit', 'chovatiya', 'chovatiyarushit@gmail.com', '9876576765', 'Summer Event', '3', '₹19500');
 
 -- --------------------------------------------------------
 
@@ -306,7 +326,12 @@ INSERT INTO `room` (`id`, `fname`, `lname`, `email`, `birthdate`, `city`, `phone
 (19, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2001-06-29', 'Surat', '9106776464', 'Superior Room', '3', '₹66000', '2024-04-07', '2024-04-11'),
 (20, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Luxury Room', '3', '₹90000', '2024-03-30', '2024-04-04'),
 (21, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Classic Room', '3', '₹39000', '2024-04-07', '2024-04-12'),
-(22, 'brijesh', 'kachhadiya', 'brijeshkachhadiya542@gmail.com', '2002-07-25', 'Surat', '9106776464', 'Luxury Room', '10', '₹300000', '2024-03-30', '2024-04-05');
+(22, 'brijesh', 'kachhadiya', 'brijeshkachhadiya542@gmail.com', '2002-07-25', 'Surat', '9106776464', 'Luxury Room', '10', '₹300000', '2024-03-30', '2024-04-05'),
+(23, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2003-12-19', 'Surat', '9106776464', 'Family Room', '4', '₹40000', '2024-05-03', '2024-05-12'),
+(24, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2024-02-24', 'Surat', '9106776464', 'Deluxe Room', '3', '₹54000', '2024-04-27', '2024-05-08'),
+(25, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2024-03-27', 'Surat', '9106776464', 'Deluxe Room', '4', '₹72000', '2024-05-03', '2024-05-09'),
+(26, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2024-03-20', 'Surat', '9106776464', 'Classic Room', '3', '₹39000', '2024-04-26', '2024-04-19'),
+(27, 'Rumit', 'Kanani', 'kananirumit2003@gmail.com', '2024-02-20', 'Surat', '9106776464', 'Deluxe Room', '3', '₹54000', '2024-04-04', '2024-04-18');
 
 -- --------------------------------------------------------
 
@@ -382,7 +407,10 @@ INSERT INTO `ticket` (`id`, `name`, `email`, `child`, `adult`, `senior`, `txtDat
 (50, 'Rumit Kanani', 'kananirumit2003@gmail.com', 2, 2, 0, '2024-04-06', '₹3600'),
 (51, 'Rumit Kanani', 'kananirumit2003@gmail.com', 2, 2, 0, '2024-04-07', '₹3600'),
 (52, 'brijesh kachadiya', 'brijeshkachhadiya542@gmail.com', 11, 2, 0, '2024-03-30', '₹11250'),
-(53, 'Rushit chovatiya', 'chovatiyarushit@gmail.com', 2, 2, 0, '2024-03-30', '₹3600');
+(53, 'Rushit chovatiya', 'chovatiyarushit@gmail.com', 2, 2, 0, '2024-03-30', '₹3600'),
+(54, 'Aesha Godhani', 'aeshagodhani@gmail.com', 7, 4, 2, '2024-04-06', '₹11850'),
+(55, 'Rumit Kanani', 'kananirumit2003@gmail.com', 2, 2, 2, '2024-04-26', '₹5700'),
+(56, 'Rushit chovatiya', 'chovatiyarushit@gmail.com', 13, 2, 0, '2024-04-18', '₹12950');
 
 --
 -- Indexes for dumped tables
@@ -456,13 +484,13 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `cardevent`
 --
 ALTER TABLE `cardevent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cardroom`
 --
 ALTER TABLE `cardroom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `cardticket`
@@ -486,7 +514,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `event_data`
 --
 ALTER TABLE `event_data`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `register`
@@ -498,13 +526,13 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
