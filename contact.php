@@ -128,7 +128,7 @@ if (isset($_POST['add'])) {
                 <div class="map-inner">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.9407063078324!2d72.86247447343966!3d21.194514282068454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fa54162df73%3A0xc64e227c6b44a7c1!2sAquamagicaa!5e0!3m2!1sen!2sin!4v1711973660285!5m2!1sen!2sin"
-                        width="650" height="625" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="670" height="625" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <div class="content-box">
                             <h2>get in touch with us</h2>
