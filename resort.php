@@ -140,6 +140,7 @@ if (isset($_POST['add'])) {
 
 <body>
     <?php
+    $currentPage = 'resort';
     include "header.php";
     ?>
 

@@ -5,46 +5,46 @@
 
 include "./include/connect.php";
 
-
-
-
-
 // Check if the form has been submitted
-if (isset($_POST['add'])) {
-    // Retrieve form data
+// if (isset($_POST['add'])) {
+//     // Retrieve form data
 
-    $_SESSION['fname'] = $_POST['fname'];
-    $_SESSION['lname'] = $_POST['lname'];
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['phone'] = $_POST['phone'];
-    $_SESSION['event'] = $_POST['event'];
-    $_SESSION['npass'] = $_POST['npass'];
-    $_SESSION['totalprice'] = $_POST['totalprice'];
+//     $_SESSION['fname'] = $_POST['fname'];
+//     $_SESSION['lname'] = $_POST['lname'];
+//     $_SESSION['email'] = $_POST['email'];
+//     $_SESSION['phone'] = $_POST['phone'];
+//     $_SESSION['event'] = $_POST['event'];
+//     $_SESSION['npass'] = $_POST['npass'];
+//     $_SESSION['totalprice'] = $_POST['totalprice'];
 
 
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $event = $_POST['event'];
-    $npass = $_POST['npass'];
-    $totalprice = $_POST['totalprice'];
+//     $fname = $_POST['fname'];
+//     $lname = $_POST['lname'];
+//     $email = $_POST['email'];
+//     $phone = $_POST['phone'];
+//     $event = $_POST['event'];
+//     $npass = $_POST['npass'];
+//     $totalprice = $_POST['totalprice'];
 
-    // Prepare and execute SQL query to insert data into database table
-    $insert = "INSERT INTO `event_data` (`fname`, `lname`, `email`, `phone`, `event`, `npass`, `totalprice`) 
-               VALUES ('$fname', '$lname', '$email', '$phone', '$event', '$npass', '$totalprice')";
-    $result = $conn->query($insert);
+//     // Prepare and execute SQL query to insert data into database table
+//     $insert = "INSERT INTO `event_data` (`fname`, `lname`, `email`, `phone`, `event`, `npass`, `totalprice`) 
+//                VALUES ('$fname', '$lname', '$email', '$phone', '$event', '$npass', '$totalprice')";
+//     $result = $conn->query($insert);
 
-    // Check if the query was successful
-    if ($result) {
-        // Redirect to payment page
-        header("location: card3.php");
-        exit(); // Make sure to exit after redirection
-    } else {
-        echo "<div class='alert alert-danger'>Error processing form submission.</div>";
-    }
-}
+//     // Check if the query was successful
+//     if ($result) {
+//         // Redirect to payment page
+//         header("location: bookevent.php");
+//         exit(); // Make sure to exit after redirection
+//     } else {
+//         echo "<div class='alert alert-danger'>Error processing form submission.</div>";
+//     }
+// }
 ?>
+    <?php
+    $currentPage = 'event';
+    include "header.php";
+    ?>
 
 
 <!DOCTYPE html>
@@ -61,7 +61,9 @@ if (isset($_POST['add'])) {
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -204,6 +206,9 @@ if (isset($_POST['add'])) {
         .boxed_wrapper {
             overflow-x: unset !important;
         }
+        .theme-btn a{
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -211,9 +216,6 @@ if (isset($_POST['add'])) {
 <!-- page wrapper -->
 
 <body>
-    <?php
-    include "header.php";
-    ?>
     <div class="boxed_wrapper">
 
 
@@ -250,7 +252,6 @@ if (isset($_POST['add'])) {
         <!-- preloader end -->
 
 
-
         <!-- Page Title -->
         <section class="page-title">
             <div class="img-wrap parallax-demo-1">
@@ -282,29 +283,33 @@ if (isset($_POST['add'])) {
 
                 if ($check_event) {
                     while ($row = mysqli_fetch_array($query_run)) {
-                ?>
+                        ?>
                         <div class="col-lg col-md-6 col-sm-12">
                             <div class="lin">
                                 <div class="box1">
                                     <h4 class="card-title1">
                                         <?php echo $row['event_name']; ?>
                                     </h4>
-                                    <img src="./admin/images/event/<?php echo $row['event_image'] ?>" class="image-shadow imge" alt="image">
+                                    <img src="./admin/images/event/<?php echo $row['event_image'] ?>" class="image-shadow imge"
+                                        alt="image">
 
                                     <h3 class="card-title2">
-                                        Start-date: <?php $dateString = $row['start_date'];
-                                                    $timestamp = strtotime($dateString);
-                                                    $formattedDate = date('d-m-Y', $timestamp);
-                                                    echo $formattedDate; ?>
+                                        Start-date:
+                                        <?php $dateString = $row['start_date'];
+                                        $timestamp = strtotime($dateString);
+                                        $formattedDate = date('d-m-Y', $timestamp);
+                                        echo $formattedDate; ?>
                                     </h3>
                                     <h3 class="card-title2">
-                                        End-date: <?php $dateString = $row['end_date'];
-                                                    $timestamp = strtotime($dateString);
-                                                    $formattedDate = date('d-m-Y', $timestamp);
-                                                    echo $formattedDate; ?>
+                                        End-date:
+                                        <?php $dateString = $row['end_date'];
+                                        $timestamp = strtotime($dateString);
+                                        $formattedDate = date('d-m-Y', $timestamp);
+                                        echo $formattedDate; ?>
                                     </h3>
                                     <h3 class="card-title2">
-                                        One Pass: <?php echo $row['event_price']; ?>
+                                        One Pass:
+                                        <?php echo $row['event_price']; ?>
                                     </h3>
                                     <p class="card-title2">
                                         <?php echo $row['info']; ?>
@@ -312,7 +317,7 @@ if (isset($_POST['add'])) {
                                 </div>
                             </div>
                         </div>
-                <?php
+                        <?php
                         // echo $row['event_name'];
                     }
                 } else {
@@ -342,71 +347,22 @@ if (isset($_POST['add'])) {
                         <h2>BOOK YOUR Event</h2>
                     </div>
                     <div class="form-inner text-left">
-                        <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate" onsubmit="return validateForm()">
+                        <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate"
+                            onsubmit="return validateForm()">
                             <!-- Your form fields go here -->
-                            <div class="row clearfix">
-
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">First Name:</label>
-                                    <input type="text" class="form-control text-font" name="fname" id="fname" placeholder="First Name" required>
-
-                                    <div class="invalid-feedback">Please enter your name.</div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">Last Name:</label>
-                                    <input type="text" class="form-control text-font" name="lname" id="lname" placeholder="Last Name" required>
-
-                                    <div class="invalid-feedback">Please enter your name.</div>
-
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">Email:</label>
-                                    <input type="text" class="form-control text-font" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="Email" required>
-                                    <div class="invalid-feedback invalid-feedback-email">Please enter a valid
-                                        email
-                                        address.</div>
-                                </div>
-
-
-                                <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">Phone:</label>
-                                    <input type="text" class="form-control text-font" required="" name="phone" placeholder="Enter your phone number" id="phone">
-                                    <div class="invalid-feedback invalid-feedback-text">Please enter your phone
-                                        number.</div>
-                                </div>
-                                <div class="col-lg-6  col-md-6 col-sm-12 form-group">
-                                    <label for="room" class="h6">Choose Your event</label><br>
-                                    <select id="roomDropdown" class="form-control text-font" name="event" required="" onchange="updateRoomPrice()">
-
-                                        <option value="Family Fun day" name="event">Family Fun day</option>
-                                        <option value="Summer Event" name="event">Summer Event</option>
-                                        <option value="Fun Day" name="event">Fun Day</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="room" class="h6">event Price:</label>
-                                    <p id="roomPrice">₹8000 per pass(One Pass Only 4 People)</p>
-                                </div>
-
-                                <!-- Modify the PHP code to calculate the total price -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="child" class="h6">Number of pass:</label>
-                                    <div class="input-group">
-                                        <button type="button" class="btn btn-warning d-flex align-items-center text-font" onclick="decrementPasses()">-</button>
-                                        <input type="text" class="form-control text-font" required="" name="npass" id="number-of-passes" placeholder="Enter number of passes" onchange="updateTotalPrice()" value="1">
-                                        <button type="button" class="btn btn-warning d-flex align-items-center text-font" onclick="incrementPasses()">+</button>
-                                    </div>
-                                    <div class="invalid-feedback">Please enter the number of rooms.</div>
-                                </div>
-
-                                <!-- Add this to display the total price -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <label for="room" class="h6">Total Price:</label>
-                                    <input type="text" class="form-control text-font" name="totalprice" id="totalPrice" value="₹8000" readonly>
-                                </div>
+                            
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                    <button class="theme-btn btn-one" name="add" id="add" onclick="updateTotalPrice();">Book your event</button>
-                                </div>
+                                <?php if (isset($_SESSION["email"])) {
+                                    ?>
+                                    <a href="./bookevent.php" class="theme-btn btn-one" name="add" id="add"
+                                        onclick="updateTotalPrice();">Book Now</a>
+                                    <?php
+                                } else {
+                                    ?>
+                                   <a href="./login.php" class="theme-btn btn-one" name="add" id="add"
+                                        onclick="updateTotalPrice();">Book Now</a>
+                                    <?php
+                                } ?>
 
                             </div>
                     </div>
@@ -420,7 +376,7 @@ if (isset($_POST['add'])) {
 
     <script>
         // date valiation
-        $(function(updatedate) {
+        $(function (updatedate) {
             var dtToday = new Date();
 
             var month = dtToday.getMonth() + 1;
@@ -438,7 +394,7 @@ if (isset($_POST['add'])) {
         });
 
         // date rev validation
-        $(function(updatedate) {
+        $(function (updatedate) {
             var dtToday = new Date();
 
             var month = dtToday.getMonth() + 1;
