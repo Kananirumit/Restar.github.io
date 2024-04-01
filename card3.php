@@ -1,4 +1,3 @@
-
 <?php
 
 session_start(); // Start session
@@ -67,9 +66,9 @@ if (isset($_POST['pay'])) {
             <div
                 style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                 <h1
-                    style="color: #692F30; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    style="color: #ffffff; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                     Congratulations!</h1>
-                    <h1 style="color: #b30ef4; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    <h1 style="color: #CBF1F5; text-align: center; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                         ' . $fname . ''.$lname.'</h1>
         
                 <p style="color: #6E6D6C; line-height: 1.8; ">Thank you for booking tickets to Our Park! Your booking details

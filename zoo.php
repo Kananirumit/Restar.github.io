@@ -12,7 +12,9 @@
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -27,7 +29,22 @@
 
 </head>
 
+<style>
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        /* Aspect ratio 16:9 */
+        overflow: hidden;
+    }
 
+    .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
 <!-- page wrapper -->
 
 <body>
@@ -69,14 +86,15 @@
 
 
         <?php
-            include "header.php";
+        include "header.php";
         ?>
 
 
         <!-- Page Title -->
         <section class="page-title">
             <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img" style="background-image: url(assets/images/gallery/zoo/gallery-26.jpg);"></div>
+                <div class="parallax-inner back-img"
+                    style="background-image: url(assets/images/gallery/zoo/gallery-26.jpg);"></div>
             </div>
             <div class="auto-container">
                 <div class="content-box">
@@ -104,37 +122,43 @@
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-1">
-                                        <div class="icon-box"><img src="assets/images/icons/zoo/004-tiger.png" alt=""></div>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/004-tiger.png" alt="">
+                                        </div>
                                         <h5>tiger</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn active-btn" data-tab="#tab-2">
-                                        <div class="icon-box"><img src="assets/images/icons/zoo/003-elephant.png" alt=""></i></div>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/003-elephant.png"
+                                                alt=""></i></div>
                                         <h5>Elephant</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-3">
-                                        <div class="icon-box"><img src="assets/images/icons/zoo/005-teddy-bear.png" alt=""></div>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/005-teddy-bear.png"
+                                                alt=""></div>
                                         <h5>bear</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-4">
-                                        <div class="icon-box"><img src="assets/images/icons/zoo/002-penguin.png" alt=""></div>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/002-penguin.png" alt="">
+                                        </div>
                                         <h5>penguin</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-5">
-                                        <div class="icon-box"><img src="assets/images/icons/zoo/006-koala.png" alt=""></div>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/006-koala.png" alt="">
+                                        </div>
                                         <h5>koala</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-sm-12 single-column">
                                     <div class="single-item tab-btn" data-tab="#tab-6">
-                                        <div class="icon-box"><img src="assets/images/icons/zoo/001-monkey.png" alt=""></div>
+                                        <div class="icon-box"><img src="assets/images/icons/zoo/001-monkey.png" alt="">
+                                        </div>
                                         <h5>Monkey</h5>
                                     </div>
                                 </div>
@@ -147,20 +171,27 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                        <h2>tiger</h2>
-                                        <p>
-                                            Featuring majestic tigers in our zoo can be a powerful draw for visitors. Design an expansive and naturalistic enclosure that mirrors the tiger's native habitat, 
-                                            complete with rocks, trees, and water features. Implement educational signage near the exhibit to enlighten visitors about the species, 
-                                            emphasizing conservation efforts and the importance of protecting these magnificent animals. Introduce interactive experiences, 
-                                            such as scheduled feeding times or keeper talks, to engage visitors and deepen their understanding of tigers.
-                                        </p>
+                                            <h2>tiger</h2>
+                                            <p>
+                                                Featuring majestic tigers in our zoo can be a powerful draw for
+                                                visitors. Design an expansive and naturalistic enclosure that mirrors
+                                                the tiger's native habitat,
+                                                complete with rocks, trees, and water features. Implement educational
+                                                signage near the exhibit to enlighten visitors about the species,
+                                                emphasizing conservation efforts and the importance of protecting these
+                                                magnificent animals. Introduce interactive experiences,
+                                                such as scheduled feeding times or keeper talks, to engage visitors and
+                                                deepen their understanding of tigers.
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/animal/tiger.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/animal/tiger.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -171,21 +202,27 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                        <h2>Elephant</h2>
-                                        <p>
-                                            Featuring elephants in our zoo can be a captivating attraction for visitors. 
-                                            Design a spacious and enriching enclosure that provides ample room for these intelligent and social animals to roam, 
-                                            including features like mud pits and water elements for their enjoyment.
-                                            Implement educational displays near the exhibit to inform visitors about elephants' 
-                                            behaviors, social structures, and the conservation challenges they face in the wild.
-                                        </p>
+                                            <h2>Elephant</h2>
+                                            <p>
+                                                Featuring elephants in our zoo can be a captivating attraction for
+                                                visitors.
+                                                Design a spacious and enriching enclosure that provides ample room for
+                                                these intelligent and social animals to roam,
+                                                including features like mud pits and water elements for their enjoyment.
+                                                Implement educational displays near the exhibit to inform visitors about
+                                                elephants'
+                                                behaviors, social structures, and the conservation challenges they face
+                                                in the wild.
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/animal/elephent.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/animal/elephent.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -196,22 +233,29 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                        <h2>bear</h2>
-                                        <p>
-                                            Introducing bears to your zoo can be an exciting and popular attraction. 
-                                            Design a spacious and naturalistic enclosure that reflects the bears' native habitat, 
-                                            incorporating features like rocks, trees, and water elements to enhance their environment.
-                                            Implement educational displays near the exhibit to provide information about the bear species, their behavior, 
-                                            and the conservation challenges they may face. Consider incorporating interactive elements, such as scheduled feeding times or talks by knowledgeable zookeepers, 
-                                            to engage visitors and offer insights into the bears' lives.
-                                        </p>
+                                            <h2>bear</h2>
+                                            <p>
+                                                Introducing bears to your zoo can be an exciting and popular attraction.
+                                                Design a spacious and naturalistic enclosure that reflects the bears'
+                                                native habitat,
+                                                incorporating features like rocks, trees, and water elements to enhance
+                                                their environment.
+                                                Implement educational displays near the exhibit to provide information
+                                                about the bear species, their behavior,
+                                                and the conservation challenges they may face. Consider incorporating
+                                                interactive elements, such as scheduled feeding times or talks by
+                                                knowledgeable zookeepers,
+                                                to engage visitors and offer insights into the bears' lives.
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/animal/bear.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/animal/bear.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -222,21 +266,27 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                        <h2>Penguin</h2>
-                                        <p>
-                                            Featuring penguins in your zoo can be a delightful and engaging attraction for visitors of all ages. 
-                                            Design a dynamic exhibit with a chilled environment, complete with underwater viewing areas to showcase the penguins' 
-                                            agile swimming skills. Incorporate rocks, ice structures, and realistic lighting to simulate their natural habitat. 
-                                            Educational displays near the exhibit can provide information about the different penguin species, their behaviors, 
-                                            and the challenges they face in the wild. 
-                                        </p>
+                                            <h2>Penguin</h2>
+                                            <p>
+                                                Featuring penguins in your zoo can be a delightful and engaging
+                                                attraction for visitors of all ages.
+                                                Design a dynamic exhibit with a chilled environment, complete with
+                                                underwater viewing areas to showcase the penguins'
+                                                agile swimming skills. Incorporate rocks, ice structures, and realistic
+                                                lighting to simulate their natural habitat.
+                                                Educational displays near the exhibit can provide information about the
+                                                different penguin species, their behaviors,
+                                                and the challenges they face in the wild.
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/animal/penguin.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/animal/penguin.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -247,20 +297,27 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                        <h2>KOala</h2>
-                                        <p>
-                                            Design a habitat that mimics the eucalyptus-rich environment of their native Australia, 
-                                            incorporating trees for climbing and sleeping. Educational displays near the exhibit can inform visitors about koala behaviors, 
-                                            diet (primarily eucalyptus leaves), and the importance of conservation efforts to protect their habitats. 
-                                            Koalas are known for their sedentary nature, so providing comfortable perches and observing platforms for visitors can enhance the viewing experience. 
-                                        </p>
+                                            <h2>KOala</h2>
+                                            <p>
+                                                Design a habitat that mimics the eucalyptus-rich environment of their
+                                                native Australia,
+                                                incorporating trees for climbing and sleeping. Educational displays near
+                                                the exhibit can inform visitors about koala behaviors,
+                                                diet (primarily eucalyptus leaves), and the importance of conservation
+                                                efforts to protect their habitats.
+                                                Koalas are known for their sedentary nature, so providing comfortable
+                                                perches and observing platforms for visitors can enhance the viewing
+                                                experience.
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/animal/koala.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/animal/koala.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -271,22 +328,28 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                                         <div class="text">
-                                        <h2>monkey</h2>
-                                        <p>
-                                            Design a dynamic and stimulating enclosure with climbing structures, ropes, 
-                                            and platforms to allow the monkeys to exhibit their natural behaviors. 
-                                            Provide plenty of vegetation to mimic their forested habitats, creating an immersive environment. 
-                                            Educational displays near the exhibit can inform visitors about the diverse species of monkeys, their social structures, 
-                                            and the conservation issues they face in the wild. Consider implementing feeding times or interactive sessions with zookeepers to engage visitors
-                                            and offer insights into the intelligence and adaptability of monkeys. 
-                                        </p>
+                                            <h2>monkey</h2>
+                                            <p>
+                                                Design a dynamic and stimulating enclosure with climbing structures,
+                                                ropes,
+                                                and platforms to allow the monkeys to exhibit their natural behaviors.
+                                                Provide plenty of vegetation to mimic their forested habitats, creating
+                                                an immersive environment.
+                                                Educational displays near the exhibit can inform visitors about the
+                                                diverse species of monkeys, their social structures,
+                                                and the conservation issues they face in the wild. Consider implementing
+                                                feeding times or interactive sessions with zookeepers to engage visitors
+                                                and offer insights into the intelligence and adaptability of monkeys.
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                                         <figure class="video-box">
-                                            <video muted autoplay loop height="400" width="600">
-                                                <source src="assets/video/animal/monkey.mp4">
-                                            </video>
+                                            <div class="video-container">
+                                                <video muted autoplay loop>
+                                                    <source src="assets/video/animal/monkey.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -298,7 +361,7 @@
         </section>
         <!-- animals-section end -->
         <?php
-            include "footer.php";
+        include "footer.php";
         ?>
 
         <!-- scroll to top -->
