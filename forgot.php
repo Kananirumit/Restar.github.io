@@ -9,27 +9,28 @@ if (isset($_POST['reset'])) {
 
         // Check if new password and retype password match
         if ($newPassword != $retypePassword) {
-            echo "<script>alert('Passwords do not match!');</script>";
-            exit();
-        }
-
-        // Check if the email exists in the database
-        $sql = "SELECT * FROM register WHERE email = '$email'";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // Email exists, update the password
-            $updateSql = "UPDATE `register` SET `pass` = '$newPassword' , `confirmpss` = '$newPassword' WHERE email = '$email'";
-            if ($conn->query($updateSql) === TRUE) {
-                echo "<script>alert('Password updated successfully!');</script>";
-            } else {
-                echo "<script>alert('Error updating password:');. $conn->error</script>";
-            }
+            $error = "Passwords do not match!";
         } else {
-            echo "<script>alert('Email not found!');</script>";
+            // Check if the email exists in the database
+            $sql = "SELECT * FROM register WHERE email = '$email'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Email exists, update the password
+                $updateSql = "UPDATE `register` SET `pass` = '$newPassword' , `confirmpss` = '$newPassword' WHERE email = '$email'";
+                if ($conn->query($updateSql) === TRUE) {
+                    $error = "Password updated successfully!";
+                    header("Location: login.php"); // Redirect to login.php
+                    exit();
+                } else {
+                    $error = "Error updating password:. $conn->error";
+                }
+            } else {
+                $error = "Email not found!";
+            }
         }
     } else {
-        echo "<script>alert('Invalid request!');</script>";
+        $error = "Invalid request!";
     }
 }
 $conn->close();
@@ -42,10 +43,16 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
+    <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+        .login-form .alert {
+            padding: 10px;
+
+        }
 
         .login-page {
             width: 360px;
@@ -58,7 +65,7 @@ $conn->close();
             left: 0%;
             z-index: 1;
             background: #FFFFFF;
-            max-width: 360px;
+            max-width: 350px;
             margin: 0 auto 100px;
             padding: 45px;
             text-align: center;
@@ -167,7 +174,8 @@ $conn->close();
             bottom: 50px;
             cursor: pointer;
         }
-        .toggle-password-email{
+
+        .toggle-password-email {
             position: relative;
             left: 41%;
             bottom: 50px;
@@ -179,18 +187,21 @@ $conn->close();
     <div class="login-page">
         <div class="form">
             <form class="login-form" method="POST">
-                <input type="text" placeholder="Email Id" name="email" />
+                <input type="text" placeholder="Email Id" name="email" required />
                 <span class="toggle-password-email">
-                    <i class="fa fa-envelope"></i>   <!-- Font Awesome eye icon -->
+                    <i class="fa fa-envelope"></i> <!-- Font Awesome eye icon -->
                 </span>
-                <input type="password" placeholder="New Password" name="new_password" id="pass" />
+                <input type="password" placeholder="New Password" name="new_password" id="pass" required />
                 <span class="toggle-password" onclick="togglePasswordVisibility('pass')">
-                    <i id="eyeIcon" class="fa fa-eye-slash"></i> <!-- Font Awesome eye icon -->
+                    <i id="eyeIcon" class="fa fa-eye"></i> <!-- Font Awesome eye icon -->
                 </span>
-                <input type="password" placeholder="Retype Password" name="retype_password" id="pass1"/>
+                <input type="password" placeholder="Retype Password" name="retype_password" id="pass1" required />
                 <span class="toggle-password" onclick="togglePasswordVisibility('pass1')">
-                    <i id="eyeIcon" class="fa fa-eye-slash"></i> <!-- Font Awesome eye icon -->
+                    <i id="eyeIcon" class="fa fa-eye"></i> <!-- Font Awesome eye icon -->
                 </span>
+                <?php if (isset($error)) { ?>
+                    <div class="alert alert-danger"><?php echo $error; ?></div>
+                <?php } ?>
                 <button name="reset">Reset Password</button>
                 <!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
             </form>

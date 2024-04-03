@@ -24,7 +24,9 @@ if (isset($_POST['add'])) {
         $error = "Email already exists!";
     } elseif ($checkPhoneResult->num_rows > 0) {
         $error = "Phone already exists!";
-    } else {
+    }elseif ($pass != $confirmpss) {
+        $error = "Passwords do not match!";
+    }  else {
         // Perform the registration since email and phone are unique
         $insert = "INSERT INTO `register`(`fname`,`lname`,`gender`,`phone`,`email`,`pass`,`confirmpss`) VALUES ('$fname','$lname','$gender','$phone','$email','$pass','$confirmpss')";
         $result = $conn->query($insert);
