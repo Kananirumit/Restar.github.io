@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2024 at 01:10 PM
+-- Generation Time: Apr 03, 2024 at 01:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -33,6 +33,15 @@ CREATE TABLE `adminlogin` (
   `admin_email` varchar(50) NOT NULL,
   `pass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `adminlogin`
+--
+
+INSERT INTO `adminlogin` (`id`, `name`, `admin_email`, `pass`) VALUES
+(1, 'Rumit', 'kananirumit2003@gmail.com', 'rumit@123'),
+(2, 'Rushit', 'chovatiyarushit@gmail.com', 'rushit@123'),
+(3, 'vatsal', 'diyoravatsal@gmail.com', 'vatsal@123');
 
 -- --------------------------------------------------------
 
