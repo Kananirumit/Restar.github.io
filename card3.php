@@ -942,7 +942,7 @@ if (isset($_POST['pay'])) {
                             </div>
                         </div>
                     </div>
-                    <audio id="sound1" src="gpay.mp3" preload="auto"></audio>
+                    
                     <!-- <button >Play
                     it</button> -->
                     <button on class="card-form__button" name="pay">
@@ -952,6 +952,7 @@ if (isset($_POST['pay'])) {
             </form>
         </div>
     </div>
+    <audio id="sound1" src="gpay.mp3" preload="auto"></audio>
     <!-- <div class="pop">
         <div class="pop-content" style="background-color: #4CAF50;">
             <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>
@@ -983,8 +984,8 @@ if (isset($_POST['pay'])) {
                 input.value = cardNumber.slice(0, 4);
             }
         }
-        // validation
-        function validateForm() {
+       // validation
+       function validateForm() {
             var cardNumber = document.getElementById('cardNumber').value.trim();
             var cardName = document.getElementById('cardName').value.trim();
             var email = document.getElementById('email').value.trim();
@@ -997,6 +998,10 @@ if (isset($_POST['pay'])) {
                 alert('Please fill in all the fields before submitting.');
                 return false;
             } else {
+                // Play audio
+                var audio = document.getElementById('sound1');
+                audio.play();
+
                 Swal.fire({
                     title: "Your Payment Is success!!",
                     text: "Your ticket is sent to your mail",

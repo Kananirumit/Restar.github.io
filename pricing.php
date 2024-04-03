@@ -1,5 +1,5 @@
 <?php
-// session_start(); // Start session
+session_start(); // Start session
 
 include "./include/connect.php";
 
@@ -39,7 +39,7 @@ if (isset($_POST['submit_form'])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from azim.commonsupport.com/Weldlfe/pricing.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Jan 2024 07:05:39 GMT -->
+
 
 <head>
     <meta charset="utf-8">
@@ -448,6 +448,6 @@ if (isset($_POST['submit_form'])) {
 
 </body><!-- End of .page_wrapper -->
 
-<!-- Mirrored from azim.commonsupport.com/Weldlfe/pricing.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Jan 2024 07:05:39 GMT -->
+
 
 </html>
