@@ -60,9 +60,7 @@ if (isset($_POST['add'])) {
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -119,6 +117,7 @@ if (isset($_POST['add'])) {
         .was-validated #roomDropdown:valid {
             background-position: right calc(0.375em + 1.1875rem) center;
         }
+
         .error-container {
             color: red;
             margin-bottom: 10px;
@@ -266,13 +265,13 @@ if (isset($_POST['add'])) {
 
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check in date:</label>
-                                            <input type="date" class="form-control text-font" id="checkin" name="checkin" required>
+                                        <input type="date" class="form-control text-font" id="checkin" name="checkin" required>
                                         <div class="invalid-feedback invalid-feedback-date-checkin">Please select check in date.
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <label for="child" class="h6">Check out date:</label>
-                                            <input type="date" class="form-control text-font" id="checkout" name="checkout" required>
+                                        <input type="date" class="form-control text-font" id="checkout" name="checkout" required>
                                         <div class="invalid-feedback invalid-feedback-date-checkout">Please select check out
                                             date.</div>
                                     </div>
@@ -292,39 +291,57 @@ if (isset($_POST['add'])) {
 
     <script>
         // date valiation
-        $(function(updatedate) {
-            var dtToday = new Date();
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1;
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        today = yyyy + '-' + mm + '-' + dd;
 
-            var month = dtToday.getMonth() + 1;
-            var day = dtToday.getDate();
-            var year = dtToday.getFullYear();
-            if (month < 10)
-                month = '0' + month.toString();
-            if (day < 10)
-                day = '0' + day.toString();
+        // Set the minimum date for the check-in input to today
+        document.getElementById("checkin").setAttribute("min", today);
+        document.getElementById("checkout").setAttribute("min", today);
 
-            var minDate = year + '-' + month + '-' + day;
+        // birth
+        var today = new Date();
+        var minDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate());
 
-            $('#checkin').attr('min', minDate);
-            $('#checkout').attr('min', minDate);
-        });
+        // Format the date as YYYY-MM-DD
+        var yyyy = minDate.getFullYear();
+        var mm = minDate.getMonth() + 1;
+        var dd = minDate.getDate();
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        var formattedMinDate = yyyy + '-' + mm + '-' + dd;
+
+        // Set the minimum date for the birthdate input to 100 years ago
+        document.getElementById("birthdate").setAttribute("max", formattedMinDate);
 
         // date rev validation
-        $(function(updatedate) {
-            var dtToday = new Date();
+        // $(function(updatedate) {
+        //     var dtToday = new Date();
 
-            var month = dtToday.getMonth() + 1;
-            var day = dtToday.getDate();
-            var year = dtToday.getFullYear();
-            if (month < 10)
-                month = '0' + month.toString();
-            if (day < 10)
-                day = '0' + day.toString();
+        //     var month = dtToday.getMonth() + 1;
+        //     var day = dtToday.getDate();
+        //     var year = dtToday.getFullYear();
+        //     if (month < 10)
+        //         month = '0' + month.toString();
+        //     if (day < 10)
+        //         day = '0' + day.toString();
 
-            var maxDate = year + '-' + month + '-' + day;
+        //     var maxDate = year + '-' + month + '-' + day;
 
-            $('#birthdate').attr('max', maxDate);
-        });
+        //     $('#birthdate').attr('max', maxDate);
+        // });
 
         // Function to increment the number of rooms
         function incrementRooms() {
@@ -392,7 +409,7 @@ if (isset($_POST['add'])) {
         // Event listener to update total price when the number of rooms changes
         document.getElementById('number-of-rooms').addEventListener('change', updateTotalPrice);
     </script>
-   
+
 
     <!-- scroll to top -->
     <button class="scroll-top scroll-to-target" data-target="html">
