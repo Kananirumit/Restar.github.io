@@ -56,9 +56,9 @@
                             </div>
                             <div class="widget-content">
                                 <ul class="links-list clearfix">
-                                    <li><a href="about.php">ABOUT US</a></li>
-                                    <li><a href="ticket.php">BOOK TICKETS</a></li>
-                                    <li><a href="contact.php">OUR CONTACT</a></li>
+                                    <li><a href="waterpark.php">OUR WATERPARK</a></li>
+                                    <li><a href="attrection.php">OUR ATTRECTION</a></li>
+                                    <li><a href="themepark.php">OUR THEMEPARK</a></li>
                                     <li><a href="gallery.php">OUR GALLERY</a></li>
                                 </ul>
                             </div>
