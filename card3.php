@@ -66,9 +66,9 @@ if (isset($_POST['pay'])) {
             <div
                 style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                 <h1
-                    style="color: #9e34ef; text-align: center; font-size: 25px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    style="color: #9e34ef; text-align: center; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                     Congratulations!</h1>
-                    <h1 style="color: #5c9fa6; text-align: center; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    <h1 style="color: #5c9fa6; text-align: center; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                         ' . $fname . '<br>' . $lname . '</h1>
         
                 <p style="color: #6E6D6C; line-height: 1.8; ">Thank you for booking tickets to Our Park! Your booking details
@@ -951,7 +951,7 @@ if (isset($_POST['pay'])) {
             </form>
         </div>
     </div>
-    <div class="pop">
+    <!-- <div class="pop">
         <div class="pop-content" style="background-color: #4CAF50;">
             <div style="text-align: center; font-size: 24px; color: #fff;">😊</div>
             <div style="text-align: center; font-size: 18px; color: #fff;">Thank you!!</div>
@@ -960,7 +960,7 @@ if (isset($_POST['pay'])) {
             <h1 style="text-align: center;">Your Payment Is success!!<br>Your ticket is sent to your mail</h1>
             <button name="done" onclick="window.location.href = 'index.php'" class="done" style="margin: auto; display: block;">Done</button>
         </div>
-    </div>
+    </div> -->
     <script>
         //number validation
         function limitCardNumberLength(input) {
@@ -995,6 +995,13 @@ if (isset($_POST['pay'])) {
             if (cardNumber === '' || cardName === '' || email === '' || cardMonth === '' || cardYear === '' || cardCvv === '') {
                 alert('Please fill in all the fields before submitting.');
                 return false;
+            }else {
+                Swal.fire({
+                    title: "Your Payment Is success!!",
+                    text: "Your ticket is sent to your mail",
+                    icon: "success",
+                    showConfirmButton: false
+                });
             }
 
             var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
