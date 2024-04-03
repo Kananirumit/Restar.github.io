@@ -1,0 +1,21 @@
+
+    {
+        "name": "restar.github.io",
+        "version": "1.0.0",
+        "description": "",
+        "main": "index.php",
+        "scripts": {
+          "start": "php index.php"
+        },
+        "repository": {
+          "type": "git",
+          "url": "git+https://github.com/Kananirumit/Restar.github.io.git"
+        },
+        "author": "",
+        "license": "ISC",
+        "bugs": {
+          "url": "https://github.com/Kananirumit/Restar.github.io/issues"
+        },
+        "homepage": "https://github.com/Kananirumit/Restar.github.io#readme"
+        
+      }
