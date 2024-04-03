@@ -54,7 +54,19 @@ if (isset($_POST['add'])) {
 
 
 <style>
-    
+    .map-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 </style>
 <!-- page wrapper -->
 
@@ -124,35 +136,33 @@ if (isset($_POST['add'])) {
 
         <!-- google-map-section -->
         <section class="google-map-section">
-            <div class="auto-container">
-                <div class="map-inner">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.9407063078324!2d72.86247447343966!3d21.194514282068454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fa54162df73%3A0xc64e227c6b44a7c1!2sAquamagicaa!5e0!3m2!1sen!2sin!4v1711973660285!5m2!1sen!2sin"
-                        width="670" height="625" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <div class="content-box">
-                            <h2>get in touch with us</h2>
-                            <ul class="info clearfix">
-                                <li><i class="flaticon-telephone"></i>
-                                <li><i class="flaticon-telephone"></i>
-                                    <a href="tel:9107776767">+91 91067 76464</a><br>
-                                    <a href="tel:76988 65902">+91 76988 65902</a>
-                                </li>
-                                </li>
-                                <li><i class="flaticon-email"></i><a
-                                        href="mailto:restarpark@gmail.com">restarpark@gmail.com</a></li>
-                                <li><i class="flaticon-pin"></i>Canal Road,Parvat Patiya,Magob, Surat,Gujarat 395010
-                                </li>
-                            </ul>
-                            <div class="inner">
-                                <div class="icon-box"><i class="flaticon-clock-1"></i></div>
-                                <p>Monday - Sunday</p>
-                                <h4>9:00am to 6:00pm</h4>
-                            </div>
-                        </div>
+    <div class="auto-container">
+        <div class="map-inner">
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.9407063078324!2d72.86247447343966!3d21.194514282068454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fa54162df73%3A0xc64e227c6b44a7c1!2sAquamagicaa!5e0!3m2!1sen!2sin!4v1711973660285!5m2!1sen!2sin"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="content-box">
+                <h2>get in touch with us</h2>
+                <ul class="info clearfix">
+                    <li><i class="flaticon-telephone"></i>
+                        <a href="tel:9107776767">+91 91067 76464</a><br>
+                        <a href="tel:76988 65902">+91 76988 65902</a>
+                    </li>
+                    <li><i class="flaticon-email"></i><a href="mailto:restarpark@gmail.com">restarpark@gmail.com</a></li>
+                    <li><i class="flaticon-pin"></i>Canal Road,Parvat Patiya,Magob, Surat,Gujarat 395010</li>
+                </ul>
+                <div class="inner">
+                    <div class="icon-box"><i class="flaticon-clock-1"></i></div>
+                    <p>Monday - Sunday</p>
+                    <h4>9:00am to 6:00pm</h4>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
         <!-- google-map-section end -->
 
 
