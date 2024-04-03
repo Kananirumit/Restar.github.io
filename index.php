@@ -140,7 +140,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 single-column">
                             <div class="single-item">
                                 <div class="icon-box"><i class="flaticon-map"></i></div>
-                                <h5><a href="parkmap.php">Park map</a></h5>
+                                <h5><a download href="map/mappp.pdf" class=" yb-btn uk-button uk-button-primary uk-button-large">Download Map</a></h5>
                                 <p>Embark on a journey of discovery with the Restar Amusement Park interactive park map!</p>
                             </div>
                         </div>
