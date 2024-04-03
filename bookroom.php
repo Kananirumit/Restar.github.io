@@ -1,54 +1,51 @@
 <?php
 
-// session_start(); // Start session
+session_start(); // Start session
 
 include "./include/connect.php";
 
-// if (isset($_POST['add'])) {
+if (isset($_POST['add'])) {
 
-//     $_SESSION['fname'] = $_POST['fname'];
-//     $_SESSION['lname'] = $_POST['lname'];
-//     $_SESSION['email'] = $_POST['email'];
-//     $_SESSION['birthdate'] = $_POST['birthdate'];
-//     $_SESSION['city'] = $_POST['city'];
-//     $_SESSION['phone'] = $_POST['phone'];
-//     $_SESSION['room'] = $_POST['room'];
-//     $_SESSION['nroom'] = $_POST['nroom'];
-//     $_SESSION['totalprice'] = $_POST['totalprice'];
-//     $_SESSION['checkin'] = $_POST['checkin'];
-//     $_SESSION['checkout'] = $_POST['checkout'];
+    $_SESSION['fname'] = $_POST['fname'];
+    $_SESSION['lname'] = $_POST['lname'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['birthdate'] = $_POST['birthdate'];
+    $_SESSION['city'] = $_POST['city'];
+    $_SESSION['phone'] = $_POST['phone'];
+    $_SESSION['room'] = $_POST['room'];
+    $_SESSION['nroom'] = $_POST['nroom'];
+    $_SESSION['totalprice'] = $_POST['totalprice'];
+    $_SESSION['checkin'] = $_POST['checkin'];
+    $_SESSION['checkout'] = $_POST['checkout'];
 
-//     $fname = $_POST['fname'];
-//     $lname = $_POST['lname'];
-//     $email = $_POST['email'];
-//     $birthdate = $_POST['birthdate'];
-//     $city = $_POST['city'];
-//     $phone = $_POST['phone'];
-//     $room = $_POST['room'];
-//     $nroom = $_POST['nroom'];
-//     $totalprice = $_POST['totalprice'];
-//     $checkin = $_POST['checkin'];
-//     $checkout = $_POST['checkout'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $birthdate = $_POST['birthdate'];
+    $city = $_POST['city'];
+    $phone = $_POST['phone'];
+    $room = $_POST['room'];
+    $nroom = $_POST['nroom'];
+    $totalprice = $_POST['totalprice'];
+    $checkin = $_POST['checkin'];
+    $checkout = $_POST['checkout'];
 
 
-//     $insert = "INSERT INTO `room`(`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`totalprice`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$room','$nroom','$totalprice','$checkin','$checkout')";
+    $insert = "INSERT INTO `room`(`fname`,`lname`,`email`,`birthdate`,`city`,`phone`,`room`,`nroom`,`totalprice`,`checkin`,`checkout`) VALUES ('$fname','$lname','$email','$birthdate','$city','$phone','$room','$nroom','$totalprice','$checkin','$checkout')";
 
-//     $result = $conn->query($insert);
+    $result = $conn->query($insert);
 
-//     if ($result) {
-//         // Redirect to payment page
-//         header("location: card.php");
-//         exit(); // Make sure to exit after redirection
-//     } else {
-//         echo "<div class='alert alert-danger'>Error processing form submission.</div>";
-//     }
-// }
+    if ($result) {
+        // Redirect to payment page
+        header("location: card.php");
+        exit(); // Make sure to exit after redirection
+    } else {
+        echo "<div class='alert alert-danger'>Error processing form submission.</div>";
+    }
+}
 ?>
 
-<?php
-    $currentPage = 'resort';
-    include "header.php";
-    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +60,9 @@ include "./include/connect.php";
     <link rel="icon" href="assets/images/amusement-park.png" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheets -->
     <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -142,7 +141,6 @@ include "./include/connect.php";
 <!-- page wrapper -->
 
 <body>
-   
 
     <div class="boxed_wrapper">
 
@@ -179,203 +177,11 @@ include "./include/connect.php";
         </div>
         <!-- preloader end -->
 
+
+
         <!-- Page Title -->
-        <section class="page-title">
-            <div class="img-wrap parallax-demo-1">
-                <div class="parallax-inner back-img" style="background-image: url(assets/images/gallery/resort/bg_2.jpg);"></div>
-            </div>
-            <div class="auto-container">
-                <div class="content-box">
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.php">Home</a></li>
-                        <li>our resort</li>
-                    </ul>
-                    <div class="title">
-                        <h1>Rooms</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Page Title -->
 
-        <!--room section start -->
-        <section class="animals-section sec-pad">
-            <div class="auto-container">
-                <div class="sec-title centred">
-                    <h2>beautiful!! <br />restar resort</h2>
-                </div>
-                <section class="rooms-section spad">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="room-item">
-                                    <img src="assets/images/gallery/resort/room-1.jpg" alt="">
-                                    <div class="ri-text">
-                                        <table>
-                                            <div class="text p-3 text-center">
-                                                <h3 class="mb-3">Suite Room</h3>
-                                                <p><span class="price mr-2">₹4500</span> <span class="per">per
-                                                        night</span></p>
-                                                <ul class="list">
-                                                    <li><span>Max:</span> 3 Persons</li>
-                                                    <li><span>Size:</span> 45 m2</li>
-                                                    <li><span>View:</span> Sea View</li>
-                                                    <li><span>Bed:</span> 1</li>
-                                                </ul>
-                                                <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
-                                            </div>
-                                        </table>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="room-item">
-                                    <img src="assets/images/gallery/resort/room-2.jpg" alt="">
-                                    <div class="ri-text">
-                                        <table>
-                                            <div class="text p-3 text-center">
-                                                <h3 class="mb-3">Family Room</h3>
-                                                <p><span class="price mr-2">₹10000</span> <span class="per">per
-                                                        night</span></p>
-                                                <ul class="list">
-                                                    <li><span>Max:</span> 3 Persons</li>
-                                                    <li><span>Size:</span> 45 m2</li>
-                                                    <li><span>View:</span> Sea View</li>
-                                                    <li><span>Bed:</span> 1</li>
-                                                </ul>
-                                                <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
-                                            </div>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="room-item">
-                                    <img src="assets/images/gallery/resort/room-3.jpg" alt="">
-                                    <div class="ri-text">
-                                        <table>
-                                            <div class="text p-3 text-center">
-                                                <h3 class="mb-3">Deluxe Room</h3>
-                                                <p><span class="price mr-2">₹18000</span> <span class="per">per
-                                                        night</span></p>
-                                                <ul class="list">
-                                                    <li><span>Max:</span> 5 Persons</li>
-                                                    <li><span>Size:</span> 45 m2</li>
-                                                    <li><span>View:</span> Sea View</li>
-                                                    <li><span>Bed:</span> 2</li>
-                                                </ul>
-                                                <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
-                                            </div>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="room-item">
-                                    <img src="assets/images/gallery/resort/room-4.jpg" alt="">
-                                    <div class="ri-text">
-                                        <table>
-                                            <div class="text p-3 text-center">
-                                                <h3 class="mb-3">Classic Room</h3>
-                                                <p><span class="price mr-2">₹13000</span> <span class="per">per
-                                                        night</span></p>
-                                                <ul class="list">
-                                                    <li><span>Max:</span> 5 Persons</li>
-                                                    <li><span>Size:</span> 45 m2</li>
-                                                    <li><span>View:</span> Sea View</li>
-                                                    <li><span>Bed:</span> 2</li>
-                                                </ul>
-                                                <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
-                                            </div>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="room-item">
-                                    <img src="assets/images/gallery/resort/room-5.jpg" alt="">
-                                    <div class="ri-text">
-                                        <table>
-                                            <div class="text p-3 text-center">
-                                                <h3 class="mb-3">Superior Room</h3>
-                                                <p><span class="price mr-2">₹22000</span> <span class="per">per
-                                                        night</span></p>
-                                                <ul class="list">
-                                                    <li><span>Max:</span> 6 Persons</li>
-                                                    <li><span>Size:</span> 45 m2</li>
-                                                    <li><span>View:</span> Sea View</li>
-                                                    <li><span>Bed:</span> 3</li>
-                                                </ul>
-                                                <hr>
-                                                <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
-                                            </div>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="room-item">
-                                    <img src="assets/images/gallery/resort/room-6.jpg" alt="">
-                                    <div class="ri-text">
-                                        <div class="text p-3 text-center">
-                                            <h3 class="mb-3">Luxury Room</h3>
-                                            <p><span class="price mr-2">₹30000</span> <span class="per">per night</span>
-                                            </p>
-                                            <ul class="list">
-                                                <li><span>Max:</span> 5 Persons</li>
-                                                <li><span>Size:</span> 45 m2</li>
-                                                <li><span>View:</span> Sea View</li>
-                                                <li><span>Bed:</span> 2</li>
-                                            </ul>
-                                            <hr>
-                                            <a href="#pricing-section" class="theme-btn btn-one" onclick="scrollToSection()">Book ticket</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </section>
-        <!--room section end-->
-        <!--daining start-->
-        <div class="sec-title centred">
-            <h2>daining <br />in our Restar Amusement park</h2>
-        </div>
-        <section class="about-style-three sec-pad">
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                        <figure class="image-box"><img src="assets\images\gallery\daining\daining.jpg" alt=""></figure>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                        <div class="content_block_three">
-                            <div class="content-box">
-                                <div class="text">
-                                    <p>Experience some of the greatest culinary delights at our refreshment stalls and
-                                        restaurants.The Restar amusment park has three restaurants and numerous
-                                        refreshment stalls within the park.
-                                        for more information click here <br>👇
-                                    </p>
-                                </div>
-                                <div class="btn-box">
-                                    <a href="daining.php" class="theme-btn btn-one">click here</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!--daining end-->
         <!--Ticket booking start-->
         <section class="contact-section centred" id="pricing-section">
@@ -482,39 +288,6 @@ include "./include/connect.php";
             </div>
     </div>
     </section>
-    <section class="contact-section centred" id="pricing-section">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <div class="col-xl-8 col-lg-12 offset-xl-2 big-column">
-                    <div class="sec-title centred">
-                        <h2>BOOK YOUR ROOM</h2>
-                    </div>
-                    <div class="form-inner text-left">
-                        <form method="post" action="" id="booking-form" class="default-form" novalidate="novalidate"
-                            onsubmit="return validateForm()">
-                            <!-- Your form fields go here -->
-                            
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0 text-center">
-                                <?php if (isset($_SESSION["email"])) {
-                                    ?>
-                                    <a href="./bookroom.php" class="theme-btn btn-one" name="add" id="add"
-                                        onclick="updateTotalPrice();">Book Now</a>
-                                    <?php
-                                } else {
-                                    ?>
-                                   <a href="./login.php" class="theme-btn btn-one" name="add" id="add"
-                                        onclick="updateTotalPrice();">Book Now</a>
-                                    <?php
-                                } ?>
-
-                            </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
     <!--Ticket booking end-->
 
     <script>
@@ -619,9 +392,7 @@ include "./include/connect.php";
         // Event listener to update total price when the number of rooms changes
         document.getElementById('number-of-rooms').addEventListener('change', updateTotalPrice);
     </script>
-    <?php
-    include "footer.php";
-    ?>
+   
 
     <!-- scroll to top -->
     <button class="scroll-top scroll-to-target" data-target="html">
