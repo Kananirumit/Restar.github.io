@@ -113,7 +113,16 @@
 
                                 </div>
                                 <div class="btn-box">
-                                    <a href="pricing.php" class="theme-btn btn-one">Book Your Ticket</a>
+                                    <?php if (isset($_SESSION["email"])) {
+                                    ?>
+                                            <a href="pricing.php" class="theme-btn btn-one">BOOK Your TICKET</a>
+                                    <?php
+                                        } else {
+                                    ?>
+                                            <a href="login.php" class="theme-btn btn-one">BOOK Your TICKET</a>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -196,11 +205,6 @@
                                     <div class="lower-content">
                                         <h3><a href="about.php">Aleesha</a> <span>Animal & Fish Doctor</span></h3>
                                         <p> We are a family united by the passion to create unforgettable moments for our guests.</p>
-                                        <ul class="social-links clearfix">
-                                            <li><a href="about.php"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="about.php"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="about.php"><i class="fab fa-instagram"></i></a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -212,11 +216,6 @@
                                     <div class="lower-content">
                                         <h3><a href="about.php">michale</a> <span>Ride enginaer</span></h3>
                                         <p> From the cheerful faces at the entrance welcoming you with enthusiasm to the skilled technicians ensuring the safety of every ride.</p>
-                                        <ul class="social-links clearfix">
-                                            <li><a href="about.php"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="about.php"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="about.php"><i class="fab fa-instagram"></i></a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -228,11 +227,6 @@
                                     <div class="lower-content">
                                         <h3><a href="about.php">sarah</a> <span>Animal & Fish Doctor</span></h3>
                                         <p> Join us at Restar Amusement Park where the heart of the fun is the incredible team working tirelessly to make your visit truly magical!</p>
-                                        <ul class="social-links clearfix">
-                                            <li><a href="about.php"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="about.php"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="about.php"><i class="fab fa-instagram"></i></a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
