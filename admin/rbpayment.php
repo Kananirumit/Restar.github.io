@@ -127,13 +127,13 @@ if (isset ($_POST['delete2'])) {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Room_booking.php">
+                <a class="nav-link" href="room_booking.php">
                   <i class="fa-solid fa-table-cells-large" style="font-size: 18px; margin: 5px;"></i>
                   <span class="menu-title">Room Booking Data</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Ticket_booking.php">
+                <a class="nav-link" href="ticket_booking.php">
                   <i class="fa-solid fa-table-list" style="font-size: 18px; margin: 5px;"></i>
                   <span class="menu-title">Ticket Booking Data</span>
                 </a>
