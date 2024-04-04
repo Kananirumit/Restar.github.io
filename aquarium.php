@@ -333,7 +333,7 @@
                                         <figure class="video-box">
                                             <div class="video-container">
                                                 <video muted autoplay loop>
-                                                    <source src="assets/video/fish/anglerfish.mp4" type="video/mp4">
+                                                    <source src="assets/video/fish/angler.mp4" type="video/mp4">
                                                 </video>
                                             </div>
                                         </figure>
