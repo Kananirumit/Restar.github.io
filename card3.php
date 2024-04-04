@@ -66,9 +66,9 @@ if (isset($_POST['pay'])) {
             <div
                 style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                 <h1
-                    style="color: #0029ff; text-align: center; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    style="color: #0029ff; text-align: center; font-size: 18px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                     Congratulations!</h1>
-                    <h1 style="color: #fc5900; text-align: center; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                    <h1 style="color: #fc5900; text-align: center; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                         ' . $fname . '<br>' . $lname . '</h1>
         
                 <p style="color: #6E6D6C; line-height: 1.8; ">Thank you for booking tickets to Our Park! Your booking details

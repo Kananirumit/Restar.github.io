@@ -187,7 +187,7 @@ if (isset ($_POST['delete2'])) {
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h1 style="text-transform: uppercase; font-size: 35px;">Room Payment Data</h1>
+                    <h1 style="text-transform: uppercase; font-size: 35px;">Event Payment Data</h1>
                     <div class="table-responsive">
                       <table class="table table-bordered">
                         <thead>
