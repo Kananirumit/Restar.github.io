@@ -92,7 +92,10 @@ session_start();
                                 <li class="<?php echo ($currentPage === 'contact') ? 'active' : ''; ?>"><a
                                         href="contact.php">CONTACT</a></li>
                                 <li>
-                                    <a href="<?php echo isset ($_SESSION['email']) ? './logout.php' : './login.php'; ?>"><?php echo isset ($_SESSION['email']) ? 'LOGOUT' : 'LOGIN'; ?></a>
+                                    <a
+                                        href="<?php echo isset($_SESSION['email']) ? './logout.php' : './login.php'; ?>">
+                                        <?php echo isset($_SESSION['email']) ? 'LOGOUT' : 'LOGIN'; ?>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -103,7 +106,7 @@ session_start();
                         <?php if (isset($_SESSION["email"])) {
                             ?>
                             <a href="pricing.php">BOOK YOUR TICKET</a>
-                            
+
                             <?php
                         } else {
                             ?>
