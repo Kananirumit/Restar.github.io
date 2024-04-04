@@ -91,19 +91,9 @@ session_start();
                                         href="gallery.php">OUR GALLERY</a></li>
                                 <li class="<?php echo ($currentPage === 'contact') ? 'active' : ''; ?>"><a
                                         href="contact.php">CONTACT</a></li>
-                                <?php if (isset($_SESSION["email"])) {
-                                    ?>
-                                    <li>
-                                        <a href="./logout.php">LOGOUT</a>
-                                    </li>
-                                    <?php
-                                } else {
-                                    ?>
-                                    <li>
-                                        <a href="./login.php">LOGIN</a>
-                                    </li>
-                                    <?php
-                                } ?>
+                                <li>
+                                    <a href="<?php echo isset ($_SESSION['email']) ? './logout.php' : './login.php'; ?>"><?php echo isset ($_SESSION['email']) ? 'LOGOUT' : 'LOGIN'; ?></a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
