@@ -113,7 +113,7 @@ session_start();
                         <?php if (isset($_SESSION["email"])) {
                             ?>
                             <a href="pricing.php">BOOK YOUR TICKET</a>
-                            <!-- <?php header('location:pricing.php'); ?> -->
+                            
                             <?php
                         } else {
                             ?>
