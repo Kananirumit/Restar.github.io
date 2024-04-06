@@ -127,17 +127,7 @@
                             <div class="single-item">
                                 <div class="icon-box"><i class="flaticon-ticket"></i></div>
                                 <h5>
-                                    <?php if (isset($_SESSION["email"])) {
-                                        ?>
                                         <a href="event.php">Book your event</a>
-
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <a href="login.php">Book your event</a>
-                                        <?php
-                                    }
-                                    ?>
                                 </h5>
                                 <p>Experience the joy and excitement at Restar Amusement Park by grabbing your tickets
                                     online!</p>
@@ -449,18 +439,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 title-column">
                         <div class="sec-title light">
                             <h2>Check Park upcoming events</h2>
-                            <?php if (isset($_SESSION["email"])) {
-                                ?>
                                 <a href="event.php" class="theme-btn btn-one">Book Your Event Now</a>
-
-                                <?php
-                            } else {
-                                ?>
-                                <a href="login.php" class="theme-btn btn-one">Book Your Event Now</a>
-                                <?php
-                            }
-                            ?>
-                            
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
