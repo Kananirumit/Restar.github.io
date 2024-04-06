@@ -21,7 +21,7 @@ if (isset($_POST['pay'])) {
     $cvv = $_POST['cvv'];
 
     // Insert payment details into the database using prepared statements
-    $stmt = $conn->prepare("INSERT INTO `cardroom`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO `cardticket`(`cardno`, `cardname`, `cardemail`, `cardmonth`, `cardyear`, `cvv`) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $cardno, $cardname, $email, $month, $year, $cvv);
     $result = $stmt->execute();
     $stmt->close();
