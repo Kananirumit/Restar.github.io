@@ -306,25 +306,26 @@ if (isset($_POST['add'])) {
         // Set the minimum date for the check-in input to today
         document.getElementById("checkin").setAttribute("min", today);
         document.getElementById("checkout").setAttribute("min", today);
+        document.getElementById("birthdate").setAttribute("max", today);
 
         // birth
-        var today = new Date();
-        var minDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate());
+        // var today = new Date();
+        // var minDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate());
 
-        // Format the date as YYYY-MM-DD
-        var yyyy = minDate.getFullYear();
-        var mm = minDate.getMonth() + 1;
-        var dd = minDate.getDate();
-        if (mm < 10) {
-            mm = '0' + mm;
-        }
-        if (dd < 10) {
-            dd = '0' + dd;
-        }
-        var formattedMinDate = yyyy + '-' + mm + '-' + dd;
+        // // Format the date as YYYY-MM-DD
+        // var yyyy = minDate.getFullYear();
+        // var mm = minDate.getMonth() + 1;
+        // var dd = minDate.getDate();
+        // if (mm < 10) {
+        //     mm = '0' + mm;
+        // }
+        // if (dd < 10) {
+        //     dd = '0' + dd;
+        // }
+        // var formattedMinDate = yyyy + '-' + mm + '-' + dd;
 
-        // Set the minimum date for the birthdate input to 100 years ago
-        document.getElementById("birthdate").setAttribute("max", formattedMinDate);
+        // // Set the minimum date for the birthdate input to 100 years ago
+        // document.getElementById("birthdate").setAttribute("max", formattedMinDate);
 
         // date rev validation
         // $(function(updatedate) {

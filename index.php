@@ -69,8 +69,8 @@
         <!-- preloader end -->
 
         <?php
-            $currentPage = 'index';
-            include "header.php";
+        $currentPage = 'index';
+        include "header.php";
         ?>
 
         <!-- banner-section -->
@@ -115,7 +115,7 @@
             </div>
         </section>
         <!-- banner-section end -->
-        
+
 
         <!-- info-section -->
         <section class="info-section">
@@ -126,22 +126,39 @@
                         <div class="col-lg-4 col-md-6 col-sm-12 single-column">
                             <div class="single-item">
                                 <div class="icon-box"><i class="flaticon-ticket"></i></div>
-                                <h5><a href="event.php">Book your event</a></h5>
-                                <p>Experience the joy and excitement at Restar Amusement Park by grabbing your tickets online!</p>
+                                <h5>
+                                    <?php if (isset($_SESSION["email"])) {
+                                        ?>
+                                        <a href="event.php">Book your event</a>
+
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <a href="login.php">Book your event</a>
+                                        <?php
+                                    }
+                                    ?>
+                                </h5>
+                                <p>Experience the joy and excitement at Restar Amusement Park by grabbing your tickets
+                                    online!</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 single-column">
                             <div class="single-item">
                                 <div class="icon-box"><i class="flaticon-calendar"></i></div>
                                 <h5><a href="resort.php">book room</a></h5>
-                                <p>Join us at Restar Amusement Park for an adventure-packed season of fun and discovery.</p>
+                                <p>Join us at Restar Amusement Park for an adventure-packed season of fun and discovery.
+                                </p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 single-column">
                             <div class="single-item">
                                 <div class="icon-box"><i class="flaticon-map"></i></div>
-                                <h5><a download href="map/mappp.pdf" class=" yb-btn uk-button uk-button-primary uk-button-large">Download Map</a></h5>
-                                <p>Embark on a journey of discovery with the Restar Amusement Park interactive park map!</p>
+                                <h5><a download href="map/mappp.pdf"
+                                        class=" yb-btn uk-button uk-button-primary uk-button-large">Download Map</a>
+                                </h5>
+                                <p>Embark on a journey of discovery with the Restar Amusement Park interactive park map!
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -173,23 +190,25 @@
                                 </div>
                                 <div class="text">
                                     <h4>Help us to protect Restar around the world.</h4>
-                                    <p> Welcome to Restar Amusement Park, where every moment is a journey into joy and excitement!</p>
+                                    <p> Welcome to Restar Amusement Park, where every moment is a journey into joy and
+                                        excitement!</p>
                                     <ul class="list-style-one clearfix">
                                         <li> Captivating Entertainment</li>
                                         <li>Exceptional Guest Service</li>
-                                        <li> Restar Amusement Park is designed for families to create lasting memories together.</li>
+                                        <li> Restar Amusement Park is designed for families to create lasting memories
+                                            together.</li>
                                     </ul>
                                 </div>
                                 <div class="btn-box">
                                     <?php if (isset($_SESSION["email"])) {
-                                    ?>
-                                            <a href="pricing.php" class="theme-btn btn-one">BOOK TICKET</a>
-                                    <?php
-                                        } else {
-                                    ?>
-                                            <a href="login.php" class="theme-btn btn-one">BOOK TICKET</a>
-                                    <?php
-                                        }
+                                        ?>
+                                        <a href="pricing.php" class="theme-btn btn-one">BOOK TICKET</a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <a href="login.php" class="theme-btn btn-one">BOOK TICKET</a>
+                                        <?php
+                                    }
                                     ?>
                                 </div>
                             </div>
@@ -205,100 +224,100 @@
                 <div class="sec-title centred">
                     <h2>beautiful!! <br />restar resort</h2>
                 </div>
-    <section class="rooms-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="assets\images\gallery\waterride.avif" alt="">
-                        <div class="ri-text">
-                            <table>
-                            <div class="text p-3 text-center">
-		    						<h3 class="mb-3">WATERPARK RIDE</h3>
-		    						<hr>
-		    						<a href="waterpark.php" class="theme-btn btn-one">CLICK HERE</a>
-		    					</div>
-                            </table>
-                           
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="assets\images\gallery\dryride.avif" alt="">
-                        <div class="ri-text">
-                            <table>
-                            <div class="text p-3 text-center">
-		    						<h3 class="mb-3">THEMEPARK RIDE</h3>
-		    						<hr>
-		    						<a href="themepark.php" class="theme-btn btn-one">click here</a>
-		    					</div>
-                            </table>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="assets\images\gallery\attrection.avif" alt="">
-                        <div class="ri-text">
-                            <table>
-                            <div class="text p-3 text-center">
-		    						<h3 class="mb-3">ATTRECTION</h3>
-		    						<hr>
-		    						<a href="attrection.php" class="theme-btn btn-one">click here</a>
-		    					</div>
-                            </table>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="assets\images\gallery\stay.avif" alt="">
-                        <div class="ri-text">
-                            <table>
-                            <div class="text p-3 text-center">
-		    						<h3 class="mb-3">STAY</h3>
-		    						<hr>
-		    						<a href="resort.php" class="theme-btn btn-one">click here</a>
-		    					</div>
-                            </table>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="assets\images\gallery\daining.avif" alt="">
-                        <div class="ri-text">
-                            <table>
-                            <div class="text p-3 text-center">
-		    						<h3 class="mb-3">DAINING</h3>
-		    						<hr>
-		    						<a href="daining.php" class="theme-btn btn-one">click here</a>
-		    					</div>
-                            </table>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="assets\images\gallery\lakeside.avif" alt="">
-                        <div class="ri-text">
-                            <div class="text p-3 text-center">
-		    						<h3 class="mb-3">LAKESIDE</h3>
-		    						<hr>
-		    						<a href="attrection.php" class="theme-btn btn-one">click here</a>
-		    					</div>
+                <section class="rooms-section spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="room-item">
+                                    <img src="assets\images\gallery\waterride.avif" alt="">
+                                    <div class="ri-text">
+                                        <table>
+                                            <div class="text p-3 text-center">
+                                                <h3 class="mb-3">WATERPARK RIDE</h3>
+                                                <hr>
+                                                <a href="waterpark.php" class="theme-btn btn-one">CLICK HERE</a>
+                                            </div>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="room-item">
+                                    <img src="assets\images\gallery\dryride.avif" alt="">
+                                    <div class="ri-text">
+                                        <table>
+                                            <div class="text p-3 text-center">
+                                                <h3 class="mb-3">THEMEPARK RIDE</h3>
+                                                <hr>
+                                                <a href="themepark.php" class="theme-btn btn-one">click here</a>
+                                            </div>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="room-item">
+                                    <img src="assets\images\gallery\attrection.avif" alt="">
+                                    <div class="ri-text">
+                                        <table>
+                                            <div class="text p-3 text-center">
+                                                <h3 class="mb-3">ATTRECTION</h3>
+                                                <hr>
+                                                <a href="attrection.php" class="theme-btn btn-one">click here</a>
+                                            </div>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="room-item">
+                                    <img src="assets\images\gallery\stay.avif" alt="">
+                                    <div class="ri-text">
+                                        <table>
+                                            <div class="text p-3 text-center">
+                                                <h3 class="mb-3">STAY</h3>
+                                                <hr>
+                                                <a href="resort.php" class="theme-btn btn-one">click here</a>
+                                            </div>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="room-item">
+                                    <img src="assets\images\gallery\daining.avif" alt="">
+                                    <div class="ri-text">
+                                        <table>
+                                            <div class="text p-3 text-center">
+                                                <h3 class="mb-3">DAINING</h3>
+                                                <hr>
+                                                <a href="daining.php" class="theme-btn btn-one">click here</a>
+                                            </div>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="room-item">
+                                    <img src="assets\images\gallery\lakeside.avif" alt="">
+                                    <div class="ri-text">
+                                        <div class="text p-3 text-center">
+                                            <h3 class="mb-3">LAKESIDE</h3>
+                                            <hr>
+                                            <a href="attrection.php" class="theme-btn btn-one">click here</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
         <!--attrection end-->
         <!-- clients-section -->
         <section class="clients-section">
@@ -324,12 +343,17 @@
                                     <div class="single-item">
                                         <div class="icon-box"><i class="flaticon-tick"></i></div>
                                         <h4>night at the Amusment Park</h4>
-                                        <p>As the sun sets, the magic of Restar Amusement Park comes alive in a whole new light! Join us for an extraordinary "Night at the Amusement Park" where the thrills continue under the stars.</p>
+                                        <p>As the sun sets, the magic of Restar Amusement Park comes alive in a whole
+                                            new light! Join us for an extraordinary "Night at the Amusement Park" where
+                                            the thrills continue under the stars.</p>
                                     </div>
                                     <div class="single-item">
                                         <div class="icon-box"><i class="flaticon-tick"></i></div>
                                         <h4>Good Support from our team</h4>
-                                        <p>At Restar Amusement Park, your joy and satisfaction are our top priorities. Our dedicated team is committed to ensuring you have the best experience, from the moment you plan your visit to the time you bid farewell with a heart full of cherished memories.</p>
+                                        <p>At Restar Amusement Park, your joy and satisfaction are our top priorities.
+                                            Our dedicated team is committed to ensuring you have the best experience,
+                                            from the moment you plan your visit to the time you bid farewell with a
+                                            heart full of cherished memories.</p>
                                     </div>
                                 </div>
                             </div>
@@ -365,7 +389,8 @@
                                 <div class="quote"><i class="flaticon-quote"></i></div>
                             </div>
                             <div class="text">
-                                <p>⭐⭐⭐⭐ <br>"A day filled with laughter and adventure! Restar Amusement Park exceeded our expectations with its thrilling rides and vibrant atmosphere."</p>
+                                <p>⭐⭐⭐⭐ <br>"A day filled with laughter and adventure! Restar Amusement Park exceeded
+                                    our expectations with its thrilling rides and vibrant atmosphere."</p>
                             </div>
                             <div class="author-info">
                                 <h5>Christine Rose</h5>
@@ -381,7 +406,8 @@
                                 <div class="quote"><i class="flaticon-quote"></i></div>
                             </div>
                             <div class="text">
-                                <p>⭐⭐⭐ <br>"Fantastic variety of attractions! From heart-pounding roller coasters to enchanting family rides, there's something for everyone."</p>
+                                <p>⭐⭐⭐ <br>"Fantastic variety of attractions! From heart-pounding roller coasters to
+                                    enchanting family rides, there's something for everyone."</p>
                             </div>
                             <div class="author-info">
                                 <h5>Mike hardson</h5>
@@ -397,7 +423,8 @@
                                 <div class="quote"><i class="flaticon-quote"></i></div>
                             </div>
                             <div class="text">
-                                <p>⭐⭐⭐⭐⭐ <br>"Captivating shows and entertainment! The live performances at Restar Amusement Park are nothing short of <br>spectacular.</p>
+                                <p>⭐⭐⭐⭐⭐ <br>"Captivating shows and entertainment! The live performances at Restar
+                                    Amusement Park are nothing short of <br>spectacular.</p>
                             </div>
                             <div class="author-info">
                                 <h5>sarah albert</h5>
@@ -422,7 +449,18 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 title-column">
                         <div class="sec-title light">
                             <h2>Check Park upcoming events</h2>
-                            <a href="event.php" class="theme-btn btn-one">Book Your Event Now</a>
+                            <?php if (isset($_SESSION["email"])) {
+                                ?>
+                                <a href="event.php" class="theme-btn btn-one">Book Your Event Now</a>
+
+                                <?php
+                            } else {
+                                ?>
+                                <a href="login.php" class="theme-btn btn-one">Book Your Event Now</a>
+                                <?php
+                            }
+                            ?>
+                            
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
@@ -443,7 +481,9 @@
                                             <li><i class="far fa-map"></i>60 broklyn street</li>
                                         </ul>
                                         <h3><a href="event.php">Have you Visited clown fish's super show</a></h3>
-                                        <p>Dive into the enchanting world of the Clown Fish Super Show, a captivating spectacle that awaits you at our amusement park! If you missed it so book now for new event</p>
+                                        <p>Dive into the enchanting world of the Clown Fish Super Show, a captivating
+                                            spectacle that awaits you at our amusement park! If you missed it so book
+                                            now for new event</p>
                                     </div>
                                 </div>
                             </div>
@@ -461,8 +501,10 @@
                                             <li><i class="far fa-clock"></i>2:00 am</li>
                                             <li><i class="far fa-map"></i>60 broklyn street</li>
                                         </ul>
-                                        <h3><a href="event.php">how Interaction with Animal can!! You Missed It?</a></h3>
-                                        <p>At our park, visitors of all ages can experience the thrill of connecting with a variety of fascinating creatures.Book next Event ticket!!</p>
+                                        <h3><a href="event.php">how Interaction with Animal can!! You Missed It?</a>
+                                        </h3>
+                                        <p>At our park, visitors of all ages can experience the thrill of connecting
+                                            with a variety of fascinating creatures.Book next Event ticket!!</p>
                                     </div>
                                 </div>
                             </div>
@@ -474,7 +516,7 @@
         <!-- events-section end -->
         <!-- funfact-section end -->
         <?php
-            include "footer.php";
+        include "footer.php";
         ?>
 
         <!-- scroll to top -->
